@@ -1,0 +1,79 @@
+Dim Position As Float
+Dim Position_m As Float
+Dim Velocity As Float
+Dim Velocity_rad_s As Float
+Dim Velocity_m_s As Float
+Dim PosOut As Float
+Dim SpdRefInput As Float
+Dim RefInput_rad_s As Float
+Dim SpdRefInput_rad_s As Float
+Dim SpdRefInput_m_s As Float
+Dim EnInput As Float
+Dim TorqueIn As Float
+Dim Counter As Integer
+
+Const MaxTravel_m = 150
+Const MinTravel_m = -2
+Const DrumRadius = 0.1
+Const rev2pulse = 10000
+Const rev2rad = 2*_pi
+Const MaxTravel = MaxTravel_m/DrumRadius/rev2rad*rev2pulse
+Const MinTravel = MinTravel_m/DrumRadius/rev2rad*rev2pulse
+Const SpeedMax = 350000
+Const WinchSpdSup = 15/DrumRadius ' NB needs to match with control software!
+Const Kspd = -1 ' NB minus sign for reference current calculation to invert motion!
+Const TorqueMax = 13
+
+
+Counter = 0
+POS(0) = 0
+CONTROLMODE(0) = 1
+DRIVESPEEDMAX(0) = SpeedMax
+DRIVEOVERLOADMODE(0) = _clFOLD_BACK
+DRIVEENABLE(0) = 1
+
+Loop
+  
+Position = -POS(0)      'NB -1 for both position/speed measurement and reference current to invert motion!
+Position_m = Position/rev2pulse*rev2rad*DrumRadius
+Velocity = -VEL(0)      'NB -1 for both position/speed measurement and reference current to invert motion!
+Velocity_rad_s = Velocity/rev2pulse*rev2rad
+Velocity_m_s = Velocity_rad_s*DrumRadius
+SpdRefInput = ADC(0)/100
+RefInput_rad_s = SpdRefInput*WinchSpdSup
+
+If Position < MinTravel Then
+  SpdRefInput_rad_s=Max(0,RefInput_rad_s)
+ElseIf Position > MaxTravel Then
+  SpdRefInput_rad_s=Min(0,RefInput_rad_s)
+Else
+  SpdRefInput_rad_s=RefInput_rad_s
+End If
+
+SpdRefInput_m_s = SpdRefInput_rad_s*DrumRadius
+
+EnInput = ADC(1)
+Counter = Counter +1
+
+Wait(1)
+
+PosOut = Max(MinTravel,Min(MaxTravel,Position))
+DAC(0) = ((PosOut-MinTravel)/(MaxTravel-MinTravel)-0.5)*200
+TorqueIn = Min(TorqueMax,Max(-TorqueMax,(Kspd*(SpdRefInput_rad_s-Velocity_rad_s))))/TorqueMax*100
+
+If EnInput > 30 Then
+    TORQUEREF(0)= TorqueIn
+Else
+    TORQUEREF(0)= 0
+End If
+
+If Counter >1000  Then
+  Counter = 0
+  Print " Position (m) = ", Position_m, "\0A\0D", _
+   " Speed (m/s) = ", Velocity_m_s, "\0A\0D", _
+   " RefInput (m/s) = ", SpdRefInput_m_s, "\0A\0D", _
+   " TorqueIn (%) = ", TorqueIn, "\0A\0D", _
+   " EnInput = ", EnInput, "\0A\0D"  
+End If
+
+End Loop

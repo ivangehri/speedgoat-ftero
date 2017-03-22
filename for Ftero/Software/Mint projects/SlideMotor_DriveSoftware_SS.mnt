@@ -1,0 +1,80 @@
+Dim Position As Float
+Dim Position_m As Float
+Dim Position_V As Float
+Dim Velocity As Float
+Dim Velocity_m_s As Float
+Dim Velocity_m_s_max As Float
+Dim PosRefInput As Float
+Dim PosRefInput_m As Float
+Dim ErrorPos As Float
+Dim ErrorVel As Float
+Dim PosOut As Float
+Dim EnInput As Float
+Dim TorqueIn As Float
+Dim Counter As Integer
+Const MaxTravel = 38000
+Const MinTravel = -38000
+Const SpeedMax = 350000
+Const Count2rad = 2*_pi/10000
+Const rad2m = 0.1
+Const Kpos = 14  'rad position error to torque in Nm 
+Const Kspd = 2.5 'rad/s error velocity to torque in Nm
+Const TorqueMax = 13*2
+
+Counter = 0
+POS(0) = 0
+CONTROLMODE(0) = 1
+DRIVESPEEDMAX(0) = SpeedMax
+DRIVEOVERLOADMODE(0) = _clFOLD_BACK
+DRIVEENABLE(0) = 1
+Velocity_m_s_max = 0
+
+Loop
+Wait(1)
+
+Position = POS(0)
+Position_m = Position*Count2rad*rad2m
+Velocity = VEL(0)
+Velocity_m_s = Velocity*Count2rad*rad2m
+
+If Abs(Velocity_m_s)>Velocity_m_s_max Then
+  Velocity_m_s_max=Abs(Velocity_m_s)
+Else
+  Velocity_m_s_max=Velocity_m_s_max
+End If
+
+  
+  
+
+PosRefInput = ADC(0)/100*MaxTravel*Count2rad
+PosRefInput_m = PosRefInput*rad2m
+EnInput = ADC(1)
+Counter = Counter +1
+
+ErrorPos = PosRefInput-Position*Count2rad
+ErrorVel = -Velocity*Count2rad
+TorqueIn =  Min(TorqueMax,Max(-TorqueMax,(Kpos*ErrorPos+Kspd*ErrorVel)))/TorqueMax*200
+
+PosOut = Max(MinTravel,Min(MaxTravel,Position))
+Position_V = PosOut/MaxTravel*100
+DAC(0) = PosOut/MaxTravel*100
+
+If EnInput > 30 Then
+  TORQUEREF(0) = TorqueIn
+ Else
+  TORQUEREF(0) = 0
+End If
+
+If Counter >1000  Then
+  Counter = 0
+  Print " Position (m) = ", Position_m, "\0A\0D", _
+   " Position (*100 V) = ", Position_V, "\0A\0D", _
+   " RefInput (m) = ", PosRefInput_m, "\0A\0D", _
+   " Peak velocity (m/s) = ", Velocity_m_s_max, "\0A\0D", _
+   " ErrPos (rad) = ", ErrorPos, "\0A\0D", _
+   " ErrSpd (rad/s) = ", ErrorVel, "\0A\0D", _
+   " Torque Input (%) = ", TorqueIn, "\0A\0D", _
+   " EnInput = ", EnInput, "\0A\0D"
+End If
+
+End Loop

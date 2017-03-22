@@ -1,0 +1,17 @@
+function sys=Control_software_v1_1ref
+sys = [];
+sys.child = [];
+sys.NumDataTypes = 8; 
+sys.DataTypes = [];
+temp.EnumNames='';
+temp.EnumValues = [];
+temp.Name = '';
+sys.DataTypes = repmat(temp,1,8);
+sys.DataTypes(1).Name = 'real_T';
+sys.DataTypes(2).Name = 'uint8_T';
+sys.DataTypes(3).Name = 'boolean_T';
+sys.DataTypes(4).Name = 'serialfifoptr';
+sys.DataTypes(5).Name = 'uint32_T';
+sys.DataTypes(6).Name = 'struct_g4JHc2H3XRyVVgBupIhckB';
+sys.DataTypes(7).Name = 'struct_nekeCBaUBwhMGZJyyesMPB';
+sys.DataTypes(8).Name = 'struct_H3iKTmzQIZmmrWuxBo9E9D';
