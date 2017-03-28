@@ -7,9 +7,9 @@
  *
  * Code generation for model "Control_software_v1_1".
  *
- * Model version              : 1.1536
+ * Model version              : 1.1620
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Mar 21 15:25:08 2017
+ * C source code generated on : Mon Mar 27 17:35:40 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -65,33 +65,33 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
 static void Control_software_convert1word_p(uint8_T in, real_T vec[8]);
 static void rate_monotonic_scheduler(void);
 
-/* xPC Target Async Interrupt Block '<S28>/IRQ Source' */
+/* xPC Target Async Interrupt Block '<S22>/IRQ Source' */
 void xPCISR1(void)
 {
   {
     /* Reset subsysRan breadcrumbs */
     srClearBC(Control_software_v1_1_DW.RS232ISR_SubsysRanBC);
 
-    /* RateTransition: '<S28>/Rate Transition' */
+    /* RateTransition: '<S22>/Rate Transition' */
     Control_software_v1_1_B.RateTransition =
       Control_software_v1_1_B.FIFOwrite1_o1;
 
-    /* RateTransition: '<S28>/Rate Transition2' */
+    /* RateTransition: '<S22>/Rate Transition2' */
     Control_software_v1_1_B.RateTransition2 =
       Control_software_v1_1_B.FIFOwrite2_o1;
 
-    /* RateTransition: '<S28>/Rate Transition4' */
+    /* RateTransition: '<S22>/Rate Transition4' */
     Control_software_v1_1_B.RateTransition4 =
       Control_software_v1_1_B.FIFOwrite3_o1;
 
-    /* RateTransition: '<S28>/Rate Transition6' */
+    /* RateTransition: '<S22>/Rate Transition6' */
     Control_software_v1_1_B.RateTransition6 =
       Control_software_v1_1_B.FIFOwrite4_o1;
 
-    /* S-Function (xpcinterrupt): '<S28>/IRQ Source' */
+    /* S-Function (xpcinterrupt): '<S22>/IRQ Source' */
     Control_software_v_RS232ISR();
 
-    /* End of Outputs for S-Function (xpcinterrupt): '<S28>/IRQ Source' */
+    /* End of Outputs for S-Function (xpcinterrupt): '<S22>/IRQ Source' */
   }
 
   xpceDAQUpdateTimeStamp(4, Control_software_v1_1_M->Timing.t[4]);
@@ -168,7 +168,7 @@ static void rate_monotonic_scheduler(void)
   }
 }
 
-/* Function for MATLAB Function: '<S35>/Embedded MATLAB Function' */
+/* Function for MATLAB Function: '<S29>/Embedded MATLAB Function' */
 static void Control_software_v_convert1word(uint8_T in, real_T vec[8])
 {
   uint8_T ind;
@@ -176,21 +176,21 @@ static void Control_software_v_convert1word(uint8_T in, real_T vec[8])
   int32_T q0;
   uint32_T qY;
 
-  /* '<S47>:1:20' */
+  /* '<S41>:1:20' */
   memset(&vec[0], 0, sizeof(real_T) << 3U);
 
-  /* '<S47>:1:21' */
+  /* '<S41>:1:21' */
   ind = 7U;
   while (in > 0) {
-    /* '<S47>:1:23' */
-    /* '<S47>:1:24' */
+    /* '<S41>:1:23' */
+    /* '<S41>:1:24' */
     a = (uint8_T)(1 << ind);
     if (in >= a) {
-      /* '<S47>:1:25' */
-      /* '<S47>:1:26' */
+      /* '<S41>:1:25' */
+      /* '<S41>:1:26' */
       vec[7 - ind] = 1.0;
 
-      /* '<S47>:1:27' */
+      /* '<S41>:1:27' */
       q0 = in;
       qY = (uint32_T)q0 - a;
       if (qY > (uint32_T)q0) {
@@ -200,11 +200,11 @@ static void Control_software_v_convert1word(uint8_T in, real_T vec[8])
       q0 = (int32_T)qY;
       in = (uint8_T)q0;
     } else {
-      /* '<S47>:1:29' */
+      /* '<S41>:1:29' */
       vec[7 - ind] = 0.0;
     }
 
-    /* '<S47>:1:31' */
+    /* '<S41>:1:31' */
     q0 = ind;
     qY = q0 - 1U;
     if (qY > (uint32_T)q0) {
@@ -264,9 +264,9 @@ real_T rt_powd_snf(real_T u0, real_T u1)
 
 /*
  * Output and update for atomic system:
- *    '<S35>/Embedded MATLAB Function'
- *    '<S37>/Embedded MATLAB Function1'
- *    '<S38>/Embedded MATLAB Function'
+ *    '<S29>/Embedded MATLAB Function'
+ *    '<S31>/Embedded MATLAB Function1'
+ *    '<S32>/Embedded MATLAB Function'
  */
 void Cont_EmbeddedMATLABFunction(const uint8_T rtu_in[4],
   B_EmbeddedMATLABFunction_Cont_T *localB)
@@ -279,20 +279,20 @@ void Cont_EmbeddedMATLABFunction(const uint8_T rtu_in[4],
   real_T temp[32];
   int32_T ind;
 
-  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function': '<S47>:1' */
-  /* '<S47>:1:3' */
+  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function': '<S41>:1' */
+  /* '<S41>:1:3' */
   Control_software_v_convert1word(rtu_in[0], vec1);
 
-  /* '<S47>:1:4' */
+  /* '<S41>:1:4' */
   Control_software_v_convert1word(rtu_in[1], vec2);
 
-  /* '<S47>:1:5' */
+  /* '<S41>:1:5' */
   Control_software_v_convert1word(rtu_in[2], vec3);
 
-  /* '<S47>:1:6' */
+  /* '<S41>:1:6' */
   Control_software_v_convert1word(rtu_in[3], vec4);
 
-  /* '<S47>:1:8' */
+  /* '<S41>:1:8' */
   for (ind = 0; ind < 8; ind++) {
     temp[ind] = vec1[ind];
     temp[ind + 8] = vec2[ind];
@@ -300,14 +300,14 @@ void Cont_EmbeddedMATLABFunction(const uint8_T rtu_in[4],
     temp[ind + 24] = vec4[ind];
   }
 
-  /* '<S47>:1:10' */
-  /* '<S47>:1:14' */
+  /* '<S41>:1:10' */
+  /* '<S41>:1:14' */
   uint32_out = 0.0;
 
-  /* '<S47>:1:15' */
+  /* '<S41>:1:15' */
   for (ind = 0; ind < 32; ind++) {
-    /* '<S47>:1:15' */
-    /* '<S47>:1:16' */
+    /* '<S41>:1:15' */
+    /* '<S41>:1:16' */
     uint32_out += rt_powd_snf(2.0, 32.0 - (1.0 + (real_T)ind)) * temp[ind];
   }
 
@@ -316,14 +316,14 @@ void Cont_EmbeddedMATLABFunction(const uint8_T rtu_in[4],
 
 /*
  * Output and update for atomic system:
- *    '<S35>/Embedded MATLAB Function1'
- *    '<S35>/Embedded MATLAB Function2'
- *    '<S37>/Embedded MATLAB Function'
- *    '<S37>/Embedded MATLAB Function2'
- *    '<S37>/Embedded MATLAB Function3'
- *    '<S37>/Embedded MATLAB Function4'
- *    '<S37>/Embedded MATLAB Function5'
- *    '<S37>/Embedded MATLAB Function6'
+ *    '<S29>/Embedded MATLAB Function1'
+ *    '<S29>/Embedded MATLAB Function2'
+ *    '<S31>/Embedded MATLAB Function'
+ *    '<S31>/Embedded MATLAB Function2'
+ *    '<S31>/Embedded MATLAB Function3'
+ *    '<S31>/Embedded MATLAB Function4'
+ *    '<S31>/Embedded MATLAB Function5'
+ *    '<S31>/Embedded MATLAB Function6'
  */
 void Con_EmbeddedMATLABFunction1(uint8_T rtu_in, B_EmbeddedMATLABFunction1_Con_T
   *localB)
@@ -335,27 +335,27 @@ void Con_EmbeddedMATLABFunction1(uint8_T rtu_in, B_EmbeddedMATLABFunction1_Con_T
   int32_T b_ind;
   uint32_T qY;
 
-  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function1': '<S48>:1' */
-  /* '<S48>:1:3' */
+  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function1': '<S42>:1' */
+  /* '<S42>:1:3' */
   in = rtu_in;
 
-  /* '<S48>:1:17' */
+  /* '<S42>:1:17' */
   for (b_ind = 0; b_ind < 8; b_ind++) {
     vec1[b_ind] = 0;
   }
 
-  /* '<S48>:1:18' */
+  /* '<S42>:1:18' */
   ind = 7U;
   while (in > 0) {
-    /* '<S48>:1:20' */
-    /* '<S48>:1:21' */
+    /* '<S42>:1:20' */
+    /* '<S42>:1:21' */
     a = (uint8_T)(1 << ind);
     if (in >= a) {
-      /* '<S48>:1:22' */
-      /* '<S48>:1:23' */
+      /* '<S42>:1:22' */
+      /* '<S42>:1:23' */
       vec1[7 - ind] = 1;
 
-      /* '<S48>:1:24' */
+      /* '<S42>:1:24' */
       b_ind = in;
       qY = (uint32_T)b_ind - a;
       if (qY > (uint32_T)b_ind) {
@@ -365,11 +365,11 @@ void Con_EmbeddedMATLABFunction1(uint8_T rtu_in, B_EmbeddedMATLABFunction1_Con_T
       b_ind = (int32_T)qY;
       in = (uint8_T)b_ind;
     } else {
-      /* '<S48>:1:26' */
+      /* '<S42>:1:26' */
       vec1[7 - ind] = 0;
     }
 
-    /* '<S48>:1:28' */
+    /* '<S42>:1:28' */
     b_ind = ind;
     qY = b_ind - 1U;
     if (qY > (uint32_T)b_ind) {
@@ -380,20 +380,20 @@ void Con_EmbeddedMATLABFunction1(uint8_T rtu_in, B_EmbeddedMATLABFunction1_Con_T
     ind = (uint8_T)b_ind;
   }
 
-  /* '<S48>:1:7' */
-  /* '<S48>:1:11' */
+  /* '<S42>:1:7' */
+  /* '<S42>:1:11' */
   localB->uint8_out = 0.0;
 
-  /* '<S48>:1:12' */
+  /* '<S42>:1:12' */
   for (b_ind = 0; b_ind < 8; b_ind++) {
-    /* '<S48>:1:12' */
-    /* '<S48>:1:13' */
+    /* '<S42>:1:12' */
+    /* '<S42>:1:13' */
     localB->uint8_out += rt_powd_snf(2.0, 8.0 - (1.0 + (real_T)b_ind)) * (real_T)
       vec1[b_ind];
   }
 }
 
-/* Function for MATLAB Function: '<S36>/Embedded MATLAB Function' */
+/* Function for MATLAB Function: '<S30>/Embedded MATLAB Function' */
 static void Control_software_convert1word_e(uint8_T in, real_T vec[8])
 {
   uint8_T ind;
@@ -401,21 +401,21 @@ static void Control_software_convert1word_e(uint8_T in, real_T vec[8])
   int32_T q0;
   uint32_T qY;
 
-  /* '<S50>:1:19' */
+  /* '<S44>:1:19' */
   memset(&vec[0], 0, sizeof(real_T) << 3U);
 
-  /* '<S50>:1:20' */
+  /* '<S44>:1:20' */
   ind = 7U;
   while (in > 0) {
-    /* '<S50>:1:22' */
-    /* '<S50>:1:23' */
+    /* '<S44>:1:22' */
+    /* '<S44>:1:23' */
     a = (uint8_T)(1 << ind);
     if (in >= a) {
-      /* '<S50>:1:24' */
-      /* '<S50>:1:25' */
+      /* '<S44>:1:24' */
+      /* '<S44>:1:25' */
       vec[7 - ind] = 1.0;
 
-      /* '<S50>:1:26' */
+      /* '<S44>:1:26' */
       q0 = in;
       qY = (uint32_T)q0 - a;
       if (qY > (uint32_T)q0) {
@@ -425,11 +425,11 @@ static void Control_software_convert1word_e(uint8_T in, real_T vec[8])
       q0 = (int32_T)qY;
       in = (uint8_T)q0;
     } else {
-      /* '<S50>:1:28' */
+      /* '<S44>:1:28' */
       vec[7 - ind] = 0.0;
     }
 
-    /* '<S50>:1:30' */
+    /* '<S44>:1:30' */
     q0 = ind;
     qY = q0 - 1U;
     if (qY > (uint32_T)q0) {
@@ -443,16 +443,16 @@ static void Control_software_convert1word_e(uint8_T in, real_T vec[8])
 
 /*
  * Output and update for atomic system:
- *    '<S36>/Embedded MATLAB Function'
- *    '<S36>/Embedded MATLAB Function1'
- *    '<S36>/Embedded MATLAB Function3'
- *    '<S43>/Embedded MATLAB Function'
- *    '<S43>/Embedded MATLAB Function1'
- *    '<S43>/Embedded MATLAB Function3'
- *    '<S44>/Embedded MATLAB Function'
- *    '<S44>/Embedded MATLAB Function1'
- *    '<S44>/Embedded MATLAB Function3'
- *    '<S44>/Embedded MATLAB Function4'
+ *    '<S30>/Embedded MATLAB Function'
+ *    '<S30>/Embedded MATLAB Function1'
+ *    '<S30>/Embedded MATLAB Function3'
+ *    '<S37>/Embedded MATLAB Function'
+ *    '<S37>/Embedded MATLAB Function1'
+ *    '<S37>/Embedded MATLAB Function3'
+ *    '<S38>/Embedded MATLAB Function'
+ *    '<S38>/Embedded MATLAB Function1'
+ *    '<S38>/Embedded MATLAB Function3'
+ *    '<S38>/Embedded MATLAB Function4'
  *    ...
  */
 void Co_EmbeddedMATLABFunction_b(const uint8_T rtu_in[4],
@@ -469,20 +469,20 @@ void Co_EmbeddedMATLABFunction_b(const uint8_T rtu_in[4],
   boolean_T guard1 = false;
   boolean_T guard2 = false;
 
-  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10/Embedded MATLAB Function': '<S50>:1' */
-  /* '<S50>:1:3' */
+  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10/Embedded MATLAB Function': '<S44>:1' */
+  /* '<S44>:1:3' */
   Control_software_convert1word_e(rtu_in[0], vec1);
 
-  /* '<S50>:1:4' */
+  /* '<S44>:1:4' */
   Control_software_convert1word_e(rtu_in[1], vec2);
 
-  /* '<S50>:1:5' */
+  /* '<S44>:1:5' */
   Control_software_convert1word_e(rtu_in[2], vec3);
 
-  /* '<S50>:1:6' */
+  /* '<S44>:1:6' */
   Control_software_convert1word_e(rtu_in[3], vec4);
 
-  /* '<S50>:1:8' */
+  /* '<S44>:1:8' */
   for (k = 0; k < 8; k++) {
     temp[k] = vec1[k];
     temp[k + 8] = vec2[k];
@@ -498,16 +498,16 @@ void Co_EmbeddedMATLABFunction_b(const uint8_T rtu_in[4],
   guard1 = false;
   guard2 = false;
   if (y == 8.0) {
-    /* '<S50>:1:10' */
+    /* '<S44>:1:10' */
     y = temp[9];
     for (k = 0; k < 22; k++) {
       y += temp[k + 10];
     }
 
     if (y == 0.0) {
-      /* '<S50>:1:10' */
-      /* '<S50>:1:11' */
-      /* '<S50>:1:34' */
+      /* '<S44>:1:10' */
+      /* '<S44>:1:11' */
+      /* '<S44>:1:34' */
       y = rt_powd_snf(-1.0, temp[0]) * (rtInf);
     } else {
       guard2 = true;
@@ -523,15 +523,15 @@ void Co_EmbeddedMATLABFunction_b(const uint8_T rtu_in[4],
     }
 
     if (y == 8.0) {
-      /* '<S50>:1:12' */
+      /* '<S44>:1:12' */
       y = temp[9];
       for (k = 0; k < 22; k++) {
         y += temp[k + 10];
       }
 
       if (y > 0.0) {
-        /* '<S50>:1:12' */
-        /* '<S50>:1:13' */
+        /* '<S44>:1:12' */
+        /* '<S44>:1:13' */
         y = (rtNaN);
       } else {
         guard1 = true;
@@ -542,28 +542,28 @@ void Co_EmbeddedMATLABFunction_b(const uint8_T rtu_in[4],
   }
 
   if (guard1) {
-    /* '<S50>:1:15' */
-    /* '<S50>:1:34' */
-    /* '<S50>:1:37' */
+    /* '<S44>:1:15' */
+    /* '<S44>:1:34' */
+    /* '<S44>:1:37' */
     y = 0.0;
 
-    /* '<S50>:1:38' */
+    /* '<S44>:1:38' */
     for (k = 0; k < 8; k++) {
-      /* '<S50>:1:38' */
-      /* '<S50>:1:39' */
+      /* '<S44>:1:38' */
+      /* '<S44>:1:39' */
       y += rt_powd_snf(2.0, 8.0 - (1.0 + (real_T)k)) * temp[1 + k];
     }
 
-    /* '<S50>:1:41' */
+    /* '<S44>:1:41' */
     y -= 127.0;
 
-    /* '<S50>:1:44' */
+    /* '<S44>:1:44' */
     b_vec = 0.0;
 
-    /* '<S50>:1:45' */
+    /* '<S44>:1:45' */
     for (k = 0; k < 23; k++) {
-      /* '<S50>:1:45' */
-      /* '<S50>:1:46' */
+      /* '<S44>:1:45' */
+      /* '<S44>:1:46' */
       b_vec += temp[9 + k] * rt_powd_snf(2.0, -(1.0 + (real_T)k));
     }
 
@@ -573,7 +573,7 @@ void Co_EmbeddedMATLABFunction_b(const uint8_T rtu_in[4],
   localB->sing_out = y;
 }
 
-/* Function for MATLAB Function: '<S39>/Embedded MATLAB Function1' */
+/* Function for MATLAB Function: '<S33>/Embedded MATLAB Function1' */
 static void Control_software_convert1word_i(uint8_T in, real_T vec[8])
 {
   uint8_T ind;
@@ -581,21 +581,21 @@ static void Control_software_convert1word_i(uint8_T in, real_T vec[8])
   int32_T q0;
   uint32_T qY;
 
-  /* '<S61>:1:20' */
+  /* '<S55>:1:20' */
   memset(&vec[0], 0, sizeof(real_T) << 3U);
 
-  /* '<S61>:1:21' */
+  /* '<S55>:1:21' */
   ind = 7U;
   while (in > 0) {
-    /* '<S61>:1:23' */
-    /* '<S61>:1:24' */
+    /* '<S55>:1:23' */
+    /* '<S55>:1:24' */
     a = (uint8_T)(1 << ind);
     if (in >= a) {
-      /* '<S61>:1:25' */
-      /* '<S61>:1:26' */
+      /* '<S55>:1:25' */
+      /* '<S55>:1:26' */
       vec[7 - ind] = 1.0;
 
-      /* '<S61>:1:27' */
+      /* '<S55>:1:27' */
       q0 = in;
       qY = (uint32_T)q0 - a;
       if (qY > (uint32_T)q0) {
@@ -605,11 +605,11 @@ static void Control_software_convert1word_i(uint8_T in, real_T vec[8])
       q0 = (int32_T)qY;
       in = (uint8_T)q0;
     } else {
-      /* '<S61>:1:29' */
+      /* '<S55>:1:29' */
       vec[7 - ind] = 0.0;
     }
 
-    /* '<S61>:1:31' */
+    /* '<S55>:1:31' */
     q0 = ind;
     qY = q0 - 1U;
     if (qY > (uint32_T)q0) {
@@ -623,14 +623,14 @@ static void Control_software_convert1word_i(uint8_T in, real_T vec[8])
 
 /*
  * Output and update for atomic system:
- *    '<S39>/Embedded MATLAB Function1'
- *    '<S39>/Embedded MATLAB Function2'
- *    '<S39>/Embedded MATLAB Function3'
- *    '<S40>/Embedded MATLAB Function1'
- *    '<S40>/Embedded MATLAB Function2'
- *    '<S40>/Embedded MATLAB Function3'
- *    '<S40>/Embedded MATLAB Function4'
- *    '<S41>/Embedded MATLAB Function2'
+ *    '<S33>/Embedded MATLAB Function1'
+ *    '<S33>/Embedded MATLAB Function2'
+ *    '<S33>/Embedded MATLAB Function3'
+ *    '<S34>/Embedded MATLAB Function1'
+ *    '<S34>/Embedded MATLAB Function2'
+ *    '<S34>/Embedded MATLAB Function3'
+ *    '<S34>/Embedded MATLAB Function4'
+ *    '<S35>/Embedded MATLAB Function2'
  */
 void C_EmbeddedMATLABFunction1_g(const uint8_T rtu_in[4],
   B_EmbeddedMATLABFunction1_C_k_T *localB)
@@ -643,21 +643,21 @@ void C_EmbeddedMATLABFunction1_g(const uint8_T rtu_in[4],
   real_T vec;
   int32_T ind;
 
-  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15/Embedded MATLAB Function1': '<S61>:1' */
+  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15/Embedded MATLAB Function1': '<S55>:1' */
   /*  in=double(in); */
-  /* '<S61>:1:4' */
+  /* '<S55>:1:4' */
   Control_software_convert1word_i(rtu_in[0], vec1);
 
-  /* '<S61>:1:5' */
+  /* '<S55>:1:5' */
   Control_software_convert1word_i(rtu_in[1], vec2);
 
-  /* '<S61>:1:6' */
+  /* '<S55>:1:6' */
   Control_software_convert1word_i(rtu_in[2], vec3);
 
-  /* '<S61>:1:7' */
+  /* '<S55>:1:7' */
   Control_software_convert1word_i(rtu_in[3], vec4);
 
-  /* '<S61>:1:9' */
+  /* '<S55>:1:9' */
   for (ind = 0; ind < 8; ind++) {
     temp[ind] = vec1[ind];
     temp[ind + 8] = vec2[ind];
@@ -665,21 +665,21 @@ void C_EmbeddedMATLABFunction1_g(const uint8_T rtu_in[4],
     temp[ind + 24] = vec4[ind];
   }
 
-  /* '<S61>:1:11' */
-  /* '<S61>:1:14' */
+  /* '<S55>:1:11' */
+  /* '<S55>:1:14' */
   vec = 0.0;
 
-  /* '<S61>:1:15' */
+  /* '<S55>:1:15' */
   for (ind = 0; ind < 31; ind++) {
-    /* '<S61>:1:15' */
-    /* '<S61>:1:16' */
+    /* '<S55>:1:15' */
+    /* '<S55>:1:16' */
     vec += rt_powd_snf(2.0, 31.0 - (1.0 + (real_T)ind)) * temp[1 + ind];
   }
 
   localB->int32_out = vec - temp[0] * 2.147483648E+9;
 }
 
-/* Function for MATLAB Function: '<S42>/Embedded MATLAB Function' */
+/* Function for MATLAB Function: '<S36>/Embedded MATLAB Function' */
 static void Control_software_convert1word_b(uint8_T in, real_T vec[8])
 {
   uint8_T ind;
@@ -687,21 +687,21 @@ static void Control_software_convert1word_b(uint8_T in, real_T vec[8])
   int32_T q0;
   uint32_T qY;
 
-  /* '<S69>:1:35' */
+  /* '<S63>:1:35' */
   memset(&vec[0], 0, sizeof(real_T) << 3U);
 
-  /* '<S69>:1:36' */
+  /* '<S63>:1:36' */
   ind = 7U;
   while (in > 0) {
-    /* '<S69>:1:38' */
-    /* '<S69>:1:39' */
+    /* '<S63>:1:38' */
+    /* '<S63>:1:39' */
     a = (uint8_T)(1 << ind);
     if (in >= a) {
-      /* '<S69>:1:40' */
-      /* '<S69>:1:41' */
+      /* '<S63>:1:40' */
+      /* '<S63>:1:41' */
       vec[7 - ind] = 1.0;
 
-      /* '<S69>:1:42' */
+      /* '<S63>:1:42' */
       q0 = in;
       qY = (uint32_T)q0 - a;
       if (qY > (uint32_T)q0) {
@@ -711,11 +711,11 @@ static void Control_software_convert1word_b(uint8_T in, real_T vec[8])
       q0 = (int32_T)qY;
       in = (uint8_T)q0;
     } else {
-      /* '<S69>:1:44' */
+      /* '<S63>:1:44' */
       vec[7 - ind] = 0.0;
     }
 
-    /* '<S69>:1:46' */
+    /* '<S63>:1:46' */
     q0 = ind;
     qY = q0 - 1U;
     if (qY > (uint32_T)q0) {
@@ -729,9 +729,9 @@ static void Control_software_convert1word_b(uint8_T in, real_T vec[8])
 
 /*
  * Output and update for atomic system:
- *    '<S42>/Embedded MATLAB Function'
- *    '<S42>/Embedded MATLAB Function1'
- *    '<S42>/Embedded MATLAB Function2'
+ *    '<S36>/Embedded MATLAB Function'
+ *    '<S36>/Embedded MATLAB Function1'
+ *    '<S36>/Embedded MATLAB Function2'
  */
 void Co_EmbeddedMATLABFunction_k(const uint8_T rtu_in[8],
   B_EmbeddedMATLABFunction_Co_l_T *localB)
@@ -750,32 +750,32 @@ void Co_EmbeddedMATLABFunction_k(const uint8_T rtu_in[8],
   real_T signum;
   int32_T ind;
 
-  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18/Embedded MATLAB Function': '<S69>:1' */
-  /* '<S69>:1:3' */
+  /* MATLAB Function 'Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18/Embedded MATLAB Function': '<S63>:1' */
+  /* '<S63>:1:3' */
   Control_software_convert1word_b(rtu_in[0], vec1);
 
-  /* '<S69>:1:4' */
+  /* '<S63>:1:4' */
   Control_software_convert1word_b(rtu_in[1], vec2);
 
-  /* '<S69>:1:5' */
+  /* '<S63>:1:5' */
   Control_software_convert1word_b(rtu_in[2], vec3);
 
-  /* '<S69>:1:6' */
+  /* '<S63>:1:6' */
   Control_software_convert1word_b(rtu_in[3], vec4);
 
-  /* '<S69>:1:7' */
+  /* '<S63>:1:7' */
   Control_software_convert1word_b(rtu_in[4], vec5);
 
-  /* '<S69>:1:8' */
+  /* '<S63>:1:8' */
   Control_software_convert1word_b(rtu_in[5], vec6);
 
-  /* '<S69>:1:9' */
+  /* '<S63>:1:9' */
   Control_software_convert1word_b(rtu_in[6], vec7);
 
-  /* '<S69>:1:10' */
+  /* '<S63>:1:10' */
   Control_software_convert1word_b(rtu_in[7], vec8);
 
-  /* '<S69>:1:12' */
+  /* '<S63>:1:12' */
   for (ind = 0; ind < 8; ind++) {
     temp[ind] = vec1[ind];
     temp[ind + 8] = vec2[ind];
@@ -787,68 +787,68 @@ void Co_EmbeddedMATLABFunction_k(const uint8_T rtu_in[8],
     temp[ind + 56] = vec8[ind];
   }
 
-  /* '<S69>:1:14' */
-  /* '<S69>:1:53' */
+  /* '<S63>:1:14' */
+  /* '<S63>:1:53' */
   exponent = 0.0;
 
-  /* '<S69>:1:54' */
+  /* '<S63>:1:54' */
   for (ind = 0; ind < 11; ind++) {
-    /* '<S69>:1:54' */
-    /* '<S69>:1:55' */
+    /* '<S63>:1:54' */
+    /* '<S63>:1:55' */
     exponent += rt_powd_snf(2.0, 11.0 - (1.0 + (real_T)ind)) * temp[1 + ind];
   }
 
-  /* '<S69>:1:57' */
+  /* '<S63>:1:57' */
   exponent -= 1023.0;
 
-  /* '<S69>:1:15' */
-  /* '<S69>:1:60' */
+  /* '<S63>:1:15' */
+  /* '<S63>:1:60' */
   signif = 0.0;
 
-  /* '<S69>:1:61' */
+  /* '<S63>:1:61' */
   for (ind = 0; ind < 52; ind++) {
-    /* '<S69>:1:61' */
-    /* '<S69>:1:62' */
+    /* '<S63>:1:61' */
+    /* '<S63>:1:62' */
     signif += temp[12 + ind] * rt_powd_snf(2.0, -(1.0 + (real_T)ind));
   }
 
-  /* '<S69>:1:16' */
-  /* '<S69>:1:50' */
+  /* '<S63>:1:16' */
+  /* '<S63>:1:50' */
   signum = rt_powd_snf(-1.0, temp[0]);
   if (exponent == -1023.0) {
-    /* '<S69>:1:18' */
+    /* '<S63>:1:18' */
     if (signif == 0.0) {
-      /* '<S69>:1:19' */
-      /* '<S69>:1:20' */
+      /* '<S63>:1:19' */
+      /* '<S63>:1:20' */
       exponent = signum * 0.0;
     } else {
-      /* '<S69>:1:22' */
+      /* '<S63>:1:22' */
       exponent = signum * 2.2250738585072014E-308 * signif;
     }
   } else if (exponent == 1024.0) {
-    /* '<S69>:1:24' */
+    /* '<S63>:1:24' */
     if (signif != 0.0) {
-      /* '<S69>:1:25' */
-      /* '<S69>:1:26' */
+      /* '<S63>:1:25' */
+      /* '<S63>:1:26' */
       exponent = (rtNaN);
     } else {
-      /* '<S69>:1:28' */
+      /* '<S63>:1:28' */
       exponent = signum * (rtInf);
     }
   } else {
-    /* '<S69>:1:31' */
+    /* '<S63>:1:31' */
     exponent = signum * rt_powd_snf(2.0, exponent) * (1.0 + signif);
   }
 
   localB->double_out = exponent;
 }
 
-/* Start for function-call system: '<S28>/RS232 ISR' */
+/* Start for function-call system: '<S22>/RS232 ISR' */
 void Control_soft_RS232ISR_Start(void)
 {
-  /* Start for Iterator SubSystem: '<S85>/While Iterator Subsystem' */
-  /* Start for S-Function (iqueryqua): '<S86>/Read Int Status1' */
-  /* Level2 S-Function Block: '<S86>/Read Int Status1' (iqueryqua) */
+  /* Start for Iterator SubSystem: '<S79>/While Iterator Subsystem' */
+  /* Start for S-Function (iqueryqua): '<S80>/Read Int Status1' */
+  /* Level2 S-Function Block: '<S80>/Read Int Status1' (iqueryqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[0];
     sfcnStart(rts);
@@ -856,8 +856,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (filterqua): '<S86>/Filter Int Reason5' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason5' (filterqua) */
+  /* Start for S-Function (filterqua): '<S80>/Filter Int Reason5' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason5' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[1];
     sfcnStart(rts);
@@ -865,12 +865,12 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for Constant: '<S86>/Constant1' */
+  /* Start for Constant: '<S80>/Constant1' */
   Control_software_v1_1_B.Constant1_p =
     Control_software_v1_1_P.Constant1_Value_be;
 
-  /* Start for S-Function (fiforead): '<S86>/FIFO read 1' */
-  /* Level2 S-Function Block: '<S86>/FIFO read 1' (fiforead) */
+  /* Start for S-Function (fiforead): '<S80>/FIFO read 1' */
+  /* Level2 S-Function Block: '<S80>/FIFO read 1' (fiforead) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[2];
     sfcnStart(rts);
@@ -878,8 +878,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (serwritequa): '<S86>/Write HW FIFO1' */
-  /* Level2 S-Function Block: '<S86>/Write HW FIFO1' (serwritequa) */
+  /* Start for S-Function (serwritequa): '<S80>/Write HW FIFO1' */
+  /* Level2 S-Function Block: '<S80>/Write HW FIFO1' (serwritequa) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[3];
     sfcnStart(rts);
@@ -887,8 +887,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (filterqua): '<S86>/Filter Int Reason6' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason6' (filterqua) */
+  /* Start for S-Function (filterqua): '<S80>/Filter Int Reason6' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason6' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[4];
     sfcnStart(rts);
@@ -896,11 +896,11 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for Constant: '<S86>/Constant2' */
+  /* Start for Constant: '<S80>/Constant2' */
   Control_software_v1_1_B.Constant2 = Control_software_v1_1_P.Constant2_Value_n;
 
-  /* Start for S-Function (fiforead): '<S86>/FIFO read 2' */
-  /* Level2 S-Function Block: '<S86>/FIFO read 2' (fiforead) */
+  /* Start for S-Function (fiforead): '<S80>/FIFO read 2' */
+  /* Level2 S-Function Block: '<S80>/FIFO read 2' (fiforead) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[5];
     sfcnStart(rts);
@@ -908,8 +908,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (serwritequa): '<S86>/Write HW FIFO2' */
-  /* Level2 S-Function Block: '<S86>/Write HW FIFO2' (serwritequa) */
+  /* Start for S-Function (serwritequa): '<S80>/Write HW FIFO2' */
+  /* Level2 S-Function Block: '<S80>/Write HW FIFO2' (serwritequa) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[6];
     sfcnStart(rts);
@@ -917,8 +917,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (filterqua): '<S86>/Filter Int Reason7' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason7' (filterqua) */
+  /* Start for S-Function (filterqua): '<S80>/Filter Int Reason7' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason7' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[7];
     sfcnStart(rts);
@@ -926,12 +926,12 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for Constant: '<S86>/Constant3' */
+  /* Start for Constant: '<S80>/Constant3' */
   Control_software_v1_1_B.Constant3_o =
     Control_software_v1_1_P.Constant3_Value_d;
 
-  /* Start for S-Function (fiforead): '<S86>/FIFO read 3' */
-  /* Level2 S-Function Block: '<S86>/FIFO read 3' (fiforead) */
+  /* Start for S-Function (fiforead): '<S80>/FIFO read 3' */
+  /* Level2 S-Function Block: '<S80>/FIFO read 3' (fiforead) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[8];
     sfcnStart(rts);
@@ -939,8 +939,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (serwritequa): '<S86>/Write HW FIFO3' */
-  /* Level2 S-Function Block: '<S86>/Write HW FIFO3' (serwritequa) */
+  /* Start for S-Function (serwritequa): '<S80>/Write HW FIFO3' */
+  /* Level2 S-Function Block: '<S80>/Write HW FIFO3' (serwritequa) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[9];
     sfcnStart(rts);
@@ -948,8 +948,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (filterqua): '<S86>/Filter Int Reason8' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason8' (filterqua) */
+  /* Start for S-Function (filterqua): '<S80>/Filter Int Reason8' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason8' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[10];
     sfcnStart(rts);
@@ -957,11 +957,11 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for Constant: '<S86>/Constant4' */
+  /* Start for Constant: '<S80>/Constant4' */
   Control_software_v1_1_B.Constant4 = Control_software_v1_1_P.Constant4_Value;
 
-  /* Start for S-Function (fiforead): '<S86>/FIFO read 4' */
-  /* Level2 S-Function Block: '<S86>/FIFO read 4' (fiforead) */
+  /* Start for S-Function (fiforead): '<S80>/FIFO read 4' */
+  /* Level2 S-Function Block: '<S80>/FIFO read 4' (fiforead) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[11];
     sfcnStart(rts);
@@ -969,8 +969,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (serwritequa): '<S86>/Write HW FIFO4' */
-  /* Level2 S-Function Block: '<S86>/Write HW FIFO4' (serwritequa) */
+  /* Start for S-Function (serwritequa): '<S80>/Write HW FIFO4' */
+  /* Level2 S-Function Block: '<S80>/Write HW FIFO4' (serwritequa) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[12];
     sfcnStart(rts);
@@ -978,8 +978,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (filterqua): '<S86>/Filter Int Reason1' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason1' (filterqua) */
+  /* Start for S-Function (filterqua): '<S80>/Filter Int Reason1' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason1' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[13];
     sfcnStart(rts);
@@ -987,8 +987,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (serreadqua): '<S86>/Read HW FIFO1' */
-  /* Level2 S-Function Block: '<S86>/Read HW FIFO1' (serreadqua) */
+  /* Start for S-Function (serreadqua): '<S80>/Read HW FIFO1' */
+  /* Level2 S-Function Block: '<S80>/Read HW FIFO1' (serreadqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[14];
     sfcnStart(rts);
@@ -996,8 +996,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (fifowrite): '<S86>/FIFO write 1' */
-  /* Level2 S-Function Block: '<S86>/FIFO write 1' (fifowrite) */
+  /* Start for S-Function (fifowrite): '<S80>/FIFO write 1' */
+  /* Level2 S-Function Block: '<S80>/FIFO write 1' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[15];
     sfcnStart(rts);
@@ -1005,8 +1005,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (filterqua): '<S86>/Filter Int Reason2' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason2' (filterqua) */
+  /* Start for S-Function (filterqua): '<S80>/Filter Int Reason2' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason2' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[16];
     sfcnStart(rts);
@@ -1014,8 +1014,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (serreadqua): '<S86>/Read HW FIFO2' */
-  /* Level2 S-Function Block: '<S86>/Read HW FIFO2' (serreadqua) */
+  /* Start for S-Function (serreadqua): '<S80>/Read HW FIFO2' */
+  /* Level2 S-Function Block: '<S80>/Read HW FIFO2' (serreadqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[17];
     sfcnStart(rts);
@@ -1023,8 +1023,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (fifowrite): '<S86>/FIFO write 2' */
-  /* Level2 S-Function Block: '<S86>/FIFO write 2' (fifowrite) */
+  /* Start for S-Function (fifowrite): '<S80>/FIFO write 2' */
+  /* Level2 S-Function Block: '<S80>/FIFO write 2' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[18];
     sfcnStart(rts);
@@ -1032,8 +1032,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (filterqua): '<S86>/Filter Int Reason3' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason3' (filterqua) */
+  /* Start for S-Function (filterqua): '<S80>/Filter Int Reason3' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason3' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[19];
     sfcnStart(rts);
@@ -1041,8 +1041,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (serreadqua): '<S86>/Read HW FIFO3' */
-  /* Level2 S-Function Block: '<S86>/Read HW FIFO3' (serreadqua) */
+  /* Start for S-Function (serreadqua): '<S80>/Read HW FIFO3' */
+  /* Level2 S-Function Block: '<S80>/Read HW FIFO3' (serreadqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[20];
     sfcnStart(rts);
@@ -1050,8 +1050,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (fifowrite): '<S86>/FIFO write 3' */
-  /* Level2 S-Function Block: '<S86>/FIFO write 3' (fifowrite) */
+  /* Start for S-Function (fifowrite): '<S80>/FIFO write 3' */
+  /* Level2 S-Function Block: '<S80>/FIFO write 3' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[21];
     sfcnStart(rts);
@@ -1059,8 +1059,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (filterqua): '<S86>/Filter Int Reason4' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason4' (filterqua) */
+  /* Start for S-Function (filterqua): '<S80>/Filter Int Reason4' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason4' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[22];
     sfcnStart(rts);
@@ -1068,8 +1068,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (serreadqua): '<S86>/Read HW FIFO4' */
-  /* Level2 S-Function Block: '<S86>/Read HW FIFO4' (serreadqua) */
+  /* Start for S-Function (serreadqua): '<S80>/Read HW FIFO4' */
+  /* Level2 S-Function Block: '<S80>/Read HW FIFO4' (serreadqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[23];
     sfcnStart(rts);
@@ -1077,8 +1077,8 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* Start for S-Function (fifowrite): '<S86>/FIFO write 4' */
-  /* Level2 S-Function Block: '<S86>/FIFO write 4' (fifowrite) */
+  /* Start for S-Function (fifowrite): '<S80>/FIFO write 4' */
+  /* Level2 S-Function Block: '<S80>/FIFO write 4' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[24];
     sfcnStart(rts);
@@ -1086,13 +1086,13 @@ void Control_soft_RS232ISR_Start(void)
       return;
   }
 
-  /* End of Start for SubSystem: '<S85>/While Iterator Subsystem' */
+  /* End of Start for SubSystem: '<S79>/While Iterator Subsystem' */
 }
 
-/* Output and update for function-call system: '<S28>/RS232 ISR' */
+/* Output and update for function-call system: '<S22>/RS232 ISR' */
 void Control_software_v_RS232ISR(void)
 {
-  int32_T s86_iter;
+  int32_T s80_iter;
 
   /* Asynchronous task (with no priority assigned)
    * reads absolute time */
@@ -1124,18 +1124,18 @@ void Control_software_v_RS232ISR(void)
     Control_software_v1_1_M->Timing.clockTickH4 *
     Control_software_v1_1_M->Timing.stepSize4 * 4294967296.0;
 
-  /* Outputs for Iterator SubSystem: '<S85>/While Iterator Subsystem' incorporates:
-   *  WhileIterator: '<S86>/While Iterator'
+  /* Outputs for Iterator SubSystem: '<S79>/While Iterator Subsystem' incorporates:
+   *  WhileIterator: '<S80>/While Iterator'
    */
-  s86_iter = 1;
+  s80_iter = 1;
   do {
-    /* Level2 S-Function Block: '<S86>/Read Int Status1' (iqueryqua) */
+    /* Level2 S-Function Block: '<S80>/Read Int Status1' (iqueryqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[0];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Filter Int Reason5' (filterqua) */
+    /* Level2 S-Function Block: '<S80>/Filter Int Reason5' (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[1];
       sfcnOutputs(rts,4);
@@ -1144,19 +1144,19 @@ void Control_software_v_RS232ISR(void)
     Control_software_v1_1_B.Constant1_p =
       Control_software_v1_1_P.Constant1_Value_be;
 
-    /* Level2 S-Function Block: '<S86>/FIFO read 1' (fiforead) */
+    /* Level2 S-Function Block: '<S80>/FIFO read 1' (fiforead) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[2];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Write HW FIFO1' (serwritequa) */
+    /* Level2 S-Function Block: '<S80>/Write HW FIFO1' (serwritequa) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[3];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Filter Int Reason6' (filterqua) */
+    /* Level2 S-Function Block: '<S80>/Filter Int Reason6' (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[4];
       sfcnOutputs(rts,4);
@@ -1165,19 +1165,19 @@ void Control_software_v_RS232ISR(void)
     Control_software_v1_1_B.Constant2 =
       Control_software_v1_1_P.Constant2_Value_n;
 
-    /* Level2 S-Function Block: '<S86>/FIFO read 2' (fiforead) */
+    /* Level2 S-Function Block: '<S80>/FIFO read 2' (fiforead) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[5];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Write HW FIFO2' (serwritequa) */
+    /* Level2 S-Function Block: '<S80>/Write HW FIFO2' (serwritequa) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[6];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Filter Int Reason7' (filterqua) */
+    /* Level2 S-Function Block: '<S80>/Filter Int Reason7' (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[7];
       sfcnOutputs(rts,4);
@@ -1186,19 +1186,19 @@ void Control_software_v_RS232ISR(void)
     Control_software_v1_1_B.Constant3_o =
       Control_software_v1_1_P.Constant3_Value_d;
 
-    /* Level2 S-Function Block: '<S86>/FIFO read 3' (fiforead) */
+    /* Level2 S-Function Block: '<S80>/FIFO read 3' (fiforead) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[8];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Write HW FIFO3' (serwritequa) */
+    /* Level2 S-Function Block: '<S80>/Write HW FIFO3' (serwritequa) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[9];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Filter Int Reason8' (filterqua) */
+    /* Level2 S-Function Block: '<S80>/Filter Int Reason8' (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[10];
       sfcnOutputs(rts,4);
@@ -1206,13 +1206,13 @@ void Control_software_v_RS232ISR(void)
 
     Control_software_v1_1_B.Constant4 = Control_software_v1_1_P.Constant4_Value;
 
-    /* Level2 S-Function Block: '<S86>/FIFO read 4' (fiforead) */
+    /* Level2 S-Function Block: '<S80>/FIFO read 4' (fiforead) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[11];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Write HW FIFO4' (serwritequa) */
+    /* Level2 S-Function Block: '<S80>/Write HW FIFO4' (serwritequa) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[12];
       sfcnOutputs(rts,4);
@@ -1231,283 +1231,283 @@ void Control_software_v_RS232ISR(void)
       Control_software_v1_1_B.ReadIntStatus1[3] &
       Control_software_v1_1_P.BitwiseLogicalOperator_BitMask;
 
-    /* Level2 S-Function Block: '<S86>/Filter Int Reason1' (filterqua) */
+    /* Level2 S-Function Block: '<S80>/Filter Int Reason1' (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[13];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Read HW FIFO1' (serreadqua) */
+    /* Level2 S-Function Block: '<S80>/Read HW FIFO1' (serreadqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[14];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/FIFO write 1' (fifowrite) */
+    /* Level2 S-Function Block: '<S80>/FIFO write 1' (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[15];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Filter Int Reason2' (filterqua) */
+    /* Level2 S-Function Block: '<S80>/Filter Int Reason2' (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[16];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Read HW FIFO2' (serreadqua) */
+    /* Level2 S-Function Block: '<S80>/Read HW FIFO2' (serreadqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[17];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/FIFO write 2' (fifowrite) */
+    /* Level2 S-Function Block: '<S80>/FIFO write 2' (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[18];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Filter Int Reason3' (filterqua) */
+    /* Level2 S-Function Block: '<S80>/Filter Int Reason3' (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[19];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Read HW FIFO3' (serreadqua) */
+    /* Level2 S-Function Block: '<S80>/Read HW FIFO3' (serreadqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[20];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/FIFO write 3' (fifowrite) */
+    /* Level2 S-Function Block: '<S80>/FIFO write 3' (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[21];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Filter Int Reason4' (filterqua) */
+    /* Level2 S-Function Block: '<S80>/Filter Int Reason4' (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[22];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/Read HW FIFO4' (serreadqua) */
+    /* Level2 S-Function Block: '<S80>/Read HW FIFO4' (serreadqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[23];
       sfcnOutputs(rts,4);
     }
 
-    /* Level2 S-Function Block: '<S86>/FIFO write 4' (fifowrite) */
+    /* Level2 S-Function Block: '<S80>/FIFO write 4' (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[24];
       sfcnOutputs(rts,4);
     }
 
-    Control_software_v1_1_B.RelationalOperator[0] =
+    Control_software_v1_1_B.RelationalOperator_m[0] =
       (Control_software_v1_1_P.Constant9_Value !=
        Control_software_v1_1_B.BitwiseLogicalOperator[0]);
-    Control_software_v1_1_B.RelationalOperator[1] =
+    Control_software_v1_1_B.RelationalOperator_m[1] =
       (Control_software_v1_1_P.Constant9_Value !=
        Control_software_v1_1_B.BitwiseLogicalOperator[1]);
-    Control_software_v1_1_B.RelationalOperator[2] =
+    Control_software_v1_1_B.RelationalOperator_m[2] =
       (Control_software_v1_1_P.Constant9_Value !=
        Control_software_v1_1_B.BitwiseLogicalOperator[2]);
-    Control_software_v1_1_B.RelationalOperator[3] =
+    Control_software_v1_1_B.RelationalOperator_m[3] =
       (Control_software_v1_1_P.Constant9_Value !=
        Control_software_v1_1_B.BitwiseLogicalOperator[3]);
-    Control_software_v1_1_B.LogicalOperator =
-      (Control_software_v1_1_B.RelationalOperator[0] ||
-       Control_software_v1_1_B.RelationalOperator[1] ||
-       Control_software_v1_1_B.RelationalOperator[2] ||
-       Control_software_v1_1_B.RelationalOperator[3]);
-    s86_iter++;
-  } while (Control_software_v1_1_B.LogicalOperator && (s86_iter <= 65));
+    Control_software_v1_1_B.LogicalOperator_c =
+      (Control_software_v1_1_B.RelationalOperator_m[0] ||
+       Control_software_v1_1_B.RelationalOperator_m[1] ||
+       Control_software_v1_1_B.RelationalOperator_m[2] ||
+       Control_software_v1_1_B.RelationalOperator_m[3]);
+    s80_iter++;
+  } while (Control_software_v1_1_B.LogicalOperator_c && (s80_iter <= 65));
 
-  /* End of Outputs for SubSystem: '<S85>/While Iterator Subsystem' */
+  /* End of Outputs for SubSystem: '<S79>/While Iterator Subsystem' */
   Control_software_v1_1_DW.RS232ISR_SubsysRanBC = 4;
 }
 
-/* Termination for function-call system: '<S28>/RS232 ISR' */
+/* Termination for function-call system: '<S22>/RS232 ISR' */
 void Control_softw_RS232ISR_Term(void)
 {
-  /* Terminate for Iterator SubSystem: '<S85>/While Iterator Subsystem' */
+  /* Terminate for Iterator SubSystem: '<S79>/While Iterator Subsystem' */
 
-  /* Terminate for S-Function (iqueryqua): '<S86>/Read Int Status1' */
-  /* Level2 S-Function Block: '<S86>/Read Int Status1' (iqueryqua) */
+  /* Terminate for S-Function (iqueryqua): '<S80>/Read Int Status1' */
+  /* Level2 S-Function Block: '<S80>/Read Int Status1' (iqueryqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[0];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (filterqua): '<S86>/Filter Int Reason5' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason5' (filterqua) */
+  /* Terminate for S-Function (filterqua): '<S80>/Filter Int Reason5' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason5' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[1];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fiforead): '<S86>/FIFO read 1' */
-  /* Level2 S-Function Block: '<S86>/FIFO read 1' (fiforead) */
+  /* Terminate for S-Function (fiforead): '<S80>/FIFO read 1' */
+  /* Level2 S-Function Block: '<S80>/FIFO read 1' (fiforead) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[2];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (serwritequa): '<S86>/Write HW FIFO1' */
-  /* Level2 S-Function Block: '<S86>/Write HW FIFO1' (serwritequa) */
+  /* Terminate for S-Function (serwritequa): '<S80>/Write HW FIFO1' */
+  /* Level2 S-Function Block: '<S80>/Write HW FIFO1' (serwritequa) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[3];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (filterqua): '<S86>/Filter Int Reason6' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason6' (filterqua) */
+  /* Terminate for S-Function (filterqua): '<S80>/Filter Int Reason6' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason6' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[4];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fiforead): '<S86>/FIFO read 2' */
-  /* Level2 S-Function Block: '<S86>/FIFO read 2' (fiforead) */
+  /* Terminate for S-Function (fiforead): '<S80>/FIFO read 2' */
+  /* Level2 S-Function Block: '<S80>/FIFO read 2' (fiforead) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[5];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (serwritequa): '<S86>/Write HW FIFO2' */
-  /* Level2 S-Function Block: '<S86>/Write HW FIFO2' (serwritequa) */
+  /* Terminate for S-Function (serwritequa): '<S80>/Write HW FIFO2' */
+  /* Level2 S-Function Block: '<S80>/Write HW FIFO2' (serwritequa) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[6];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (filterqua): '<S86>/Filter Int Reason7' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason7' (filterqua) */
+  /* Terminate for S-Function (filterqua): '<S80>/Filter Int Reason7' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason7' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[7];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fiforead): '<S86>/FIFO read 3' */
-  /* Level2 S-Function Block: '<S86>/FIFO read 3' (fiforead) */
+  /* Terminate for S-Function (fiforead): '<S80>/FIFO read 3' */
+  /* Level2 S-Function Block: '<S80>/FIFO read 3' (fiforead) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[8];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (serwritequa): '<S86>/Write HW FIFO3' */
-  /* Level2 S-Function Block: '<S86>/Write HW FIFO3' (serwritequa) */
+  /* Terminate for S-Function (serwritequa): '<S80>/Write HW FIFO3' */
+  /* Level2 S-Function Block: '<S80>/Write HW FIFO3' (serwritequa) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[9];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (filterqua): '<S86>/Filter Int Reason8' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason8' (filterqua) */
+  /* Terminate for S-Function (filterqua): '<S80>/Filter Int Reason8' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason8' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[10];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fiforead): '<S86>/FIFO read 4' */
-  /* Level2 S-Function Block: '<S86>/FIFO read 4' (fiforead) */
+  /* Terminate for S-Function (fiforead): '<S80>/FIFO read 4' */
+  /* Level2 S-Function Block: '<S80>/FIFO read 4' (fiforead) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[11];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (serwritequa): '<S86>/Write HW FIFO4' */
-  /* Level2 S-Function Block: '<S86>/Write HW FIFO4' (serwritequa) */
+  /* Terminate for S-Function (serwritequa): '<S80>/Write HW FIFO4' */
+  /* Level2 S-Function Block: '<S80>/Write HW FIFO4' (serwritequa) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[12];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (filterqua): '<S86>/Filter Int Reason1' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason1' (filterqua) */
+  /* Terminate for S-Function (filterqua): '<S80>/Filter Int Reason1' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason1' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[13];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (serreadqua): '<S86>/Read HW FIFO1' */
-  /* Level2 S-Function Block: '<S86>/Read HW FIFO1' (serreadqua) */
+  /* Terminate for S-Function (serreadqua): '<S80>/Read HW FIFO1' */
+  /* Level2 S-Function Block: '<S80>/Read HW FIFO1' (serreadqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[14];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fifowrite): '<S86>/FIFO write 1' */
-  /* Level2 S-Function Block: '<S86>/FIFO write 1' (fifowrite) */
+  /* Terminate for S-Function (fifowrite): '<S80>/FIFO write 1' */
+  /* Level2 S-Function Block: '<S80>/FIFO write 1' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[15];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (filterqua): '<S86>/Filter Int Reason2' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason2' (filterqua) */
+  /* Terminate for S-Function (filterqua): '<S80>/Filter Int Reason2' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason2' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[16];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (serreadqua): '<S86>/Read HW FIFO2' */
-  /* Level2 S-Function Block: '<S86>/Read HW FIFO2' (serreadqua) */
+  /* Terminate for S-Function (serreadqua): '<S80>/Read HW FIFO2' */
+  /* Level2 S-Function Block: '<S80>/Read HW FIFO2' (serreadqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[17];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fifowrite): '<S86>/FIFO write 2' */
-  /* Level2 S-Function Block: '<S86>/FIFO write 2' (fifowrite) */
+  /* Terminate for S-Function (fifowrite): '<S80>/FIFO write 2' */
+  /* Level2 S-Function Block: '<S80>/FIFO write 2' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[18];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (filterqua): '<S86>/Filter Int Reason3' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason3' (filterqua) */
+  /* Terminate for S-Function (filterqua): '<S80>/Filter Int Reason3' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason3' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[19];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (serreadqua): '<S86>/Read HW FIFO3' */
-  /* Level2 S-Function Block: '<S86>/Read HW FIFO3' (serreadqua) */
+  /* Terminate for S-Function (serreadqua): '<S80>/Read HW FIFO3' */
+  /* Level2 S-Function Block: '<S80>/Read HW FIFO3' (serreadqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[20];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fifowrite): '<S86>/FIFO write 3' */
-  /* Level2 S-Function Block: '<S86>/FIFO write 3' (fifowrite) */
+  /* Terminate for S-Function (fifowrite): '<S80>/FIFO write 3' */
+  /* Level2 S-Function Block: '<S80>/FIFO write 3' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[21];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (filterqua): '<S86>/Filter Int Reason4' */
-  /* Level2 S-Function Block: '<S86>/Filter Int Reason4' (filterqua) */
+  /* Terminate for S-Function (filterqua): '<S80>/Filter Int Reason4' */
+  /* Level2 S-Function Block: '<S80>/Filter Int Reason4' (filterqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[22];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (serreadqua): '<S86>/Read HW FIFO4' */
-  /* Level2 S-Function Block: '<S86>/Read HW FIFO4' (serreadqua) */
+  /* Terminate for S-Function (serreadqua): '<S80>/Read HW FIFO4' */
+  /* Level2 S-Function Block: '<S80>/Read HW FIFO4' (serreadqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[23];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fifowrite): '<S86>/FIFO write 4' */
-  /* Level2 S-Function Block: '<S86>/FIFO write 4' (fifowrite) */
+  /* Terminate for S-Function (fifowrite): '<S80>/FIFO write 4' */
+  /* Level2 S-Function Block: '<S80>/FIFO write 4' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[24];
     sfcnTerminate(rts);
   }
 
-  /* End of Terminate for SubSystem: '<S85>/While Iterator Subsystem' */
+  /* End of Terminate for SubSystem: '<S79>/While Iterator Subsystem' */
 }
 
 /* Function for MATLAB Function: '<S2>/MATLAB Function' */
@@ -1533,38 +1533,38 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
   real_T WinchSpd_int;
   real_T u1;
 
-  /* '<S8>:1:397' */
+  /* '<S9>:1:399' */
   *WinchSpdRef_Pot = HLC_WinchSpdRef_m1;
 
-  /* '<S8>:1:398' */
+  /* '<S9>:1:400' */
   *ReelTimer_Pot = 0.0;
 
-  /* '<S8>:1:399' */
+  /* '<S9>:1:401' */
   WinchSpdRefDeriv = 0.0;
 
-  /* '<S8>:1:400' */
+  /* '<S9>:1:402' */
   WinchSpdRefDeriv_m1 = 0.0;
   if (CI_PotSpd > PotPosSpdMin) {
-    /* '<S8>:1:402' */
-    /* '<S8>:1:403' */
+    /* '<S9>:1:404' */
+    /* '<S9>:1:405' */
     WinchSpdRefDeriv = CI_PotSpd * DerivGain;
   }
 
   if (CI_PotSpd_m1 > PotPosSpdMin) {
-    /* '<S8>:1:406' */
-    /* '<S8>:1:407' */
+    /* '<S9>:1:408' */
+    /* '<S9>:1:409' */
     WinchSpdRefDeriv_m1 = CI_PotSpd_m1 * DerivGain;
   }
 
   if (HLC_State != 9.0) {
-    /* '<S8>:1:410' */
+    /* '<S9>:1:412' */
     /*  Not-approaching phase */
     if (PotZoneFlight == 1.0) {
-      /* '<S8>:1:411' */
+      /* '<S9>:1:413' */
       /*  Keep speed */
       if (PotZoneFlight_m1 != 1.0) {
-        /* '<S8>:1:412' */
-        /* '<S8>:1:413' */
+        /* '<S9>:1:414' */
+        /* '<S9>:1:415' */
         *WinchSpdRef_Pot = 1.1 * WinchMotSpdEst + WinchSpdRefDeriv;
         if ((0.0 > *WinchSpdRef_Pot) || rtIsNaN(*WinchSpdRef_Pot)) {
           *WinchSpdRef_Pot = 0.0;
@@ -1575,8 +1575,8 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
           *WinchSpdRef_Pot = WinchSpdMaxFlight;
         }
       } else {
-        /* '<S8>:1:414' */
-        /* '<S8>:1:415' */
+        /* '<S9>:1:416' */
+        /* '<S9>:1:417' */
         u1 = WinchSpdRefDeriv - WinchSpdRefDeriv_m1;
         if ((0.0 > u1) || rtIsNaN(u1)) {
           u1 = 0.0;
@@ -1589,18 +1589,18 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
         }
       }
     } else if (PotZoneFlight == 2.0) {
-      /* '<S8>:1:418' */
+      /* '<S9>:1:420' */
       /*  Reel-out */
-      /* '<S8>:1:419' */
+      /* '<S9>:1:421' */
       PotPos_norm = (CI_PotPos - PotPosKeepMaxFlight) / (PotPivot2Flight -
         PotPosKeepMaxFlight);
       if ((0.0 > PotPos_norm) || rtIsNaN(PotPos_norm)) {
         PotPos_norm = 0.0;
       }
 
-      /* '<S8>:1:420' */
-      /* '<S8>:1:421' */
-      /* '<S8>:1:422' */
+      /* '<S9>:1:422' */
+      /* '<S9>:1:423' */
+      /* '<S9>:1:424' */
       u1 = PotPos_norm * PotPos_norm * WinchSpdNormFlightOut;
       if ((WinchSpdMaxFlight < u1) || rtIsNaN(u1)) {
         u1 = WinchSpdMaxFlight;
@@ -1629,12 +1629,12 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
       /*          WinchSpdRef     =   WinchSpd_int; */
     } else {
       if (PotZoneFlight == 0.0) {
-        /* '<S8>:1:425' */
+        /* '<S9>:1:427' */
         /*  Reel-in */
-        /* '<S8>:1:426' */
+        /* '<S9>:1:428' */
         *ReelTimer_Pot = ReelTimer_m1 + Ts;
 
-        /* '<S8>:1:427' */
+        /* '<S9>:1:429' */
         PotPos_norm = (CI_PotPos - PotPosKeepMinFlight) / (PotPivot0Flight -
           PotPosKeepMinFlight);
         if ((0.0 > PotPos_norm) || rtIsNaN(PotPos_norm)) {
@@ -1642,7 +1642,7 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
         }
 
         /*          WinchSpd_prop   =   max(WinchSpdMinFlight,WinchSpdNormFlightIn*PotPos_norm^2); */
-        /* '<S8>:1:429' */
+        /* '<S9>:1:431' */
         WinchSpd_int = WinchSpeedSlopeReelInFlight * Ts * PotPos_norm +
           HLC_WinchSpdRef_m1;
         if ((WinchSpdMinFlight > WinchSpd_int) || rtIsNaN(WinchSpd_int)) {
@@ -1650,8 +1650,8 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
         }
 
         if (*ReelTimer_Pot >= ReelTimer_wait) {
-          /* '<S8>:1:430' */
-          /* '<S8>:1:431' */
+          /* '<S9>:1:432' */
+          /* '<S9>:1:433' */
           WinchSpd_int = c_WinchSpeedSlopeReelInFlight_w * Ts * PotPos_norm +
             HLC_WinchSpdRef_m1;
           if ((WinchSpdMinFlight_wait > WinchSpd_int) || rtIsNaN(WinchSpd_int))
@@ -1664,7 +1664,7 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
         /*          WinchSpd_int    =   max(0,HLC_WinchSpdRef_m1+WinchSpeedSlopeReelInFlight*Ts*PotPos_norm*1.5); */
         /*      end         */
         /*          WinchSpdRef     =   min(0,min(WinchSpd_prop,WinchSpd_int)); */
-        /* '<S8>:1:437' */
+        /* '<S9>:1:439' */
         u1 = WinchSpdRefDeriv - WinchSpdRefDeriv_m1;
         if ((0.0 > u1) || rtIsNaN(u1)) {
           u1 = 0.0;
@@ -1678,14 +1678,14 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
       }
     }
   } else {
-    /* '<S8>:1:440' */
+    /* '<S9>:1:442' */
     /*  Approaching phase */
     if (PotZoneLanding == 1.0) {
-      /* '<S8>:1:441' */
+      /* '<S9>:1:443' */
       /*  Keep speed */
       if (PotZoneLanding_m1 != 1.0) {
-        /* '<S8>:1:442' */
-        /* '<S8>:1:443' */
+        /* '<S9>:1:444' */
+        /* '<S9>:1:445' */
         if ((0.0 < WinchMotSpdEst) || rtIsNaN(WinchMotSpdEst)) {
           *WinchSpdRef_Pot = 0.0;
         } else {
@@ -1693,13 +1693,13 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
         }
       }
     } else if (PotZoneLanding == 2.0) {
-      /* '<S8>:1:448' */
+      /* '<S9>:1:450' */
       /*  Reel-out */
-      /* '<S8>:1:449' */
+      /* '<S9>:1:451' */
       /*          WinchSpd_prop   =   min(WinchSpdMaxLanding,WinchSpdNormLandingOut*PotPos_norm^2); */
-      /* '<S8>:1:451' */
+      /* '<S9>:1:453' */
       /*          WinchSpdRef     =   min(WinchSpdSup,max(WinchSpd_prop,WinchSpd_int)); */
-      /* '<S8>:1:453' */
+      /* '<S9>:1:455' */
       u1 = (CI_PotPos - PotPosKeepMaxLanding) / (PotPivot2Landing -
         PotPosKeepMaxLanding);
       if ((0.0 > u1) || rtIsNaN(u1)) {
@@ -1714,13 +1714,13 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
       }
     } else {
       if (PotZoneLanding == 0.0) {
-        /* '<S8>:1:455' */
+        /* '<S9>:1:457' */
         /*  Reel-in */
-        /* '<S8>:1:456' */
+        /* '<S9>:1:458' */
         /*          WinchSpd_prop   =   max(WinchSpdMinLanding,WinchSpdNormLandingIn*PotPos_norm^2); */
-        /* '<S8>:1:458' */
+        /* '<S9>:1:460' */
         /*          WinchSpdRef     =   min(0,min(WinchSpd_prop,WinchSpd_int)); */
-        /* '<S8>:1:460' */
+        /* '<S9>:1:462' */
         u1 = (CI_PotPos - PotPosKeepMinLanding) / (PotPivot0Landing -
           PotPosKeepMinLanding);
         if ((0.0 > u1) || rtIsNaN(u1)) {
@@ -1742,8 +1742,8 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
   }
 
   if (HLC_State == 7.0) {
-    /* '<S8>:1:464' */
-    /* '<S8>:1:465' */
+    /* '<S9>:1:466' */
+    /* '<S9>:1:467' */
     WinchSpdRefDeriv = -WinchSpeedTakeOffMult * SlMotSpeedEst;
     if ((WinchSpdRefDeriv > *WinchSpdRef_Pot) || rtIsNaN(*WinchSpdRef_Pot)) {
       *WinchSpdRef_Pot = WinchSpdRefDeriv;
@@ -1751,8 +1751,8 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
 
     /*  Latch drum speed to slide speed */
     if (Timer <= TakeOffLatchTime) {
-      /* '<S8>:1:466' */
-      /* '<S8>:1:467' */
+      /* '<S9>:1:468' */
+      /* '<S9>:1:469' */
       if ((HLC_WinchSpdRef_m1 > *WinchSpdRef_Pot) || rtIsNaN(*WinchSpdRef_Pot))
       {
         *WinchSpdRef_Pot = HLC_WinchSpdRef_m1;
@@ -1763,7 +1763,7 @@ static void Control_software_v1_PotWinchRef(real_T CI_PotPos, real_T CI_PotSpd,
   }
 }
 
-/* Function for MATLAB Function: '<S31>/Embedded MATLAB Function' */
+/* Function for MATLAB Function: '<S25>/Embedded MATLAB Function' */
 static void Control_software_convert1word_p(uint8_T in, real_T vec[8])
 {
   uint8_T ind;
@@ -1771,21 +1771,21 @@ static void Control_software_convert1word_p(uint8_T in, real_T vec[8])
   int32_T q0;
   uint32_T qY;
 
-  /* '<S34>:1:48' */
+  /* '<S28>:1:48' */
   memset(&vec[0], 0, sizeof(real_T) << 3U);
 
-  /* '<S34>:1:49' */
+  /* '<S28>:1:49' */
   ind = 7U;
   while (in > 0) {
-    /* '<S34>:1:51' */
-    /* '<S34>:1:52' */
+    /* '<S28>:1:51' */
+    /* '<S28>:1:52' */
     a = (uint8_T)(1 << ind);
     if (in >= a) {
-      /* '<S34>:1:53' */
-      /* '<S34>:1:54' */
+      /* '<S28>:1:53' */
+      /* '<S28>:1:54' */
       vec[7 - ind] = 1.0;
 
-      /* '<S34>:1:55' */
+      /* '<S28>:1:55' */
       q0 = in;
       qY = (uint32_T)q0 - a;
       if (qY > (uint32_T)q0) {
@@ -1795,11 +1795,11 @@ static void Control_software_convert1word_p(uint8_T in, real_T vec[8])
       q0 = (int32_T)qY;
       in = (uint8_T)q0;
     } else {
-      /* '<S34>:1:57' */
+      /* '<S28>:1:57' */
       vec[7 - ind] = 0.0;
     }
 
-    /* '<S34>:1:59' */
+    /* '<S28>:1:59' */
     q0 = ind;
     qY = q0 - 1U;
     if (qY > (uint32_T)q0) {
@@ -1829,45 +1829,45 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     rate_monotonic_scheduler();
   }
 
-  /* S-Function (scblock): '<S88>/S-Function' */
-  /* ok to acquire for <S88>/S-Function */
+  /* S-Function (scblock): '<S82>/S-Function' */
+  /* ok to acquire for <S82>/S-Function */
   Control_software_v1_1_DW.SFunction_IWORK_h.AcquireOK = 1;
 
-  /* S-Function (adnipcim): '<S22>/PCI-6221 AD' */
+  /* S-Function (adnipcim): '<S16>/PCI-6221 AD' */
 
-  /* Level2 S-Function Block: '<S22>/PCI-6221 AD' (adnipcim) */
+  /* Level2 S-Function Block: '<S16>/PCI-6221 AD' (adnipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[25];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dinipcim): '<S23>/PCI-6221 DI' */
+  /* S-Function (dinipcim): '<S17>/PCI-6221 DI' */
 
-  /* Level2 S-Function Block: '<S23>/PCI-6221 DI' (dinipcim) */
+  /* Level2 S-Function Block: '<S17>/PCI-6221 DI' (dinipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[26];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (pfidinipcim): '<S23>/PCI 6221 PFI DI ' */
+  /* S-Function (pfidinipcim): '<S17>/PCI 6221 PFI DI ' */
 
-  /* Level2 S-Function Block: '<S23>/PCI 6221 PFI DI ' (pfidinipcim) */
+  /* Level2 S-Function Block: '<S17>/PCI 6221 PFI DI ' (pfidinipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[27];
     sfcnOutputs(rts,0);
   }
 
-  /* Sum: '<S9>/Sum' incorporates:
-   *  Constant: '<S9>/Constant'
+  /* Sum: '<S10>/Sum' incorporates:
+   *  Constant: '<S10>/Constant'
    */
-  Control_software_v1_1_B.Sum_a = Control_software_v1_1_P.JoyS_ofst +
+  Control_software_v1_1_B.Sum_n = Control_software_v1_1_P.JoyS_ofst +
     Control_software_v1_1_B.AI_Joy_S;
 
-  /* Gain: '<S9>/Gain' */
+  /* Gain: '<S10>/Gain' */
   Control_software_v1_1_B.Gain = Control_software_v1_1_P.JoyS_gain *
-    Control_software_v1_1_B.Sum_a;
+    Control_software_v1_1_B.Sum_n;
 
-  /* DiscreteTransferFcn: '<S9>/Discrete Transfer Fcn' */
+  /* DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn' */
   y = Control_software_v1_1_B.Gain;
   y -= Control_software_v1_1_P.JoyFiltDen[1] *
     Control_software_v1_1_DW.DiscreteTransferFcn_states[0];
@@ -1883,7 +1883,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_DW.DiscreteTransferFcn_states[1];
   Control_software_v1_1_B.DiscreteTransferFcn = y;
 
-  /* Saturate: '<S9>/Saturation' */
+  /* Saturate: '<S10>/Saturation' */
   y = -Control_software_v1_1_P.JoyS_sat;
   u0 = Control_software_v1_1_B.DiscreteTransferFcn;
   u2 = Control_software_v1_1_P.JoyS_sat;
@@ -1895,22 +1895,19 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_B.CI_JoyS = u0;
   }
 
-  /* End of Saturate: '<S9>/Saturation' */
+  /* End of Saturate: '<S10>/Saturation' */
 
-  /* Delay: '<S9>/Delay' */
-  Control_software_v1_1_B.Delay = Control_software_v1_1_DW.Delay_DSTATE;
-
-  /* Sum: '<S9>/Sum1' incorporates:
-   *  Constant: '<S9>/Constant1'
+  /* Sum: '<S10>/Sum1' incorporates:
+   *  Constant: '<S10>/Constant1'
    */
   Control_software_v1_1_B.Sum1 = Control_software_v1_1_B.AI_Joy_W +
     Control_software_v1_1_P.JoyW_ofst;
 
-  /* Gain: '<S9>/Gain1' */
+  /* Gain: '<S10>/Gain1' */
   Control_software_v1_1_B.Gain1 = Control_software_v1_1_P.JoyW_gain *
     Control_software_v1_1_B.Sum1;
 
-  /* DiscreteTransferFcn: '<S9>/Discrete Transfer Fcn1' */
+  /* DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn1' */
   y = Control_software_v1_1_B.Gain1;
   y -= Control_software_v1_1_P.JoyFiltDen[1] *
     Control_software_v1_1_DW.DiscreteTransferFcn1_states[0];
@@ -1926,144 +1923,21 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_DW.DiscreteTransferFcn1_states[1];
   Control_software_v1_1_B.DiscreteTransferFcn1 = y;
 
-  /* Saturate: '<S9>/Saturation1' */
+  /* Saturate: '<S10>/Saturation1' */
   u0 = Control_software_v1_1_B.DiscreteTransferFcn1;
   y = Control_software_v1_1_P.Saturation1_LowerSat;
   u2 = Control_software_v1_1_P.Saturation1_UpperSat;
   if (u0 > u2) {
-    Control_software_v1_1_B.Saturation1 = u2;
+    Control_software_v1_1_B.CI_JoyW = u2;
   } else if (u0 < y) {
-    Control_software_v1_1_B.Saturation1 = y;
+    Control_software_v1_1_B.CI_JoyW = y;
   } else {
-    Control_software_v1_1_B.Saturation1 = u0;
+    Control_software_v1_1_B.CI_JoyW = u0;
   }
 
-  /* End of Saturate: '<S9>/Saturation1' */
+  /* End of Saturate: '<S10>/Saturation1' */
 
-  /* Switch: '<S9>/Switch1' incorporates:
-   *  Switch: '<S9>/Switch'
-   */
-  if (Control_software_v1_1_B.DI_Enable >
-      Control_software_v1_1_P.Switch1_Threshold) {
-    /* RelationalOperator: '<S12>/Relational Operator1' incorporates:
-     *  Constant: '<S12>/untere Kraftsensor Grenze'
-     */
-    Control_software_v1_1_B.RelationalOperator1 =
-      (Control_software_v1_1_B.Saturation1 <
-       Control_software_v1_1_P.untereKraftsensorGrenze_Value);
-
-    /* Switch: '<S12>/Switch1' */
-    if (Control_software_v1_1_B.RelationalOperator1) {
-      /* Gain: '<S12>/Gain' incorporates:
-       *  Constant: '<S12>/Beschleunigung'
-       */
-      Control_software_v1_1_B.Gain_n = Control_software_v1_1_P.Gain_Gain *
-        Control_software_v1_1_P.Beschleunigung_Value_i;
-
-      /* Sum: '<S12>/Sum1' */
-      Control_software_v1_1_B.Sum1_p = Control_software_v1_1_B.Gain_n +
-        Control_software_v1_1_B.Delay;
-      Control_software_v1_1_B.Switch1_m = Control_software_v1_1_B.Sum1_p;
-    } else {
-      /* RelationalOperator: '<S12>/Relational Operator' incorporates:
-       *  Constant: '<S12>/obere Kraftsensor Grenze'
-       */
-      Control_software_v1_1_B.RelationalOperator_i =
-        (Control_software_v1_1_B.Saturation1 >=
-         Control_software_v1_1_P.obereKraftsensorGrenze_Value);
-
-      /* Switch: '<S12>/Switch' */
-      if (Control_software_v1_1_B.RelationalOperator_i) {
-        /* Sum: '<S12>/Sum' incorporates:
-         *  Constant: '<S12>/Beschleunigung'
-         */
-        Control_software_v1_1_B.Sum_o =
-          Control_software_v1_1_P.Beschleunigung_Value_i +
-          Control_software_v1_1_B.Delay;
-        Control_software_v1_1_B.Switch_m = Control_software_v1_1_B.Sum_o;
-      } else {
-        Control_software_v1_1_B.Switch_m = Control_software_v1_1_B.Delay;
-      }
-
-      /* End of Switch: '<S12>/Switch' */
-      Control_software_v1_1_B.Switch1_m = Control_software_v1_1_B.Switch_m;
-    }
-
-    /* End of Switch: '<S12>/Switch1' */
-    Control_software_v1_1_B.Switch1 = Control_software_v1_1_B.Switch1_m;
-  } else {
-    if (Control_software_v1_1_B.DI_WinchMode >
-        Control_software_v1_1_P.Switch_Threshold) {
-      /* Switch: '<S9>/Switch' incorporates:
-       *  Constant: '<S9>/Constant3'
-       */
-      Control_software_v1_1_B.Switch_i = Control_software_v1_1_P.Constant3_Value;
-    } else {
-      /* Switch: '<S9>/Switch' incorporates:
-       *  Constant: '<S9>/Constant2'
-       */
-      Control_software_v1_1_B.Switch_i = Control_software_v1_1_P.Constant2_Value;
-    }
-
-    Control_software_v1_1_B.Switch1 = Control_software_v1_1_B.Switch_i;
-  }
-
-  /* End of Switch: '<S9>/Switch1' */
-
-  /* Delay: '<S16>/Delay' */
-  Control_software_v1_1_B.Delay_b = Control_software_v1_1_DW.Delay_DSTATE_f;
-
-  /* Sum: '<S16>/Sum' */
-  Control_software_v1_1_B.Sum_n = Control_software_v1_1_B.Switch1 -
-    Control_software_v1_1_B.Delay_b;
-
-  /* RelationalOperator: '<S18>/Compare' incorporates:
-   *  Constant: '<S18>/Constant'
-   */
-  Control_software_v1_1_B.Compare = (Control_software_v1_1_B.Sum_n <
-    Control_software_v1_1_P.Constant_Value_f);
-
-  /* Switch: '<S16>/Switch1' */
-  if (Control_software_v1_1_B.Compare) {
-    /* Gain: '<S16>/Gain' incorporates:
-     *  Constant: '<S16>/Beschleunigung'
-     */
-    Control_software_v1_1_B.Gain_ms = Control_software_v1_1_P.Gain_Gain_l *
-      Control_software_v1_1_P.Beschleunigung_Value;
-    Control_software_v1_1_B.Switch1_d = Control_software_v1_1_B.Gain_ms;
-  } else {
-    /* RelationalOperator: '<S17>/Compare' incorporates:
-     *  Constant: '<S17>/Constant'
-     */
-    Control_software_v1_1_B.Compare_e = (Control_software_v1_1_B.Sum_n >
-      Control_software_v1_1_P.Constant_Value_n);
-
-    /* Switch: '<S16>/Switch' incorporates:
-     *  Constant: '<S16>/Beschleunigung'
-     *  Constant: '<S16>/Constant1'
-     */
-    if (Control_software_v1_1_B.Compare_e) {
-      Control_software_v1_1_B.Switch_kv =
-        Control_software_v1_1_P.Beschleunigung_Value;
-    } else {
-      Control_software_v1_1_B.Switch_kv =
-        Control_software_v1_1_P.Constant1_Value_l;
-    }
-
-    /* End of Switch: '<S16>/Switch' */
-    Control_software_v1_1_B.Switch1_d = Control_software_v1_1_B.Switch_kv;
-  }
-
-  /* End of Switch: '<S16>/Switch1' */
-
-  /* Delay: '<S16>/Delay1' */
-  Control_software_v1_1_B.Delay1 = Control_software_v1_1_DW.Delay1_DSTATE;
-
-  /* Sum: '<S16>/Sum1' */
-  Control_software_v1_1_B.Sum1_o = Control_software_v1_1_B.Switch1_d +
-    Control_software_v1_1_B.Delay1;
-
-  /* DiscreteStateSpace: '<S20>/Discrete State-Space' */
+  /* DiscreteStateSpace: '<S14>/Discrete State-Space' */
   Control_software_v1_1_B.DiscreteStateSpace[0] = 0.0;
   Control_software_v1_1_B.DiscreteStateSpace[0] +=
     Control_software_v1_1_P.Cfilt_Sl[0] *
@@ -2079,13 +1953,13 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_P.Cfilt_Sl[3] *
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE[1];
 
-  /* Gain: '<S20>/Gain2' */
+  /* Gain: '<S14>/Gain2' */
   TravelRefMinus = Control_software_v1_1_P.SlMotPosAIgain;
   y = 1.0 / TravelRefMinus;
   Control_software_v1_1_B.SlMotPosEst = y *
     Control_software_v1_1_B.DiscreteStateSpace[0];
 
-  /* DiscreteTransferFcn: '<S20>/Discrete Transfer Fcn1' */
+  /* DiscreteTransferFcn: '<S14>/Discrete Transfer Fcn1' */
   y = Control_software_v1_1_B.DiscreteStateSpace[1];
   y -= Control_software_v1_1_P.SlideSpdEstFiltDen[1] *
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_g[0];
@@ -2101,7 +1975,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_g[1];
   Control_software_v1_1_B.SlMotSpeedEst = y;
 
-  /* DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn2' */
+  /* DiscreteTransferFcn: '<S11>/Discrete Transfer Fcn2' */
   y = Control_software_v1_1_B.AI_mot_slide_pos;
   y -= Control_software_v1_1_P.SlidePosFiltDen[1] *
     Control_software_v1_1_DW.DiscreteTransferFcn2_states[0];
@@ -2117,25 +1991,25 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_DW.DiscreteTransferFcn2_states[1];
   Control_software_v1_1_B.CI_SlidePos = y;
 
-  /* Sum: '<S19>/Sum' incorporates:
-   *  Constant: '<S19>/Constant'
+  /* Sum: '<S13>/Sum' incorporates:
+   *  Constant: '<S13>/Constant'
    */
   Control_software_v1_1_B.Sum_p = Control_software_v1_1_P.WinchVoltMax +
     Control_software_v1_1_B.AI_mot_winch_pos;
 
-  /* Gain: '<S19>/Gain' */
+  /* Gain: '<S13>/Gain' */
   Control_software_v1_1_B.Gain_m = Control_software_v1_1_P.WinchMotPosAIgain *
     Control_software_v1_1_B.Sum_p;
 
-  /* Sum: '<S19>/Sum1' incorporates:
-   *  Constant: '<S19>/Constant1'
+  /* Sum: '<S13>/Sum1' incorporates:
+   *  Constant: '<S13>/Constant1'
    */
   y = Control_software_v1_1_P.WinchTravelMin_m;
   TravelRefMinus = Control_software_v1_1_P.WinchDrumRad;
   y /= TravelRefMinus;
   Control_software_v1_1_B.Sum1_n = y + Control_software_v1_1_B.Gain_m;
 
-  /* DiscreteTransferFcn: '<S19>/Discrete Transfer Fcn1' */
+  /* DiscreteTransferFcn: '<S13>/Discrete Transfer Fcn1' */
   y = Control_software_v1_1_B.Sum1_n;
   y -= Control_software_v1_1_P.WinchPosFiltDen[1] *
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_h[0];
@@ -2151,7 +2025,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_h[1];
   Control_software_v1_1_B.CI_WinchPos = y;
 
-  /* DiscreteStateSpace: '<S21>/Discrete State-Space' */
+  /* DiscreteStateSpace: '<S15>/Discrete State-Space' */
   Control_software_v1_1_B.DiscreteStateSpace_g[0] = 0.0;
   Control_software_v1_1_B.DiscreteStateSpace_g[0] +=
     Control_software_v1_1_P.Cfilt_Winch[0] *
@@ -2167,7 +2041,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_P.Cfilt_Winch[3] *
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE_n[1];
 
-  /* DiscreteTransferFcn: '<S21>/Discrete Transfer Fcn' */
+  /* DiscreteTransferFcn: '<S15>/Discrete Transfer Fcn' */
   k = 1;
   y = Control_software_v1_1_B.DiscreteStateSpace_g[1];
   y -= Control_software_v1_1_P.WinchSpdEstFiltDen[1] *
@@ -2184,17 +2058,17 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_DW.DiscreteTransferFcn_states_n[1];
   Control_software_v1_1_B.WinchMotSpeedEst = y;
 
-  /* Gain: '<S11>/Gain' */
+  /* Gain: '<S12>/Gain' */
   Control_software_v1_1_B.Gain_f = Control_software_v1_1_P.Pot_gain *
     Control_software_v1_1_B.AI_pot_pos;
 
-  /* Sum: '<S11>/Sum' incorporates:
-   *  Constant: '<S11>/Constant'
+  /* Sum: '<S12>/Sum' incorporates:
+   *  Constant: '<S12>/Constant'
    */
   Control_software_v1_1_B.Sum_b = Control_software_v1_1_P.Pot_ofst +
     Control_software_v1_1_B.Gain_f;
 
-  /* DiscreteTransferFcn: '<S11>/Discrete Transfer Fcn1' */
+  /* DiscreteTransferFcn: '<S12>/Discrete Transfer Fcn1' */
   y = Control_software_v1_1_B.Sum_b;
   y -= Control_software_v1_1_P.PotPosFiltDen[1] *
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_n[0];
@@ -2210,7 +2084,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_n[1];
   Control_software_v1_1_B.DiscreteTransferFcn1_c = y;
 
-  /* Saturate: '<S11>/Saturation' */
+  /* Saturate: '<S12>/Saturation' */
   u0 = Control_software_v1_1_B.DiscreteTransferFcn1_c;
   y = Control_software_v1_1_P.Pot_min;
   u2 = Control_software_v1_1_P.Pot_max;
@@ -2222,16 +2096,16 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_B.CI_PotPos = u0;
   }
 
-  /* End of Saturate: '<S11>/Saturation' */
+  /* End of Saturate: '<S12>/Saturation' */
 
-  /* Delay: '<S11>/Delay' */
-  Control_software_v1_1_B.Delay_e = Control_software_v1_1_DW.Delay_DSTATE_b[0];
+  /* Delay: '<S12>/Delay' */
+  Control_software_v1_1_B.Delay = Control_software_v1_1_DW.Delay_DSTATE[0];
 
-  /* Sum: '<S11>/Sum1' */
+  /* Sum: '<S12>/Sum1' */
   Control_software_v1_1_B.Sum1_b = Control_software_v1_1_B.CI_PotPos -
-    Control_software_v1_1_B.Delay_e;
+    Control_software_v1_1_B.Delay;
 
-  /* Gain: '<S11>/Gain1' */
+  /* Gain: '<S12>/Gain1' */
   TravelRefMinus = Control_software_v1_1_P.NPotSpdEst *
     Control_software_v1_1_P.Ts_1ms;
   y = 1.0 / TravelRefMinus;
@@ -2273,46 +2147,46 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
   Control_software_v1_1_B.UnitDelay8 =
     Control_software_v1_1_DW.UnitDelay8_DSTATE;
 
-  /* SignalConversion: '<S8>/TmpSignal ConversionAt SFunction Inport23' incorporates:
-   *  Constant: '<S7>/Constant1'
-   *  Constant: '<S7>/Constant11'
-   *  Constant: '<S7>/Constant12'
-   *  Constant: '<S7>/Constant13'
-   *  Constant: '<S7>/Constant14'
-   *  Constant: '<S7>/Constant15'
-   *  Constant: '<S7>/Constant16'
-   *  Constant: '<S7>/Constant17'
-   *  Constant: '<S7>/Constant18'
-   *  Constant: '<S7>/Constant19'
-   *  Constant: '<S7>/Constant2'
-   *  Constant: '<S7>/Constant20'
-   *  Constant: '<S7>/Constant21'
-   *  Constant: '<S7>/Constant22'
-   *  Constant: '<S7>/Constant23'
-   *  Constant: '<S7>/Constant24'
-   *  Constant: '<S7>/Constant25'
-   *  Constant: '<S7>/Constant26'
-   *  Constant: '<S7>/Constant28'
-   *  Constant: '<S7>/Constant29'
-   *  Constant: '<S7>/Constant3'
-   *  Constant: '<S7>/Constant30'
-   *  Constant: '<S7>/Constant31'
-   *  Constant: '<S7>/Constant32'
-   *  Constant: '<S7>/Constant33'
-   *  Constant: '<S7>/Constant34'
-   *  Constant: '<S7>/Constant35'
-   *  Constant: '<S7>/Constant36'
-   *  Constant: '<S7>/Constant37'
-   *  Constant: '<S7>/Constant38'
-   *  Constant: '<S7>/Constant39'
-   *  Constant: '<S7>/Constant4'
-   *  Constant: '<S7>/Constant40'
-   *  Constant: '<S7>/Constant41'
-   *  Constant: '<S7>/Constant42'
-   *  Constant: '<S7>/Constant5'
-   *  Constant: '<S7>/Constant6'
-   *  Constant: '<S7>/Constant7'
-   *  Constant: '<S7>/Constant8'
+  /* SignalConversion: '<S9>/TmpSignal ConversionAt SFunction Inport23' incorporates:
+   *  Constant: '<S8>/Constant1'
+   *  Constant: '<S8>/Constant11'
+   *  Constant: '<S8>/Constant12'
+   *  Constant: '<S8>/Constant13'
+   *  Constant: '<S8>/Constant14'
+   *  Constant: '<S8>/Constant15'
+   *  Constant: '<S8>/Constant16'
+   *  Constant: '<S8>/Constant17'
+   *  Constant: '<S8>/Constant18'
+   *  Constant: '<S8>/Constant19'
+   *  Constant: '<S8>/Constant2'
+   *  Constant: '<S8>/Constant20'
+   *  Constant: '<S8>/Constant21'
+   *  Constant: '<S8>/Constant22'
+   *  Constant: '<S8>/Constant23'
+   *  Constant: '<S8>/Constant24'
+   *  Constant: '<S8>/Constant25'
+   *  Constant: '<S8>/Constant26'
+   *  Constant: '<S8>/Constant28'
+   *  Constant: '<S8>/Constant29'
+   *  Constant: '<S8>/Constant3'
+   *  Constant: '<S8>/Constant30'
+   *  Constant: '<S8>/Constant31'
+   *  Constant: '<S8>/Constant32'
+   *  Constant: '<S8>/Constant33'
+   *  Constant: '<S8>/Constant34'
+   *  Constant: '<S8>/Constant35'
+   *  Constant: '<S8>/Constant36'
+   *  Constant: '<S8>/Constant37'
+   *  Constant: '<S8>/Constant38'
+   *  Constant: '<S8>/Constant39'
+   *  Constant: '<S8>/Constant4'
+   *  Constant: '<S8>/Constant40'
+   *  Constant: '<S8>/Constant41'
+   *  Constant: '<S8>/Constant42'
+   *  Constant: '<S8>/Constant5'
+   *  Constant: '<S8>/Constant6'
+   *  Constant: '<S8>/Constant7'
+   *  Constant: '<S8>/Constant8'
    *  MATLAB Function: '<S2>/MATLAB Function'
    */
   Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[0] =
@@ -2396,83 +2270,84 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
 
   /* MATLAB Function: '<S2>/MATLAB Function' incorporates:
    *  Constant: '<S2>/Constant2'
+   *  Constant: '<S2>/Constant3'
    */
   y = Control_software_v1_1_B.UnitDelay2;
 
-  /* MATLAB Function 'High-level control/MATLAB Function': '<S8>:1' */
+  /* MATLAB Function 'High-level control/MATLAB Function': '<S9>:1' */
   /*  Parameter reading */
-  /* '<S8>:1:6' */
-  /* '<S8>:1:7' */
-  /* '<S8>:1:8' */
-  /* '<S8>:1:9' */
-  /* '<S8>:1:10' */
-  /* '<S8>:1:11' */
-  /* '<S8>:1:12' */
-  /* '<S8>:1:13' */
+  /* '<S9>:1:6' */
+  /* '<S9>:1:7' */
+  /* '<S9>:1:8' */
+  /* '<S9>:1:9' */
+  /* '<S9>:1:10' */
+  /* '<S9>:1:11' */
+  /* '<S9>:1:12' */
+  /* '<S9>:1:13' */
   /*  LandingTravel_V                     =   HLC_Param(9,1); */
   /*  LandingSpeed                        =   HLC_Param(10,1); */
-  /* '<S8>:1:17' */
-  /* '<S8>:1:18' */
-  /* '<S8>:1:19' */
-  /* '<S8>:1:20' */
-  /* '<S8>:1:21' */
-  /* '<S8>:1:22' */
-  /* '<S8>:1:23' */
-  /* '<S8>:1:24' */
-  /* '<S8>:1:25' */
-  /* '<S8>:1:26' */
-  /* '<S8>:1:27' */
-  /* '<S8>:1:28' */
-  /* '<S8>:1:29' */
-  /* '<S8>:1:30' */
-  /* '<S8>:1:31' */
-  /* '<S8>:1:32' */
-  /* '<S8>:1:33' */
-  /* '<S8>:1:34' */
-  /* '<S8>:1:35' */
-  /* '<S8>:1:38' */
-  /* '<S8>:1:39' */
-  /* '<S8>:1:40' */
-  /* '<S8>:1:41' */
-  /* '<S8>:1:42' */
-  /* '<S8>:1:43' */
-  /* '<S8>:1:44' */
-  /* '<S8>:1:45' */
-  /* '<S8>:1:46' */
-  /* '<S8>:1:47' */
+  /* '<S9>:1:17' */
+  /* '<S9>:1:18' */
+  /* '<S9>:1:19' */
+  /* '<S9>:1:20' */
+  /* '<S9>:1:21' */
+  /* '<S9>:1:22' */
+  /* '<S9>:1:23' */
+  /* '<S9>:1:24' */
+  /* '<S9>:1:25' */
+  /* '<S9>:1:26' */
+  /* '<S9>:1:27' */
+  /* '<S9>:1:28' */
+  /* '<S9>:1:29' */
+  /* '<S9>:1:30' */
+  /* '<S9>:1:31' */
+  /* '<S9>:1:32' */
+  /* '<S9>:1:33' */
+  /* '<S9>:1:34' */
+  /* '<S9>:1:35' */
+  /* '<S9>:1:38' */
+  /* '<S9>:1:39' */
+  /* '<S9>:1:40' */
+  /* '<S9>:1:41' */
+  /* '<S9>:1:42' */
+  /* '<S9>:1:43' */
+  /* '<S9>:1:44' */
+  /* '<S9>:1:45' */
+  /* '<S9>:1:46' */
+  /* '<S9>:1:47' */
   /*  Auxiliary variables */
-  /* '<S8>:1:51' */
+  /* '<S9>:1:51' */
   TravelRefMinus = Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1] -
     Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[0];
 
   /*  Potentiometer zone calculation 0=reel-in, 1=keep, 2=reel-out */
-  /* '<S8>:1:54' */
+  /* '<S9>:1:54' */
   PotZoneFlight = 1;
   if (Control_software_v1_1_B.CI_PotPos <
       Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[18]) {
-    /* '<S8>:1:55' */
-    /* '<S8>:1:56' */
+    /* '<S9>:1:55' */
+    /* '<S9>:1:56' */
     PotZoneFlight = 0;
   } else {
     if (Control_software_v1_1_B.CI_PotPos >
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[19]) {
-      /* '<S8>:1:57' */
-      /* '<S8>:1:58' */
+      /* '<S9>:1:57' */
+      /* '<S9>:1:58' */
       PotZoneFlight = 2;
     }
   }
 
-  /* '<S8>:1:61' */
+  /* '<S9>:1:61' */
   if (Control_software_v1_1_B.CI_PotPos <
       Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[20]) {
-    /* '<S8>:1:62' */
-    /* '<S8>:1:63' */
+    /* '<S9>:1:62' */
+    /* '<S9>:1:63' */
     k = 0;
   } else {
     if (Control_software_v1_1_B.CI_PotPos >
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[21]) {
-      /* '<S8>:1:64' */
-      /* '<S8>:1:65' */
+      /* '<S9>:1:64' */
+      /* '<S9>:1:65' */
       k = 2;
     }
   }
@@ -2483,326 +2358,327 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
   /*  and auto winch; 6=prepare takeoff with auto winch; 7=takeoff with auto */
   /*  winch; 8=flight with auto winch; 9=approach with auto winch; 10=landing; */
   /*  11= flight with manual winch */
-  if (Control_software_v1_1_B.DI_Enable < 0.5) {
-    /* '<S8>:1:75' */
+  /* test comment */
+  if (Control_software_v1_1_P.Constant3_Value_f < 0.5) {
+    /* '<S9>:1:77' */
     /*  State 0 */
-    /* '<S8>:1:76' */
+    /* '<S9>:1:78' */
     u2 = 0.0;
 
-    /* '<S8>:1:77' */
+    /* '<S9>:1:79' */
     Timer = 0.0;
 
-    /* '<S8>:1:78' */
+    /* '<S9>:1:80' */
     Control_software_v1_1_B.ReelTimer = 0.0;
 
-    /* '<S8>:1:79' */
+    /* '<S9>:1:81' */
     Flag_OK = 0.0;
   } else {
     /*  all other states, initially confirm previous state and outputs */
-    /* '<S8>:1:82' */
+    /* '<S9>:1:84' */
     u2 = Control_software_v1_1_B.UnitDelay1;
 
-    /* '<S8>:1:83' */
+    /* '<S9>:1:85' */
     Timer = Control_software_v1_1_B.UnitDelay_b;
 
-    /* '<S8>:1:84' */
+    /* '<S9>:1:86' */
     Control_software_v1_1_B.ReelTimer = Control_software_v1_1_B.UnitDelay8;
 
-    /* '<S8>:1:85' */
+    /* '<S9>:1:87' */
     Flag_OK = Control_software_v1_1_B.UnitDelay3;
 
     /*  Transitions from State 0 */
     if ((Control_software_v1_1_B.UnitDelay1 == 0.0) &&
-        (Control_software_v1_1_B.DI_Enable > 0.5)) {
-      /* '<S8>:1:88' */
+        (Control_software_v1_1_P.Constant3_Value_f > 0.5)) {
+      /* '<S9>:1:90' */
       /*  go to state = 1, reset flag_OK and Timer   */
-      /* '<S8>:1:89' */
+      /* '<S9>:1:91' */
       u2 = 1.0;
 
-      /* '<S8>:1:90' */
+      /* '<S9>:1:92' */
       Timer = 0.0;
 
-      /* '<S8>:1:91' */
+      /* '<S9>:1:93' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:92' */
+      /* '<S9>:1:94' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 1 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 1.0) &&
                (Control_software_v1_1_B.UnitDelay3 == 1.0) &&
                (Control_software_v1_1_B.DI_WinchMode < 0.5)) {
-      /* '<S8>:1:95' */
+      /* '<S9>:1:97' */
       /*  go to state = 2, reset flag_OK and Timer  */
-      /* '<S8>:1:96' */
+      /* '<S9>:1:98' */
       u2 = 2.0;
 
-      /* '<S8>:1:97' */
+      /* '<S9>:1:99' */
       Timer = 0.0;
 
-      /* '<S8>:1:98' */
+      /* '<S9>:1:100' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:99' */
+      /* '<S9>:1:101' */
       Flag_OK = 0.0;
     } else if ((Control_software_v1_1_B.UnitDelay1 == 1.0) &&
                (Control_software_v1_1_B.UnitDelay3 == 1.0) &&
                (Control_software_v1_1_B.DI_WinchMode > 0.5)) {
-      /* '<S8>:1:100' */
+      /* '<S9>:1:102' */
       /*  go to state = 5, reset flag_OK and Timer  */
-      /* '<S8>:1:101' */
+      /* '<S9>:1:103' */
       u2 = 5.0;
 
-      /* '<S8>:1:102' */
+      /* '<S9>:1:104' */
       Timer = 0.0;
 
-      /* '<S8>:1:103' */
+      /* '<S9>:1:105' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:104' */
+      /* '<S9>:1:106' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 2 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 2.0) &&
                (Control_software_v1_1_B.DI_WinchMode > 0.5)) {
-      /* '<S8>:1:107' */
+      /* '<S9>:1:109' */
       /*  go to state = 5, reset flag_OK and Timer  */
-      /* '<S8>:1:108' */
+      /* '<S9>:1:110' */
       u2 = 5.0;
 
-      /* '<S8>:1:109' */
+      /* '<S9>:1:111' */
       Timer = 0.0;
 
-      /* '<S8>:1:110' */
+      /* '<S9>:1:112' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:111' */
+      /* '<S9>:1:113' */
       Flag_OK = 0.0;
     } else if ((Control_software_v1_1_B.UnitDelay1 == 2.0) &&
                (Control_software_v1_1_B.DI_Takeoff > 0.5)) {
-      /* '<S8>:1:112' */
+      /* '<S9>:1:114' */
       /*  go to state = 3, reset flag_OK and Timer  */
-      /* '<S8>:1:113' */
+      /* '<S9>:1:115' */
       u2 = 3.0;
 
-      /* '<S8>:1:114' */
+      /* '<S9>:1:116' */
       Timer = 0.0;
 
-      /* '<S8>:1:115' */
+      /* '<S9>:1:117' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:116' */
+      /* '<S9>:1:118' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 3 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 3.0) &&
                (Control_software_v1_1_B.DI_Takeoff < 0.5)) {
-      /* '<S8>:1:119' */
+      /* '<S9>:1:121' */
       /*  go to state = 4, reset flag_OK and Timer  */
-      /* '<S8>:1:120' */
+      /* '<S9>:1:122' */
       u2 = 4.0;
 
-      /* '<S8>:1:121' */
+      /* '<S9>:1:123' */
       Timer = 0.0;
 
-      /* '<S8>:1:122' */
+      /* '<S9>:1:124' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:123' */
+      /* '<S9>:1:125' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 4 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 4.0) &&
                (Control_software_v1_1_B.UnitDelay3 == 1.0)) {
-      /* '<S8>:1:126' */
+      /* '<S9>:1:128' */
       /*  go to state = 1, reset flag_OK and Timer  */
-      /* '<S8>:1:127' */
+      /* '<S9>:1:129' */
       u2 = 1.0;
 
-      /* '<S8>:1:128' */
+      /* '<S9>:1:130' */
       Timer = 0.0;
 
-      /* '<S8>:1:129' */
+      /* '<S9>:1:131' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:130' */
+      /* '<S9>:1:132' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 5 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 5.0) &&
                (Control_software_v1_1_B.DI_WinchMode < 0.5)) {
-      /* '<S8>:1:133' */
+      /* '<S9>:1:135' */
       /*  go to state = 2, reset flag_OK and Timer  */
-      /* '<S8>:1:134' */
+      /* '<S9>:1:136' */
       u2 = 2.0;
 
-      /* '<S8>:1:135' */
+      /* '<S9>:1:137' */
       Timer = 0.0;
 
-      /* '<S8>:1:136' */
+      /* '<S9>:1:138' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:137' */
+      /* '<S9>:1:139' */
       Flag_OK = 0.0;
     } else if ((Control_software_v1_1_B.UnitDelay1 == 5.0) &&
                (Control_software_v1_1_B.DI_Takeoff > 0.5)) {
-      /* '<S8>:1:138' */
+      /* '<S9>:1:140' */
       /*  go to state = 6, reset flag_OK and Timer  */
-      /* '<S8>:1:139' */
+      /* '<S9>:1:141' */
       u2 = 6.0;
 
-      /* '<S8>:1:140' */
+      /* '<S9>:1:142' */
       Timer = 0.0;
 
-      /* '<S8>:1:141' */
+      /* '<S9>:1:143' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:142' */
+      /* '<S9>:1:144' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 6 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 6.0) &&
                (Control_software_v1_1_B.DI_Takeoff < 0.5)) {
-      /* '<S8>:1:145' */
+      /* '<S9>:1:147' */
       /*  go to state = 7, reset flag_OK and Timer  */
-      /* '<S8>:1:146' */
+      /* '<S9>:1:148' */
       u2 = 7.0;
 
-      /* '<S8>:1:147' */
+      /* '<S9>:1:149' */
       Timer = 0.0;
 
-      /* '<S8>:1:148' */
+      /* '<S9>:1:150' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:149' */
+      /* '<S9>:1:151' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 7 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 7.0) &&
                (Control_software_v1_1_B.UnitDelay3 == 1.0)) {
-      /* '<S8>:1:152' */
+      /* '<S9>:1:154' */
       /*  go to state = 8, reset flag_OK and Timer  */
-      /* '<S8>:1:153' */
+      /* '<S9>:1:155' */
       u2 = 8.0;
 
-      /* '<S8>:1:154' */
+      /* '<S9>:1:156' */
       Timer = 0.0;
 
-      /* '<S8>:1:155' */
+      /* '<S9>:1:157' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:156' */
+      /* '<S9>:1:158' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 8 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 8.0) &&
                (Control_software_v1_1_B.DI_WinchMode < 0.5)) {
-      /* '<S8>:1:159' */
+      /* '<S9>:1:161' */
       /*  go to state = 11, reset flag_OK and Timer  */
-      /* '<S8>:1:160' */
+      /* '<S9>:1:162' */
       u2 = 11.0;
 
-      /* '<S8>:1:161' */
+      /* '<S9>:1:163' */
       Timer = 0.0;
 
-      /* '<S8>:1:162' */
+      /* '<S9>:1:164' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:163' */
+      /* '<S9>:1:165' */
       Flag_OK = 0.0;
     } else if ((Control_software_v1_1_B.UnitDelay1 == 8.0) &&
                (Control_software_v1_1_B.DI_Landing > 0.5)) {
-      /* '<S8>:1:164' */
+      /* '<S9>:1:166' */
       /*  go to state = 9, reset flag_OK and Timer  */
-      /* '<S8>:1:165' */
+      /* '<S9>:1:167' */
       u2 = 9.0;
 
-      /* '<S8>:1:166' */
+      /* '<S9>:1:168' */
       Timer = 0.0;
 
-      /* '<S8>:1:167' */
+      /* '<S9>:1:169' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:168' */
+      /* '<S9>:1:170' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 9 */
     } else if ((Control_software_v1_1_B.UnitDelay1 == 9.0) &&
                (Control_software_v1_1_B.DI_Landing < 0.5)) {
-      /* '<S8>:1:171' */
+      /* '<S9>:1:173' */
       /*  go to state = 8, reset flag_OK and Timer  */
-      /* '<S8>:1:172' */
+      /* '<S9>:1:174' */
       u2 = 8.0;
 
-      /* '<S8>:1:173' */
+      /* '<S9>:1:175' */
       Timer = 0.0;
 
-      /* '<S8>:1:174' */
+      /* '<S9>:1:176' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:175' */
+      /* '<S9>:1:177' */
       Flag_OK = 0.0;
     } else if ((Control_software_v1_1_B.UnitDelay1 == 9.0) &&
                (Control_software_v1_1_B.DI_WinchMode < 0.5)) {
-      /* '<S8>:1:176' */
+      /* '<S9>:1:178' */
       /*  go to state = 11, reset flag_OK and Timer  */
-      /* '<S8>:1:177' */
+      /* '<S9>:1:179' */
       u2 = 11.0;
 
-      /* '<S8>:1:178' */
+      /* '<S9>:1:180' */
       Timer = 0.0;
 
-      /* '<S8>:1:179' */
+      /* '<S9>:1:181' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:180' */
+      /* '<S9>:1:182' */
       Flag_OK = 0.0;
     } else if ((Control_software_v1_1_B.UnitDelay1 == 9.0) &&
                (Control_software_v1_1_B.UnitDelay3 == 1.0)) {
-      /* '<S8>:1:181' */
+      /* '<S9>:1:183' */
       /*  go to state = 10, reset flag_OK and Timer  */
-      /* '<S8>:1:182' */
+      /* '<S9>:1:184' */
       u2 = 10.0;
 
-      /* '<S8>:1:183' */
+      /* '<S9>:1:185' */
       Timer = 0.0;
 
-      /* '<S8>:1:184' */
+      /* '<S9>:1:186' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:185' */
+      /* '<S9>:1:187' */
       Flag_OK = 0.0;
     } else if (Control_software_v1_1_B.UnitDelay1 == 10.0) {
-      /* '<S8>:1:187' */
+      /* '<S9>:1:189' */
       /*  keep state 10  */
-      /* '<S8>:1:188' */
+      /* '<S9>:1:190' */
       u2 = 10.0;
 
-      /* '<S8>:1:189' */
+      /* '<S9>:1:191' */
       Timer = 0.0;
 
-      /* '<S8>:1:190' */
+      /* '<S9>:1:192' */
       Control_software_v1_1_B.ReelTimer = 0.0;
 
-      /* '<S8>:1:191' */
+      /* '<S9>:1:193' */
       Flag_OK = 0.0;
 
       /*  Transitions from State 11 */
     } else {
       if ((Control_software_v1_1_B.UnitDelay1 == 11.0) &&
           (Control_software_v1_1_B.DI_WinchMode > 0.5)) {
-        /* '<S8>:1:194' */
+        /* '<S9>:1:196' */
         /*  go to state = 8, reset flag_OK and Timer  */
-        /* '<S8>:1:195' */
+        /* '<S9>:1:197' */
         u2 = 8.0;
 
-        /* '<S8>:1:196' */
+        /* '<S9>:1:198' */
         Timer = 0.0;
 
-        /* '<S8>:1:197' */
+        /* '<S9>:1:199' */
         Control_software_v1_1_B.ReelTimer = 0.0;
 
-        /* '<S8>:1:198' */
+        /* '<S9>:1:200' */
         Flag_OK = 0.0;
 
         /*      elseif HLC_State==11 && Flag_OK==1 % go to state = 10, reset flag_OK and Timer  */
@@ -2815,7 +2691,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
 
   /*  Compute slide position reference, winch speed reference, Flag_OK and Timer according to current State */
   /*  Winch reference speed calculation based on potentiometer position */
-  /* '<S8>:1:209' */
+  /* '<S9>:1:211' */
   Control_software_v1_PotWinchRef(Control_software_v1_1_B.CI_PotPos,
     Control_software_v1_1_B.CI_PotSpd, Control_software_v1_1_B.UnitDelay7, u2,
     (real_T)PotZoneFlight, Control_software_v1_1_B.UnitDelay5, (real_T)k,
@@ -2849,63 +2725,63 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[38], &WinchSpdRef,
     &ReelTimer_Pot);
   if (u2 == 0.0) {
-    /* '<S8>:1:218' */
+    /* '<S9>:1:220' */
     /*  Disable */
-    /* '<S8>:1:219' */
+    /* '<S9>:1:221' */
     Control_software_v1_1_B.HLC_SlidePosRef = 0.0;
 
-    /* '<S8>:1:220' */
+    /* '<S9>:1:222' */
     WinchSpdRef = 0.0;
 
-    /* '<S8>:1:221' */
+    /* '<S9>:1:223' */
     Control_software_v1_1_B.HLC_WinchMode = 2.0;
   } else if (u2 == 1.0) {
-    /* '<S8>:1:223' */
+    /* '<S9>:1:225' */
     /*  smooth homing */
     if (Control_software_v1_1_B.UnitDelay1 != 1.0) {
-      /* '<S8>:1:224' */
+      /* '<S9>:1:226' */
       /*  initial reference = position at time of transition to State 1 */
-      /* '<S8>:1:225' */
+      /* '<S9>:1:227' */
       y = Control_software_v1_1_B.CI_SlidePos;
     }
 
     if (y < -Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0) {
-      /* '<S8>:1:227' */
-      /* '<S8>:1:228' */
+      /* '<S9>:1:229' */
+      /* '<S9>:1:230' */
       Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3] + y;
     } else if (y > Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] /
                3.0) {
-      /* '<S8>:1:229' */
-      /* '<S8>:1:230' */
+      /* '<S9>:1:231' */
+      /* '<S9>:1:232' */
       Control_software_v1_1_B.HLC_SlidePosRef = y -
         Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3];
     } else {
-      /* '<S8>:1:232' */
+      /* '<S9>:1:234' */
       Control_software_v1_1_B.HLC_SlidePosRef = 0.0;
       if (fabs(Control_software_v1_1_B.CI_SlidePos) <
           Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5]) {
-        /* '<S8>:1:233' */
-        /* '<S8>:1:234' */
+        /* '<S9>:1:235' */
+        /* '<S9>:1:236' */
         Flag_OK = 1.0;
       }
     }
 
-    /* '<S8>:1:237' */
+    /* '<S9>:1:239' */
     WinchSpdRef = 0.0;
 
-    /* '<S8>:1:238' */
+    /* '<S9>:1:240' */
     Control_software_v1_1_B.HLC_WinchMode = 2.0;
   } else if (u2 == 2.0) {
-    /* '<S8>:1:240' */
+    /* '<S9>:1:242' */
     /*  manual slide and winch */
-    /* '<S8>:1:241' */
+    /* '<S9>:1:243' */
     Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_B.CI_JoyS;
 
-    /* '<S8>:1:242' */
+    /* '<S9>:1:244' */
     u0 = Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[17];
-    WinchSpdRef = Control_software_v1_1_B.Sum1_o *
+    WinchSpdRef = Control_software_v1_1_B.CI_JoyW *
       Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[8];
     if ((u0 > WinchSpdRef) || rtIsNaN(WinchSpdRef)) {
       WinchSpdRef = u0;
@@ -2917,32 +2793,32 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     }
 
     if ((WinchSpdRef <= 3.0) && (WinchSpdRef >= -3.0)) {
-      /* '<S8>:1:243' */
-      /* '<S8>:1:244' */
+      /* '<S9>:1:245' */
+      /* '<S9>:1:246' */
       WinchSpdRef = 0.0;
     } else if (WinchSpdRef > 3.0) {
-      /* '<S8>:1:245' */
-      /* '<S8>:1:246' */
+      /* '<S9>:1:247' */
+      /* '<S9>:1:248' */
       WinchSpdRef -= 3.0;
     } else {
       if (WinchSpdRef < -3.0) {
-        /* '<S8>:1:247' */
-        /* '<S8>:1:248' */
+        /* '<S9>:1:249' */
+        /* '<S9>:1:250' */
         WinchSpdRef += 3.0;
       }
     }
 
-    /* '<S8>:1:250' */
+    /* '<S9>:1:252' */
     Control_software_v1_1_B.HLC_WinchMode = 0.0;
   } else if (u2 == 3.0) {
-    /* '<S8>:1:252' */
+    /* '<S9>:1:254' */
     /*  prepare takeoff without winch */
     if ((Control_software_v1_1_B.UnitDelay2 <
          Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1] -
          Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0) &&
         (Flag_OK == 0.0)) {
-      /* '<S8>:1:253' */
-      /* '<S8>:1:254' */
+      /* '<S9>:1:255' */
+      /* '<S9>:1:256' */
       Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3] +
         Control_software_v1_1_B.UnitDelay2;
@@ -2950,29 +2826,29 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
                 Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0
                 + Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1]) &&
                (Flag_OK == 0.0)) {
-      /* '<S8>:1:255' */
-      /* '<S8>:1:256' */
+      /* '<S9>:1:257' */
+      /* '<S9>:1:258' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.UnitDelay2 - Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3];
     } else {
-      /* '<S8>:1:258' */
+      /* '<S9>:1:260' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1];
 
-      /* '<S8>:1:259' */
+      /* '<S9>:1:261' */
       Flag_OK = 1.0;
     }
 
-    /* '<S8>:1:261' */
+    /* '<S9>:1:263' */
     WinchSpdRef = 0.0;
 
-    /* '<S8>:1:262' */
+    /* '<S9>:1:264' */
     Control_software_v1_1_B.HLC_WinchMode = 2.0;
   } else if (u2 == 4.0) {
-    /* '<S8>:1:264' */
+    /* '<S9>:1:266' */
     /*  takeoff without winch */
-    /* '<S8>:1:265' */
+    /* '<S9>:1:267' */
     u0 = Control_software_v1_1_B.UnitDelay2 - Control_software_v1_1_P.Ts_1ms *
       Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[4];
     if (!((u0 > TravelRefMinus) || rtIsNaN(TravelRefMinus))) {
@@ -2988,8 +2864,8 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
 
     if (fabs(TravelRefMinus - Control_software_v1_1_B.CI_SlidePos) <
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5]) {
-      /* '<S8>:1:266' */
-      /* '<S8>:1:267' */
+      /* '<S9>:1:268' */
+      /* '<S9>:1:269' */
       Timer = Control_software_v1_1_B.UnitDelay_b +
         Control_software_v1_1_P.Ts_1ms;
       y = Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[6];
@@ -2998,41 +2874,41 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
       }
 
       if (Timer > y) {
-        /* '<S8>:1:268' */
-        /* '<S8>:1:269' */
+        /* '<S9>:1:270' */
+        /* '<S9>:1:271' */
         Flag_OK = 1.0;
 
-        /* '<S8>:1:270' */
+        /* '<S9>:1:272' */
         Timer = 0.0;
       }
     }
 
-    /* '<S8>:1:273' */
+    /* '<S9>:1:275' */
     WinchSpdRef = 0.0;
 
-    /* '<S8>:1:274' */
+    /* '<S9>:1:276' */
     Control_software_v1_1_B.HLC_WinchMode = 2.0;
   } else if (u2 == 5.0) {
-    /* '<S8>:1:276' */
+    /* '<S9>:1:278' */
     /*  manual slide and auto winch */
-    /* '<S8>:1:277' */
+    /* '<S9>:1:279' */
     Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_B.CI_JoyS;
 
-    /* '<S8>:1:278' */
-    /* '<S8>:1:279' */
+    /* '<S9>:1:280' */
+    /* '<S9>:1:281' */
     Control_software_v1_1_B.ReelTimer = ReelTimer_Pot;
 
-    /* '<S8>:1:280' */
+    /* '<S9>:1:282' */
     Control_software_v1_1_B.HLC_WinchMode = 1.0;
   } else if (u2 == 6.0) {
-    /* '<S8>:1:282' */
+    /* '<S9>:1:284' */
     /*  prepare takeoff with auto winch */
     if ((Control_software_v1_1_B.UnitDelay2 <
          Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1] -
          Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0) &&
         (Flag_OK == 0.0)) {
-      /* '<S8>:1:283' */
-      /* '<S8>:1:284' */
+      /* '<S9>:1:285' */
+      /* '<S9>:1:286' */
       Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3] +
         Control_software_v1_1_B.UnitDelay2;
@@ -3040,30 +2916,30 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
                 Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0
                 + Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1]) &&
                (Flag_OK == 0.0)) {
-      /* '<S8>:1:285' */
-      /* '<S8>:1:286' */
+      /* '<S9>:1:287' */
+      /* '<S9>:1:288' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.UnitDelay2 - Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3];
     } else {
-      /* '<S8>:1:288' */
+      /* '<S9>:1:290' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1];
 
-      /* '<S8>:1:289' */
+      /* '<S9>:1:291' */
       Flag_OK = 1.0;
     }
 
-    /* '<S8>:1:291' */
-    /* '<S8>:1:292' */
+    /* '<S9>:1:293' */
+    /* '<S9>:1:294' */
     Control_software_v1_1_B.ReelTimer = ReelTimer_Pot;
 
-    /* '<S8>:1:293' */
+    /* '<S9>:1:295' */
     Control_software_v1_1_B.HLC_WinchMode = 1.0;
   } else if (u2 == 7.0) {
-    /* '<S8>:1:295' */
+    /* '<S9>:1:297' */
     /*  takeoff with auto winch */
-    /* '<S8>:1:296' */
+    /* '<S9>:1:298' */
     u0 = Control_software_v1_1_B.UnitDelay2 - Control_software_v1_1_P.Ts_1ms *
       Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[4];
     if (!((u0 > TravelRefMinus) || rtIsNaN(TravelRefMinus))) {
@@ -3079,8 +2955,8 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
 
     if (fabs(TravelRefMinus - Control_software_v1_1_B.CI_SlidePos) <
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5]) {
-      /* '<S8>:1:297' */
-      /* '<S8>:1:298' */
+      /* '<S9>:1:299' */
+      /* '<S9>:1:300' */
       Timer = Control_software_v1_1_B.UnitDelay_b +
         Control_software_v1_1_P.Ts_1ms;
       y = Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[6];
@@ -3089,148 +2965,148 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
       }
 
       if (Timer > y) {
-        /* '<S8>:1:299' */
-        /* '<S8>:1:300' */
+        /* '<S9>:1:301' */
+        /* '<S9>:1:302' */
         Flag_OK = 1.0;
 
-        /* '<S8>:1:301' */
+        /* '<S9>:1:303' */
         Timer = 0.0;
       }
     }
 
-    /* '<S8>:1:304' */
-    /* '<S8>:1:305' */
+    /* '<S9>:1:306' */
+    /* '<S9>:1:307' */
     Control_software_v1_1_B.ReelTimer = ReelTimer_Pot;
 
-    /* '<S8>:1:306' */
+    /* '<S9>:1:308' */
     Control_software_v1_1_B.HLC_WinchMode = 1.0;
   } else if (u2 == 8.0) {
-    /* '<S8>:1:308' */
+    /* '<S9>:1:310' */
     /*  slide homing, flight with auto winch */
     if (Control_software_v1_1_B.UnitDelay2 <
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1] -
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0) {
-      /* '<S8>:1:309' */
-      /* '<S8>:1:310' */
+      /* '<S9>:1:311' */
+      /* '<S9>:1:312' */
       Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3] +
         Control_software_v1_1_B.UnitDelay2;
     } else if (Control_software_v1_1_B.UnitDelay2 >
                Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0
                + Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1]) {
-      /* '<S8>:1:311' */
-      /* '<S8>:1:312' */
+      /* '<S9>:1:313' */
+      /* '<S9>:1:314' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.UnitDelay2 - Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3];
     } else {
-      /* '<S8>:1:314' */
+      /* '<S9>:1:316' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1];
     }
 
-    /* '<S8>:1:316' */
-    /* '<S8>:1:317' */
+    /* '<S9>:1:318' */
+    /* '<S9>:1:319' */
     Control_software_v1_1_B.ReelTimer = ReelTimer_Pot;
 
-    /* '<S8>:1:318' */
+    /* '<S9>:1:320' */
     Control_software_v1_1_B.HLC_WinchMode = 1.0;
   } else if (u2 == 9.0) {
-    /* '<S8>:1:320' */
+    /* '<S9>:1:322' */
     /*  slide homing, approach with auto winch */
     if (Control_software_v1_1_B.UnitDelay2 <
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1] -
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0) {
-      /* '<S8>:1:321' */
-      /* '<S8>:1:322' */
+      /* '<S9>:1:323' */
+      /* '<S9>:1:324' */
       Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3] +
         Control_software_v1_1_B.UnitDelay2;
     } else if (Control_software_v1_1_B.UnitDelay2 >
                Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0
                + Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1]) {
-      /* '<S8>:1:323' */
-      /* '<S8>:1:324' */
+      /* '<S9>:1:325' */
+      /* '<S9>:1:326' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.UnitDelay2 - Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3];
     } else {
-      /* '<S8>:1:326' */
+      /* '<S9>:1:328' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1];
     }
 
-    /* '<S8>:1:328' */
-    /* '<S8>:1:329' */
+    /* '<S9>:1:330' */
+    /* '<S9>:1:331' */
     Control_software_v1_1_B.ReelTimer = ReelTimer_Pot;
 
-    /* '<S8>:1:330' */
+    /* '<S9>:1:332' */
     Control_software_v1_1_B.HLC_WinchMode = 1.0;
     if (Control_software_v1_1_B.CI_WinchPos <
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[7] -
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[2]) {
-      /* '<S8>:1:331' */
-      /* '<S8>:1:332' */
+      /* '<S9>:1:333' */
+      /* '<S9>:1:334' */
       Flag_OK = 1.0;
     }
   } else if (u2 == 10.0) {
-    /* '<S8>:1:335' */
+    /* '<S9>:1:337' */
     /*  slide homing, last part of landing */
     if (Control_software_v1_1_B.UnitDelay2 <
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1] -
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0) {
-      /* '<S8>:1:336' */
-      /* '<S8>:1:337' */
+      /* '<S9>:1:338' */
+      /* '<S9>:1:339' */
       Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3] +
         Control_software_v1_1_B.UnitDelay2;
     } else if (Control_software_v1_1_B.UnitDelay2 >
                Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0
                + Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1]) {
-      /* '<S8>:1:338' */
-      /* '<S8>:1:339' */
+      /* '<S9>:1:340' */
+      /* '<S9>:1:341' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.UnitDelay2 - Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3];
     } else {
-      /* '<S8>:1:341' */
+      /* '<S9>:1:343' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1];
     }
 
-    /* '<S8>:1:343' */
+    /* '<S9>:1:345' */
     WinchSpdRef = 0.0;
 
-    /* '<S8>:1:344' */
+    /* '<S9>:1:346' */
     Control_software_v1_1_B.HLC_WinchMode = 2.0;
   } else if (u2 == 11.0) {
-    /* '<S8>:1:346' */
+    /* '<S9>:1:348' */
     /*  slide homing, flight with manual winch */
     if (Control_software_v1_1_B.UnitDelay2 <
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1] -
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0) {
-      /* '<S8>:1:347' */
-      /* '<S8>:1:348' */
+      /* '<S9>:1:349' */
+      /* '<S9>:1:350' */
       Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3] +
         Control_software_v1_1_B.UnitDelay2;
     } else if (Control_software_v1_1_B.UnitDelay2 >
                Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[5] / 3.0
                + Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1]) {
-      /* '<S8>:1:349' */
-      /* '<S8>:1:350' */
+      /* '<S9>:1:351' */
+      /* '<S9>:1:352' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.UnitDelay2 - Control_software_v1_1_P.Ts_1ms *
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[3];
     } else {
-      /* '<S8>:1:352' */
+      /* '<S9>:1:354' */
       Control_software_v1_1_B.HLC_SlidePosRef =
         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[1];
     }
 
-    /* '<S8>:1:354' */
+    /* '<S9>:1:356' */
     u0 = Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[17];
-    WinchSpdRef = Control_software_v1_1_B.Sum1_o *
+    WinchSpdRef = Control_software_v1_1_B.CI_JoyW *
       Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[8];
     if ((u0 > WinchSpdRef) || rtIsNaN(WinchSpdRef)) {
       WinchSpdRef = u0;
@@ -3242,22 +3118,22 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     }
 
     if ((WinchSpdRef <= 3.0) && (WinchSpdRef >= -3.0)) {
-      /* '<S8>:1:355' */
-      /* '<S8>:1:356' */
+      /* '<S9>:1:357' */
+      /* '<S9>:1:358' */
       WinchSpdRef = 0.0;
     } else if (WinchSpdRef > 3.0) {
-      /* '<S8>:1:357' */
-      /* '<S8>:1:358' */
+      /* '<S9>:1:359' */
+      /* '<S9>:1:360' */
       WinchSpdRef -= 3.0;
     } else {
       if (WinchSpdRef < -3.0) {
-        /* '<S8>:1:359' */
-        /* '<S8>:1:360' */
+        /* '<S9>:1:361' */
+        /* '<S9>:1:362' */
         WinchSpdRef += 3.0;
       }
     }
 
-    /* '<S8>:1:362' */
+    /* '<S9>:1:364' */
     Control_software_v1_1_B.HLC_WinchMode = 0.0;
 
     /*      if CI_WinchPos<LandingTravel_rad-SlideTravelMax_rad */
@@ -3265,17 +3141,17 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     /*      end */
   } else {
     /*  not-foreseen case, should never happen, stop winch and keep older slide reference */
-    /* '<S8>:1:368' */
+    /* '<S9>:1:370' */
     Control_software_v1_1_B.HLC_SlidePosRef = Control_software_v1_1_B.UnitDelay2;
 
-    /* '<S8>:1:369' */
+    /* '<S9>:1:371' */
     WinchSpdRef = 0.0;
 
-    /* '<S8>:1:370' */
+    /* '<S9>:1:372' */
     Control_software_v1_1_B.HLC_WinchMode = 2.0;
   }
 
-  /* '<S8>:1:373' */
+  /* '<S9>:1:375' */
   Control_software_v1_1_B.HLC_WinchSpdRef = WinchSpdRef;
 
   /*  Winch speed saturation and modulation close to end of travel */
@@ -3283,8 +3159,8 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
       (Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[9] -
        Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[10]) * 0.0085 +
       Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[10]) {
-    /* '<S8>:1:376' */
-    /* '<S8>:1:377' */
+    /* '<S9>:1:378' */
+    /* '<S9>:1:379' */
     if ((0.0 > WinchSpdRef) || rtIsNaN(WinchSpdRef)) {
       Control_software_v1_1_B.HLC_WinchSpdRef = 0.0;
     } else {
@@ -3301,8 +3177,8 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
                          10]) * 0.01042 +
                         Control_software_v1_1_B.TmpSignalConversionAtSFunctionI
                         [10])) {
-    /* '<S8>:1:378' */
-    /* '<S8>:1:379' */
+    /* '<S9>:1:380' */
+    /* '<S9>:1:381' */
     u0 = Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[12];
     if ((u0 > WinchSpdRef) || rtIsNaN(WinchSpdRef)) {
       Control_software_v1_1_B.HLC_WinchSpdRef = u0;
@@ -3314,8 +3190,8 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
               Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[10]) *
              0.99 + Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[10])
   {
-    /* '<S8>:1:380' */
-    /* '<S8>:1:381' */
+    /* '<S9>:1:382' */
+    /* '<S9>:1:383' */
     if ((0.0 < WinchSpdRef) || rtIsNaN(WinchSpdRef)) {
       Control_software_v1_1_B.HLC_WinchSpdRef = 0.0;
     } else {
@@ -3330,8 +3206,8 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
          (Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[9] -
           Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[10]) * 0.98 +
          Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[10])) {
-      /* '<S8>:1:382' */
-      /* '<S8>:1:383' */
+      /* '<S9>:1:384' */
+      /* '<S9>:1:385' */
       u0 = Control_software_v1_1_B.TmpSignalConversionAtSFunctionI[14];
       if ((u0 < WinchSpdRef) || rtIsNaN(WinchSpdRef)) {
         Control_software_v1_1_B.HLC_WinchSpdRef = u0;
@@ -3347,38 +3223,38 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
   Control_software_v1_1_B.Flag_OK = Flag_OK;
   Control_software_v1_1_B.Timer = Timer;
 
-  /* Switch: '<S20>/Switch' incorporates:
-   *  Constant: '<S20>/Constant2'
+  /* Switch: '<S14>/Switch' incorporates:
+   *  Constant: '<S14>/Constant2'
    */
   if (Control_software_v1_1_B.DI_Enable >
       Control_software_v1_1_P.Switch_Threshold_l) {
-    /* Sum: '<S20>/Sum2' incorporates:
-     *  Constant: '<S20>/Constant1'
+    /* Sum: '<S14>/Sum2' incorporates:
+     *  Constant: '<S14>/Constant1'
      */
     Control_software_v1_1_B.Sum2_j = Control_software_v1_1_P.Constant1_Value -
       Control_software_v1_1_B.DiscreteStateSpace[1];
 
-    /* Gain: '<S20>/Gain4' */
+    /* Gain: '<S14>/Gain4' */
     Control_software_v1_1_B.Gain4 = Control_software_v1_1_P.Kspd *
       Control_software_v1_1_B.Sum2_j;
 
-    /* Gain: '<S20>/Gain1' */
+    /* Gain: '<S14>/Gain1' */
     Control_software_v1_1_B.Gain1_g = Control_software_v1_1_P.SlMotPosAIgain *
       Control_software_v1_1_B.HLC_SlidePosRef;
 
-    /* Sum: '<S20>/Sum' */
+    /* Sum: '<S14>/Sum' */
     Control_software_v1_1_B.Sum_n3 = Control_software_v1_1_B.Gain1_g -
       Control_software_v1_1_B.DiscreteStateSpace[0];
 
-    /* Gain: '<S20>/Gain3' */
+    /* Gain: '<S14>/Gain3' */
     Control_software_v1_1_B.Gain3 = Control_software_v1_1_P.Kpos *
       Control_software_v1_1_B.Sum_n3;
 
-    /* Sum: '<S20>/Sum1' */
+    /* Sum: '<S14>/Sum1' */
     Control_software_v1_1_B.Sum1_bn = Control_software_v1_1_B.Gain3 +
       Control_software_v1_1_B.Gain4;
 
-    /* Saturate: '<S20>/Saturation' */
+    /* Saturate: '<S14>/Saturation' */
     y = -Control_software_v1_1_P.SlideMotTorqueMax;
     u0 = Control_software_v1_1_B.Sum1_bn;
     u2 = Control_software_v1_1_P.SlideMotTorqueMax;
@@ -3390,44 +3266,44 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
       Control_software_v1_1_B.Saturation_m = u0;
     }
 
-    /* End of Saturate: '<S20>/Saturation' */
+    /* End of Saturate: '<S14>/Saturation' */
     Control_software_v1_1_B.SlideMotTorqueEst =
       Control_software_v1_1_B.Saturation_m;
   } else {
     Control_software_v1_1_B.SlideMotTorqueEst =
-      Control_software_v1_1_P.Constant2_Value_l;
+      Control_software_v1_1_P.Constant2_Value;
   }
 
-  /* End of Switch: '<S20>/Switch' */
+  /* End of Switch: '<S14>/Switch' */
 
-  /* Switch: '<S21>/Switch' incorporates:
-   *  Constant: '<S21>/Constant2'
+  /* Switch: '<S15>/Switch' incorporates:
+   *  Constant: '<S15>/Constant2'
    */
   if (Control_software_v1_1_B.DI_Enable >
       Control_software_v1_1_P.Switch_Threshold_h) {
-    /* Saturate: '<S21>/Saturation1' */
+    /* Saturate: '<S15>/Saturation1' */
     y = -Control_software_v1_1_P.WinchRefSpdSup;
     u0 = Control_software_v1_1_B.HLC_WinchSpdRef;
     u2 = Control_software_v1_1_P.WinchRefSpdSup;
     if (u0 > u2) {
-      Control_software_v1_1_B.Saturation1_m = u2;
+      Control_software_v1_1_B.Saturation1 = u2;
     } else if (u0 < y) {
-      Control_software_v1_1_B.Saturation1_m = y;
+      Control_software_v1_1_B.Saturation1 = y;
     } else {
-      Control_software_v1_1_B.Saturation1_m = u0;
+      Control_software_v1_1_B.Saturation1 = u0;
     }
 
-    /* End of Saturate: '<S21>/Saturation1' */
+    /* End of Saturate: '<S15>/Saturation1' */
 
-    /* Sum: '<S21>/Sum2' */
-    Control_software_v1_1_B.Sum2 = Control_software_v1_1_B.Saturation1_m -
+    /* Sum: '<S15>/Sum2' */
+    Control_software_v1_1_B.Sum2 = Control_software_v1_1_B.Saturation1 -
       Control_software_v1_1_B.DiscreteStateSpace_g[1];
 
-    /* Gain: '<S21>/Gain1' */
+    /* Gain: '<S15>/Gain1' */
     Control_software_v1_1_B.Gain1_d = Control_software_v1_1_P.KspdWinch *
       Control_software_v1_1_B.Sum2;
 
-    /* Saturate: '<S21>/Saturation' */
+    /* Saturate: '<S15>/Saturation' */
     y = -Control_software_v1_1_P.WinchMotTorqueMax;
     u0 = Control_software_v1_1_B.Gain1_d;
     u2 = Control_software_v1_1_P.WinchMotTorqueMax;
@@ -3439,7 +3315,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
       Control_software_v1_1_B.Saturation = u0;
     }
 
-    /* End of Saturate: '<S21>/Saturation' */
+    /* End of Saturate: '<S15>/Saturation' */
     Control_software_v1_1_B.WinchMotTorqueEst =
       Control_software_v1_1_B.Saturation;
   } else {
@@ -3447,7 +3323,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
       Control_software_v1_1_P.Constant2_Value_e;
   }
 
-  /* End of Switch: '<S21>/Switch' */
+  /* End of Switch: '<S15>/Switch' */
 
   /* Switch: '<S6>/Switch' incorporates:
    *  Constant: '<S6>/Constant'
@@ -3475,18 +3351,560 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
 
   /* End of Saturate: '<S6>/Saturation1' */
 
+  /* Delay: '<S7>/Delay' */
+  Control_software_v1_1_B.Delay_c = Control_software_v1_1_DW.Delay_DSTATE_h;
+
+  /* Delay: '<S90>/Delay3' */
+  Control_software_v1_1_B.Delay3 = Control_software_v1_1_DW.Delay3_DSTATE;
+
+  /* Delay: '<S90>/Delay1' */
+  Control_software_v1_1_B.Delay1 = Control_software_v1_1_DW.Delay1_DSTATE;
+
+  /* Delay: '<S90>/Delay4' */
+  Control_software_v1_1_B.Delay4 = Control_software_v1_1_DW.Delay4_DSTATE;
+
+  /* Switch: '<S90>/Switch5' incorporates:
+   *  Constant: '<S90>/Constant3'
+   */
+  if (Control_software_v1_1_B.DI_Enable >
+      Control_software_v1_1_P.Switch5_Threshold) {
+    /* Switch: '<S90>/Switch2' incorporates:
+     *  Constant: '<S90>/Constant2'
+     *  Constant: '<S90>/Constant3'
+     */
+    if (Control_software_v1_1_B.DI_WinchMode >
+        Control_software_v1_1_P.Switch2_Threshold) {
+      Control_software_v1_1_B.Switch2 =
+        Control_software_v1_1_P.Constant2_Value_k;
+    } else {
+      Control_software_v1_1_B.Switch2 =
+        Control_software_v1_1_P.Constant3_Value_j;
+    }
+
+    /* End of Switch: '<S90>/Switch2' */
+    Control_software_v1_1_B.Switch5 = Control_software_v1_1_B.Switch2;
+  } else {
+    Control_software_v1_1_B.Switch5 = Control_software_v1_1_P.Constant3_Value_j;
+  }
+
+  /* End of Switch: '<S90>/Switch5' */
+
+  /* Delay: '<S90>/Delay5' */
+  Control_software_v1_1_B.Delay5 = Control_software_v1_1_DW.Delay5_DSTATE;
+
+  /* Switch: '<S90>/Switch7' incorporates:
+   *  Constant: '<S90>/Constant3'
+   *  Switch: '<S90>/Switch6'
+   */
+  if (Control_software_v1_1_B.DI_Enable >
+      Control_software_v1_1_P.Switch7_Threshold) {
+    Control_software_v1_1_B.Switch7 = Control_software_v1_1_P.Constant3_Value_j;
+  } else {
+    if (Control_software_v1_1_B.DI_WinchMode >
+        Control_software_v1_1_P.Switch6_Threshold) {
+      /* Switch: '<S90>/Switch6' incorporates:
+       *  Constant: '<S90>/Constant2'
+       */
+      Control_software_v1_1_B.Switch6 =
+        Control_software_v1_1_P.Constant2_Value_k;
+    } else {
+      /* Switch: '<S90>/Switch6' incorporates:
+       *  Constant: '<S90>/Constant3'
+       */
+      Control_software_v1_1_B.Switch6 =
+        Control_software_v1_1_P.Constant3_Value_j;
+    }
+
+    Control_software_v1_1_B.Switch7 = Control_software_v1_1_B.Switch6;
+  }
+
+  /* End of Switch: '<S90>/Switch7' */
+
+  /* Delay: '<S92>/Delay' */
+  Control_software_v1_1_B.Delay_i = Control_software_v1_1_DW.Delay_DSTATE_hx;
+
+  /* RelationalOperator: '<S98>/Relational Operator1' incorporates:
+   *  Constant: '<S98>/untere Kraftsensor Grenze'
+   */
+  Control_software_v1_1_B.RelationalOperator1 = (Control_software_v1_1_B.CI_JoyW
+    < Control_software_v1_1_P.untereKraftsensorGrenze_Value_i);
+
+  /* Switch: '<S98>/Switch1' */
+  if (Control_software_v1_1_B.RelationalOperator1) {
+    /* Gain: '<S98>/Gain' incorporates:
+     *  Constant: '<S98>/Beschleunigung'
+     */
+    Control_software_v1_1_B.Gain_m3 = Control_software_v1_1_P.Gain_Gain_g *
+      Control_software_v1_1_P.Beschleunigung_Value_j;
+
+    /* Sum: '<S98>/Sum1' */
+    Control_software_v1_1_B.Sum1_kj = Control_software_v1_1_B.Gain_m3 +
+      Control_software_v1_1_B.Delay_i;
+    Control_software_v1_1_B.Switch1 = Control_software_v1_1_B.Sum1_kj;
+  } else {
+    /* RelationalOperator: '<S98>/Relational Operator' incorporates:
+     *  Constant: '<S98>/obere Kraftsensor Grenze'
+     */
+    Control_software_v1_1_B.RelationalOperator =
+      (Control_software_v1_1_B.CI_JoyW >=
+       Control_software_v1_1_P.obereKraftsensorGrenze_Value_n);
+
+    /* Switch: '<S98>/Switch' */
+    if (Control_software_v1_1_B.RelationalOperator) {
+      /* Sum: '<S98>/Sum' incorporates:
+       *  Constant: '<S98>/Beschleunigung'
+       */
+      Control_software_v1_1_B.Sum_o =
+        Control_software_v1_1_P.Beschleunigung_Value_j +
+        Control_software_v1_1_B.Delay_i;
+      Control_software_v1_1_B.Switch_b = Control_software_v1_1_B.Sum_o;
+    } else {
+      Control_software_v1_1_B.Switch_b = Control_software_v1_1_B.Delay_i;
+    }
+
+    /* End of Switch: '<S98>/Switch' */
+    Control_software_v1_1_B.Switch1 = Control_software_v1_1_B.Switch_b;
+  }
+
+  /* End of Switch: '<S98>/Switch1' */
+
+  /* Delay: '<S99>/Delay' */
+  Control_software_v1_1_B.Delay_f = Control_software_v1_1_DW.Delay_DSTATE_b;
+
+  /* Sum: '<S99>/Sum' */
+  Control_software_v1_1_B.Sum_a = Control_software_v1_1_B.Switch1 -
+    Control_software_v1_1_B.Delay_f;
+
+  /* RelationalOperator: '<S101>/Compare' incorporates:
+   *  Constant: '<S101>/Constant'
+   */
+  Control_software_v1_1_B.Compare = (Control_software_v1_1_B.Sum_a <
+    Control_software_v1_1_P.Constant_Value_i);
+
+  /* Switch: '<S99>/Switch1' */
+  if (Control_software_v1_1_B.Compare) {
+    /* Gain: '<S99>/Gain' incorporates:
+     *  Constant: '<S99>/Beschleunigung'
+     */
+    Control_software_v1_1_B.Gain_p = Control_software_v1_1_P.Gain_Gain_in *
+      Control_software_v1_1_P.Beschleunigung_Value_l;
+    Control_software_v1_1_B.Switch1_k = Control_software_v1_1_B.Gain_p;
+  } else {
+    /* RelationalOperator: '<S100>/Compare' incorporates:
+     *  Constant: '<S100>/Constant'
+     */
+    Control_software_v1_1_B.Compare_j = (Control_software_v1_1_B.Sum_a >
+      Control_software_v1_1_P.Constant_Value_l);
+
+    /* Switch: '<S99>/Switch' incorporates:
+     *  Constant: '<S99>/Beschleunigung'
+     *  Constant: '<S99>/Constant1'
+     */
+    if (Control_software_v1_1_B.Compare_j) {
+      Control_software_v1_1_B.Switch_d =
+        Control_software_v1_1_P.Beschleunigung_Value_l;
+    } else {
+      Control_software_v1_1_B.Switch_d =
+        Control_software_v1_1_P.Constant1_Value_i;
+    }
+
+    /* End of Switch: '<S99>/Switch' */
+    Control_software_v1_1_B.Switch1_k = Control_software_v1_1_B.Switch_d;
+  }
+
+  /* End of Switch: '<S99>/Switch1' */
+
+  /* Delay: '<S99>/Delay1' */
+  Control_software_v1_1_B.Delay1_g = Control_software_v1_1_DW.Delay1_DSTATE_i;
+
+  /* Sum: '<S99>/Sum1' */
+  Control_software_v1_1_B.Sum1_j = Control_software_v1_1_B.Switch1_k +
+    Control_software_v1_1_B.Delay1_g;
+
+  /* Delay: '<S90>/Delay2' */
+  Control_software_v1_1_B.Delay2 = Control_software_v1_1_DW.Delay2_DSTATE;
+
+  /* Switch: '<S90>/Switch4' incorporates:
+   *  Constant: '<S90>/Constant3'
+   */
+  if (Control_software_v1_1_B.DI_Enable >
+      Control_software_v1_1_P.Switch4_Threshold) {
+    /* Switch: '<S90>/Switch3' incorporates:
+     *  Constant: '<S90>/Constant2'
+     *  Constant: '<S90>/Constant3'
+     */
+    if (Control_software_v1_1_B.DI_WinchMode >
+        Control_software_v1_1_P.Switch3_Threshold) {
+      Control_software_v1_1_B.Switch3 =
+        Control_software_v1_1_P.Constant3_Value_j;
+    } else {
+      Control_software_v1_1_B.Switch3 =
+        Control_software_v1_1_P.Constant2_Value_k;
+    }
+
+    /* End of Switch: '<S90>/Switch3' */
+    Control_software_v1_1_B.Switch4 = Control_software_v1_1_B.Switch3;
+  } else {
+    Control_software_v1_1_B.Switch4 = Control_software_v1_1_P.Constant3_Value_j;
+  }
+
+  /* End of Switch: '<S90>/Switch4' */
+
+  /* Delay: '<S91>/Delay' */
+  Control_software_v1_1_B.Delay_cy = Control_software_v1_1_DW.Delay_DSTATE_bd;
+
+  /* RelationalOperator: '<S94>/Relational Operator1' incorporates:
+   *  Constant: '<S94>/untere Kraftsensor Grenze'
+   */
+  Control_software_v1_1_B.RelationalOperator1_d =
+    (Control_software_v1_1_B.CI_JoyW <
+     Control_software_v1_1_P.untereKraftsensorGrenze_Value_m);
+
+  /* Switch: '<S94>/Switch1' */
+  if (Control_software_v1_1_B.RelationalOperator1_d) {
+    /* Gain: '<S94>/Gain' incorporates:
+     *  Constant: '<S94>/Beschleunigung'
+     */
+    Control_software_v1_1_B.Gain_gc = Control_software_v1_1_P.Gain_Gain_e *
+      Control_software_v1_1_P.Beschleunigung_Value_l5;
+
+    /* Sum: '<S94>/Sum1' */
+    Control_software_v1_1_B.Sum1_d = Control_software_v1_1_B.Gain_gc +
+      Control_software_v1_1_B.Delay_cy;
+    Control_software_v1_1_B.Switch1_j = Control_software_v1_1_B.Sum1_d;
+  } else {
+    /* RelationalOperator: '<S94>/Relational Operator' incorporates:
+     *  Constant: '<S94>/obere Kraftsensor Grenze'
+     */
+    Control_software_v1_1_B.RelationalOperator_k =
+      (Control_software_v1_1_B.CI_JoyW >=
+       Control_software_v1_1_P.obereKraftsensorGrenze_Value_m);
+
+    /* Switch: '<S94>/Switch' */
+    if (Control_software_v1_1_B.RelationalOperator_k) {
+      /* Sum: '<S94>/Sum' incorporates:
+       *  Constant: '<S94>/Beschleunigung'
+       */
+      Control_software_v1_1_B.Sum_ol =
+        Control_software_v1_1_P.Beschleunigung_Value_l5 +
+        Control_software_v1_1_B.Delay_cy;
+      Control_software_v1_1_B.Switch_b5 = Control_software_v1_1_B.Sum_ol;
+    } else {
+      Control_software_v1_1_B.Switch_b5 = Control_software_v1_1_B.Delay_cy;
+    }
+
+    /* End of Switch: '<S94>/Switch' */
+    Control_software_v1_1_B.Switch1_j = Control_software_v1_1_B.Switch_b5;
+  }
+
+  /* End of Switch: '<S94>/Switch1' */
+
+  /* Delay: '<S95>/Delay' */
+  Control_software_v1_1_B.Delay_j = Control_software_v1_1_DW.Delay_DSTATE_e;
+
+  /* Sum: '<S95>/Sum' */
+  Control_software_v1_1_B.Sum_e = Control_software_v1_1_B.Switch1_j -
+    Control_software_v1_1_B.Delay_j;
+
+  /* RelationalOperator: '<S97>/Compare' incorporates:
+   *  Constant: '<S97>/Constant'
+   */
+  Control_software_v1_1_B.Compare_p = (Control_software_v1_1_B.Sum_e <
+    Control_software_v1_1_P.Constant_Value_o);
+
+  /* Switch: '<S95>/Switch1' */
+  if (Control_software_v1_1_B.Compare_p) {
+    /* Gain: '<S95>/Gain' incorporates:
+     *  Constant: '<S95>/Beschleunigung'
+     */
+    Control_software_v1_1_B.Gain_c = Control_software_v1_1_P.Gain_Gain_i *
+      Control_software_v1_1_P.Beschleunigung_Value_p;
+    Control_software_v1_1_B.Switch1_d = Control_software_v1_1_B.Gain_c;
+  } else {
+    /* RelationalOperator: '<S96>/Compare' incorporates:
+     *  Constant: '<S96>/Constant'
+     */
+    Control_software_v1_1_B.Compare_f = (Control_software_v1_1_B.Sum_e >
+      Control_software_v1_1_P.Constant_Value_b);
+
+    /* Switch: '<S95>/Switch' incorporates:
+     *  Constant: '<S95>/Beschleunigung'
+     *  Constant: '<S95>/Constant1'
+     */
+    if (Control_software_v1_1_B.Compare_f) {
+      Control_software_v1_1_B.Switch_i =
+        Control_software_v1_1_P.Beschleunigung_Value_p;
+    } else {
+      Control_software_v1_1_B.Switch_i =
+        Control_software_v1_1_P.Constant1_Value_c;
+    }
+
+    /* End of Switch: '<S95>/Switch' */
+    Control_software_v1_1_B.Switch1_d = Control_software_v1_1_B.Switch_i;
+  }
+
+  /* End of Switch: '<S95>/Switch1' */
+
+  /* Delay: '<S95>/Delay1' */
+  Control_software_v1_1_B.Delay1_p = Control_software_v1_1_DW.Delay1_DSTATE_h;
+
+  /* Sum: '<S95>/Sum1' */
+  Control_software_v1_1_B.Sum1_k = Control_software_v1_1_B.Switch1_d +
+    Control_software_v1_1_B.Delay1_p;
+
+  /* Switch: '<S90>/Switch' incorporates:
+   *  Constant: '<S90>/Constant3'
+   *  Switch: '<S90>/Switch1'
+   */
+  if (Control_software_v1_1_B.DI_Enable >
+      Control_software_v1_1_P.Switch_Threshold_h2) {
+    Control_software_v1_1_B.Switch_m = Control_software_v1_1_P.Constant3_Value_j;
+  } else {
+    if (Control_software_v1_1_B.DI_WinchMode >
+        Control_software_v1_1_P.Switch1_Threshold) {
+      /* Switch: '<S90>/Switch1' incorporates:
+       *  Constant: '<S90>/Constant3'
+       */
+      Control_software_v1_1_B.Switch1_p =
+        Control_software_v1_1_P.Constant3_Value_j;
+    } else {
+      /* Switch: '<S90>/Switch1' incorporates:
+       *  Constant: '<S90>/Constant2'
+       */
+      Control_software_v1_1_B.Switch1_p =
+        Control_software_v1_1_P.Constant2_Value_k;
+    }
+
+    Control_software_v1_1_B.Switch_m = Control_software_v1_1_B.Switch1_p;
+  }
+
+  /* End of Switch: '<S90>/Switch' */
+
+  /* Switch: '<S7>/Switch1' incorporates:
+   *  Switch: '<S7>/Switch'
+   */
+  if (Control_software_v1_1_B.DI_Landing >
+      Control_software_v1_1_P.Switch1_Threshold_f) {
+    /* RelationalOperator: '<S88>/Relational Operator1' incorporates:
+     *  Constant: '<S88>/untere Kraftsensor Grenze'
+     */
+    Control_software_v1_1_B.RelationalOperator1_b = (0.0 <
+      Control_software_v1_1_P.untereKraftsensorGrenze_Value);
+
+    /* Switch: '<S88>/Switch1' */
+    if (Control_software_v1_1_B.RelationalOperator1_b) {
+      /* Gain: '<S88>/Gain' incorporates:
+       *  Constant: '<S88>/Beschleunigung'
+       */
+      Control_software_v1_1_B.Gain_jo = Control_software_v1_1_P.Gain_Gain *
+        Control_software_v1_1_P.Beschleunigung_Value_o;
+
+      /* Sum: '<S88>/Sum1' */
+      Control_software_v1_1_B.Sum1_j4 = Control_software_v1_1_B.Gain_jo +
+        Control_software_v1_1_B.Delay_c;
+      Control_software_v1_1_B.Switch1_o = Control_software_v1_1_B.Sum1_j4;
+    } else {
+      /* RelationalOperator: '<S88>/Relational Operator' incorporates:
+       *  Constant: '<S88>/obere Kraftsensor Grenze'
+       */
+      Control_software_v1_1_B.RelationalOperator_j = (0.0 >=
+        Control_software_v1_1_P.obereKraftsensorGrenze_Value);
+
+      /* Switch: '<S88>/Switch' */
+      if (Control_software_v1_1_B.RelationalOperator_j) {
+        /* Sum: '<S88>/Sum' incorporates:
+         *  Constant: '<S88>/Beschleunigung'
+         */
+        Control_software_v1_1_B.Sum_no =
+          Control_software_v1_1_P.Beschleunigung_Value_o +
+          Control_software_v1_1_B.Delay_c;
+        Control_software_v1_1_B.Switch_h = Control_software_v1_1_B.Sum_no;
+      } else {
+        Control_software_v1_1_B.Switch_h = Control_software_v1_1_B.Delay_c;
+      }
+
+      /* End of Switch: '<S88>/Switch' */
+      Control_software_v1_1_B.Switch1_o = Control_software_v1_1_B.Switch_h;
+    }
+
+    /* End of Switch: '<S88>/Switch1' */
+    Control_software_v1_1_B.Switch1_i = Control_software_v1_1_B.Switch1_o;
+  } else {
+    if (Control_software_v1_1_B.DI_Takeoff >
+        Control_software_v1_1_P.Switch_Threshold) {
+      /* Switch: '<S7>/Switch' incorporates:
+       *  Constant: '<S7>/Constant2'
+       */
+      Control_software_v1_1_B.Switch_dl =
+        Control_software_v1_1_P.Constant2_Value_h;
+    } else {
+      /* Logic: '<S90>/Logical Operator2' incorporates:
+       *  Switch: '<S7>/Switch'
+       */
+      Control_software_v1_1_B.LogicalOperator2 =
+        ((Control_software_v1_1_B.Delay3 != 0.0) ||
+         (Control_software_v1_1_B.Delay1 != 0.0) ||
+         (Control_software_v1_1_B.Delay4 != 0.0));
+
+      /* Logic: '<S90>/Logical Operator3' incorporates:
+       *  Switch: '<S7>/Switch'
+       */
+      Control_software_v1_1_B.LogicalOperator3 =
+        (Control_software_v1_1_B.LogicalOperator2 &&
+         (Control_software_v1_1_B.Switch5 != 0.0));
+
+      /* Switch: '<S7>/Switch11' incorporates:
+       *  Constant: '<S7>/Constant3'
+       *  Switch: '<S7>/Switch'
+       */
+      if (Control_software_v1_1_B.LogicalOperator3) {
+        Control_software_v1_1_B.Switch11 =
+          Control_software_v1_1_P.Constant3_Value;
+      } else {
+        /* Logic: '<S90>/Logical Operator4' */
+        Control_software_v1_1_B.LogicalOperator4 =
+          ((Control_software_v1_1_B.Delay5 != 0.0) ||
+           (Control_software_v1_1_B.Delay4 != 0.0));
+
+        /* Logic: '<S90>/Logical Operator5' */
+        Control_software_v1_1_B.LogicalOperator5 =
+          (Control_software_v1_1_B.LogicalOperator4 &&
+           (Control_software_v1_1_B.Switch7 != 0.0));
+
+        /* Switch: '<S7>/Switch10' incorporates:
+         *  Constant: '<S7>/konstante Einrollgeschw.'
+         */
+        if (Control_software_v1_1_B.LogicalOperator5) {
+          Control_software_v1_1_B.Switch10 =
+            Control_software_v1_1_P.konstanteEinrollgeschw_Value;
+        } else {
+          /* Logic: '<S90>/Logical Operator' */
+          Control_software_v1_1_B.LogicalOperator =
+            ((Control_software_v1_1_B.Delay2 != 0.0) ||
+             (Control_software_v1_1_B.Delay1 != 0.0) ||
+             (Control_software_v1_1_B.Delay3 != 0.0));
+
+          /* Logic: '<S90>/Logical Operator1' */
+          Control_software_v1_1_B.LogicalOperator1 =
+            (Control_software_v1_1_B.LogicalOperator &&
+             (Control_software_v1_1_B.Switch4 != 0.0));
+
+          /* Switch: '<S7>/Switch9' */
+          if (Control_software_v1_1_B.LogicalOperator1) {
+            /* Sum: '<S7>/Sum1' incorporates:
+             *  Constant: '<S7>/Constant1'
+             */
+            Control_software_v1_1_B.Sum1_bw = Control_software_v1_1_B.Sum1_j +
+              Control_software_v1_1_P.Constant1_Value_m;
+            Control_software_v1_1_B.Switch9 = Control_software_v1_1_B.Sum1_bw;
+          } else {
+            /* Logic: '<S90>/Logical Operator6' */
+            Control_software_v1_1_B.LogicalOperator6 =
+              ((Control_software_v1_1_B.Delay1 != 0.0) ||
+               (Control_software_v1_1_B.Delay2 != 0.0));
+
+            /* Logic: '<S90>/Logical Operator7' */
+            Control_software_v1_1_B.LogicalOperator7 =
+              ((Control_software_v1_1_B.Switch_m != 0.0) &&
+               Control_software_v1_1_B.LogicalOperator6);
+
+            /* Switch: '<S7>/Switch8' incorporates:
+             *  Constant: '<S7>/Constant'
+             */
+            if (Control_software_v1_1_B.LogicalOperator7) {
+              /* Sum: '<S7>/Sum' incorporates:
+               *  Constant: '<S7>/konstante Ausrollgeschw.'
+               */
+              Control_software_v1_1_B.Sum_ot = Control_software_v1_1_B.Sum1_k +
+                Control_software_v1_1_P.konstanteAusrollgeschw_Value;
+              Control_software_v1_1_B.Switch8 = Control_software_v1_1_B.Sum_ot;
+            } else {
+              Control_software_v1_1_B.Switch8 =
+                Control_software_v1_1_P.Constant_Value_n;
+            }
+
+            /* End of Switch: '<S7>/Switch8' */
+            Control_software_v1_1_B.Switch9 = Control_software_v1_1_B.Switch8;
+          }
+
+          /* End of Switch: '<S7>/Switch9' */
+          Control_software_v1_1_B.Switch10 = Control_software_v1_1_B.Switch9;
+        }
+
+        /* End of Switch: '<S7>/Switch10' */
+        Control_software_v1_1_B.Switch11 = Control_software_v1_1_B.Switch10;
+      }
+
+      /* End of Switch: '<S7>/Switch11' */
+
+      /* Switch: '<S7>/Switch' */
+      Control_software_v1_1_B.Switch_dl = Control_software_v1_1_B.Switch11;
+    }
+
+    Control_software_v1_1_B.Switch1_i = Control_software_v1_1_B.Switch_dl;
+  }
+
+  /* End of Switch: '<S7>/Switch1' */
+
+  /* Delay: '<S93>/Delay' */
+  Control_software_v1_1_B.Delay_k = Control_software_v1_1_DW.Delay_DSTATE_i;
+
+  /* Sum: '<S93>/Sum' */
+  Control_software_v1_1_B.Sum_m = Control_software_v1_1_B.Switch1_i -
+    Control_software_v1_1_B.Delay_k;
+
+  /* RelationalOperator: '<S103>/Compare' incorporates:
+   *  Constant: '<S103>/Constant'
+   */
+  Control_software_v1_1_B.Compare_m = (Control_software_v1_1_B.Sum_m <
+    Control_software_v1_1_P.Constant_Value_id);
+
+  /* Switch: '<S93>/Switch1' */
+  if (Control_software_v1_1_B.Compare_m) {
+    /* Gain: '<S93>/Gain' incorporates:
+     *  Constant: '<S93>/Beschleunigung'
+     */
+    Control_software_v1_1_B.Gain_fi = Control_software_v1_1_P.Gain_Gain_f *
+      Control_software_v1_1_P.Beschleunigung_Value;
+    Control_software_v1_1_B.Switch1_dn = Control_software_v1_1_B.Gain_fi;
+  } else {
+    /* RelationalOperator: '<S102>/Compare' incorporates:
+     *  Constant: '<S102>/Constant'
+     */
+    Control_software_v1_1_B.Compare_k = (Control_software_v1_1_B.Sum_m >
+      Control_software_v1_1_P.Constant_Value_m);
+
+    /* Switch: '<S93>/Switch' incorporates:
+     *  Constant: '<S93>/Beschleunigung'
+     *  Constant: '<S93>/Constant1'
+     */
+    if (Control_software_v1_1_B.Compare_k) {
+      Control_software_v1_1_B.Switch_c =
+        Control_software_v1_1_P.Beschleunigung_Value;
+    } else {
+      Control_software_v1_1_B.Switch_c =
+        Control_software_v1_1_P.Constant1_Value_g;
+    }
+
+    /* End of Switch: '<S93>/Switch' */
+    Control_software_v1_1_B.Switch1_dn = Control_software_v1_1_B.Switch_c;
+  }
+
+  /* End of Switch: '<S93>/Switch1' */
+
+  /* Delay: '<S93>/Delay1' */
+  Control_software_v1_1_B.Delay1_j = Control_software_v1_1_DW.Delay1_DSTATE_n;
+
+  /* Sum: '<S93>/Sum1' */
+  Control_software_v1_1_B.Sum1_e = Control_software_v1_1_B.Switch1_dn +
+    Control_software_v1_1_B.Delay1_j;
+
   /* Switch: '<S6>/Switch1' incorporates:
    *  Constant: '<S6>/Constant2'
    */
   if (Control_software_v1_1_B.DI_Enable >
       Control_software_v1_1_P.Switch1_Threshold_g) {
-    /* Gain: '<S6>/Gain' */
-    y = Control_software_v1_1_P.WinchVoltMax;
-    TravelRefMinus = Control_software_v1_1_P.WinchRefSpdSup;
-    y /= TravelRefMinus;
-    Control_software_v1_1_B.Gain_j2 = y *
-      Control_software_v1_1_B.HLC_WinchSpdRef;
-    Control_software_v1_1_B.Switch1_n = Control_software_v1_1_B.Gain_j2;
+    Control_software_v1_1_B.Switch1_n = Control_software_v1_1_B.Sum1_e;
   } else {
     Control_software_v1_1_B.Switch1_n =
       Control_software_v1_1_P.Constant2_Value_j;
@@ -3508,7 +3926,10 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
 
   /* End of Saturate: '<S6>/Saturation' */
 
-  /* RateTransition: '<S87>/Rate Transition' */
+  /* RateTransition: '<S81>/Rate Transition' incorporates:
+   *  Constant: '<S2>/Constant'
+   *  Constant: '<S2>/Constant1'
+   */
   if (Control_software_v1_1_M->Timing.RateInteraction.TID0_1) {
     Control_software_v1_1_B.RateTransition_i[0] =
       Control_software_v1_1_B.AI_Joy_W;
@@ -3539,7 +3960,7 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_B.RateTransition_i[13] =
       Control_software_v1_1_B.CI_JoyS;
     Control_software_v1_1_B.RateTransition_i[14] =
-      Control_software_v1_1_B.Sum1_o;
+      Control_software_v1_1_B.CI_JoyW;
     Control_software_v1_1_B.RateTransition_i[15] =
       Control_software_v1_1_B.SlMotPosEst;
     Control_software_v1_1_B.RateTransition_i[16] =
@@ -3568,74 +3989,63 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_B.RateTransition_i[28] =
       Control_software_v1_1_B.HLC_WinchSpdRef;
     Control_software_v1_1_B.RateTransition_i[29] =
-      Control_software_v1_1_B.HLC_WinchMode;
+      Control_software_v1_1_P.Constant_Value_p;
     Control_software_v1_1_B.RateTransition_i[30] =
       Control_software_v1_1_B.PotZoneFlight;
     Control_software_v1_1_B.RateTransition_i[31] =
       Control_software_v1_1_B.PotZoneLanding;
     Control_software_v1_1_B.RateTransition_i[32] =
-      Control_software_v1_1_B.HLC_State;
+      Control_software_v1_1_P.Constant1_Value_b;
     Control_software_v1_1_B.RateTransition_i[33] =
       Control_software_v1_1_B.AO_SlideDriver;
     Control_software_v1_1_B.RateTransition_i[34] =
       Control_software_v1_1_B.AO_WinchDriver;
   }
 
-  /* End of RateTransition: '<S87>/Rate Transition' */
-  /* S-Function (scblock): '<S13>/S-Function' */
-  /* ok to acquire for <S13>/S-Function */
-  Control_software_v1_1_DW.SFunction_IWORK_j.AcquireOK = 1;
+  /* End of RateTransition: '<S81>/Rate Transition' */
 
-  /* S-Function (scblock): '<S14>/S-Function' */
-  /* ok to acquire for <S14>/S-Function */
-  Control_software_v1_1_DW.SFunction_IWORK_c.AcquireOK = 1;
-
-  /* S-Function (scblock): '<S15>/S-Function' */
-  /* ok to acquire for <S15>/S-Function */
-  Control_software_v1_1_DW.SFunction_IWORK_gr.AcquireOK = 1;
-
-  /* Gain: '<S20>/Gain' */
+  /* Gain: '<S14>/Gain' */
   Control_software_v1_1_B.Gain_j = Control_software_v1_1_P.SlMotPosAIgain *
     Control_software_v1_1_B.AI_mot_slide_pos;
 
-  /* SignalConversion: '<S20>/TmpSignal ConversionAtDiscrete State-SpaceInport1' */
+  /* SignalConversion: '<S14>/TmpSignal ConversionAtDiscrete State-SpaceInport1' */
   Control_software_v1_1_B.TmpSignalConversionAtDiscreteSt[0] =
     Control_software_v1_1_B.Gain_j;
   Control_software_v1_1_B.TmpSignalConversionAtDiscreteSt[1] =
     Control_software_v1_1_B.SlideMotTorqueEst;
 
-  /* Sum: '<S21>/Sum' incorporates:
-   *  Constant: '<S21>/Constant'
+  /* Sum: '<S15>/Sum' incorporates:
+   *  Constant: '<S15>/Constant'
    */
   Control_software_v1_1_B.Sum_c = Control_software_v1_1_P.WinchVoltMax +
     Control_software_v1_1_B.AI_mot_winch_pos;
 
-  /* Gain: '<S21>/Gain' */
+  /* Gain: '<S15>/Gain' */
   Control_software_v1_1_B.Gain_g = Control_software_v1_1_P.WinchMotPosAIgain *
     Control_software_v1_1_B.Sum_c;
 
-  /* Sum: '<S21>/Sum1' incorporates:
-   *  Constant: '<S21>/Constant1'
+  /* Sum: '<S15>/Sum1' incorporates:
+   *  Constant: '<S15>/Constant1'
    */
   y = Control_software_v1_1_P.WinchTravelMin_m;
   TravelRefMinus = Control_software_v1_1_P.WinchDrumRad;
   y /= TravelRefMinus;
   Control_software_v1_1_B.Sum1_nr = y + Control_software_v1_1_B.Gain_g;
 
-  /* SignalConversion: '<S21>/TmpSignal ConversionAtDiscrete State-SpaceInport1' */
+  /* SignalConversion: '<S15>/TmpSignal ConversionAtDiscrete State-SpaceInport1' */
   Control_software_v1_1_B.TmpSignalConversionAtDiscrete_e[0] =
     Control_software_v1_1_B.Sum1_nr;
   Control_software_v1_1_B.TmpSignalConversionAtDiscrete_e[1] =
     Control_software_v1_1_B.WinchMotTorqueEst;
 
-  /* RateTransition: '<S28>/Rate Transition5' */
+  /* RateTransition: '<S22>/Rate Transition5' */
   Control_software_v1_1_B.RateTransition5 = Control_software_v1_1_B.FIFOwrite3;
 
-  /* RateTransition: '<S28>/Rate Transition3' */
+  /* RateTransition: '<S22>/Rate Transition3' */
   Control_software_v1_1_B.RateTransition3 = Control_software_v1_1_B.FIFOwrite2;
 
-  /* RateTransition: '<S25>/Rate Transition4' incorporates:
-   *  RateTransition: '<S26>/Rate Transition4'
+  /* RateTransition: '<S19>/Rate Transition4' incorporates:
+   *  RateTransition: '<S20>/Rate Transition4'
    */
   if (Control_software_v1_1_M->Timing.RateInteraction.TID0_3) {
     Control_software_v1_1_B.RateTransition4_p =
@@ -3644,56 +4054,56 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
       Control_software_v1_1_B.RateTransition3;
   }
 
-  /* End of RateTransition: '<S25>/Rate Transition4' */
+  /* End of RateTransition: '<S19>/Rate Transition4' */
 
-  /* RateTransition: '<S28>/Rate Transition1' */
+  /* RateTransition: '<S22>/Rate Transition1' */
   Control_software_v1_1_B.RateTransition1 = Control_software_v1_1_B.FIFOwrite1;
 
-  /* RateTransition: '<S27>/Rate Transition4' */
+  /* RateTransition: '<S21>/Rate Transition4' */
   if (Control_software_v1_1_M->Timing.RateInteraction.TID0_2) {
     Control_software_v1_1_B.RateTransition4_f =
       Control_software_v1_1_B.RateTransition1;
   }
 
-  /* End of RateTransition: '<S27>/Rate Transition4' */
+  /* End of RateTransition: '<S21>/Rate Transition4' */
 
-  /* RateTransition: '<S28>/Rate Transition7' */
+  /* RateTransition: '<S22>/Rate Transition7' */
   Control_software_v1_1_B.RateTransition7 = Control_software_v1_1_B.FIFOwrite4;
 
-  /* S-Function (setupqua): '<S28>/Setup1' */
+  /* S-Function (setupqua): '<S22>/Setup1' */
 
-  /* Level2 S-Function Block: '<S28>/Setup1' (setupqua) */
+  /* Level2 S-Function Block: '<S22>/Setup1' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[39];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (setupqua): '<S28>/Setup2' */
+  /* S-Function (setupqua): '<S22>/Setup2' */
 
-  /* Level2 S-Function Block: '<S28>/Setup2' (setupqua) */
+  /* Level2 S-Function Block: '<S22>/Setup2' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[40];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (setupqua): '<S28>/Setup3' */
+  /* S-Function (setupqua): '<S22>/Setup3' */
 
-  /* Level2 S-Function Block: '<S28>/Setup3' (setupqua) */
+  /* Level2 S-Function Block: '<S22>/Setup3' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[41];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (setupqua): '<S28>/Setup4' */
+  /* S-Function (setupqua): '<S22>/Setup4' */
 
-  /* Level2 S-Function Block: '<S28>/Setup4' (setupqua) */
+  /* Level2 S-Function Block: '<S22>/Setup4' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[42];
     sfcnOutputs(rts,0);
   }
 
   /* Constant: '<S6>/Constant1' */
-  Control_software_v1_1_B.Constant1 = Control_software_v1_1_P.Constant1_Value_b;
+  Control_software_v1_1_B.Constant1 = Control_software_v1_1_P.Constant1_Value_b3;
 
   /* Constant: '<S6>/Constant3' */
   Control_software_v1_1_B.Constant3 = Control_software_v1_1_P.Constant3_Value_n;
@@ -3721,6 +4131,20 @@ static void Control_software_v1_1_output0(void) /* Sample time: [0.001s, 0.0s] *
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[45];
     sfcnOutputs(rts,0);
   }
+
+  /* S-Function (scblock): '<S87>/S-Function' */
+  /* ok to acquire for <S87>/S-Function */
+  Control_software_v1_1_DW.SFunction_IWORK_hi.AcquireOK = 1;
+
+  /* Gain: '<S6>/Gain' */
+  y = Control_software_v1_1_P.WinchVoltMax;
+  TravelRefMinus = Control_software_v1_1_P.WinchRefSpdSup;
+  y /= TravelRefMinus;
+  Control_software_v1_1_B.Gain_j2 = y * Control_software_v1_1_B.HLC_WinchSpdRef;
+
+  /* S-Function (scblock): '<S89>/S-Function' */
+  /* ok to acquire for <S89>/S-Function */
+  Control_software_v1_1_DW.SFunction_IWORK_hy.AcquireOK = 1;
 }
 
 /* Model update function for TID0 */
@@ -3730,28 +4154,19 @@ static void Control_software_v1_1_update0(void) /* Sample time: [0.001s, 0.0s] *
   real_T xnew_0;
   real_T xnew_idx_0;
 
-  /* Update for DiscreteTransferFcn: '<S9>/Discrete Transfer Fcn' */
+  /* Update for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn' */
   Control_software_v1_1_DW.DiscreteTransferFcn_states[1] =
     Control_software_v1_1_DW.DiscreteTransferFcn_states[0];
   Control_software_v1_1_DW.DiscreteTransferFcn_states[0] =
     Control_software_v1_1_DW.DiscreteTransferFcn_tmp;
 
-  /* Update for Delay: '<S9>/Delay' */
-  Control_software_v1_1_DW.Delay_DSTATE = Control_software_v1_1_B.Sum1_o;
-
-  /* Update for DiscreteTransferFcn: '<S9>/Discrete Transfer Fcn1' */
+  /* Update for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn1' */
   Control_software_v1_1_DW.DiscreteTransferFcn1_states[1] =
     Control_software_v1_1_DW.DiscreteTransferFcn1_states[0];
   Control_software_v1_1_DW.DiscreteTransferFcn1_states[0] =
     Control_software_v1_1_DW.DiscreteTransferFcn1_tmp;
 
-  /* Update for Delay: '<S16>/Delay' */
-  Control_software_v1_1_DW.Delay_DSTATE_f = Control_software_v1_1_B.Sum1_o;
-
-  /* Update for Delay: '<S16>/Delay1' */
-  Control_software_v1_1_DW.Delay1_DSTATE = Control_software_v1_1_B.Sum1_o;
-
-  /* Update for DiscreteStateSpace: '<S20>/Discrete State-Space' */
+  /* Update for DiscreteStateSpace: '<S14>/Discrete State-Space' */
   xnew_0 = Control_software_v1_1_P.Afilt_Sl[0] *
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE[0];
   xnew_0 += Control_software_v1_1_P.Afilt_Sl[2] *
@@ -3770,28 +4185,28 @@ static void Control_software_v1_1_update0(void) /* Sample time: [0.001s, 0.0s] *
   xnew_0 += Control_software_v1_1_P.Bfilt_Sl[3] *
     Control_software_v1_1_B.TmpSignalConversionAtDiscreteSt[1];
 
-  /* Update for DiscreteTransferFcn: '<S20>/Discrete Transfer Fcn1' */
+  /* Update for DiscreteTransferFcn: '<S14>/Discrete Transfer Fcn1' */
   Control_software_v1_1_DW.DiscreteTransferFcn1_states_g[1] =
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_g[0];
   Control_software_v1_1_DW.DiscreteTransferFcn1_states_g[0] =
     Control_software_v1_1_DW.DiscreteTransferFcn1_tmp_d;
 
-  /* Update for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn2' */
+  /* Update for DiscreteTransferFcn: '<S11>/Discrete Transfer Fcn2' */
   Control_software_v1_1_DW.DiscreteTransferFcn2_states[1] =
     Control_software_v1_1_DW.DiscreteTransferFcn2_states[0];
   Control_software_v1_1_DW.DiscreteTransferFcn2_states[0] =
     Control_software_v1_1_DW.DiscreteTransferFcn2_tmp;
 
-  /* Update for DiscreteTransferFcn: '<S19>/Discrete Transfer Fcn1' */
+  /* Update for DiscreteTransferFcn: '<S13>/Discrete Transfer Fcn1' */
   Control_software_v1_1_DW.DiscreteTransferFcn1_states_h[1] =
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_h[0];
   Control_software_v1_1_DW.DiscreteTransferFcn1_states_h[0] =
     Control_software_v1_1_DW.DiscreteTransferFcn1_tmp_c;
 
-  /* Update for DiscreteStateSpace: '<S20>/Discrete State-Space' */
+  /* Update for DiscreteStateSpace: '<S14>/Discrete State-Space' */
   Control_software_v1_1_DW.DiscreteStateSpace_DSTATE[0] = xnew_idx_0;
 
-  /* Update for DiscreteStateSpace: '<S21>/Discrete State-Space' */
+  /* Update for DiscreteStateSpace: '<S15>/Discrete State-Space' */
   xnew = Control_software_v1_1_P.Afilt_Winch[0] *
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE_n[0];
   xnew += Control_software_v1_1_P.Afilt_Winch[2] *
@@ -3802,10 +4217,10 @@ static void Control_software_v1_1_update0(void) /* Sample time: [0.001s, 0.0s] *
     Control_software_v1_1_B.TmpSignalConversionAtDiscrete_e[1];
   xnew_idx_0 = xnew;
 
-  /* Update for DiscreteStateSpace: '<S20>/Discrete State-Space' */
+  /* Update for DiscreteStateSpace: '<S14>/Discrete State-Space' */
   Control_software_v1_1_DW.DiscreteStateSpace_DSTATE[1] = xnew_0;
 
-  /* Update for DiscreteStateSpace: '<S21>/Discrete State-Space' */
+  /* Update for DiscreteStateSpace: '<S15>/Discrete State-Space' */
   xnew = Control_software_v1_1_P.Afilt_Winch[1] *
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE_n[0];
   xnew += Control_software_v1_1_P.Afilt_Winch[3] *
@@ -3817,30 +4232,33 @@ static void Control_software_v1_1_update0(void) /* Sample time: [0.001s, 0.0s] *
   Control_software_v1_1_DW.DiscreteStateSpace_DSTATE_n[0] = xnew_idx_0;
   Control_software_v1_1_DW.DiscreteStateSpace_DSTATE_n[1] = xnew;
 
-  /* Update for DiscreteTransferFcn: '<S21>/Discrete Transfer Fcn' */
+  /* Update for DiscreteTransferFcn: '<S15>/Discrete Transfer Fcn' */
   Control_software_v1_1_DW.DiscreteTransferFcn_states_n[1] =
     Control_software_v1_1_DW.DiscreteTransferFcn_states_n[0];
   Control_software_v1_1_DW.DiscreteTransferFcn_states_n[0] =
     Control_software_v1_1_DW.DiscreteTransferFcn_tmp_g;
 
-  /* Update for DiscreteTransferFcn: '<S11>/Discrete Transfer Fcn1' */
+  /* Update for DiscreteTransferFcn: '<S12>/Discrete Transfer Fcn1' */
   Control_software_v1_1_DW.DiscreteTransferFcn1_states_n[1] =
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_n[0];
   Control_software_v1_1_DW.DiscreteTransferFcn1_states_n[0] =
     Control_software_v1_1_DW.DiscreteTransferFcn1_tmp_h;
 
-  /* Update for Delay: '<S11>/Delay' */
-  Control_software_v1_1_DW.Delay_DSTATE_b[0] =
-    Control_software_v1_1_DW.Delay_DSTATE_b[1];
-  Control_software_v1_1_DW.Delay_DSTATE_b[1] =
-    Control_software_v1_1_DW.Delay_DSTATE_b[2];
-  Control_software_v1_1_DW.Delay_DSTATE_b[2] = Control_software_v1_1_B.CI_PotPos;
+  /* Update for Delay: '<S12>/Delay' */
+  Control_software_v1_1_DW.Delay_DSTATE[0] =
+    Control_software_v1_1_DW.Delay_DSTATE[1];
+  Control_software_v1_1_DW.Delay_DSTATE[1] =
+    Control_software_v1_1_DW.Delay_DSTATE[2];
+  Control_software_v1_1_DW.Delay_DSTATE[2] = Control_software_v1_1_B.CI_PotPos;
 
   /* Update for UnitDelay: '<S2>/Unit Delay7' */
   Control_software_v1_1_DW.UnitDelay7_DSTATE = Control_software_v1_1_B.CI_PotSpd;
 
-  /* Update for UnitDelay: '<S2>/Unit Delay1' */
-  Control_software_v1_1_DW.UnitDelay1_DSTATE = Control_software_v1_1_B.HLC_State;
+  /* Update for UnitDelay: '<S2>/Unit Delay1' incorporates:
+   *  Constant: '<S2>/Constant1'
+   */
+  Control_software_v1_1_DW.UnitDelay1_DSTATE =
+    Control_software_v1_1_P.Constant1_Value_b;
 
   /* Update for UnitDelay: '<S2>/Unit Delay2' */
   Control_software_v1_1_DW.UnitDelay2_DSTATE =
@@ -3866,6 +4284,48 @@ static void Control_software_v1_1_update0(void) /* Sample time: [0.001s, 0.0s] *
 
   /* Update for UnitDelay: '<S2>/Unit Delay8' */
   Control_software_v1_1_DW.UnitDelay8_DSTATE = Control_software_v1_1_B.ReelTimer;
+
+  /* Update for Delay: '<S7>/Delay' */
+  Control_software_v1_1_DW.Delay_DSTATE_h = Control_software_v1_1_B.Sum1_e;
+
+  /* Update for Delay: '<S90>/Delay3' */
+  Control_software_v1_1_DW.Delay3_DSTATE = Control_software_v1_1_B.Switch5;
+
+  /* Update for Delay: '<S90>/Delay1' */
+  Control_software_v1_1_DW.Delay1_DSTATE = Control_software_v1_1_B.Switch4;
+
+  /* Update for Delay: '<S90>/Delay4' */
+  Control_software_v1_1_DW.Delay4_DSTATE = Control_software_v1_1_B.Switch7;
+
+  /* Update for Delay: '<S90>/Delay5' */
+  Control_software_v1_1_DW.Delay5_DSTATE = Control_software_v1_1_B.Switch5;
+
+  /* Update for Delay: '<S92>/Delay' */
+  Control_software_v1_1_DW.Delay_DSTATE_hx = Control_software_v1_1_B.Sum1_j;
+
+  /* Update for Delay: '<S99>/Delay' */
+  Control_software_v1_1_DW.Delay_DSTATE_b = Control_software_v1_1_B.Sum1_j;
+
+  /* Update for Delay: '<S99>/Delay1' */
+  Control_software_v1_1_DW.Delay1_DSTATE_i = Control_software_v1_1_B.Sum1_j;
+
+  /* Update for Delay: '<S90>/Delay2' */
+  Control_software_v1_1_DW.Delay2_DSTATE = Control_software_v1_1_B.Switch_m;
+
+  /* Update for Delay: '<S91>/Delay' */
+  Control_software_v1_1_DW.Delay_DSTATE_bd = Control_software_v1_1_B.Sum1_k;
+
+  /* Update for Delay: '<S95>/Delay' */
+  Control_software_v1_1_DW.Delay_DSTATE_e = Control_software_v1_1_B.Sum1_k;
+
+  /* Update for Delay: '<S95>/Delay1' */
+  Control_software_v1_1_DW.Delay1_DSTATE_h = Control_software_v1_1_B.Sum1_k;
+
+  /* Update for Delay: '<S93>/Delay' */
+  Control_software_v1_1_DW.Delay_DSTATE_i = Control_software_v1_1_B.Sum1_e;
+
+  /* Update for Delay: '<S93>/Delay1' */
+  Control_software_v1_1_DW.Delay1_DSTATE_n = Control_software_v1_1_B.Sum1_e;
 
   /* Update absolute time */
   /* The "clockTick0" counts the number of times the code of this task has
@@ -3914,8 +4374,8 @@ static void Control_software_v1_1_update0(void) /* Sample time: [0.001s, 0.0s] *
 /* Model output function for TID1 */
 static void Control_software_v1_1_output1(void) /* Sample time: [0.01s, 0.0s] */
 {
-  /* S-Function (scblock): '<S89>/S-Function' */
-  /* ok to acquire for <S89>/S-Function */
+  /* S-Function (scblock): '<S83>/S-Function' */
+  /* ok to acquire for <S83>/S-Function */
   Control_software_v1_1_DW.SFunction_IWORK_k.AcquireOK = 1;
 }
 
@@ -3957,238 +4417,238 @@ static void Control_software_v1_1_output2(void) /* Sample time: [0.02s, 0.0s] */
   /* Reset subsysRan breadcrumbs */
   srClearBC(Control_software_v1_1_DW.Data_validation_SubsysRanBC);
 
-  /* S-Function (fiforeadhdr): '<S27>/FIFO ASCII read ' */
+  /* S-Function (fiforeadhdr): '<S21>/FIFO ASCII read ' */
 
-  /* Level2 S-Function Block: '<S27>/FIFO ASCII read ' (fiforeadhdr) */
+  /* Level2 S-Function Block: '<S21>/FIFO ASCII read ' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[30];
     sfcnOutputs(rts,2);
   }
 
-  /* MATLAB Function: '<S31>/Embedded MATLAB Function' */
-  /* MATLAB Function 'Inputs/RS232_read/IMU_read/Data_Check_CRC/Embedded MATLAB Function': '<S34>:1' */
+  /* MATLAB Function: '<S25>/Embedded MATLAB Function' */
+  /* MATLAB Function 'Inputs/RS232_read/IMU_read/Data_Check_CRC/Embedded MATLAB Function': '<S28>:1' */
   /* CALCCRC pBuffer must be a uint8 array containing the buffer where the CRC */
   /* has to be computed. */
-  /* '<S34>:1:6' */
-  /* '<S34>:1:33' */
+  /* '<S28>:1:6' */
+  /* '<S28>:1:33' */
   Control_software_convert1word_p(Control_software_v1_1_B.FIFOASCIIread[144],
     vec1);
 
-  /* '<S34>:1:34' */
+  /* '<S28>:1:34' */
   Control_software_convert1word_p(Control_software_v1_1_B.FIFOASCIIread[145],
     vec2);
 
-  /* '<S34>:1:36' */
+  /* '<S28>:1:36' */
   for (ind = 0; ind < 8; ind++) {
     temp[ind] = vec1[ind];
     temp[ind + 8] = vec2[ind];
   }
 
-  /* '<S34>:1:38' */
-  /* '<S34>:1:42' */
+  /* '<S28>:1:38' */
+  /* '<S28>:1:42' */
   crc_IMU = 0.0;
 
-  /* '<S34>:1:43' */
+  /* '<S28>:1:43' */
   for (ind = 0; ind < 16; ind++) {
-    /* '<S34>:1:43' */
-    /* '<S34>:1:44' */
+    /* '<S28>:1:43' */
+    /* '<S28>:1:44' */
     crc_IMU += rt_powd_snf(2.0, 16.0 - (1.0 + (real_T)ind)) * temp[ind];
   }
 
-  /* '<S34>:1:9' */
+  /* '<S28>:1:9' */
   crc = 0U;
 
-  /* '<S34>:1:10' */
+  /* '<S28>:1:10' */
   for (ind = 0; ind < 143; ind++) {
-    /* '<S34>:1:10' */
-    /* '<S34>:1:12' */
+    /* '<S28>:1:10' */
+    /* '<S28>:1:12' */
     crc ^= Control_software_v1_1_B.FIFOASCIIread[ind + 1];
 
-    /* '<S34>:1:13' */
+    /* '<S28>:1:13' */
     for (i = 0; i < 8; i++) {
-      /* '<S34>:1:13' */
-      /* '<S34>:1:14' */
+      /* '<S28>:1:13' */
+      /* '<S28>:1:14' */
       carry = (uint16_T)(crc & 1);
 
-      /* '<S34>:1:15' */
+      /* '<S28>:1:15' */
       crc = (uint16_T)((uint32_T)crc >> 1);
       if (carry != 0) {
-        /* '<S34>:1:18' */
+        /* '<S28>:1:18' */
         crc ^= 33800U;
       }
     }
   }
 
   if (crc == crc_IMU) {
-    /* '<S34>:1:24' */
-    /* '<S34>:1:25' */
+    /* '<S28>:1:24' */
+    /* '<S28>:1:25' */
     ind = 1;
   } else {
-    /* '<S34>:1:27' */
+    /* '<S28>:1:27' */
     ind = 0;
   }
 
   Control_software_v1_1_B.CRC_valid = ind;
 
-  /* End of MATLAB Function: '<S31>/Embedded MATLAB Function' */
+  /* End of MATLAB Function: '<S25>/Embedded MATLAB Function' */
 
-  /* MATLAB Function: '<S44>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S38>/Embedded MATLAB Function' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[4],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_g);
 
-  /* MATLAB Function: '<S44>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S38>/Embedded MATLAB Function1' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[8],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1);
 
-  /* MATLAB Function: '<S44>/Embedded MATLAB Function3' */
+  /* MATLAB Function: '<S38>/Embedded MATLAB Function3' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[12],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction3);
 
-  /* MATLAB Function: '<S44>/Embedded MATLAB Function4' */
+  /* MATLAB Function: '<S38>/Embedded MATLAB Function4' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[16],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction4);
 
-  /* MATLAB Function: '<S45>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S39>/Embedded MATLAB Function' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[20],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_d);
 
-  /* MATLAB Function: '<S45>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S39>/Embedded MATLAB Function1' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[24],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_i);
 
-  /* MATLAB Function: '<S45>/Embedded MATLAB Function3' */
+  /* MATLAB Function: '<S39>/Embedded MATLAB Function3' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[28],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction3_p);
 
-  /* MATLAB Function: '<S46>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S40>/Embedded MATLAB Function' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[32],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_f);
 
-  /* MATLAB Function: '<S46>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S40>/Embedded MATLAB Function1' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[36],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_p);
 
-  /* MATLAB Function: '<S46>/Embedded MATLAB Function3' */
+  /* MATLAB Function: '<S40>/Embedded MATLAB Function3' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[40],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction3_a);
 
-  /* MATLAB Function: '<S36>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S30>/Embedded MATLAB Function' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[44],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_b);
 
-  /* MATLAB Function: '<S36>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S30>/Embedded MATLAB Function1' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[48],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_j);
 
-  /* MATLAB Function: '<S36>/Embedded MATLAB Function3' */
+  /* MATLAB Function: '<S30>/Embedded MATLAB Function3' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[52],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction3_ps);
 
-  /* MATLAB Function: '<S38>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S32>/Embedded MATLAB Function' */
   Cont_EmbeddedMATLABFunction(&Control_software_v1_1_B.FIFOASCIIread[56],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_bf);
 
-  /* MATLAB Function: '<S39>/Embedded MATLAB Function3' */
+  /* MATLAB Function: '<S33>/Embedded MATLAB Function3' */
   C_EmbeddedMATLABFunction1_g(&Control_software_v1_1_B.FIFOASCIIread[60],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction3_pw);
 
-  /* MATLAB Function: '<S39>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S33>/Embedded MATLAB Function1' */
   C_EmbeddedMATLABFunction1_g(&Control_software_v1_1_B.FIFOASCIIread[64],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_g);
 
-  /* MATLAB Function: '<S39>/Embedded MATLAB Function2' */
+  /* MATLAB Function: '<S33>/Embedded MATLAB Function2' */
   C_EmbeddedMATLABFunction1_g(&Control_software_v1_1_B.FIFOASCIIread[68],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction2);
 
-  /* MATLAB Function: '<S40>/Embedded MATLAB Function2' */
+  /* MATLAB Function: '<S34>/Embedded MATLAB Function2' */
   C_EmbeddedMATLABFunction1_g(&Control_software_v1_1_B.FIFOASCIIread[72],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction2_n);
 
-  /* MATLAB Function: '<S40>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S34>/Embedded MATLAB Function1' */
   C_EmbeddedMATLABFunction1_g(&Control_software_v1_1_B.FIFOASCIIread[76],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_n);
 
-  /* MATLAB Function: '<S40>/Embedded MATLAB Function3' */
+  /* MATLAB Function: '<S34>/Embedded MATLAB Function3' */
   C_EmbeddedMATLABFunction1_g(&Control_software_v1_1_B.FIFOASCIIread[80],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction3_o);
 
-  /* MATLAB Function: '<S40>/Embedded MATLAB Function4' */
+  /* MATLAB Function: '<S34>/Embedded MATLAB Function4' */
   C_EmbeddedMATLABFunction1_g(&Control_software_v1_1_B.FIFOASCIIread[84],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction4_g);
 
-  /* MATLAB Function: '<S35>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S29>/Embedded MATLAB Function' */
   Cont_EmbeddedMATLABFunction(&Control_software_v1_1_B.FIFOASCIIread[88],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_l);
 
-  /* MATLAB Function: '<S35>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S29>/Embedded MATLAB Function1' */
   Con_EmbeddedMATLABFunction1(Control_software_v1_1_B.FIFOASCIIread[92],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_e);
 
-  /* MATLAB Function: '<S35>/Embedded MATLAB Function2' */
+  /* MATLAB Function: '<S29>/Embedded MATLAB Function2' */
   Con_EmbeddedMATLABFunction1(Control_software_v1_1_B.FIFOASCIIread[93],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction2_h);
 
-  /* MATLAB Function: '<S41>/Embedded MATLAB Function2' */
+  /* MATLAB Function: '<S35>/Embedded MATLAB Function2' */
   C_EmbeddedMATLABFunction1_g(&Control_software_v1_1_B.FIFOASCIIread[94],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction2_m);
 
-  /* MATLAB Function: '<S42>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S36>/Embedded MATLAB Function' */
   Co_EmbeddedMATLABFunction_k(&Control_software_v1_1_B.FIFOASCIIread[98],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_k);
 
-  /* MATLAB Function: '<S42>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S36>/Embedded MATLAB Function1' */
   Co_EmbeddedMATLABFunction_k(&Control_software_v1_1_B.FIFOASCIIread[106],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_a);
 
-  /* MATLAB Function: '<S42>/Embedded MATLAB Function2' */
+  /* MATLAB Function: '<S36>/Embedded MATLAB Function2' */
   Co_EmbeddedMATLABFunction_k(&Control_software_v1_1_B.FIFOASCIIread[114],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction2_g);
 
-  /* MATLAB Function: '<S43>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S37>/Embedded MATLAB Function' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[122],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_j);
 
-  /* MATLAB Function: '<S43>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S37>/Embedded MATLAB Function1' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[126],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_d);
 
-  /* MATLAB Function: '<S43>/Embedded MATLAB Function3' */
+  /* MATLAB Function: '<S37>/Embedded MATLAB Function3' */
   Co_EmbeddedMATLABFunction_b(&Control_software_v1_1_B.FIFOASCIIread[130],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction3_n);
 
-  /* MATLAB Function: '<S37>/Embedded MATLAB Function' */
+  /* MATLAB Function: '<S31>/Embedded MATLAB Function' */
   Con_EmbeddedMATLABFunction1(Control_software_v1_1_B.FIFOASCIIread[134],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction_a);
 
-  /* MATLAB Function: '<S37>/Embedded MATLAB Function2' */
+  /* MATLAB Function: '<S31>/Embedded MATLAB Function2' */
   Con_EmbeddedMATLABFunction1(Control_software_v1_1_B.FIFOASCIIread[135],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction2_p);
 
-  /* MATLAB Function: '<S37>/Embedded MATLAB Function3' */
+  /* MATLAB Function: '<S31>/Embedded MATLAB Function3' */
   Con_EmbeddedMATLABFunction1(Control_software_v1_1_B.FIFOASCIIread[136],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction3_k);
 
-  /* MATLAB Function: '<S37>/Embedded MATLAB Function4' */
+  /* MATLAB Function: '<S31>/Embedded MATLAB Function4' */
   Con_EmbeddedMATLABFunction1(Control_software_v1_1_B.FIFOASCIIread[137],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction4_h);
 
-  /* MATLAB Function: '<S37>/Embedded MATLAB Function5' */
+  /* MATLAB Function: '<S31>/Embedded MATLAB Function5' */
   Con_EmbeddedMATLABFunction1(Control_software_v1_1_B.FIFOASCIIread[138],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction5);
 
-  /* MATLAB Function: '<S37>/Embedded MATLAB Function6' */
+  /* MATLAB Function: '<S31>/Embedded MATLAB Function6' */
   Con_EmbeddedMATLABFunction1(Control_software_v1_1_B.FIFOASCIIread[139],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction6);
 
-  /* MATLAB Function: '<S37>/Embedded MATLAB Function1' */
+  /* MATLAB Function: '<S31>/Embedded MATLAB Function1' */
   Cont_EmbeddedMATLABFunction(&Control_software_v1_1_B.FIFOASCIIread[140],
     &Control_software_v1_1_B.sf_EmbeddedMATLABFunction1_c);
 
-  /* Outputs for Enabled SubSystem: '<S27>/Data_validation' incorporates:
-   *  EnablePort: '<S32>/Enable'
+  /* Outputs for Enabled SubSystem: '<S21>/Data_validation' incorporates:
+   *  EnablePort: '<S26>/Enable'
    */
   if (Control_software_v1_1_B.CRC_valid > 0.0) {
-    /* Inport: '<S32>/IMU_data' */
+    /* Inport: '<S26>/IMU_data' */
     Control_software_v1_1_B.IMU_data[0] =
       Control_software_v1_1_B.sf_EmbeddedMATLABFunction_g.sing_out;
     Control_software_v1_1_B.IMU_data[1] =
@@ -4268,7 +4728,7 @@ static void Control_software_v1_1_output2(void) /* Sample time: [0.02s, 0.0s] */
     srUpdateBC(Control_software_v1_1_DW.Data_validation_SubsysRanBC);
   }
 
-  /* End of Outputs for SubSystem: '<S27>/Data_validation' */
+  /* End of Outputs for SubSystem: '<S21>/Data_validation' */
 }
 
 /* Model update function for TID2 */
@@ -4314,8 +4774,8 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
   int32_T b_x_size_idx_0;
   boolean_T exitg1;
 
-  /* S-Function (scblock): '<S92>/S-Function' */
-  /* ok to acquire for <S92>/S-Function */
+  /* S-Function (scblock): '<S86>/S-Function' */
+  /* ok to acquire for <S86>/S-Function */
   Control_software_v1_1_DW.SFunction_IWORK.AcquireOK = 1;
 
   /* UnitDelay: '<S1>/Unit Delay' */
@@ -4327,17 +4787,17 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
   Control_software_v1_1_B.Sum = Control_software_v1_1_P.Ts_1s +
     Control_software_v1_1_B.UnitDelay;
 
-  /* Switch: '<S91>/Switch1' incorporates:
-   *  Constant: '<S91>/Constant2'
+  /* Switch: '<S85>/Switch1' incorporates:
+   *  Constant: '<S85>/Constant2'
    */
   y = 12.0 * Control_software_v1_1_P.Ts_1s;
   if (Control_software_v1_1_B.Sum >= y) {
     Control_software_v1_1_B.Trigger_time =
       Control_software_v1_1_P.Constant2_Value_d;
   } else {
-    /* Switch: '<S91>/Switch' incorporates:
-     *  Constant: '<S91>/Constant'
-     *  Constant: '<S91>/Constant1'
+    /* Switch: '<S85>/Switch' incorporates:
+     *  Constant: '<S85>/Constant'
+     *  Constant: '<S85>/Constant1'
      */
     y = 2.0 * Control_software_v1_1_P.Ts_1s;
     if (Control_software_v1_1_B.Sum >= y) {
@@ -4348,33 +4808,33 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
         Control_software_v1_1_P.Constant1_Value_p;
     }
 
-    /* End of Switch: '<S91>/Switch' */
+    /* End of Switch: '<S85>/Switch' */
     Control_software_v1_1_B.Trigger_time = Control_software_v1_1_B.Switch_k;
   }
 
-  /* End of Switch: '<S91>/Switch1' */
+  /* End of Switch: '<S85>/Switch1' */
 
-  /* S-Function (scblock): '<S90>/S-Function' */
-  /* ok to acquire for <S90>/S-Function */
+  /* S-Function (scblock): '<S84>/S-Function' */
+  /* ok to acquire for <S84>/S-Function */
   Control_software_v1_1_DW.SFunction_IWORK_g.AcquireOK = 1;
 
-  /* S-Function (fiforeadhdr): '<S25>/FIFO ASCII read 1' */
+  /* S-Function (fiforeadhdr): '<S19>/FIFO ASCII read 1' */
 
-  /* Level2 S-Function Block: '<S25>/FIFO ASCII read 1' (fiforeadhdr) */
+  /* Level2 S-Function Block: '<S19>/FIFO ASCII read 1' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[28];
     sfcnOutputs(rts,3);
   }
 
-  /* MATLAB Function: '<S25>/Embedded MATLAB Function' */
-  /* MATLAB Function 'Inputs/RS232_read/Compass_read/Embedded MATLAB Function': '<S29>:1' */
+  /* MATLAB Function: '<S19>/Embedded MATLAB Function' */
+  /* MATLAB Function 'Inputs/RS232_read/Compass_read/Embedded MATLAB Function': '<S23>:1' */
   /*  Message frame: $C357.8P-5.77R1.18T21.8* */
   /*  Output: Ground unit Yaw in rad */
-  /* '<S29>:1:7' */
-  /* '<S29>:1:8' */
+  /* '<S23>:1:7' */
+  /* '<S23>:1:8' */
   Control_software_v1_1_B.GU_Yaw = 0.0;
 
-  /* '<S29>:1:10' */
+  /* '<S23>:1:10' */
   idx = 0;
   b_idx = 1;
   exitg1 = false;
@@ -4397,79 +4857,79 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
   }
 
   if (!(idx == 0)) {
-    /* '<S29>:1:12' */
-    /* '<S29>:1:13' */
+    /* '<S23>:1:12' */
+    /* '<S23>:1:13' */
     if (ii_data[0] == 8) {
-      /* '<S29>:1:14' */
-      /* '<S29>:1:15' */
+      /* '<S23>:1:14' */
+      /* '<S23>:1:15' */
       Control_software_v1_1_B.GU_Yaw = ((((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[6] - 48.0) * 0.1 + ((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[4] - 48.0)) + ((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[3] - 48.0) * 10.0) + ((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[2] - 48.0) * 100.0;
     } else if (ii_data[0] == 7) {
-      /* '<S29>:1:16' */
-      /* '<S29>:1:17' */
+      /* '<S23>:1:16' */
+      /* '<S23>:1:17' */
       Control_software_v1_1_B.GU_Yaw = (((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[5] - 48.0) * 0.1 + ((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[3] - 48.0)) + ((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[2] - 48.0) * 10.0;
     } else if (ii_data[0] == 6) {
-      /* '<S29>:1:18' */
-      /* '<S29>:1:19' */
+      /* '<S23>:1:18' */
+      /* '<S23>:1:19' */
       Control_software_v1_1_B.GU_Yaw = ((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[4] - 48.0) * 0.1 + ((real_T)
         Control_software_v1_1_B.FIFOASCIIread1[2] - 48.0);
     } else {
       if (ii_data[0] == 5) {
-        /* '<S29>:1:20' */
-        /* '<S29>:1:21' */
+        /* '<S23>:1:20' */
+        /* '<S23>:1:21' */
         Control_software_v1_1_B.GU_Yaw = ((real_T)
           Control_software_v1_1_B.FIFOASCIIread1[4] - 48.0) * 0.1;
       }
     }
   }
 
-  /* '<S29>:1:25' */
+  /* '<S23>:1:25' */
   Control_software_v1_1_B.GU_Yaw = Control_software_v1_1_B.GU_Yaw / 180.0 *
     3.1415926535897931;
 
-  /* End of MATLAB Function: '<S25>/Embedded MATLAB Function' */
+  /* End of MATLAB Function: '<S19>/Embedded MATLAB Function' */
 
-  /* Constant: '<S24>/Constant' */
-  Control_software_v1_1_B.Constant = Control_software_v1_1_P.Constant_Value_b;
+  /* Constant: '<S18>/Constant' */
+  Control_software_v1_1_B.Constant = Control_software_v1_1_P.Constant_Value_bd;
 
-  /* Constant: '<S24>/Constant1' */
+  /* Constant: '<S18>/Constant1' */
   Control_software_v1_1_B.Constant1_d =
-    Control_software_v1_1_P.Constant1_Value_c;
+    Control_software_v1_1_P.Constant1_Value_ce;
 
-  /* Constant: '<S24>/Constant2' */
+  /* Constant: '<S18>/Constant2' */
   Control_software_v1_1_B.Constant2_j =
     Control_software_v1_1_P.Constant2_Value_jf;
 
-  /* Constant: '<S24>/Constant3' */
+  /* Constant: '<S18>/Constant3' */
   Control_software_v1_1_B.Constant3_h =
     Control_software_v1_1_P.Constant3_Value_d2;
 
-  /* S-Function (fiforeadhdr): '<S26>/FIFO ASCII read 1' */
+  /* S-Function (fiforeadhdr): '<S20>/FIFO ASCII read 1' */
 
-  /* Level2 S-Function Block: '<S26>/FIFO ASCII read 1' (fiforeadhdr) */
+  /* Level2 S-Function Block: '<S20>/FIFO ASCII read 1' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[29];
     sfcnOutputs(rts,3);
   }
 
-  /* MATLAB Function: '<S26>/Embedded MATLAB Function' */
-  /* MATLAB Function 'Inputs/RS232_read/GPS_read/Embedded MATLAB Function': '<S30>:1' */
+  /* MATLAB Function: '<S20>/Embedded MATLAB Function' */
+  /* MATLAB Function 'Inputs/RS232_read/GPS_read/Embedded MATLAB Function': '<S24>:1' */
   /*  Message frame: $GPGGA,time(hhmmss),Latitude(ddmm.mmmm),Hemisphere(N or S), */
   /*  Longitude(dddmm.mmmm),Hemisphere(W or E),GPS quality,Number of satellites, */
   /*  Horizontal dilution of precision,Antenna height(-9999.9 to 99999.9 m), */
   /*  Geoidal height(-999.9 to 9999.9 m),null,null *hh 0d 0a */
   /*  Output: Latitude in deg, Longitude in deg, height in m, Geoidal height in m */
   /*  >0 for North and West */
-  /* '<S30>:1:11' */
-  /* '<S30>:1:12' */
-  /* '<S30>:1:13' */
+  /* '<S24>:1:11' */
+  /* '<S24>:1:12' */
+  /* '<S24>:1:13' */
   for (idx = 0; idx < 91; idx++) {
     in_char_0 = (int8_T)Control_software_v1_1_B.FIFOASCIIread1_k[idx];
     x[idx] = (in_char_0 == ',');
@@ -4494,7 +4954,7 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
   }
 
   if (in_char[0] == '$') {
-    /* '<S30>:1:15' */
+    /* '<S24>:1:15' */
     if (ii_data_0[1] + 1 > ii_data_0[2] - 1) {
       b_idx = 1;
       idx = 0;
@@ -4503,8 +4963,8 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
       idx = ii_data_0[2] - 1;
     }
 
-    /* '<S30>:1:17' */
-    /* '<S30>:1:18' */
+    /* '<S24>:1:17' */
+    /* '<S24>:1:18' */
     d_ii = b_idx - 1;
     b_x_size_idx_0 = idx - d_ii;
     idx -= d_ii;
@@ -4530,7 +4990,7 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
       }
     }
 
-    /* '<S30>:1:19' */
+    /* '<S24>:1:19' */
     y = ((((((real_T)((Control_software_v1_1_B.FIFOASCIIread1_k[(ii_data_0[1] +
                 c_ii_data[0]) - 3] - 48) * 10 +
                       Control_software_v1_1_B.FIFOASCIIread1_k[(ii_data_0[1] +
@@ -4546,10 +5006,10 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
         5] - 48) * 10 + Control_software_v1_1_B.FIFOASCIIread1_k[(ii_data_0[1] +
       c_ii_data[0]) - 4]) - 48.0);
 
-    /* '<S30>:1:27' */
+    /* '<S24>:1:27' */
     if (in_char[ii_data_0[2]] == 'S') {
-      /* '<S30>:1:28' */
-      /* '<S30>:1:29' */
+      /* '<S24>:1:28' */
+      /* '<S24>:1:29' */
       y = -y;
     }
 
@@ -4561,8 +5021,8 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
       b_idx = ii_data_0[4] - 1;
     }
 
-    /* '<S30>:1:32' */
-    /* '<S30>:1:33' */
+    /* '<S24>:1:32' */
+    /* '<S24>:1:33' */
     d_ii = idx - 1;
     b_x_size_idx_0 = b_idx - d_ii;
     idx = b_idx - d_ii;
@@ -4588,7 +5048,7 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
       }
     }
 
-    /* '<S30>:1:34' */
+    /* '<S24>:1:34' */
     GU_Lon = ((((((real_T)((Control_software_v1_1_B.FIFOASCIIread1_k[(ii_data_0
       [3] + c_ii_data[0]) - 3] - 48) * 10 +
       Control_software_v1_1_B.FIFOASCIIread1_k[(ii_data_0[3] + c_ii_data[0]) - 2])
@@ -4606,10 +5066,10 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
        Control_software_v1_1_B.FIFOASCIIread1_k[(ii_data_0[3] + c_ii_data[0]) -
        4]) - 48.0);
 
-    /* '<S30>:1:43' */
+    /* '<S24>:1:43' */
     if (in_char[ii_data_0[4]] == 'W') {
-      /* '<S30>:1:44' */
-      /* '<S30>:1:45' */
+      /* '<S24>:1:44' */
+      /* '<S24>:1:45' */
       GU_Lon = -GU_Lon;
     }
 
@@ -4621,8 +5081,8 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
       b_idx = ii_data_0[9] - 1;
     }
 
-    /* '<S30>:1:48' */
-    /* '<S30>:1:49' */
+    /* '<S24>:1:48' */
+    /* '<S24>:1:49' */
     d_ii = idx - 1;
     b_x_size_idx_0 = b_idx - d_ii;
     idx = b_idx - d_ii;
@@ -4648,44 +5108,44 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
       }
     }
 
-    /* '<S30>:1:50' */
+    /* '<S24>:1:50' */
     idx = c_ii_data[0];
 
-    /* '<S30>:1:51' */
+    /* '<S24>:1:51' */
     GU_h = 0.0;
     if (Control_software_v1_1_B.FIFOASCIIread1_k[ii_data_0[8]] == 45) {
-      /* '<S30>:1:52' */
+      /* '<S24>:1:52' */
       b_idx = ((ii_data_0[8] + c_ii_data[0]) - ii_data_0[8]) - 2;
 
-      /* '<S30>:1:53' */
+      /* '<S24>:1:53' */
       for (d_ii = 0; d_ii < b_idx; d_ii++) {
-        /* '<S30>:1:53' */
+        /* '<S24>:1:53' */
         b_x_size_idx_0 = (ii_data_0[8] + d_ii) + 2;
 
-        /* '<S30>:1:54' */
+        /* '<S24>:1:54' */
         GU_h -= rt_powd_snf(10.0, (real_T)(((ii_data_0[8] + idx) -
           b_x_size_idx_0) - 1)) * ((real_T)
           Control_software_v1_1_B.FIFOASCIIread1_k[b_x_size_idx_0 - 1] - 48.0);
       }
 
-      /* '<S30>:1:57' */
+      /* '<S24>:1:57' */
       GU_h -= ((real_T)Control_software_v1_1_B.FIFOASCIIread1_k[ii_data_0[8] +
                c_ii_data[0]] - 48.0) * 0.1;
     } else {
       b_idx = ((ii_data_0[8] + c_ii_data[0]) - ii_data_0[8]) - 1;
 
-      /* '<S30>:1:59' */
+      /* '<S24>:1:59' */
       for (d_ii = 0; d_ii < b_idx; d_ii++) {
-        /* '<S30>:1:59' */
+        /* '<S24>:1:59' */
         b_x_size_idx_0 = (ii_data_0[8] + d_ii) + 1;
 
-        /* '<S30>:1:60' */
+        /* '<S24>:1:60' */
         GU_h += rt_powd_snf(10.0, (real_T)(((ii_data_0[8] + idx) -
           b_x_size_idx_0) - 1)) * ((real_T)
           Control_software_v1_1_B.FIFOASCIIread1_k[b_x_size_idx_0 - 1] - 48.0);
       }
 
-      /* '<S30>:1:63' */
+      /* '<S24>:1:63' */
       GU_h += ((real_T)Control_software_v1_1_B.FIFOASCIIread1_k[ii_data_0[8] +
                c_ii_data[0]] - 48.0) * 0.1;
     }
@@ -4698,8 +5158,8 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
       b_idx = ii_data_0[11] - 1;
     }
 
-    /* '<S30>:1:66' */
-    /* '<S30>:1:67' */
+    /* '<S24>:1:66' */
+    /* '<S24>:1:67' */
     d_ii = idx - 1;
     b_x_size_idx_0 = b_idx - d_ii;
     idx = b_idx - d_ii;
@@ -4725,58 +5185,58 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
       }
     }
 
-    /* '<S30>:1:68' */
+    /* '<S24>:1:68' */
     idx = c_ii_data[0];
 
-    /* '<S30>:1:69' */
+    /* '<S24>:1:69' */
     Geo_GU_h = 0.0;
     if (Control_software_v1_1_B.FIFOASCIIread1_k[ii_data_0[10]] == 45) {
-      /* '<S30>:1:70' */
+      /* '<S24>:1:70' */
       b_idx = ((ii_data_0[10] + c_ii_data[0]) - ii_data_0[10]) - 2;
 
-      /* '<S30>:1:71' */
+      /* '<S24>:1:71' */
       for (d_ii = 0; d_ii < b_idx; d_ii++) {
-        /* '<S30>:1:71' */
+        /* '<S24>:1:71' */
         b_x_size_idx_0 = (ii_data_0[10] + d_ii) + 2;
 
-        /* '<S30>:1:72' */
+        /* '<S24>:1:72' */
         Geo_GU_h -= rt_powd_snf(10.0, (real_T)(((ii_data_0[10] + idx) -
           b_x_size_idx_0) - 1)) * ((real_T)
           Control_software_v1_1_B.FIFOASCIIread1_k[b_x_size_idx_0 - 1] - 48.0);
       }
 
-      /* '<S30>:1:75' */
+      /* '<S24>:1:75' */
       Geo_GU_h -= ((real_T)Control_software_v1_1_B.FIFOASCIIread1_k[ii_data_0[10]
                    + c_ii_data[0]] - 48.0) * 0.1;
     } else {
       b_idx = ((ii_data_0[10] + c_ii_data[0]) - ii_data_0[10]) - 1;
 
-      /* '<S30>:1:77' */
+      /* '<S24>:1:77' */
       for (d_ii = 0; d_ii < b_idx; d_ii++) {
-        /* '<S30>:1:77' */
+        /* '<S24>:1:77' */
         b_x_size_idx_0 = (ii_data_0[10] + d_ii) + 1;
 
-        /* '<S30>:1:78' */
+        /* '<S24>:1:78' */
         Geo_GU_h += rt_powd_snf(10.0, (real_T)(((ii_data_0[10] + idx) -
           b_x_size_idx_0) - 1)) * ((real_T)
           Control_software_v1_1_B.FIFOASCIIread1_k[b_x_size_idx_0 - 1] - 48.0);
       }
 
-      /* '<S30>:1:81' */
+      /* '<S24>:1:81' */
       Geo_GU_h += ((real_T)Control_software_v1_1_B.FIFOASCIIread1_k[ii_data_0[10]
                    + c_ii_data[0]] - 48.0) * 0.1;
     }
   } else {
-    /* '<S30>:1:84' */
+    /* '<S24>:1:84' */
     y = 0.0;
 
-    /* '<S30>:1:85' */
+    /* '<S24>:1:85' */
     GU_Lon = 0.0;
 
-    /* '<S30>:1:86' */
+    /* '<S24>:1:86' */
     GU_h = 0.0;
 
-    /* '<S30>:1:87' */
+    /* '<S24>:1:87' */
     Geo_GU_h = 0.0;
   }
 
@@ -4785,67 +5245,67 @@ static void Control_software_v1_1_output3(void) /* Sample time: [1.0s, 0.0s] */
   Control_software_v1_1_B.GU_h = GU_h;
   Control_software_v1_1_B.Geo_GU_h = Geo_GU_h;
 
-  /* End of MATLAB Function: '<S26>/Embedded MATLAB Function' */
+  /* End of MATLAB Function: '<S20>/Embedded MATLAB Function' */
 
-  /* S-Function (fifowrite): '<S28>/FIFO write 1' */
+  /* S-Function (fifowrite): '<S22>/FIFO write 1' */
 
-  /* Level2 S-Function Block: '<S28>/FIFO write 1' (fifowrite) */
+  /* Level2 S-Function Block: '<S22>/FIFO write 1' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[31];
     sfcnOutputs(rts,3);
   }
 
-  /* S-Function (sertxenable): '<S28>/Enable TX 1' */
+  /* S-Function (sertxenable): '<S22>/Enable TX 1' */
 
-  /* Level2 S-Function Block: '<S28>/Enable TX 1' (sertxenable) */
+  /* Level2 S-Function Block: '<S22>/Enable TX 1' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[32];
     sfcnOutputs(rts,3);
   }
 
-  /* S-Function (fifowrite): '<S28>/FIFO write 2' */
+  /* S-Function (fifowrite): '<S22>/FIFO write 2' */
 
-  /* Level2 S-Function Block: '<S28>/FIFO write 2' (fifowrite) */
+  /* Level2 S-Function Block: '<S22>/FIFO write 2' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[33];
     sfcnOutputs(rts,3);
   }
 
-  /* S-Function (sertxenable): '<S28>/Enable TX 2' */
+  /* S-Function (sertxenable): '<S22>/Enable TX 2' */
 
-  /* Level2 S-Function Block: '<S28>/Enable TX 2' (sertxenable) */
+  /* Level2 S-Function Block: '<S22>/Enable TX 2' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[34];
     sfcnOutputs(rts,3);
   }
 
-  /* S-Function (fifowrite): '<S28>/FIFO write 3' */
+  /* S-Function (fifowrite): '<S22>/FIFO write 3' */
 
-  /* Level2 S-Function Block: '<S28>/FIFO write 3' (fifowrite) */
+  /* Level2 S-Function Block: '<S22>/FIFO write 3' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[35];
     sfcnOutputs(rts,3);
   }
 
-  /* S-Function (sertxenable): '<S28>/Enable TX 3' */
+  /* S-Function (sertxenable): '<S22>/Enable TX 3' */
 
-  /* Level2 S-Function Block: '<S28>/Enable TX 3' (sertxenable) */
+  /* Level2 S-Function Block: '<S22>/Enable TX 3' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[36];
     sfcnOutputs(rts,3);
   }
 
-  /* S-Function (fifowrite): '<S28>/FIFO write 4' */
+  /* S-Function (fifowrite): '<S22>/FIFO write 4' */
 
-  /* Level2 S-Function Block: '<S28>/FIFO write 4' (fifowrite) */
+  /* Level2 S-Function Block: '<S22>/FIFO write 4' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[37];
     sfcnOutputs(rts,3);
   }
 
-  /* S-Function (sertxenable): '<S28>/Enable TX 4' */
+  /* S-Function (sertxenable): '<S22>/Enable TX 4' */
 
-  /* Level2 S-Function Block: '<S28>/Enable TX 4' (sertxenable) */
+  /* Level2 S-Function Block: '<S22>/Enable TX 4' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[38];
     sfcnOutputs(rts,3);
@@ -4931,9 +5391,9 @@ static void Control_software_v1_1_update(int_T tid)
 /* Model initialize function */
 static void Control_software_v1_1_initialize(void)
 {
-  /* Start for S-Function (scblock): '<S92>/S-Function' */
+  /* Start for S-Function (scblock): '<S86>/S-Function' */
 
-  /* S-Function Block: <S92>/S-Function (scblock) */
+  /* S-Function Block: <S86>/S-Function (scblock) */
   {
     int i;
     if ((i = rl32eScopeExists(4)) == 0) {
@@ -4959,9 +5419,9 @@ static void Control_software_v1_1_initialize(void)
     }
   }
 
-  /* Start for S-Function (scblock): '<S88>/S-Function' */
+  /* Start for S-Function (scblock): '<S82>/S-Function' */
 
-  /* S-Function Block: <S88>/S-Function (scblock) */
+  /* S-Function Block: <S82>/S-Function (scblock) */
   {
     int i;
     if ((i = rl32eScopeExists(1)) == 0) {
@@ -4986,9 +5446,9 @@ static void Control_software_v1_1_initialize(void)
     }
   }
 
-  /* Start for S-Function (scblock): '<S89>/S-Function' */
+  /* Start for S-Function (scblock): '<S83>/S-Function' */
 
-  /* S-Function Block: <S89>/S-Function (scblock) */
+  /* S-Function Block: <S83>/S-Function (scblock) */
   {
     int i;
     if ((i = rl32eScopeExists(3)) == 0) {
@@ -5085,9 +5545,9 @@ static void Control_software_v1_1_initialize(void)
     }
   }
 
-  /* Start for S-Function (scblock): '<S90>/S-Function' */
+  /* Start for S-Function (scblock): '<S84>/S-Function' */
 
-  /* S-Function Block: <S90>/S-Function (scblock) */
+  /* S-Function Block: <S84>/S-Function (scblock) */
   {
     int i;
     if ((i = rl32eScopeExists(2)) == 0) {
@@ -5122,8 +5582,8 @@ static void Control_software_v1_1_initialize(void)
     }
   }
 
-  /* Start for S-Function (adnipcim): '<S22>/PCI-6221 AD' */
-  /* Level2 S-Function Block: '<S22>/PCI-6221 AD' (adnipcim) */
+  /* Start for S-Function (adnipcim): '<S16>/PCI-6221 AD' */
+  /* Level2 S-Function Block: '<S16>/PCI-6221 AD' (adnipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[25];
     sfcnStart(rts);
@@ -5131,8 +5591,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dinipcim): '<S23>/PCI-6221 DI' */
-  /* Level2 S-Function Block: '<S23>/PCI-6221 DI' (dinipcim) */
+  /* Start for S-Function (dinipcim): '<S17>/PCI-6221 DI' */
+  /* Level2 S-Function Block: '<S17>/PCI-6221 DI' (dinipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[26];
     sfcnStart(rts);
@@ -5140,8 +5600,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (pfidinipcim): '<S23>/PCI 6221 PFI DI ' */
-  /* Level2 S-Function Block: '<S23>/PCI 6221 PFI DI ' (pfidinipcim) */
+  /* Start for S-Function (pfidinipcim): '<S17>/PCI 6221 PFI DI ' */
+  /* Level2 S-Function Block: '<S17>/PCI 6221 PFI DI ' (pfidinipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[27];
     sfcnStart(rts);
@@ -5149,107 +5609,15 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (scblock): '<S13>/S-Function' */
-
-  /* S-Function Block: <S13>/S-Function (scblock) */
-  {
-    int i;
-    if ((i = rl32eScopeExists(5)) == 0) {
-      if ((i = rl32eDefScope(5,2)) != 0) {
-        printf("Error creating scope 5\n");
-      } else {
-        rl32eAddSignal(5, rl32eGetSignalNo(
-          "Input conditioning and estimators/Subsystem/Saturation1"));
-        rl32eSetScope(5, 4, 250);
-        rl32eSetScope(5, 5, 0);
-        rl32eSetScope(5, 6, 1);
-        rl32eSetScope(5, 0, 0);
-        rl32eSetScope(5, 3, rl32eGetSignalNo(
-          "Input conditioning and estimators/Subsystem/Saturation1"));
-        rl32eSetScope(5, 1, 0.0);
-        rl32eSetScope(5, 2, 0);
-        rl32eSetScope(5, 9, 0);
-        rl32eSetTargetScope(5, 11, -10.0);
-        rl32eSetTargetScope(5, 10, 10.0);
-        xpceScopeAcqOK(5, &Control_software_v1_1_DW.SFunction_IWORK_j.AcquireOK);
-      }
-    }
-
-    if (i) {
-      rl32eRestartAcquisition(5);
-    }
-  }
-
-  /* Start for S-Function (scblock): '<S14>/S-Function' */
-
-  /* S-Function Block: <S14>/S-Function (scblock) */
-  {
-    int i;
-    if ((i = rl32eScopeExists(8)) == 0) {
-      if ((i = rl32eDefScope(8,2)) != 0) {
-        printf("Error creating scope 8\n");
-      } else {
-        rl32eAddSignal(8, rl32eGetSignalNo("Inputs/Analog Inputs/PCI-6221 AD/p3"));
-        rl32eSetScope(8, 4, 250);
-        rl32eSetScope(8, 5, 0);
-        rl32eSetScope(8, 6, 1);
-        rl32eSetScope(8, 0, 0);
-        rl32eSetScope(8, 3, rl32eGetSignalNo(
-          "Inputs/Analog Inputs/PCI-6221 AD/p3"));
-        rl32eSetScope(8, 1, 0.0);
-        rl32eSetScope(8, 2, 0);
-        rl32eSetScope(8, 9, 0);
-        rl32eSetTargetScope(8, 11, -10.0);
-        rl32eSetTargetScope(8, 10, 10.0);
-        xpceScopeAcqOK(8, &Control_software_v1_1_DW.SFunction_IWORK_c.AcquireOK);
-      }
-    }
-
-    if (i) {
-      rl32eRestartAcquisition(8);
-    }
-  }
-
-  /* Start for S-Function (scblock): '<S15>/S-Function' */
-
-  /* S-Function Block: <S15>/S-Function (scblock) */
-  {
-    int i;
-    if ((i = rl32eScopeExists(6)) == 0) {
-      if ((i = rl32eDefScope(6,2)) != 0) {
-        printf("Error creating scope 6\n");
-      } else {
-        rl32eAddSignal(6, rl32eGetSignalNo(
-          "Input conditioning and estimators/Subsystem/damper/Sum1"));
-        rl32eSetScope(6, 4, 250);
-        rl32eSetScope(6, 5, 0);
-        rl32eSetScope(6, 6, 1);
-        rl32eSetScope(6, 0, 0);
-        rl32eSetScope(6, 3, rl32eGetSignalNo(
-          "Input conditioning and estimators/Subsystem/damper/Sum1"));
-        rl32eSetScope(6, 1, 0.0);
-        rl32eSetScope(6, 2, 0);
-        rl32eSetScope(6, 9, 0);
-        rl32eSetTargetScope(6, 11, -10.0);
-        rl32eSetTargetScope(6, 10, 10.0);
-        xpceScopeAcqOK(6, &Control_software_v1_1_DW.SFunction_IWORK_gr.AcquireOK);
-      }
-    }
-
-    if (i) {
-      rl32eRestartAcquisition(6);
-    }
-  }
-
-  /* Start for S-Function (xpcinterrupt): '<S28>/IRQ Source' incorporates:
-   *  Start for SubSystem: '<S28>/RS232 ISR'
+  /* Start for S-Function (xpcinterrupt): '<S22>/IRQ Source' incorporates:
+   *  Start for SubSystem: '<S22>/RS232 ISR'
    */
   Control_soft_RS232ISR_Start();
 
-  /* End of Start for S-Function (xpcinterrupt): '<S28>/IRQ Source' */
+  /* End of Start for S-Function (xpcinterrupt): '<S22>/IRQ Source' */
 
-  /* Start for S-Function (fiforeadhdr): '<S25>/FIFO ASCII read 1' */
-  /* Level2 S-Function Block: '<S25>/FIFO ASCII read 1' (fiforeadhdr) */
+  /* Start for S-Function (fiforeadhdr): '<S19>/FIFO ASCII read 1' */
+  /* Level2 S-Function Block: '<S19>/FIFO ASCII read 1' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[28];
     sfcnStart(rts);
@@ -5257,23 +5625,23 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for Constant: '<S24>/Constant' */
-  Control_software_v1_1_B.Constant = Control_software_v1_1_P.Constant_Value_b;
+  /* Start for Constant: '<S18>/Constant' */
+  Control_software_v1_1_B.Constant = Control_software_v1_1_P.Constant_Value_bd;
 
-  /* Start for Constant: '<S24>/Constant1' */
+  /* Start for Constant: '<S18>/Constant1' */
   Control_software_v1_1_B.Constant1_d =
-    Control_software_v1_1_P.Constant1_Value_c;
+    Control_software_v1_1_P.Constant1_Value_ce;
 
-  /* Start for Constant: '<S24>/Constant2' */
+  /* Start for Constant: '<S18>/Constant2' */
   Control_software_v1_1_B.Constant2_j =
     Control_software_v1_1_P.Constant2_Value_jf;
 
-  /* Start for Constant: '<S24>/Constant3' */
+  /* Start for Constant: '<S18>/Constant3' */
   Control_software_v1_1_B.Constant3_h =
     Control_software_v1_1_P.Constant3_Value_d2;
 
-  /* Start for S-Function (fiforeadhdr): '<S26>/FIFO ASCII read 1' */
-  /* Level2 S-Function Block: '<S26>/FIFO ASCII read 1' (fiforeadhdr) */
+  /* Start for S-Function (fiforeadhdr): '<S20>/FIFO ASCII read 1' */
+  /* Level2 S-Function Block: '<S20>/FIFO ASCII read 1' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[29];
     sfcnStart(rts);
@@ -5281,8 +5649,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (fiforeadhdr): '<S27>/FIFO ASCII read ' */
-  /* Level2 S-Function Block: '<S27>/FIFO ASCII read ' (fiforeadhdr) */
+  /* Start for S-Function (fiforeadhdr): '<S21>/FIFO ASCII read ' */
+  /* Level2 S-Function Block: '<S21>/FIFO ASCII read ' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[30];
     sfcnStart(rts);
@@ -5290,8 +5658,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (fifowrite): '<S28>/FIFO write 1' */
-  /* Level2 S-Function Block: '<S28>/FIFO write 1' (fifowrite) */
+  /* Start for S-Function (fifowrite): '<S22>/FIFO write 1' */
+  /* Level2 S-Function Block: '<S22>/FIFO write 1' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[31];
     sfcnStart(rts);
@@ -5299,8 +5667,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (sertxenable): '<S28>/Enable TX 1' */
-  /* Level2 S-Function Block: '<S28>/Enable TX 1' (sertxenable) */
+  /* Start for S-Function (sertxenable): '<S22>/Enable TX 1' */
+  /* Level2 S-Function Block: '<S22>/Enable TX 1' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[32];
     sfcnStart(rts);
@@ -5308,8 +5676,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (fifowrite): '<S28>/FIFO write 2' */
-  /* Level2 S-Function Block: '<S28>/FIFO write 2' (fifowrite) */
+  /* Start for S-Function (fifowrite): '<S22>/FIFO write 2' */
+  /* Level2 S-Function Block: '<S22>/FIFO write 2' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[33];
     sfcnStart(rts);
@@ -5317,8 +5685,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (sertxenable): '<S28>/Enable TX 2' */
-  /* Level2 S-Function Block: '<S28>/Enable TX 2' (sertxenable) */
+  /* Start for S-Function (sertxenable): '<S22>/Enable TX 2' */
+  /* Level2 S-Function Block: '<S22>/Enable TX 2' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[34];
     sfcnStart(rts);
@@ -5326,8 +5694,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (fifowrite): '<S28>/FIFO write 3' */
-  /* Level2 S-Function Block: '<S28>/FIFO write 3' (fifowrite) */
+  /* Start for S-Function (fifowrite): '<S22>/FIFO write 3' */
+  /* Level2 S-Function Block: '<S22>/FIFO write 3' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[35];
     sfcnStart(rts);
@@ -5335,8 +5703,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (sertxenable): '<S28>/Enable TX 3' */
-  /* Level2 S-Function Block: '<S28>/Enable TX 3' (sertxenable) */
+  /* Start for S-Function (sertxenable): '<S22>/Enable TX 3' */
+  /* Level2 S-Function Block: '<S22>/Enable TX 3' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[36];
     sfcnStart(rts);
@@ -5344,8 +5712,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (fifowrite): '<S28>/FIFO write 4' */
-  /* Level2 S-Function Block: '<S28>/FIFO write 4' (fifowrite) */
+  /* Start for S-Function (fifowrite): '<S22>/FIFO write 4' */
+  /* Level2 S-Function Block: '<S22>/FIFO write 4' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[37];
     sfcnStart(rts);
@@ -5353,8 +5721,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (sertxenable): '<S28>/Enable TX 4' */
-  /* Level2 S-Function Block: '<S28>/Enable TX 4' (sertxenable) */
+  /* Start for S-Function (sertxenable): '<S22>/Enable TX 4' */
+  /* Level2 S-Function Block: '<S22>/Enable TX 4' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[38];
     sfcnStart(rts);
@@ -5362,8 +5730,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (setupqua): '<S28>/Setup1' */
-  /* Level2 S-Function Block: '<S28>/Setup1' (setupqua) */
+  /* Start for S-Function (setupqua): '<S22>/Setup1' */
+  /* Level2 S-Function Block: '<S22>/Setup1' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[39];
     sfcnStart(rts);
@@ -5371,8 +5739,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (setupqua): '<S28>/Setup2' */
-  /* Level2 S-Function Block: '<S28>/Setup2' (setupqua) */
+  /* Start for S-Function (setupqua): '<S22>/Setup2' */
+  /* Level2 S-Function Block: '<S22>/Setup2' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[40];
     sfcnStart(rts);
@@ -5380,8 +5748,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (setupqua): '<S28>/Setup3' */
-  /* Level2 S-Function Block: '<S28>/Setup3' (setupqua) */
+  /* Start for S-Function (setupqua): '<S22>/Setup3' */
+  /* Level2 S-Function Block: '<S22>/Setup3' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[41];
     sfcnStart(rts);
@@ -5389,8 +5757,8 @@ static void Control_software_v1_1_initialize(void)
       return;
   }
 
-  /* Start for S-Function (setupqua): '<S28>/Setup4' */
-  /* Level2 S-Function Block: '<S28>/Setup4' (setupqua) */
+  /* Start for S-Function (setupqua): '<S22>/Setup4' */
+  /* Level2 S-Function Block: '<S22>/Setup4' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[42];
     sfcnStart(rts);
@@ -5399,7 +5767,7 @@ static void Control_software_v1_1_initialize(void)
   }
 
   /* Start for Constant: '<S6>/Constant1' */
-  Control_software_v1_1_B.Constant1 = Control_software_v1_1_P.Constant1_Value_b;
+  Control_software_v1_1_B.Constant1 = Control_software_v1_1_P.Constant1_Value_b3;
 
   /* Start for Constant: '<S6>/Constant3' */
   Control_software_v1_1_B.Constant3 = Control_software_v1_1_P.Constant3_Value_n;
@@ -5429,6 +5797,64 @@ static void Control_software_v1_1_initialize(void)
     sfcnStart(rts);
     if (ssGetErrorStatus(rts) != (NULL))
       return;
+  }
+
+  /* Start for S-Function (scblock): '<S87>/S-Function' */
+
+  /* S-Function Block: <S87>/S-Function (scblock) */
+  {
+    int i;
+    if ((i = rl32eScopeExists(5)) == 0) {
+      if ((i = rl32eDefScope(5,2)) != 0) {
+        printf("Error creating scope 5\n");
+      } else {
+        rl32eAddSignal(5, rl32eGetSignalNo("Subsystem/damper/Sum1"));
+        rl32eSetScope(5, 4, 250);
+        rl32eSetScope(5, 5, 0);
+        rl32eSetScope(5, 6, 1);
+        rl32eSetScope(5, 0, 0);
+        rl32eSetScope(5, 3, rl32eGetSignalNo("Subsystem/damper/Sum1"));
+        rl32eSetScope(5, 1, 0.0);
+        rl32eSetScope(5, 2, 0);
+        rl32eSetScope(5, 9, 0);
+        rl32eSetTargetScope(5, 11, -4.0);
+        rl32eSetTargetScope(5, 10, 4.0);
+        xpceScopeAcqOK(5, &Control_software_v1_1_DW.SFunction_IWORK_hi.AcquireOK);
+      }
+    }
+
+    if (i) {
+      rl32eRestartAcquisition(5);
+    }
+  }
+
+  /* Start for S-Function (scblock): '<S89>/S-Function' */
+
+  /* S-Function Block: <S89>/S-Function (scblock) */
+  {
+    int i;
+    if ((i = rl32eScopeExists(6)) == 0) {
+      if ((i = rl32eDefScope(6,2)) != 0) {
+        printf("Error creating scope 6\n");
+      } else {
+        rl32eAddSignal(6, rl32eGetSignalNo("Subsystem/damper/Sum1"));
+        rl32eSetScope(6, 4, 250);
+        rl32eSetScope(6, 5, 0);
+        rl32eSetScope(6, 6, 1);
+        rl32eSetScope(6, 0, 0);
+        rl32eSetScope(6, 3, rl32eGetSignalNo("Subsystem/damper/Sum1"));
+        rl32eSetScope(6, 1, 0.0);
+        rl32eSetScope(6, 2, 0);
+        rl32eSetScope(6, 9, 0);
+        rl32eSetTargetScope(6, 11, -10.0);
+        rl32eSetTargetScope(6, 10, 10.0);
+        xpceScopeAcqOK(6, &Control_software_v1_1_DW.SFunction_IWORK_hy.AcquireOK);
+      }
+    }
+
+    if (i) {
+      rl32eRestartAcquisition(6);
+    }
   }
 
   /* user code (Start function Trailer) */
@@ -5484,97 +5910,85 @@ static void Control_software_v1_1_initialize(void)
     Control_software_v1_1_DW.UnitDelay_DSTATE =
       Control_software_v1_1_P.UnitDelay_InitialCondition;
 
-    /* InitializeConditions for Delay: '<S9>/Delay' */
-    Control_software_v1_1_DW.Delay_DSTATE =
-      Control_software_v1_1_P.Delay_InitialCondition;
-
-    /* InitializeConditions for Delay: '<S16>/Delay' */
-    Control_software_v1_1_DW.Delay_DSTATE_f =
-      Control_software_v1_1_P.Delay_InitialCondition_p;
-
-    /* InitializeConditions for Delay: '<S16>/Delay1' */
-    Control_software_v1_1_DW.Delay1_DSTATE =
-      Control_software_v1_1_P.Delay1_InitialCondition;
-
-    /* InitializeConditions for DiscreteTransferFcn: '<S9>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn' */
     Control_software_v1_1_DW.DiscreteTransferFcn_states[0] =
       Control_software_v1_1_P.DiscreteTransferFcn_InitialStat;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S9>/Discrete Transfer Fcn1' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn1' */
     Control_software_v1_1_DW.DiscreteTransferFcn1_states[0] =
       Control_software_v1_1_P.DiscreteTransferFcn1_InitialSta;
 
-    /* InitializeConditions for DiscreteStateSpace: '<S20>/Discrete State-Space' */
+    /* InitializeConditions for DiscreteStateSpace: '<S14>/Discrete State-Space' */
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE[0] =
       Control_software_v1_1_P.x0_Sl[0];
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S20>/Discrete Transfer Fcn1' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S14>/Discrete Transfer Fcn1' */
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_g[0] =
       Control_software_v1_1_P.DiscreteTransferFcn1_InitialS_d;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn2' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S11>/Discrete Transfer Fcn2' */
     Control_software_v1_1_DW.DiscreteTransferFcn2_states[0] =
       Control_software_v1_1_P.DiscreteTransferFcn2_InitialSta;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S19>/Discrete Transfer Fcn1' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S13>/Discrete Transfer Fcn1' */
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_h[0] =
       Control_software_v1_1_P.DiscreteTransferFcn1_InitialS_h;
 
-    /* InitializeConditions for DiscreteStateSpace: '<S21>/Discrete State-Space' */
+    /* InitializeConditions for DiscreteStateSpace: '<S15>/Discrete State-Space' */
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE_n[0] =
       Control_software_v1_1_P.x0_Winch[0];
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S21>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S15>/Discrete Transfer Fcn' */
     Control_software_v1_1_DW.DiscreteTransferFcn_states_n[0] =
       Control_software_v1_1_P.DiscreteTransferFcn_InitialSt_m;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S11>/Discrete Transfer Fcn1' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S12>/Discrete Transfer Fcn1' */
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_n[0] =
       Control_software_v1_1_P.DiscreteTransferFcn1_Initial_dv;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S9>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn' */
     Control_software_v1_1_DW.DiscreteTransferFcn_states[1] =
       Control_software_v1_1_P.DiscreteTransferFcn_InitialStat;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S9>/Discrete Transfer Fcn1' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn1' */
     Control_software_v1_1_DW.DiscreteTransferFcn1_states[1] =
       Control_software_v1_1_P.DiscreteTransferFcn1_InitialSta;
 
-    /* InitializeConditions for DiscreteStateSpace: '<S20>/Discrete State-Space' */
+    /* InitializeConditions for DiscreteStateSpace: '<S14>/Discrete State-Space' */
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE[1] =
       Control_software_v1_1_P.x0_Sl[1];
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S20>/Discrete Transfer Fcn1' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S14>/Discrete Transfer Fcn1' */
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_g[1] =
       Control_software_v1_1_P.DiscreteTransferFcn1_InitialS_d;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S10>/Discrete Transfer Fcn2' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S11>/Discrete Transfer Fcn2' */
     Control_software_v1_1_DW.DiscreteTransferFcn2_states[1] =
       Control_software_v1_1_P.DiscreteTransferFcn2_InitialSta;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S19>/Discrete Transfer Fcn1' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S13>/Discrete Transfer Fcn1' */
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_h[1] =
       Control_software_v1_1_P.DiscreteTransferFcn1_InitialS_h;
 
-    /* InitializeConditions for DiscreteStateSpace: '<S21>/Discrete State-Space' */
+    /* InitializeConditions for DiscreteStateSpace: '<S15>/Discrete State-Space' */
     Control_software_v1_1_DW.DiscreteStateSpace_DSTATE_n[1] =
       Control_software_v1_1_P.x0_Winch[1];
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S21>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S15>/Discrete Transfer Fcn' */
     Control_software_v1_1_DW.DiscreteTransferFcn_states_n[1] =
       Control_software_v1_1_P.DiscreteTransferFcn_InitialSt_m;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S11>/Discrete Transfer Fcn1' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S12>/Discrete Transfer Fcn1' */
     Control_software_v1_1_DW.DiscreteTransferFcn1_states_n[1] =
       Control_software_v1_1_P.DiscreteTransferFcn1_Initial_dv;
 
-    /* InitializeConditions for Delay: '<S11>/Delay' */
-    Control_software_v1_1_DW.Delay_DSTATE_b[0] =
-      Control_software_v1_1_P.Delay_InitialCondition_m;
-    Control_software_v1_1_DW.Delay_DSTATE_b[1] =
-      Control_software_v1_1_P.Delay_InitialCondition_m;
-    Control_software_v1_1_DW.Delay_DSTATE_b[2] =
-      Control_software_v1_1_P.Delay_InitialCondition_m;
+    /* InitializeConditions for Delay: '<S12>/Delay' */
+    Control_software_v1_1_DW.Delay_DSTATE[0] =
+      Control_software_v1_1_P.Delay_InitialCondition;
+    Control_software_v1_1_DW.Delay_DSTATE[1] =
+      Control_software_v1_1_P.Delay_InitialCondition;
+    Control_software_v1_1_DW.Delay_DSTATE[2] =
+      Control_software_v1_1_P.Delay_InitialCondition;
 
     /* InitializeConditions for UnitDelay: '<S2>/Unit Delay7' */
     Control_software_v1_1_DW.UnitDelay7_DSTATE =
@@ -5612,15 +6026,71 @@ static void Control_software_v1_1_initialize(void)
     Control_software_v1_1_DW.UnitDelay8_DSTATE =
       Control_software_v1_1_P.UnitDelay8_InitialCondition;
 
-    /* SystemInitialize for Enabled SubSystem: '<S27>/Data_validation' */
-    /* SystemInitialize for Outport: '<S32>/IMU_data_valid' */
+    /* InitializeConditions for Delay: '<S7>/Delay' */
+    Control_software_v1_1_DW.Delay_DSTATE_h =
+      Control_software_v1_1_P.Delay_InitialCondition_a;
+
+    /* InitializeConditions for Delay: '<S90>/Delay3' */
+    Control_software_v1_1_DW.Delay3_DSTATE =
+      Control_software_v1_1_P.Delay3_InitialCondition;
+
+    /* InitializeConditions for Delay: '<S90>/Delay1' */
+    Control_software_v1_1_DW.Delay1_DSTATE =
+      Control_software_v1_1_P.Delay1_InitialCondition;
+
+    /* InitializeConditions for Delay: '<S90>/Delay4' */
+    Control_software_v1_1_DW.Delay4_DSTATE =
+      Control_software_v1_1_P.Delay4_InitialCondition;
+
+    /* InitializeConditions for Delay: '<S90>/Delay5' */
+    Control_software_v1_1_DW.Delay5_DSTATE =
+      Control_software_v1_1_P.Delay5_InitialCondition;
+
+    /* InitializeConditions for Delay: '<S92>/Delay' */
+    Control_software_v1_1_DW.Delay_DSTATE_hx =
+      Control_software_v1_1_P.Delay_InitialCondition_j;
+
+    /* InitializeConditions for Delay: '<S99>/Delay' */
+    Control_software_v1_1_DW.Delay_DSTATE_b =
+      Control_software_v1_1_P.Delay_InitialCondition_n;
+
+    /* InitializeConditions for Delay: '<S99>/Delay1' */
+    Control_software_v1_1_DW.Delay1_DSTATE_i =
+      Control_software_v1_1_P.Delay1_InitialCondition_c;
+
+    /* InitializeConditions for Delay: '<S90>/Delay2' */
+    Control_software_v1_1_DW.Delay2_DSTATE =
+      Control_software_v1_1_P.Delay2_InitialCondition;
+
+    /* InitializeConditions for Delay: '<S91>/Delay' */
+    Control_software_v1_1_DW.Delay_DSTATE_bd =
+      Control_software_v1_1_P.Delay_InitialCondition_e;
+
+    /* InitializeConditions for Delay: '<S95>/Delay' */
+    Control_software_v1_1_DW.Delay_DSTATE_e =
+      Control_software_v1_1_P.Delay_InitialCondition_m;
+
+    /* InitializeConditions for Delay: '<S95>/Delay1' */
+    Control_software_v1_1_DW.Delay1_DSTATE_h =
+      Control_software_v1_1_P.Delay1_InitialCondition_f;
+
+    /* InitializeConditions for Delay: '<S93>/Delay' */
+    Control_software_v1_1_DW.Delay_DSTATE_i =
+      Control_software_v1_1_P.Delay_InitialCondition_c;
+
+    /* InitializeConditions for Delay: '<S93>/Delay1' */
+    Control_software_v1_1_DW.Delay1_DSTATE_n =
+      Control_software_v1_1_P.Delay1_InitialCondition_a;
+
+    /* SystemInitialize for Enabled SubSystem: '<S21>/Data_validation' */
+    /* SystemInitialize for Outport: '<S26>/IMU_data_valid' */
     for (i = 0; i < 38; i++) {
       Control_software_v1_1_B.IMU_data[i] =
         Control_software_v1_1_P.IMU_data_valid_Y0;
     }
 
-    /* End of SystemInitialize for Outport: '<S32>/IMU_data_valid' */
-    /* End of SystemInitialize for SubSystem: '<S27>/Data_validation' */
+    /* End of SystemInitialize for Outport: '<S26>/IMU_data_valid' */
+    /* End of SystemInitialize for SubSystem: '<S21>/Data_validation' */
   }
 }
 
@@ -5635,134 +6105,134 @@ static void Control_software_v1_1_terminate(void)
   /* disable interrupt for IRQ 2 */
   xpceDeRegisterISR( &xpcDev_1 );
 
-  /* Terminate for S-Function (adnipcim): '<S22>/PCI-6221 AD' */
-  /* Level2 S-Function Block: '<S22>/PCI-6221 AD' (adnipcim) */
+  /* Terminate for S-Function (adnipcim): '<S16>/PCI-6221 AD' */
+  /* Level2 S-Function Block: '<S16>/PCI-6221 AD' (adnipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[25];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dinipcim): '<S23>/PCI-6221 DI' */
-  /* Level2 S-Function Block: '<S23>/PCI-6221 DI' (dinipcim) */
+  /* Terminate for S-Function (dinipcim): '<S17>/PCI-6221 DI' */
+  /* Level2 S-Function Block: '<S17>/PCI-6221 DI' (dinipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[26];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (pfidinipcim): '<S23>/PCI 6221 PFI DI ' */
-  /* Level2 S-Function Block: '<S23>/PCI 6221 PFI DI ' (pfidinipcim) */
+  /* Terminate for S-Function (pfidinipcim): '<S17>/PCI 6221 PFI DI ' */
+  /* Level2 S-Function Block: '<S17>/PCI 6221 PFI DI ' (pfidinipcim) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[27];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (xpcinterrupt): '<S28>/IRQ Source' incorporates:
-   *  Terminate for SubSystem: '<S28>/RS232 ISR'
+  /* Terminate for S-Function (xpcinterrupt): '<S22>/IRQ Source' incorporates:
+   *  Terminate for SubSystem: '<S22>/RS232 ISR'
    */
   Control_softw_RS232ISR_Term();
 
-  /* End of Terminate for S-Function (xpcinterrupt): '<S28>/IRQ Source' */
+  /* End of Terminate for S-Function (xpcinterrupt): '<S22>/IRQ Source' */
 
-  /* Terminate for S-Function (fiforeadhdr): '<S25>/FIFO ASCII read 1' */
-  /* Level2 S-Function Block: '<S25>/FIFO ASCII read 1' (fiforeadhdr) */
+  /* Terminate for S-Function (fiforeadhdr): '<S19>/FIFO ASCII read 1' */
+  /* Level2 S-Function Block: '<S19>/FIFO ASCII read 1' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[28];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fiforeadhdr): '<S26>/FIFO ASCII read 1' */
-  /* Level2 S-Function Block: '<S26>/FIFO ASCII read 1' (fiforeadhdr) */
+  /* Terminate for S-Function (fiforeadhdr): '<S20>/FIFO ASCII read 1' */
+  /* Level2 S-Function Block: '<S20>/FIFO ASCII read 1' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[29];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fiforeadhdr): '<S27>/FIFO ASCII read ' */
-  /* Level2 S-Function Block: '<S27>/FIFO ASCII read ' (fiforeadhdr) */
+  /* Terminate for S-Function (fiforeadhdr): '<S21>/FIFO ASCII read ' */
+  /* Level2 S-Function Block: '<S21>/FIFO ASCII read ' (fiforeadhdr) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[30];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fifowrite): '<S28>/FIFO write 1' */
-  /* Level2 S-Function Block: '<S28>/FIFO write 1' (fifowrite) */
+  /* Terminate for S-Function (fifowrite): '<S22>/FIFO write 1' */
+  /* Level2 S-Function Block: '<S22>/FIFO write 1' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[31];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (sertxenable): '<S28>/Enable TX 1' */
-  /* Level2 S-Function Block: '<S28>/Enable TX 1' (sertxenable) */
+  /* Terminate for S-Function (sertxenable): '<S22>/Enable TX 1' */
+  /* Level2 S-Function Block: '<S22>/Enable TX 1' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[32];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fifowrite): '<S28>/FIFO write 2' */
-  /* Level2 S-Function Block: '<S28>/FIFO write 2' (fifowrite) */
+  /* Terminate for S-Function (fifowrite): '<S22>/FIFO write 2' */
+  /* Level2 S-Function Block: '<S22>/FIFO write 2' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[33];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (sertxenable): '<S28>/Enable TX 2' */
-  /* Level2 S-Function Block: '<S28>/Enable TX 2' (sertxenable) */
+  /* Terminate for S-Function (sertxenable): '<S22>/Enable TX 2' */
+  /* Level2 S-Function Block: '<S22>/Enable TX 2' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[34];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fifowrite): '<S28>/FIFO write 3' */
-  /* Level2 S-Function Block: '<S28>/FIFO write 3' (fifowrite) */
+  /* Terminate for S-Function (fifowrite): '<S22>/FIFO write 3' */
+  /* Level2 S-Function Block: '<S22>/FIFO write 3' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[35];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (sertxenable): '<S28>/Enable TX 3' */
-  /* Level2 S-Function Block: '<S28>/Enable TX 3' (sertxenable) */
+  /* Terminate for S-Function (sertxenable): '<S22>/Enable TX 3' */
+  /* Level2 S-Function Block: '<S22>/Enable TX 3' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[36];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (fifowrite): '<S28>/FIFO write 4' */
-  /* Level2 S-Function Block: '<S28>/FIFO write 4' (fifowrite) */
+  /* Terminate for S-Function (fifowrite): '<S22>/FIFO write 4' */
+  /* Level2 S-Function Block: '<S22>/FIFO write 4' (fifowrite) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[37];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (sertxenable): '<S28>/Enable TX 4' */
-  /* Level2 S-Function Block: '<S28>/Enable TX 4' (sertxenable) */
+  /* Terminate for S-Function (sertxenable): '<S22>/Enable TX 4' */
+  /* Level2 S-Function Block: '<S22>/Enable TX 4' (sertxenable) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[38];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (setupqua): '<S28>/Setup1' */
-  /* Level2 S-Function Block: '<S28>/Setup1' (setupqua) */
+  /* Terminate for S-Function (setupqua): '<S22>/Setup1' */
+  /* Level2 S-Function Block: '<S22>/Setup1' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[39];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (setupqua): '<S28>/Setup2' */
-  /* Level2 S-Function Block: '<S28>/Setup2' (setupqua) */
+  /* Terminate for S-Function (setupqua): '<S22>/Setup2' */
+  /* Level2 S-Function Block: '<S22>/Setup2' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[40];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (setupqua): '<S28>/Setup3' */
-  /* Level2 S-Function Block: '<S28>/Setup3' (setupqua) */
+  /* Terminate for S-Function (setupqua): '<S22>/Setup3' */
+  /* Level2 S-Function Block: '<S22>/Setup3' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[41];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (setupqua): '<S28>/Setup4' */
-  /* Level2 S-Function Block: '<S28>/Setup4' (setupqua) */
+  /* Terminate for S-Function (setupqua): '<S22>/Setup4' */
+  /* Level2 S-Function Block: '<S22>/Setup4' (setupqua) */
   {
     SimStruct *rts = Control_software_v1_1_M->childSfunctions[42];
     sfcnTerminate(rts);
@@ -6007,7 +6477,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       }
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Read Int Status1 (iqueryqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Read Int Status1 (iqueryqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[0];
 
@@ -6135,7 +6605,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Filter Int Reason5 (filterqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Filter Int Reason5 (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[1];
 
@@ -6267,7 +6737,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/FIFO read 1 (fiforead) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/FIFO read 1 (fiforead) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[2];
 
@@ -6435,7 +6905,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 2, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Write HW FIFO1 (serwritequa) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Write HW FIFO1 (serwritequa) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[3];
 
@@ -6581,7 +7051,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 1, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Filter Int Reason6 (filterqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Filter Int Reason6 (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[4];
 
@@ -6713,7 +7183,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/FIFO read 2 (fiforead) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/FIFO read 2 (fiforead) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[5];
 
@@ -6881,7 +7351,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 2, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Write HW FIFO2 (serwritequa) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Write HW FIFO2 (serwritequa) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[6];
 
@@ -7027,7 +7497,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 1, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Filter Int Reason7 (filterqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Filter Int Reason7 (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[7];
 
@@ -7159,7 +7629,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/FIFO read 3 (fiforead) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/FIFO read 3 (fiforead) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[8];
 
@@ -7327,7 +7797,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 2, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Write HW FIFO3 (serwritequa) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Write HW FIFO3 (serwritequa) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[9];
 
@@ -7473,7 +7943,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 1, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Filter Int Reason8 (filterqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Filter Int Reason8 (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[10];
 
@@ -7606,7 +8076,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/FIFO read 4 (fiforead) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/FIFO read 4 (fiforead) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[11];
 
@@ -7775,7 +8245,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 2, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Write HW FIFO4 (serwritequa) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Write HW FIFO4 (serwritequa) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[12];
 
@@ -7922,7 +8392,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 1, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Filter Int Reason1 (filterqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Filter Int Reason1 (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[13];
 
@@ -8055,7 +8525,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Read HW FIFO1 (serreadqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Read HW FIFO1 (serreadqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[14];
 
@@ -8205,7 +8675,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/FIFO write 1 (fifowrite) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/FIFO write 1 (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[15];
 
@@ -8368,7 +8838,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Filter Int Reason2 (filterqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Filter Int Reason2 (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[16];
 
@@ -8501,7 +8971,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Read HW FIFO2 (serreadqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Read HW FIFO2 (serreadqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[17];
 
@@ -8651,7 +9121,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/FIFO write 2 (fifowrite) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/FIFO write 2 (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[18];
 
@@ -8814,7 +9284,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Filter Int Reason3 (filterqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Filter Int Reason3 (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[19];
 
@@ -8947,7 +9417,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Read HW FIFO3 (serreadqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Read HW FIFO3 (serreadqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[20];
 
@@ -9097,7 +9567,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/FIFO write 3 (fifowrite) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/FIFO write 3 (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[21];
 
@@ -9260,7 +9730,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Filter Int Reason4 (filterqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Filter Int Reason4 (filterqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[22];
 
@@ -9393,7 +9863,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/Read HW FIFO4 (serreadqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/Read HW FIFO4 (serreadqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[23];
 
@@ -9543,7 +10013,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S86>/FIFO write 4 (fifowrite) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S80>/FIFO write 4 (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[24];
 
@@ -9706,7 +10176,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S22>/PCI-6221 AD (adnipcim) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S16>/PCI-6221 AD (adnipcim) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[25];
 
@@ -9891,7 +10361,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S23>/PCI-6221 DI (dinipcim) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S17>/PCI-6221 DI (dinipcim) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[26];
 
@@ -10085,7 +10555,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S23>/PCI 6221 PFI DI  (pfidinipcim) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S17>/PCI 6221 PFI DI  (pfidinipcim) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[27];
 
@@ -10220,7 +10690,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S25>/FIFO ASCII read 1 (fiforeadhdr) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S19>/FIFO ASCII read 1 (fiforeadhdr) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[28];
 
@@ -10379,7 +10849,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S26>/FIFO ASCII read 1 (fiforeadhdr) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S20>/FIFO ASCII read 1 (fiforeadhdr) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[29];
 
@@ -10539,7 +11009,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S27>/FIFO ASCII read  (fiforeadhdr) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S21>/FIFO ASCII read  (fiforeadhdr) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[30];
 
@@ -10698,7 +11168,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/FIFO write 1 (fifowrite) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/FIFO write 1 (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[31];
 
@@ -10871,7 +11341,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/Enable TX 1 (sertxenable) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/Enable TX 1 (sertxenable) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[32];
 
@@ -11002,7 +11472,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/FIFO write 2 (fifowrite) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/FIFO write 2 (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[33];
 
@@ -11175,7 +11645,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/Enable TX 2 (sertxenable) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/Enable TX 2 (sertxenable) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[34];
 
@@ -11306,7 +11776,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/FIFO write 3 (fifowrite) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/FIFO write 3 (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[35];
 
@@ -11479,7 +11949,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/Enable TX 3 (sertxenable) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/Enable TX 3 (sertxenable) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[36];
 
@@ -11610,7 +12080,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/FIFO write 4 (fifowrite) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/FIFO write 4 (fifowrite) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[37];
 
@@ -11783,7 +12253,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/Enable TX 4 (sertxenable) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/Enable TX 4 (sertxenable) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[38];
 
@@ -11914,7 +12384,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/Setup1 (setupqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/Setup1 (setupqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[39];
 
@@ -12030,7 +12500,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/Setup2 (setupqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/Setup2 (setupqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[40];
 
@@ -12146,7 +12616,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/Setup3 (setupqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/Setup3 (setupqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[41];
 
@@ -12262,7 +12732,7 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Control_software_v1_1/<S28>/Setup4 (setupqua) */
+    /* Level2 S-Function Block: Control_software_v1_1/<S22>/Setup4 (setupqua) */
     {
       SimStruct *rts = Control_software_v1_1_M->childSfunctions[42];
 
@@ -12849,9 +13319,9 @@ RT_MODEL_Control_software_v1_1_T *Control_software_v1_1(void)
   Control_software_v1_1_M->Sizes.numU = (0);/* Number of model inputs */
   Control_software_v1_1_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   Control_software_v1_1_M->Sizes.numSampTimes = (4);/* Number of sample times */
-  Control_software_v1_1_M->Sizes.numBlocks = (301);/* Number of blocks */
-  Control_software_v1_1_M->Sizes.numBlockIO = (210);/* Number of block outputs */
-  Control_software_v1_1_M->Sizes.numBlockPrms = (1197);/* Sum of parameter "widths" */
+  Control_software_v1_1_M->Sizes.numBlocks = (404);/* Number of blocks */
+  Control_software_v1_1_M->Sizes.numBlockIO = (271);/* Number of block outputs */
+  Control_software_v1_1_M->Sizes.numBlockPrms = (1254);/* Sum of parameter "widths" */
   return Control_software_v1_1_M;
 }
 

@@ -57,6 +57,39 @@
 
 		
             <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>High-level control/Constant</xpcblkName>
+            <SLblockPath>Control_software_v1_1/High-level control/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/High-level control</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>High-level control/Constant1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/High-level control/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/High-level control</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant3</blkName>
+            <xpcblkName>High-level control/Constant3</xpcblkName>
+            <SLblockPath>Control_software_v1_1/High-level control/Constant3</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/High-level control</SubSystemName>
+          </parameter>
+          </block>
+            <block>
             <blkName>Unit Delay</blkName>
             <xpcblkName>High-level control/Unit Delay</xpcblkName>
             <SLblockPath>Control_software_v1_1/High-level control/Unit Delay</SLblockPath>
@@ -163,7 +196,7 @@
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>Control_software_v1_1/High-level control</SubSystemName>
-                <sigLabel>HLC_State</sigLabel>
+                <sigLabel>C_State</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -351,376 +384,8 @@
 				<SubSystem>
 		<Name>Subsystem</Name>
 		<xPCName>Control_software_v1_1/Input conditioning and estimators/Subsystem</xPCName>
-				<SubSystem>
-		<Name>Kraftgesteuert</Name>
-		<xPCName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</xPCName>
 		
 		
-            <block>
-            <blkName>Beschleunigung</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Beschleunigung</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert/Beschleunigung</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>obere Kraftsensor
-Grenze</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Kraftgesteuert/obere Kraftsensor Grenze</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert/obere Kraftsensor Grenze</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>untere Kraftsensor
-Grenze</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Kraftgesteuert/untere Kraftsensor Grenze</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert/untere Kraftsensor Grenze</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Gain</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Gain</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert/Gain</SLblockPath>
-            <isSrc>[0 1 1]</isSrc>
-          <parameter>
-          <paramName>Gain</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-          </parameter>
-          </block>
-			  
-			  
-              <signal>
-              <sigName>Gain</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Gain</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Relational
-Operator</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Relational Operator</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Relational
-Operator1</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Relational Operator1</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Sum</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Sum</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Sum1</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Sum1</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Switch</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Switch</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Switch1</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Kraftgesteuert/Switch1</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-
-		</SubSystem>
-		<SubSystem>
-		<Name>Scope </Name>
-		<xPCName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Scope </xPCName>
-		
-		
-
-		</SubSystem>
-		<SubSystem>
-		<Name>Scope 1</Name>
-		<xPCName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Scope 1</xPCName>
-		
-		
-
-		</SubSystem>
-		<SubSystem>
-		<Name>Scope 2</Name>
-		<xPCName>Control_software_v1_1/Input conditioning and estimators/Subsystem/Scope 2</xPCName>
-		
-		
-
-		</SubSystem>
-		<SubSystem>
-		<Name>damper</Name>
-		<xPCName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</xPCName>
-				<SubSystem>
-		<Name>Compare
-To Zero</Name>
-		<xPCName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero</xPCName>
-		
-		
-            <block>
-            <blkName>Constant</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/damper/Compare To Zero/Constant</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero/Constant</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero</SubSystemName>
-          </parameter>
-          </block>
-			  
-			  
-              <signal>
-              <sigName>Compare</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Compare To Zero/Compare</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-
-		</SubSystem>
-		<SubSystem>
-		<Name>Compare
-To Zero1</Name>
-		<xPCName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero1</xPCName>
-		
-		
-            <block>
-            <blkName>Constant</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/damper/Compare To Zero1/Constant</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero1/Constant</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero1</SubSystemName>
-          </parameter>
-          </block>
-			  
-			  
-              <signal>
-              <sigName>Compare</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Compare To Zero1/Compare</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero1</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-
-		</SubSystem>
-
-		
-            <block>
-            <blkName>Beschleunigung</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/damper/Beschleunigung</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Beschleunigung</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Constant1</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/damper/Constant1</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Constant1</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Gain</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/damper/Gain</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Gain</SLblockPath>
-            <isSrc>[0 1 1]</isSrc>
-          <parameter>
-          <paramName>Gain</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Delay</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/damper/Delay</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Delay</SLblockPath>
-            <isSrc>[0 1 1]</isSrc>
-          <parameter>
-          <paramName>DelayLength</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-          </parameter>
-          <parameter>
-          <paramName>InitialCondition</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Delay1</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/damper/Delay1</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Delay1</SLblockPath>
-            <isSrc>[0 1 1]</isSrc>
-          <parameter>
-          <paramName>DelayLength</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-          </parameter>
-          <parameter>
-          <paramName>InitialCondition</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-          </parameter>
-          </block>
-			  
-			  
-              <signal>
-              <sigName>Gain</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Gain</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Sum</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Sum</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Sum1</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Sum1</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Switch</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Switch</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Switch1</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Switch1</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Delay</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Delay</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Delay1</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/damper/Delay1</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem/damper</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-
-		</SubSystem>
-
-		
-            <block>
-            <blkName>Constant2</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Constant2</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Constant2</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Constant3</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Constant3</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Constant3</SLblockPath>
-            <isSrc>[1 0 1]</isSrc>
-          <parameter>
-          <paramName>Value</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-          </parameter>
-          </block>
             <block>
             <blkName>Saturation1</blkName>
             <xpcblkName>Input conditioning and estimators/Subsystem/Saturation1</xpcblkName>
@@ -733,44 +398,6 @@ To Zero1</Name>
           </parameter>
           <parameter>
           <paramName>LowerLimit</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Switch</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Switch</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Switch</SLblockPath>
-            <isSrc>[0 3 1]</isSrc>
-          <parameter>
-          <paramName>Threshold</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Switch1</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Switch1</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Switch1</SLblockPath>
-            <isSrc>[0 3 1]</isSrc>
-          <parameter>
-          <paramName>Threshold</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-          </parameter>
-          </block>
-            <block>
-            <blkName>Delay</blkName>
-            <xpcblkName>Input conditioning and estimators/Subsystem/Delay</xpcblkName>
-            <SLblockPath>Control_software_v1_1/Input conditioning and estimators/Subsystem/Delay</SLblockPath>
-            <isSrc>[0 1 1]</isSrc>
-          <parameter>
-          <paramName>DelayLength</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-          </parameter>
-          <parameter>
-          <paramName>InitialCondition</paramName>
           <dim>[1, 1]</dim>  
 		  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
           </parameter>
@@ -838,6 +465,7 @@ Transfer Fcn1</blkName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
+                <sigLabel>CI_JoyW</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -855,36 +483,6 @@ Transfer Fcn1</blkName>
               <signal>
               <sigName>Sum1</sigName>
               <xpcsigName>Input conditioning and estimators/Subsystem/Sum1</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Switch</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Switch</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Switch1</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Switch1</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Delay</sigName>
-              <xpcsigName>Input conditioning and estimators/Subsystem/Delay</xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>Control_software_v1_1/Input conditioning and estimators/Subsystem</SubSystemName>
@@ -4816,7 +4414,14 @@ Logical Operator</sigName>
 		<SubSystem>
 		<Name>Outputs</Name>
 		<xPCName>Control_software_v1_1/Outputs</xPCName>
+				<SubSystem>
+		<Name>Scope </Name>
+		<xPCName>Control_software_v1_1/Outputs/Scope </xPCName>
 		
+		
+
+		</SubSystem>
+
 		
             <block>
             <blkName>Constant</blkName>
@@ -5077,6 +4682,1670 @@ Logical Operator</sigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>Control_software_v1_1/Outputs</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Subsystem</Name>
+		<xPCName>Control_software_v1_1/Subsystem</xPCName>
+				<SubSystem>
+		<Name>Emergency</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Emergency</xPCName>
+		
+		
+            <block>
+            <blkName>Beschleunigung</blkName>
+            <xpcblkName>Subsystem/Emergency/Beschleunigung</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Emergency/Beschleunigung</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>obere Kraftsensor
+Grenze</blkName>
+            <xpcblkName>Subsystem/Emergency/obere Kraftsensor Grenze</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Emergency/obere Kraftsensor Grenze</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>untere Kraftsensor
+Grenze</blkName>
+            <xpcblkName>Subsystem/Emergency/untere Kraftsensor Grenze</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Emergency/untere Kraftsensor Grenze</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Subsystem/Emergency/Gain</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Emergency/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Subsystem/Emergency/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Relational
+Operator</sigName>
+              <xpcsigName>Subsystem/Emergency/Relational Operator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Relational
+Operator1</sigName>
+              <xpcsigName>Subsystem/Emergency/Relational Operator1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Subsystem/Emergency/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Subsystem/Emergency/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Subsystem/Emergency/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Subsystem/Emergency/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Emergency</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Scope </Name>
+		<xPCName>Control_software_v1_1/Subsystem/Scope </xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Subsystem</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Subsystem</xPCName>
+		
+		
+            <block>
+            <blkName>Constant2</blkName>
+            <xpcblkName>Subsystem/Subsystem/Constant2</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Constant2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant3</blkName>
+            <xpcblkName>Subsystem/Subsystem/Constant3</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Constant3</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch</blkName>
+            <xpcblkName>Subsystem/Subsystem/Switch</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Switch</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch1</blkName>
+            <xpcblkName>Subsystem/Subsystem/Switch1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Switch1</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch2</blkName>
+            <xpcblkName>Subsystem/Subsystem/Switch2</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Switch2</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch3</blkName>
+            <xpcblkName>Subsystem/Subsystem/Switch3</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Switch3</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch4</blkName>
+            <xpcblkName>Subsystem/Subsystem/Switch4</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Switch4</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch5</blkName>
+            <xpcblkName>Subsystem/Subsystem/Switch5</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Switch5</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch6</blkName>
+            <xpcblkName>Subsystem/Subsystem/Switch6</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Switch6</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch7</blkName>
+            <xpcblkName>Subsystem/Subsystem/Switch7</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Switch7</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay1</blkName>
+            <xpcblkName>Subsystem/Subsystem/Delay1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Delay1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay2</blkName>
+            <xpcblkName>Subsystem/Subsystem/Delay2</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Delay2</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay3</blkName>
+            <xpcblkName>Subsystem/Subsystem/Delay3</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Delay3</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay4</blkName>
+            <xpcblkName>Subsystem/Subsystem/Delay4</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Delay4</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay5</blkName>
+            <xpcblkName>Subsystem/Subsystem/Delay5</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Subsystem/Delay5</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Logical
+Operator</sigName>
+              <xpcsigName>Subsystem/Subsystem/Logical Operator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Logical
+Operator1</sigName>
+              <xpcsigName>Subsystem/Subsystem/Logical Operator1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Logical
+Operator2</sigName>
+              <xpcsigName>Subsystem/Subsystem/Logical Operator2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Logical
+Operator3</sigName>
+              <xpcsigName>Subsystem/Subsystem/Logical Operator3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Logical
+Operator4</sigName>
+              <xpcsigName>Subsystem/Subsystem/Logical Operator4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Logical
+Operator5</sigName>
+              <xpcsigName>Subsystem/Subsystem/Logical Operator5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Logical
+Operator6</sigName>
+              <xpcsigName>Subsystem/Subsystem/Logical Operator6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Logical
+Operator7</sigName>
+              <xpcsigName>Subsystem/Subsystem/Logical Operator7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Subsystem/Subsystem/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Subsystem/Subsystem/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch2</sigName>
+              <xpcsigName>Subsystem/Subsystem/Switch2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch3</sigName>
+              <xpcsigName>Subsystem/Subsystem/Switch3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch4</sigName>
+              <xpcsigName>Subsystem/Subsystem/Switch4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch5</sigName>
+              <xpcsigName>Subsystem/Subsystem/Switch5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch6</sigName>
+              <xpcsigName>Subsystem/Subsystem/Switch6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch7</sigName>
+              <xpcsigName>Subsystem/Subsystem/Switch7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay1</sigName>
+              <xpcsigName>Subsystem/Subsystem/Delay1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay2</sigName>
+              <xpcsigName>Subsystem/Subsystem/Delay2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay3</sigName>
+              <xpcsigName>Subsystem/Subsystem/Delay3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay4</sigName>
+              <xpcsigName>Subsystem/Subsystem/Delay4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay5</sigName>
+              <xpcsigName>Subsystem/Subsystem/Delay5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Takeoff</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff</xPCName>
+				<SubSystem>
+		<Name>Joystick-Steuerung</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</xPCName>
+		
+		
+            <block>
+            <blkName>Beschleunigung</blkName>
+            <xpcblkName>Subsystem/Takeoff/Joystick-Steuerung/Beschleunigung</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung/Beschleunigung</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>obere Kraftsensor
+Grenze</blkName>
+            <xpcblkName>Subsystem/Takeoff/Joystick-Steuerung/obere Kraftsensor Grenze</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung/obere Kraftsensor Grenze</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>untere Kraftsensor
+Grenze</blkName>
+            <xpcblkName>Subsystem/Takeoff/Joystick-Steuerung/untere Kraftsensor Grenze</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung/untere Kraftsensor Grenze</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Subsystem/Takeoff/Joystick-Steuerung/Gain</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Subsystem/Takeoff/Joystick-Steuerung/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Relational
+Operator</sigName>
+              <xpcsigName>Subsystem/Takeoff/Joystick-Steuerung/Relational Operator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Relational
+Operator1</sigName>
+              <xpcsigName>Subsystem/Takeoff/Joystick-Steuerung/Relational Operator1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Subsystem/Takeoff/Joystick-Steuerung/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Subsystem/Takeoff/Joystick-Steuerung/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Subsystem/Takeoff/Joystick-Steuerung/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Subsystem/Takeoff/Joystick-Steuerung/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>damper</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff/damper</xPCName>
+				<SubSystem>
+		<Name>Compare
+To Zero</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Subsystem/Takeoff/damper/Compare To Zero/Constant</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Compare</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Compare To Zero/Compare</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Compare
+To Zero1</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero1</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Subsystem/Takeoff/damper/Compare To Zero1/Constant</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero1/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Compare</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Compare To Zero1/Compare</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Beschleunigung</blkName>
+            <xpcblkName>Subsystem/Takeoff/damper/Beschleunigung</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/damper/Beschleunigung</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Subsystem/Takeoff/damper/Constant1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/damper/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Subsystem/Takeoff/damper/Gain</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/damper/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay</blkName>
+            <xpcblkName>Subsystem/Takeoff/damper/Delay</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/damper/Delay</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay1</blkName>
+            <xpcblkName>Subsystem/Takeoff/damper/Delay1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/damper/Delay1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Delay</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay1</sigName>
+              <xpcsigName>Subsystem/Takeoff/damper/Delay1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Delay</blkName>
+            <xpcblkName>Subsystem/Takeoff/Delay</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff/Delay</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Delay</sigName>
+              <xpcsigName>Subsystem/Takeoff/Delay</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Takeoff1</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff1</xPCName>
+				<SubSystem>
+		<Name>Joystick-Steuerung</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</xPCName>
+		
+		
+            <block>
+            <blkName>Beschleunigung</blkName>
+            <xpcblkName>Subsystem/Takeoff1/Joystick-Steuerung/Beschleunigung</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung/Beschleunigung</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>obere Kraftsensor
+Grenze</blkName>
+            <xpcblkName>Subsystem/Takeoff1/Joystick-Steuerung/obere Kraftsensor Grenze</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung/obere Kraftsensor Grenze</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>untere Kraftsensor
+Grenze</blkName>
+            <xpcblkName>Subsystem/Takeoff1/Joystick-Steuerung/untere Kraftsensor Grenze</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung/untere Kraftsensor Grenze</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Subsystem/Takeoff1/Joystick-Steuerung/Gain</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Subsystem/Takeoff1/Joystick-Steuerung/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Relational
+Operator</sigName>
+              <xpcsigName>Subsystem/Takeoff1/Joystick-Steuerung/Relational Operator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Relational
+Operator1</sigName>
+              <xpcsigName>Subsystem/Takeoff1/Joystick-Steuerung/Relational Operator1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Subsystem/Takeoff1/Joystick-Steuerung/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Subsystem/Takeoff1/Joystick-Steuerung/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Subsystem/Takeoff1/Joystick-Steuerung/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Subsystem/Takeoff1/Joystick-Steuerung/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>damper</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff1/damper</xPCName>
+				<SubSystem>
+		<Name>Compare
+To Zero</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Subsystem/Takeoff1/damper/Compare To Zero/Constant</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Compare</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Compare To Zero/Compare</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Compare
+To Zero1</Name>
+		<xPCName>Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero1</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Subsystem/Takeoff1/damper/Compare To Zero1/Constant</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero1/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Compare</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Compare To Zero1/Compare</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Beschleunigung</blkName>
+            <xpcblkName>Subsystem/Takeoff1/damper/Beschleunigung</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/damper/Beschleunigung</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Subsystem/Takeoff1/damper/Constant1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/damper/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Subsystem/Takeoff1/damper/Gain</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/damper/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay</blkName>
+            <xpcblkName>Subsystem/Takeoff1/damper/Delay</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/damper/Delay</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay1</blkName>
+            <xpcblkName>Subsystem/Takeoff1/damper/Delay1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/damper/Delay1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Delay</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay1</sigName>
+              <xpcsigName>Subsystem/Takeoff1/damper/Delay1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Delay</blkName>
+            <xpcblkName>Subsystem/Takeoff1/Delay</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Takeoff1/Delay</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Delay</sigName>
+              <xpcsigName>Subsystem/Takeoff1/Delay</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/Takeoff1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>damper</Name>
+		<xPCName>Control_software_v1_1/Subsystem/damper</xPCName>
+				<SubSystem>
+		<Name>Compare
+To Zero</Name>
+		<xPCName>Control_software_v1_1/Subsystem/damper/Compare To Zero</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Subsystem/damper/Compare To Zero/Constant</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/damper/Compare To Zero/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper/Compare To Zero</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Compare</sigName>
+              <xpcsigName>Subsystem/damper/Compare To Zero/Compare</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper/Compare To Zero</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Compare
+To Zero1</Name>
+		<xPCName>Control_software_v1_1/Subsystem/damper/Compare To Zero1</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Subsystem/damper/Compare To Zero1/Constant</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/damper/Compare To Zero1/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper/Compare To Zero1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Compare</sigName>
+              <xpcsigName>Subsystem/damper/Compare To Zero1/Compare</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper/Compare To Zero1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Beschleunigung</blkName>
+            <xpcblkName>Subsystem/damper/Beschleunigung</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/damper/Beschleunigung</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Subsystem/damper/Constant1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/damper/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Subsystem/damper/Gain</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/damper/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay</blkName>
+            <xpcblkName>Subsystem/damper/Delay</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/damper/Delay</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay1</blkName>
+            <xpcblkName>Subsystem/damper/Delay1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/damper/Delay1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Subsystem/damper/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Subsystem/damper/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Subsystem/damper/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Subsystem/damper/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Subsystem/damper/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay</sigName>
+              <xpcsigName>Subsystem/damper/Delay</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay1</sigName>
+              <xpcsigName>Subsystem/damper/Delay1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem/damper</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Subsystem/Constant</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Subsystem/Constant1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant2</blkName>
+            <xpcblkName>Subsystem/Constant2</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Constant2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant3</blkName>
+            <xpcblkName>Subsystem/Constant3</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Constant3</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>konstante Ausrollgeschw.</blkName>
+            <xpcblkName>Subsystem/konstante Ausrollgeschw.</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/konstante Ausrollgeschw.</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>konstante Einrollgeschw.</blkName>
+            <xpcblkName>Subsystem/konstante Einrollgeschw.</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/konstante Einrollgeschw.</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch</blkName>
+            <xpcblkName>Subsystem/Switch</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Switch</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch1</blkName>
+            <xpcblkName>Subsystem/Switch1</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Switch1</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Delay</blkName>
+            <xpcblkName>Subsystem/Delay</xpcblkName>
+            <SLblockPath>Control_software_v1_1/Subsystem/Delay</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Subsystem/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Subsystem/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Subsystem/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Subsystem/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch10</sigName>
+              <xpcsigName>Subsystem/Switch10</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch11</sigName>
+              <xpcsigName>Subsystem/Switch11</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch8</sigName>
+              <xpcsigName>Subsystem/Switch8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch9</sigName>
+              <xpcsigName>Subsystem/Switch9</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Delay</sigName>
+              <xpcsigName>Subsystem/Delay</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Control_software_v1_1/Subsystem</SubSystemName>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 

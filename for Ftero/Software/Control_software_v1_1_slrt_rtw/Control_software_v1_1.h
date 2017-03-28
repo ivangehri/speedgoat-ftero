@@ -7,9 +7,9 @@
  *
  * Code generation for model "Control_software_v1_1".
  *
- * Model version              : 1.1536
+ * Model version              : 1.1620
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Mar 21 15:25:08 2017
+ * C source code generated on : Mon Mar 27 17:35:40 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -828,100 +828,93 @@
 /* user code (top of export header file) */
 #include "xpcdatatypes.h"
 
-/* Block signals for system '<S35>/Embedded MATLAB Function' */
+/* Block signals for system '<S29>/Embedded MATLAB Function' */
 typedef struct {
-  real_T uint32_out;                   /* '<S35>/Embedded MATLAB Function' */
+  real_T uint32_out;                   /* '<S29>/Embedded MATLAB Function' */
 } B_EmbeddedMATLABFunction_Cont_T;
 
-/* Block signals for system '<S35>/Embedded MATLAB Function1' */
+/* Block signals for system '<S29>/Embedded MATLAB Function1' */
 typedef struct {
-  real_T uint8_out;                    /* '<S35>/Embedded MATLAB Function1' */
+  real_T uint8_out;                    /* '<S29>/Embedded MATLAB Function1' */
 } B_EmbeddedMATLABFunction1_Con_T;
+
+/* Block signals for system '<S30>/Embedded MATLAB Function' */
+typedef struct {
+  real_T sing_out;                     /* '<S30>/Embedded MATLAB Function' */
+} B_EmbeddedMATLABFunction_Co_o_T;
+
+/* Block signals for system '<S33>/Embedded MATLAB Function1' */
+typedef struct {
+  real_T int32_out;                    /* '<S33>/Embedded MATLAB Function1' */
+} B_EmbeddedMATLABFunction1_C_k_T;
 
 /* Block signals for system '<S36>/Embedded MATLAB Function' */
 typedef struct {
-  real_T sing_out;                     /* '<S36>/Embedded MATLAB Function' */
-} B_EmbeddedMATLABFunction_Co_o_T;
-
-/* Block signals for system '<S39>/Embedded MATLAB Function1' */
-typedef struct {
-  real_T int32_out;                    /* '<S39>/Embedded MATLAB Function1' */
-} B_EmbeddedMATLABFunction1_C_k_T;
-
-/* Block signals for system '<S42>/Embedded MATLAB Function' */
-typedef struct {
-  real_T double_out;                   /* '<S42>/Embedded MATLAB Function' */
+  real_T double_out;                   /* '<S36>/Embedded MATLAB Function' */
 } B_EmbeddedMATLABFunction_Co_l_T;
 
 /* Block signals (auto storage) */
 typedef struct {
-  serialfifoptr RateTransition;        /* '<S28>/Rate Transition' */
-  serialfifoptr RateTransition2;       /* '<S28>/Rate Transition2' */
-  serialfifoptr RateTransition4;       /* '<S28>/Rate Transition4' */
-  serialfifoptr RateTransition6;       /* '<S28>/Rate Transition6' */
-  serialfifoptr RateTransition5;       /* '<S28>/Rate Transition5' */
-  serialfifoptr RateTransition4_p;     /* '<S25>/Rate Transition4' */
-  serialfifoptr RateTransition3;       /* '<S28>/Rate Transition3' */
-  serialfifoptr RateTransition4_d;     /* '<S26>/Rate Transition4' */
-  serialfifoptr RateTransition1;       /* '<S28>/Rate Transition1' */
-  serialfifoptr RateTransition4_f;     /* '<S27>/Rate Transition4' */
-  serialfifoptr FIFOwrite1_o1;         /* '<S28>/FIFO write 1' */
-  serialfifoptr FIFOwrite2_o1;         /* '<S28>/FIFO write 2' */
-  serialfifoptr FIFOwrite3_o1;         /* '<S28>/FIFO write 3' */
-  serialfifoptr FIFOwrite4_o1;         /* '<S28>/FIFO write 4' */
-  serialfifoptr RateTransition7;       /* '<S28>/Rate Transition7' */
-  serialfifoptr FIFOwrite1;            /* '<S86>/FIFO write 1' */
-  serialfifoptr FIFOwrite2;            /* '<S86>/FIFO write 2' */
-  serialfifoptr FIFOwrite3;            /* '<S86>/FIFO write 3' */
-  serialfifoptr FIFOwrite4;            /* '<S86>/FIFO write 4' */
+  serialfifoptr RateTransition;        /* '<S22>/Rate Transition' */
+  serialfifoptr RateTransition2;       /* '<S22>/Rate Transition2' */
+  serialfifoptr RateTransition4;       /* '<S22>/Rate Transition4' */
+  serialfifoptr RateTransition6;       /* '<S22>/Rate Transition6' */
+  serialfifoptr RateTransition5;       /* '<S22>/Rate Transition5' */
+  serialfifoptr RateTransition4_p;     /* '<S19>/Rate Transition4' */
+  serialfifoptr RateTransition3;       /* '<S22>/Rate Transition3' */
+  serialfifoptr RateTransition4_d;     /* '<S20>/Rate Transition4' */
+  serialfifoptr RateTransition1;       /* '<S22>/Rate Transition1' */
+  serialfifoptr RateTransition4_f;     /* '<S21>/Rate Transition4' */
+  serialfifoptr FIFOwrite1_o1;         /* '<S22>/FIFO write 1' */
+  serialfifoptr FIFOwrite2_o1;         /* '<S22>/FIFO write 2' */
+  serialfifoptr FIFOwrite3_o1;         /* '<S22>/FIFO write 3' */
+  serialfifoptr FIFOwrite4_o1;         /* '<S22>/FIFO write 4' */
+  serialfifoptr RateTransition7;       /* '<S22>/Rate Transition7' */
+  serialfifoptr FIFOwrite1;            /* '<S80>/FIFO write 1' */
+  serialfifoptr FIFOwrite2;            /* '<S80>/FIFO write 2' */
+  serialfifoptr FIFOwrite3;            /* '<S80>/FIFO write 3' */
+  serialfifoptr FIFOwrite4;            /* '<S80>/FIFO write 4' */
   real_T UnitDelay;                    /* '<S1>/Unit Delay' */
   real_T Sum;                          /* '<S1>/Sum' */
-  real_T Trigger_time;                 /* '<S91>/Switch1' */
-  real_T AI_Joy_W;                     /* '<S22>/PCI-6221 AD' */
-  real_T AI_Joy_S;                     /* '<S22>/PCI-6221 AD' */
-  real_T AI_mot_slide_pos;             /* '<S22>/PCI-6221 AD' */
-  real_T AI_mot_winch_pos;             /* '<S22>/PCI-6221 AD' */
-  real_T AI_pot_pos;                   /* '<S22>/PCI-6221 AD' */
-  real_T DI_Enable;                    /* '<S23>/PCI-6221 DI' */
-  real_T DI_WinchMode;                 /* '<S23>/PCI-6221 DI' */
-  real_T DI_Takeoff;                   /* '<S23>/PCI-6221 DI' */
-  real_T DI_Landing;                   /* '<S23>/PCI-6221 DI' */
-  real_T DI_Operator;                  /* '<S23>/PCI-6221 DI' */
-  real_T DI_GliderPres;                /* '<S23>/PCI-6221 DI' */
-  real_T DI_SlideLimitF;               /* '<S23>/PCI-6221 DI' */
-  real_T DI_SlideLimitB;               /* '<S23>/PCI 6221 PFI DI ' */
-  real_T Sum_a;                        /* '<S9>/Sum' */
-  real_T Gain;                         /* '<S9>/Gain' */
-  real_T DiscreteTransferFcn;          /* '<S9>/Discrete Transfer Fcn' */
-  real_T CI_JoyS;                      /* '<S9>/Saturation' */
-  real_T Delay;                        /* '<S9>/Delay' */
-  real_T Sum1;                         /* '<S9>/Sum1' */
-  real_T Gain1;                        /* '<S9>/Gain1' */
-  real_T DiscreteTransferFcn1;         /* '<S9>/Discrete Transfer Fcn1' */
-  real_T Saturation1;                  /* '<S9>/Saturation1' */
-  real_T Switch1;                      /* '<S9>/Switch1' */
-  real_T Delay_b;                      /* '<S16>/Delay' */
-  real_T Sum_n;                        /* '<S16>/Sum' */
-  real_T Switch1_d;                    /* '<S16>/Switch1' */
-  real_T Delay1;                       /* '<S16>/Delay1' */
-  real_T Sum1_o;                       /* '<S16>/Sum1' */
-  real_T DiscreteStateSpace[2];        /* '<S20>/Discrete State-Space' */
-  real_T SlMotPosEst;                  /* '<S20>/Gain2' */
-  real_T SlMotSpeedEst;                /* '<S20>/Discrete Transfer Fcn1' */
-  real_T CI_SlidePos;                  /* '<S10>/Discrete Transfer Fcn2' */
-  real_T Sum_p;                        /* '<S19>/Sum' */
-  real_T Gain_m;                       /* '<S19>/Gain' */
-  real_T Sum1_n;                       /* '<S19>/Sum1' */
-  real_T CI_WinchPos;                  /* '<S19>/Discrete Transfer Fcn1' */
-  real_T DiscreteStateSpace_g[2];      /* '<S21>/Discrete State-Space' */
-  real_T WinchMotSpeedEst;             /* '<S21>/Discrete Transfer Fcn' */
-  real_T Gain_f;                       /* '<S11>/Gain' */
-  real_T Sum_b;                        /* '<S11>/Sum' */
-  real_T DiscreteTransferFcn1_c;       /* '<S11>/Discrete Transfer Fcn1' */
-  real_T CI_PotPos;                    /* '<S11>/Saturation' */
-  real_T Delay_e;                      /* '<S11>/Delay' */
-  real_T Sum1_b;                       /* '<S11>/Sum1' */
-  real_T CI_PotSpd;                    /* '<S11>/Gain1' */
+  real_T Trigger_time;                 /* '<S85>/Switch1' */
+  real_T AI_Joy_W;                     /* '<S16>/PCI-6221 AD' */
+  real_T AI_Joy_S;                     /* '<S16>/PCI-6221 AD' */
+  real_T AI_mot_slide_pos;             /* '<S16>/PCI-6221 AD' */
+  real_T AI_mot_winch_pos;             /* '<S16>/PCI-6221 AD' */
+  real_T AI_pot_pos;                   /* '<S16>/PCI-6221 AD' */
+  real_T DI_Enable;                    /* '<S17>/PCI-6221 DI' */
+  real_T DI_WinchMode;                 /* '<S17>/PCI-6221 DI' */
+  real_T DI_Takeoff;                   /* '<S17>/PCI-6221 DI' */
+  real_T DI_Landing;                   /* '<S17>/PCI-6221 DI' */
+  real_T DI_Operator;                  /* '<S17>/PCI-6221 DI' */
+  real_T DI_GliderPres;                /* '<S17>/PCI-6221 DI' */
+  real_T DI_SlideLimitF;               /* '<S17>/PCI-6221 DI' */
+  real_T DI_SlideLimitB;               /* '<S17>/PCI 6221 PFI DI ' */
+  real_T Sum_n;                        /* '<S10>/Sum' */
+  real_T Gain;                         /* '<S10>/Gain' */
+  real_T DiscreteTransferFcn;          /* '<S10>/Discrete Transfer Fcn' */
+  real_T CI_JoyS;                      /* '<S10>/Saturation' */
+  real_T Sum1;                         /* '<S10>/Sum1' */
+  real_T Gain1;                        /* '<S10>/Gain1' */
+  real_T DiscreteTransferFcn1;         /* '<S10>/Discrete Transfer Fcn1' */
+  real_T CI_JoyW;                      /* '<S10>/Saturation1' */
+  real_T DiscreteStateSpace[2];        /* '<S14>/Discrete State-Space' */
+  real_T SlMotPosEst;                  /* '<S14>/Gain2' */
+  real_T SlMotSpeedEst;                /* '<S14>/Discrete Transfer Fcn1' */
+  real_T CI_SlidePos;                  /* '<S11>/Discrete Transfer Fcn2' */
+  real_T Sum_p;                        /* '<S13>/Sum' */
+  real_T Gain_m;                       /* '<S13>/Gain' */
+  real_T Sum1_n;                       /* '<S13>/Sum1' */
+  real_T CI_WinchPos;                  /* '<S13>/Discrete Transfer Fcn1' */
+  real_T DiscreteStateSpace_g[2];      /* '<S15>/Discrete State-Space' */
+  real_T WinchMotSpeedEst;             /* '<S15>/Discrete Transfer Fcn' */
+  real_T Gain_f;                       /* '<S12>/Gain' */
+  real_T Sum_b;                        /* '<S12>/Sum' */
+  real_T DiscreteTransferFcn1_c;       /* '<S12>/Discrete Transfer Fcn1' */
+  real_T CI_PotPos;                    /* '<S12>/Saturation' */
+  real_T Delay;                        /* '<S12>/Delay' */
+  real_T Sum1_b;                       /* '<S12>/Sum1' */
+  real_T CI_PotSpd;                    /* '<S12>/Gain1' */
   real_T UnitDelay7;                   /* '<S2>/Unit Delay7' */
   real_T UnitDelay1;                   /* '<S2>/Unit Delay1' */
   real_T UnitDelay2;                   /* '<S2>/Unit Delay2' */
@@ -931,49 +924,101 @@ typedef struct {
   real_T UnitDelay3;                   /* '<S2>/Unit Delay3' */
   real_T UnitDelay_b;                  /* '<S2>/Unit Delay' */
   real_T UnitDelay8;                   /* '<S2>/Unit Delay8' */
-  real_T SlideMotTorqueEst;            /* '<S20>/Switch' */
-  real_T WinchMotTorqueEst;            /* '<S21>/Switch' */
+  real_T SlideMotTorqueEst;            /* '<S14>/Switch' */
+  real_T WinchMotTorqueEst;            /* '<S15>/Switch' */
   real_T Switch;                       /* '<S6>/Switch' */
   real_T AO_SlideDriver;               /* '<S6>/Saturation1' */
+  real_T Delay_c;                      /* '<S7>/Delay' */
+  real_T Delay3;                       /* '<S90>/Delay3' */
+  real_T Delay1;                       /* '<S90>/Delay1' */
+  real_T Delay4;                       /* '<S90>/Delay4' */
+  real_T Switch5;                      /* '<S90>/Switch5' */
+  real_T Delay5;                       /* '<S90>/Delay5' */
+  real_T Switch7;                      /* '<S90>/Switch7' */
+  real_T Delay_i;                      /* '<S92>/Delay' */
+  real_T Switch1;                      /* '<S98>/Switch1' */
+  real_T Delay_f;                      /* '<S99>/Delay' */
+  real_T Sum_a;                        /* '<S99>/Sum' */
+  real_T Switch1_k;                    /* '<S99>/Switch1' */
+  real_T Delay1_g;                     /* '<S99>/Delay1' */
+  real_T Sum1_j;                       /* '<S99>/Sum1' */
+  real_T Delay2;                       /* '<S90>/Delay2' */
+  real_T Switch4;                      /* '<S90>/Switch4' */
+  real_T Delay_cy;                     /* '<S91>/Delay' */
+  real_T Switch1_j;                    /* '<S94>/Switch1' */
+  real_T Delay_j;                      /* '<S95>/Delay' */
+  real_T Sum_e;                        /* '<S95>/Sum' */
+  real_T Switch1_d;                    /* '<S95>/Switch1' */
+  real_T Delay1_p;                     /* '<S95>/Delay1' */
+  real_T Sum1_k;                       /* '<S95>/Sum1' */
+  real_T Switch_m;                     /* '<S90>/Switch' */
+  real_T Switch1_i;                    /* '<S7>/Switch1' */
+  real_T Delay_k;                      /* '<S93>/Delay' */
+  real_T Sum_m;                        /* '<S93>/Sum' */
+  real_T Switch1_dn;                   /* '<S93>/Switch1' */
+  real_T Delay1_j;                     /* '<S93>/Delay1' */
+  real_T Sum1_e;                       /* '<S93>/Sum1' */
   real_T Switch1_n;                    /* '<S6>/Switch1' */
   real_T AO_WinchDriver;               /* '<S6>/Saturation' */
-  real_T RateTransition_i[35];         /* '<S87>/Rate Transition' */
-  real_T Gain_j;                       /* '<S20>/Gain' */
+  real_T RateTransition_i[35];         /* '<S81>/Rate Transition' */
+  real_T Gain_j;                       /* '<S14>/Gain' */
   real_T TmpSignalConversionAtDiscreteSt[2];
-  real_T Sum_c;                        /* '<S21>/Sum' */
-  real_T Gain_g;                       /* '<S21>/Gain' */
-  real_T Sum1_nr;                      /* '<S21>/Sum1' */
+  real_T Sum_c;                        /* '<S15>/Sum' */
+  real_T Gain_g;                       /* '<S15>/Gain' */
+  real_T Sum1_nr;                      /* '<S15>/Sum1' */
   real_T TmpSignalConversionAtDiscrete_e[2];
   real_T Constant1;                    /* '<S6>/Constant1' */
   real_T Constant3;                    /* '<S6>/Constant3' */
   real_T Gain_j2;                      /* '<S6>/Gain' */
-  real_T Switch_k;                     /* '<S91>/Switch' */
-  real_T IMU_data[38];                 /* '<S32>/IMU_data' */
-  real_T CRC_valid;                    /* '<S31>/Embedded MATLAB Function' */
-  real_T GU_Lat;                       /* '<S26>/Embedded MATLAB Function' */
-  real_T GU_Lon;                       /* '<S26>/Embedded MATLAB Function' */
-  real_T GU_h;                         /* '<S26>/Embedded MATLAB Function' */
-  real_T Geo_GU_h;                     /* '<S26>/Embedded MATLAB Function' */
-  real_T GU_Yaw;                       /* '<S25>/Embedded MATLAB Function' */
-  real_T Saturation1_m;                /* '<S21>/Saturation1' */
-  real_T Sum2;                         /* '<S21>/Sum2' */
-  real_T Gain1_d;                      /* '<S21>/Gain1' */
-  real_T Saturation;                   /* '<S21>/Saturation' */
-  real_T Sum2_j;                       /* '<S20>/Sum2' */
-  real_T Gain4;                        /* '<S20>/Gain4' */
-  real_T Gain1_g;                      /* '<S20>/Gain1' */
-  real_T Sum_n3;                       /* '<S20>/Sum' */
-  real_T Gain3;                        /* '<S20>/Gain3' */
-  real_T Sum1_bn;                      /* '<S20>/Sum1' */
-  real_T Saturation_m;                 /* '<S20>/Saturation' */
-  real_T Gain_ms;                      /* '<S16>/Gain' */
-  real_T Switch_kv;                    /* '<S16>/Switch' */
-  real_T Switch1_m;                    /* '<S12>/Switch1' */
-  real_T Gain_n;                       /* '<S12>/Gain' */
-  real_T Sum1_p;                       /* '<S12>/Sum1' */
-  real_T Switch_m;                     /* '<S12>/Switch' */
-  real_T Sum_o;                        /* '<S12>/Sum' */
-  real_T Switch_i;                     /* '<S9>/Switch' */
+  real_T Gain_fi;                      /* '<S93>/Gain' */
+  real_T Switch_c;                     /* '<S93>/Switch' */
+  real_T Gain_p;                       /* '<S99>/Gain' */
+  real_T Switch_d;                     /* '<S99>/Switch' */
+  real_T Gain_m3;                      /* '<S98>/Gain' */
+  real_T Sum1_kj;                      /* '<S98>/Sum1' */
+  real_T Switch_b;                     /* '<S98>/Switch' */
+  real_T Sum_o;                        /* '<S98>/Sum' */
+  real_T Gain_c;                       /* '<S95>/Gain' */
+  real_T Switch_i;                     /* '<S95>/Switch' */
+  real_T Gain_gc;                      /* '<S94>/Gain' */
+  real_T Sum1_d;                       /* '<S94>/Sum1' */
+  real_T Switch_b5;                    /* '<S94>/Switch' */
+  real_T Sum_ol;                       /* '<S94>/Sum' */
+  real_T Switch1_p;                    /* '<S90>/Switch1' */
+  real_T Switch3;                      /* '<S90>/Switch3' */
+  real_T Switch2;                      /* '<S90>/Switch2' */
+  real_T Switch6;                      /* '<S90>/Switch6' */
+  real_T Switch1_o;                    /* '<S88>/Switch1' */
+  real_T Gain_jo;                      /* '<S88>/Gain' */
+  real_T Sum1_j4;                      /* '<S88>/Sum1' */
+  real_T Switch_h;                     /* '<S88>/Switch' */
+  real_T Sum_no;                       /* '<S88>/Sum' */
+  real_T Switch_dl;                    /* '<S7>/Switch' */
+  real_T Switch11;                     /* '<S7>/Switch11' */
+  real_T Switch10;                     /* '<S7>/Switch10' */
+  real_T Switch9;                      /* '<S7>/Switch9' */
+  real_T Sum1_bw;                      /* '<S7>/Sum1' */
+  real_T Switch8;                      /* '<S7>/Switch8' */
+  real_T Sum_ot;                       /* '<S7>/Sum' */
+  real_T Switch_k;                     /* '<S85>/Switch' */
+  real_T IMU_data[38];                 /* '<S26>/IMU_data' */
+  real_T CRC_valid;                    /* '<S25>/Embedded MATLAB Function' */
+  real_T GU_Lat;                       /* '<S20>/Embedded MATLAB Function' */
+  real_T GU_Lon;                       /* '<S20>/Embedded MATLAB Function' */
+  real_T GU_h;                         /* '<S20>/Embedded MATLAB Function' */
+  real_T Geo_GU_h;                     /* '<S20>/Embedded MATLAB Function' */
+  real_T GU_Yaw;                       /* '<S19>/Embedded MATLAB Function' */
+  real_T Saturation1;                  /* '<S15>/Saturation1' */
+  real_T Sum2;                         /* '<S15>/Sum2' */
+  real_T Gain1_d;                      /* '<S15>/Gain1' */
+  real_T Saturation;                   /* '<S15>/Saturation' */
+  real_T Sum2_j;                       /* '<S14>/Sum2' */
+  real_T Gain4;                        /* '<S14>/Gain4' */
+  real_T Gain1_g;                      /* '<S14>/Gain1' */
+  real_T Sum_n3;                       /* '<S14>/Sum' */
+  real_T Gain3;                        /* '<S14>/Gain3' */
+  real_T Sum1_bn;                      /* '<S14>/Sum1' */
+  real_T Saturation_m;                 /* '<S14>/Saturation' */
   real_T TmpSignalConversionAtSFunctionI[39];/* '<S2>/MATLAB Function' */
   real_T HLC_State;                    /* '<S2>/MATLAB Function' */
   real_T HLC_SlidePosRef;              /* '<S2>/MATLAB Function' */
@@ -984,105 +1029,118 @@ typedef struct {
   real_T Flag_OK;                      /* '<S2>/MATLAB Function' */
   real_T Timer;                        /* '<S2>/MATLAB Function' */
   real_T ReelTimer;                    /* '<S2>/MATLAB Function' */
-  uint32_T ReadIntStatus1[4];          /* '<S86>/Read Int Status1' */
-  uint32_T FilterIntReason5;           /* '<S86>/Filter Int Reason5' */
-  uint32_T Constant1_p;                /* '<S86>/Constant1' */
-  uint32_T FIFOread1_o1[61];           /* '<S86>/FIFO read 1' */
-  uint32_T FIFOread1_o2;               /* '<S86>/FIFO read 1' */
-  uint32_T FilterIntReason6;           /* '<S86>/Filter Int Reason6' */
-  uint32_T Constant2;                  /* '<S86>/Constant2' */
-  uint32_T FIFOread2_o1[61];           /* '<S86>/FIFO read 2' */
-  uint32_T FIFOread2_o2;               /* '<S86>/FIFO read 2' */
-  uint32_T FilterIntReason7;           /* '<S86>/Filter Int Reason7' */
-  uint32_T Constant3_o;                /* '<S86>/Constant3' */
-  uint32_T FIFOread3_o1[61];           /* '<S86>/FIFO read 3' */
-  uint32_T FIFOread3_o2;               /* '<S86>/FIFO read 3' */
-  uint32_T FilterIntReason8;           /* '<S86>/Filter Int Reason8' */
-  uint32_T Constant4;                  /* '<S86>/Constant4' */
-  uint32_T FIFOread4_o1[61];           /* '<S86>/FIFO read 4' */
-  uint32_T FIFOread4_o2;               /* '<S86>/FIFO read 4' */
-  uint32_T BitwiseLogicalOperator[4];  /* '<S86>/Bitwise Logical Operator' */
-  uint32_T FilterIntReason1;           /* '<S86>/Filter Int Reason1' */
-  uint32_T ReadHWFIFO1[65];            /* '<S86>/Read HW FIFO1' */
-  uint32_T FilterIntReason2;           /* '<S86>/Filter Int Reason2' */
-  uint32_T ReadHWFIFO2[65];            /* '<S86>/Read HW FIFO2' */
-  uint32_T FilterIntReason3;           /* '<S86>/Filter Int Reason3' */
-  uint32_T ReadHWFIFO3[65];            /* '<S86>/Read HW FIFO3' */
-  uint32_T FilterIntReason4;           /* '<S86>/Filter Int Reason4' */
-  uint32_T ReadHWFIFO4[65];            /* '<S86>/Read HW FIFO4' */
-  uint8_T FIFOASCIIread1[41];          /* '<S25>/FIFO ASCII read 1' */
-  uint8_T Constant;                    /* '<S24>/Constant' */
-  uint8_T Constant1_d;                 /* '<S24>/Constant1' */
-  uint8_T Constant2_j;                 /* '<S24>/Constant2' */
-  uint8_T Constant3_h;                 /* '<S24>/Constant3' */
-  uint8_T FIFOASCIIread1_k[91];        /* '<S26>/FIFO ASCII read 1' */
-  uint8_T FIFOASCIIread[1025];         /* '<S27>/FIFO ASCII read ' */
-  boolean_T Compare;                   /* '<S18>/Compare' */
-  boolean_T FIFOwrite1_o2;             /* '<S28>/FIFO write 1' */
-  boolean_T FIFOwrite2_o2;             /* '<S28>/FIFO write 2' */
-  boolean_T FIFOwrite3_o2;             /* '<S28>/FIFO write 3' */
-  boolean_T FIFOwrite4_o2;             /* '<S28>/FIFO write 4' */
-  boolean_T RelationalOperator[4];     /* '<S86>/Relational Operator' */
-  boolean_T LogicalOperator;           /* '<S86>/Logical Operator' */
-  boolean_T Compare_e;                 /* '<S17>/Compare' */
-  boolean_T RelationalOperator1;       /* '<S12>/Relational Operator1' */
-  boolean_T RelationalOperator_i;      /* '<S12>/Relational Operator' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3_a;/* '<S46>/Embedded MATLAB Function3' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1_p;/* '<S46>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_f;/* '<S46>/Embedded MATLAB Function' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3_p;/* '<S45>/Embedded MATLAB Function3' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1_i;/* '<S45>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_d;/* '<S45>/Embedded MATLAB Function' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction4;/* '<S44>/Embedded MATLAB Function4' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3;/* '<S44>/Embedded MATLAB Function3' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1;/* '<S44>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_g;/* '<S44>/Embedded MATLAB Function' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3_n;/* '<S43>/Embedded MATLAB Function3' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1_d;/* '<S43>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_j;/* '<S43>/Embedded MATLAB Function' */
-  B_EmbeddedMATLABFunction_Co_l_T sf_EmbeddedMATLABFunction2_g;/* '<S42>/Embedded MATLAB Function2' */
-  B_EmbeddedMATLABFunction_Co_l_T sf_EmbeddedMATLABFunction1_a;/* '<S42>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction_Co_l_T sf_EmbeddedMATLABFunction_k;/* '<S42>/Embedded MATLAB Function' */
-  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction2_m;/* '<S41>/Embedded MATLAB Function2' */
-  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction4_g;/* '<S40>/Embedded MATLAB Function4' */
-  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction3_o;/* '<S40>/Embedded MATLAB Function3' */
-  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction2_n;/* '<S40>/Embedded MATLAB Function2' */
-  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction1_n;/* '<S40>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction3_pw;/* '<S39>/Embedded MATLAB Function3' */
-  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction2;/* '<S39>/Embedded MATLAB Function2' */
-  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction1_g;/* '<S39>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction_Cont_T sf_EmbeddedMATLABFunction_bf;/* '<S38>/Embedded MATLAB Function' */
-  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction6;/* '<S37>/Embedded MATLAB Function6' */
-  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction5;/* '<S37>/Embedded MATLAB Function5' */
-  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction4_h;/* '<S37>/Embedded MATLAB Function4' */
-  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction3_k;/* '<S37>/Embedded MATLAB Function3' */
-  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction2_p;/* '<S37>/Embedded MATLAB Function2' */
-  B_EmbeddedMATLABFunction_Cont_T sf_EmbeddedMATLABFunction1_c;/* '<S37>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction_a;/* '<S37>/Embedded MATLAB Function' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3_ps;/* '<S36>/Embedded MATLAB Function3' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1_j;/* '<S36>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_b;/* '<S36>/Embedded MATLAB Function' */
-  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction2_h;/* '<S35>/Embedded MATLAB Function2' */
-  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction1_e;/* '<S35>/Embedded MATLAB Function1' */
-  B_EmbeddedMATLABFunction_Cont_T sf_EmbeddedMATLABFunction_l;/* '<S35>/Embedded MATLAB Function' */
+  uint32_T ReadIntStatus1[4];          /* '<S80>/Read Int Status1' */
+  uint32_T FilterIntReason5;           /* '<S80>/Filter Int Reason5' */
+  uint32_T Constant1_p;                /* '<S80>/Constant1' */
+  uint32_T FIFOread1_o1[61];           /* '<S80>/FIFO read 1' */
+  uint32_T FIFOread1_o2;               /* '<S80>/FIFO read 1' */
+  uint32_T FilterIntReason6;           /* '<S80>/Filter Int Reason6' */
+  uint32_T Constant2;                  /* '<S80>/Constant2' */
+  uint32_T FIFOread2_o1[61];           /* '<S80>/FIFO read 2' */
+  uint32_T FIFOread2_o2;               /* '<S80>/FIFO read 2' */
+  uint32_T FilterIntReason7;           /* '<S80>/Filter Int Reason7' */
+  uint32_T Constant3_o;                /* '<S80>/Constant3' */
+  uint32_T FIFOread3_o1[61];           /* '<S80>/FIFO read 3' */
+  uint32_T FIFOread3_o2;               /* '<S80>/FIFO read 3' */
+  uint32_T FilterIntReason8;           /* '<S80>/Filter Int Reason8' */
+  uint32_T Constant4;                  /* '<S80>/Constant4' */
+  uint32_T FIFOread4_o1[61];           /* '<S80>/FIFO read 4' */
+  uint32_T FIFOread4_o2;               /* '<S80>/FIFO read 4' */
+  uint32_T BitwiseLogicalOperator[4];  /* '<S80>/Bitwise Logical Operator' */
+  uint32_T FilterIntReason1;           /* '<S80>/Filter Int Reason1' */
+  uint32_T ReadHWFIFO1[65];            /* '<S80>/Read HW FIFO1' */
+  uint32_T FilterIntReason2;           /* '<S80>/Filter Int Reason2' */
+  uint32_T ReadHWFIFO2[65];            /* '<S80>/Read HW FIFO2' */
+  uint32_T FilterIntReason3;           /* '<S80>/Filter Int Reason3' */
+  uint32_T ReadHWFIFO3[65];            /* '<S80>/Read HW FIFO3' */
+  uint32_T FilterIntReason4;           /* '<S80>/Filter Int Reason4' */
+  uint32_T ReadHWFIFO4[65];            /* '<S80>/Read HW FIFO4' */
+  uint8_T FIFOASCIIread1[41];          /* '<S19>/FIFO ASCII read 1' */
+  uint8_T Constant;                    /* '<S18>/Constant' */
+  uint8_T Constant1_d;                 /* '<S18>/Constant1' */
+  uint8_T Constant2_j;                 /* '<S18>/Constant2' */
+  uint8_T Constant3_h;                 /* '<S18>/Constant3' */
+  uint8_T FIFOASCIIread1_k[91];        /* '<S20>/FIFO ASCII read 1' */
+  uint8_T FIFOASCIIread[1025];         /* '<S21>/FIFO ASCII read ' */
+  boolean_T RelationalOperator1;       /* '<S98>/Relational Operator1' */
+  boolean_T Compare;                   /* '<S101>/Compare' */
+  boolean_T RelationalOperator1_d;     /* '<S94>/Relational Operator1' */
+  boolean_T Compare_p;                 /* '<S97>/Compare' */
+  boolean_T Compare_m;                 /* '<S103>/Compare' */
+  boolean_T FIFOwrite1_o2;             /* '<S22>/FIFO write 1' */
+  boolean_T FIFOwrite2_o2;             /* '<S22>/FIFO write 2' */
+  boolean_T FIFOwrite3_o2;             /* '<S22>/FIFO write 3' */
+  boolean_T FIFOwrite4_o2;             /* '<S22>/FIFO write 4' */
+  boolean_T Compare_k;                 /* '<S102>/Compare' */
+  boolean_T Compare_j;                 /* '<S100>/Compare' */
+  boolean_T RelationalOperator;        /* '<S98>/Relational Operator' */
+  boolean_T Compare_f;                 /* '<S96>/Compare' */
+  boolean_T RelationalOperator_k;      /* '<S94>/Relational Operator' */
+  boolean_T RelationalOperator1_b;     /* '<S88>/Relational Operator1' */
+  boolean_T RelationalOperator_j;      /* '<S88>/Relational Operator' */
+  boolean_T LogicalOperator2;          /* '<S90>/Logical Operator2' */
+  boolean_T LogicalOperator3;          /* '<S90>/Logical Operator3' */
+  boolean_T LogicalOperator4;          /* '<S90>/Logical Operator4' */
+  boolean_T LogicalOperator5;          /* '<S90>/Logical Operator5' */
+  boolean_T LogicalOperator;           /* '<S90>/Logical Operator' */
+  boolean_T LogicalOperator1;          /* '<S90>/Logical Operator1' */
+  boolean_T LogicalOperator6;          /* '<S90>/Logical Operator6' */
+  boolean_T LogicalOperator7;          /* '<S90>/Logical Operator7' */
+  boolean_T RelationalOperator_m[4];   /* '<S80>/Relational Operator' */
+  boolean_T LogicalOperator_c;         /* '<S80>/Logical Operator' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3_a;/* '<S40>/Embedded MATLAB Function3' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1_p;/* '<S40>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_f;/* '<S40>/Embedded MATLAB Function' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3_p;/* '<S39>/Embedded MATLAB Function3' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1_i;/* '<S39>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_d;/* '<S39>/Embedded MATLAB Function' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction4;/* '<S38>/Embedded MATLAB Function4' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3;/* '<S38>/Embedded MATLAB Function3' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1;/* '<S38>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_g;/* '<S38>/Embedded MATLAB Function' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3_n;/* '<S37>/Embedded MATLAB Function3' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1_d;/* '<S37>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_j;/* '<S37>/Embedded MATLAB Function' */
+  B_EmbeddedMATLABFunction_Co_l_T sf_EmbeddedMATLABFunction2_g;/* '<S36>/Embedded MATLAB Function2' */
+  B_EmbeddedMATLABFunction_Co_l_T sf_EmbeddedMATLABFunction1_a;/* '<S36>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction_Co_l_T sf_EmbeddedMATLABFunction_k;/* '<S36>/Embedded MATLAB Function' */
+  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction2_m;/* '<S35>/Embedded MATLAB Function2' */
+  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction4_g;/* '<S34>/Embedded MATLAB Function4' */
+  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction3_o;/* '<S34>/Embedded MATLAB Function3' */
+  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction2_n;/* '<S34>/Embedded MATLAB Function2' */
+  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction1_n;/* '<S34>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction3_pw;/* '<S33>/Embedded MATLAB Function3' */
+  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction2;/* '<S33>/Embedded MATLAB Function2' */
+  B_EmbeddedMATLABFunction1_C_k_T sf_EmbeddedMATLABFunction1_g;/* '<S33>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction_Cont_T sf_EmbeddedMATLABFunction_bf;/* '<S32>/Embedded MATLAB Function' */
+  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction6;/* '<S31>/Embedded MATLAB Function6' */
+  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction5;/* '<S31>/Embedded MATLAB Function5' */
+  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction4_h;/* '<S31>/Embedded MATLAB Function4' */
+  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction3_k;/* '<S31>/Embedded MATLAB Function3' */
+  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction2_p;/* '<S31>/Embedded MATLAB Function2' */
+  B_EmbeddedMATLABFunction_Cont_T sf_EmbeddedMATLABFunction1_c;/* '<S31>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction_a;/* '<S31>/Embedded MATLAB Function' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction3_ps;/* '<S30>/Embedded MATLAB Function3' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction1_j;/* '<S30>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction_Co_o_T sf_EmbeddedMATLABFunction_b;/* '<S30>/Embedded MATLAB Function' */
+  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction2_h;/* '<S29>/Embedded MATLAB Function2' */
+  B_EmbeddedMATLABFunction1_Con_T sf_EmbeddedMATLABFunction1_e;/* '<S29>/Embedded MATLAB Function1' */
+  B_EmbeddedMATLABFunction_Cont_T sf_EmbeddedMATLABFunction_l;/* '<S29>/Embedded MATLAB Function' */
 } B_Control_software_v1_1_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
   real_T UnitDelay_DSTATE;             /* '<S1>/Unit Delay' */
-  real_T DiscreteTransferFcn_states[2];/* '<S9>/Discrete Transfer Fcn' */
-  real_T Delay_DSTATE;                 /* '<S9>/Delay' */
-  real_T DiscreteTransferFcn1_states[2];/* '<S9>/Discrete Transfer Fcn1' */
-  real_T Delay_DSTATE_f;               /* '<S16>/Delay' */
-  real_T Delay1_DSTATE;                /* '<S16>/Delay1' */
-  real_T DiscreteStateSpace_DSTATE[2]; /* '<S20>/Discrete State-Space' */
-  real_T DiscreteTransferFcn1_states_g[2];/* '<S20>/Discrete Transfer Fcn1' */
-  real_T DiscreteTransferFcn2_states[2];/* '<S10>/Discrete Transfer Fcn2' */
-  real_T DiscreteTransferFcn1_states_h[2];/* '<S19>/Discrete Transfer Fcn1' */
-  real_T DiscreteStateSpace_DSTATE_n[2];/* '<S21>/Discrete State-Space' */
-  real_T DiscreteTransferFcn_states_n[2];/* '<S21>/Discrete Transfer Fcn' */
-  real_T DiscreteTransferFcn1_states_n[2];/* '<S11>/Discrete Transfer Fcn1' */
-  real_T Delay_DSTATE_b[3];            /* '<S11>/Delay' */
+  real_T DiscreteTransferFcn_states[2];/* '<S10>/Discrete Transfer Fcn' */
+  real_T DiscreteTransferFcn1_states[2];/* '<S10>/Discrete Transfer Fcn1' */
+  real_T DiscreteStateSpace_DSTATE[2]; /* '<S14>/Discrete State-Space' */
+  real_T DiscreteTransferFcn1_states_g[2];/* '<S14>/Discrete Transfer Fcn1' */
+  real_T DiscreteTransferFcn2_states[2];/* '<S11>/Discrete Transfer Fcn2' */
+  real_T DiscreteTransferFcn1_states_h[2];/* '<S13>/Discrete Transfer Fcn1' */
+  real_T DiscreteStateSpace_DSTATE_n[2];/* '<S15>/Discrete State-Space' */
+  real_T DiscreteTransferFcn_states_n[2];/* '<S15>/Discrete Transfer Fcn' */
+  real_T DiscreteTransferFcn1_states_n[2];/* '<S12>/Discrete Transfer Fcn1' */
+  real_T Delay_DSTATE[3];              /* '<S12>/Delay' */
   real_T UnitDelay7_DSTATE;            /* '<S2>/Unit Delay7' */
   real_T UnitDelay1_DSTATE;            /* '<S2>/Unit Delay1' */
   real_T UnitDelay2_DSTATE;            /* '<S2>/Unit Delay2' */
@@ -1092,92 +1150,98 @@ typedef struct {
   real_T UnitDelay3_DSTATE;            /* '<S2>/Unit Delay3' */
   real_T UnitDelay_DSTATE_k;           /* '<S2>/Unit Delay' */
   real_T UnitDelay8_DSTATE;            /* '<S2>/Unit Delay8' */
-  real_T DiscreteTransferFcn_tmp;      /* '<S9>/Discrete Transfer Fcn' */
-  real_T DiscreteTransferFcn1_tmp;     /* '<S9>/Discrete Transfer Fcn1' */
-  real_T DiscreteTransferFcn1_tmp_d;   /* '<S20>/Discrete Transfer Fcn1' */
-  real_T DiscreteTransferFcn2_tmp;     /* '<S10>/Discrete Transfer Fcn2' */
-  real_T DiscreteTransferFcn1_tmp_c;   /* '<S19>/Discrete Transfer Fcn1' */
-  real_T DiscreteTransferFcn_tmp_g;    /* '<S21>/Discrete Transfer Fcn' */
-  real_T DiscreteTransferFcn1_tmp_h;   /* '<S11>/Discrete Transfer Fcn1' */
+  real_T Delay_DSTATE_h;               /* '<S7>/Delay' */
+  real_T Delay3_DSTATE;                /* '<S90>/Delay3' */
+  real_T Delay1_DSTATE;                /* '<S90>/Delay1' */
+  real_T Delay4_DSTATE;                /* '<S90>/Delay4' */
+  real_T Delay5_DSTATE;                /* '<S90>/Delay5' */
+  real_T Delay_DSTATE_hx;              /* '<S92>/Delay' */
+  real_T Delay_DSTATE_b;               /* '<S99>/Delay' */
+  real_T Delay1_DSTATE_i;              /* '<S99>/Delay1' */
+  real_T Delay2_DSTATE;                /* '<S90>/Delay2' */
+  real_T Delay_DSTATE_bd;              /* '<S91>/Delay' */
+  real_T Delay_DSTATE_e;               /* '<S95>/Delay' */
+  real_T Delay1_DSTATE_h;              /* '<S95>/Delay1' */
+  real_T Delay_DSTATE_i;               /* '<S93>/Delay' */
+  real_T Delay1_DSTATE_n;              /* '<S93>/Delay1' */
+  real_T DiscreteTransferFcn_tmp;      /* '<S10>/Discrete Transfer Fcn' */
+  real_T DiscreteTransferFcn1_tmp;     /* '<S10>/Discrete Transfer Fcn1' */
+  real_T DiscreteTransferFcn1_tmp_d;   /* '<S14>/Discrete Transfer Fcn1' */
+  real_T DiscreteTransferFcn2_tmp;     /* '<S11>/Discrete Transfer Fcn2' */
+  real_T DiscreteTransferFcn1_tmp_c;   /* '<S13>/Discrete Transfer Fcn1' */
+  real_T DiscreteTransferFcn_tmp_g;    /* '<S15>/Discrete Transfer Fcn' */
+  real_T DiscreteTransferFcn1_tmp_h;   /* '<S12>/Discrete Transfer Fcn1' */
   real_T PCI6221DA_RWORK[6];           /* '<S6>/PCI-6221 DA' */
-  void *PCI6221AD_PWORK;               /* '<S22>/PCI-6221 AD' */
-  void *PCI6221PFIDI_PWORK;            /* '<S23>/PCI 6221 PFI DI ' */
-  struct {
-    void *LoggedData;
-  } Scope_PWORK;                       /* '<S9>/Scope' */
-
-  void *FIFOASCIIread1_PWORK[3];       /* '<S25>/FIFO ASCII read 1' */
-  void *FIFOASCIIread1_PWORK_c[3];     /* '<S26>/FIFO ASCII read 1' */
-  void *FIFOASCIIread_PWORK[3];        /* '<S27>/FIFO ASCII read ' */
-  void *FIFOwrite1_PWORK;              /* '<S28>/FIFO write 1' */
-  void *FIFOwrite2_PWORK;              /* '<S28>/FIFO write 2' */
-  void *FIFOwrite3_PWORK;              /* '<S28>/FIFO write 3' */
-  void *FIFOwrite4_PWORK;              /* '<S28>/FIFO write 4' */
+  void *PCI6221AD_PWORK;               /* '<S16>/PCI-6221 AD' */
+  void *PCI6221PFIDI_PWORK;            /* '<S17>/PCI 6221 PFI DI ' */
+  void *FIFOASCIIread1_PWORK[3];       /* '<S19>/FIFO ASCII read 1' */
+  void *FIFOASCIIread1_PWORK_c[3];     /* '<S20>/FIFO ASCII read 1' */
+  void *FIFOASCIIread_PWORK[3];        /* '<S21>/FIFO ASCII read ' */
+  void *FIFOwrite1_PWORK;              /* '<S22>/FIFO write 1' */
+  void *FIFOwrite2_PWORK;              /* '<S22>/FIFO write 2' */
+  void *FIFOwrite3_PWORK;              /* '<S22>/FIFO write 3' */
+  void *FIFOwrite4_PWORK;              /* '<S22>/FIFO write 4' */
   void *PCI6221PFIDO_PWORK;            /* '<S6>/PCI 6221 PFI DO ' */
-  void *FIFOwrite1_PWORK_d;            /* '<S86>/FIFO write 1' */
-  void *FIFOwrite2_PWORK_g;            /* '<S86>/FIFO write 2' */
-  void *FIFOwrite3_PWORK_l;            /* '<S86>/FIFO write 3' */
-  void *FIFOwrite4_PWORK_o;            /* '<S86>/FIFO write 4' */
+  void *FIFOwrite1_PWORK_d;            /* '<S80>/FIFO write 1' */
+  void *FIFOwrite2_PWORK_g;            /* '<S80>/FIFO write 2' */
+  void *FIFOwrite3_PWORK_l;            /* '<S80>/FIFO write 3' */
+  void *FIFOwrite4_PWORK_o;            /* '<S80>/FIFO write 4' */
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK;                   /* '<S92>/S-Function' */
+  } SFunction_IWORK;                   /* '<S86>/S-Function' */
 
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_h;                 /* '<S88>/S-Function' */
+  } SFunction_IWORK_h;                 /* '<S82>/S-Function' */
 
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_k;                 /* '<S89>/S-Function' */
+  } SFunction_IWORK_k;                 /* '<S83>/S-Function' */
 
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_g;                 /* '<S90>/S-Function' */
+  } SFunction_IWORK_g;                 /* '<S84>/S-Function' */
 
-  int_T PCI6221AD_IWORK[41];           /* '<S22>/PCI-6221 AD' */
-  int_T PCI6221DI_IWORK;               /* '<S23>/PCI-6221 DI' */
-  struct {
-    int_T AcquireOK;
-  } SFunction_IWORK_j;                 /* '<S13>/S-Function' */
-
-  struct {
-    int_T AcquireOK;
-  } SFunction_IWORK_c;                 /* '<S14>/S-Function' */
-
-  struct {
-    int_T AcquireOK;
-  } SFunction_IWORK_gr;                /* '<S15>/S-Function' */
-
-  int_T FIFOwrite1_IWORK[3];           /* '<S28>/FIFO write 1' */
-  int_T EnableTX1_IWORK;               /* '<S28>/Enable TX 1' */
-  int_T FIFOwrite2_IWORK[3];           /* '<S28>/FIFO write 2' */
-  int_T EnableTX2_IWORK;               /* '<S28>/Enable TX 2' */
-  int_T FIFOwrite3_IWORK[3];           /* '<S28>/FIFO write 3' */
-  int_T EnableTX3_IWORK;               /* '<S28>/Enable TX 3' */
-  int_T FIFOwrite4_IWORK[3];           /* '<S28>/FIFO write 4' */
-  int_T EnableTX4_IWORK;               /* '<S28>/Enable TX 4' */
-  int_T Setup1_IWORK[2];               /* '<S28>/Setup1' */
-  int_T Setup2_IWORK[2];               /* '<S28>/Setup2' */
-  int_T Setup3_IWORK[2];               /* '<S28>/Setup3' */
-  int_T Setup4_IWORK[2];               /* '<S28>/Setup4' */
+  int_T PCI6221AD_IWORK[41];           /* '<S16>/PCI-6221 AD' */
+  int_T PCI6221DI_IWORK;               /* '<S17>/PCI-6221 DI' */
+  int_T FIFOwrite1_IWORK[3];           /* '<S22>/FIFO write 1' */
+  int_T EnableTX1_IWORK;               /* '<S22>/Enable TX 1' */
+  int_T FIFOwrite2_IWORK[3];           /* '<S22>/FIFO write 2' */
+  int_T EnableTX2_IWORK;               /* '<S22>/Enable TX 2' */
+  int_T FIFOwrite3_IWORK[3];           /* '<S22>/FIFO write 3' */
+  int_T EnableTX3_IWORK;               /* '<S22>/Enable TX 3' */
+  int_T FIFOwrite4_IWORK[3];           /* '<S22>/FIFO write 4' */
+  int_T EnableTX4_IWORK;               /* '<S22>/Enable TX 4' */
+  int_T Setup1_IWORK[2];               /* '<S22>/Setup1' */
+  int_T Setup2_IWORK[2];               /* '<S22>/Setup2' */
+  int_T Setup3_IWORK[2];               /* '<S22>/Setup3' */
+  int_T Setup4_IWORK[2];               /* '<S22>/Setup4' */
   int_T PCI6221PFIDO_IWORK;            /* '<S6>/PCI 6221 PFI DO ' */
   int_T PCI6221DA_IWORK[41];           /* '<S6>/PCI-6221 DA' */
   int_T PCI6221DO_IWORK;               /* '<S6>/PCI-6221 DO' */
-  int_T ReadIntStatus1_IWORK;          /* '<S86>/Read Int Status1' */
-  int_T WriteHWFIFO1_IWORK;            /* '<S86>/Write HW FIFO1' */
-  int_T WriteHWFIFO2_IWORK;            /* '<S86>/Write HW FIFO2' */
-  int_T WriteHWFIFO3_IWORK;            /* '<S86>/Write HW FIFO3' */
-  int_T WriteHWFIFO4_IWORK;            /* '<S86>/Write HW FIFO4' */
-  int_T ReadHWFIFO1_IWORK;             /* '<S86>/Read HW FIFO1' */
-  int_T FIFOwrite1_IWORK_n[3];         /* '<S86>/FIFO write 1' */
-  int_T ReadHWFIFO2_IWORK;             /* '<S86>/Read HW FIFO2' */
-  int_T FIFOwrite2_IWORK_i[3];         /* '<S86>/FIFO write 2' */
-  int_T ReadHWFIFO3_IWORK;             /* '<S86>/Read HW FIFO3' */
-  int_T FIFOwrite3_IWORK_g[3];         /* '<S86>/FIFO write 3' */
-  int_T ReadHWFIFO4_IWORK;             /* '<S86>/Read HW FIFO4' */
-  int_T FIFOwrite4_IWORK_f[3];         /* '<S86>/FIFO write 4' */
-  int8_T RS232ISR_SubsysRanBC;         /* '<S28>/RS232 ISR' */
-  int8_T Data_validation_SubsysRanBC;  /* '<S27>/Data_validation' */
+  struct {
+    int_T AcquireOK;
+  } SFunction_IWORK_hi;                /* '<S87>/S-Function' */
+
+  struct {
+    int_T AcquireOK;
+  } SFunction_IWORK_hy;                /* '<S89>/S-Function' */
+
+  int_T ReadIntStatus1_IWORK;          /* '<S80>/Read Int Status1' */
+  int_T WriteHWFIFO1_IWORK;            /* '<S80>/Write HW FIFO1' */
+  int_T WriteHWFIFO2_IWORK;            /* '<S80>/Write HW FIFO2' */
+  int_T WriteHWFIFO3_IWORK;            /* '<S80>/Write HW FIFO3' */
+  int_T WriteHWFIFO4_IWORK;            /* '<S80>/Write HW FIFO4' */
+  int_T ReadHWFIFO1_IWORK;             /* '<S80>/Read HW FIFO1' */
+  int_T FIFOwrite1_IWORK_n[3];         /* '<S80>/FIFO write 1' */
+  int_T ReadHWFIFO2_IWORK;             /* '<S80>/Read HW FIFO2' */
+  int_T FIFOwrite2_IWORK_i[3];         /* '<S80>/FIFO write 2' */
+  int_T ReadHWFIFO3_IWORK;             /* '<S80>/Read HW FIFO3' */
+  int_T FIFOwrite3_IWORK_g[3];         /* '<S80>/FIFO write 3' */
+  int_T ReadHWFIFO4_IWORK;             /* '<S80>/Read HW FIFO4' */
+  int_T FIFOwrite4_IWORK_f[3];         /* '<S80>/FIFO write 4' */
+  int8_T RS232ISR_SubsysRanBC;         /* '<S22>/RS232 ISR' */
+  int8_T Data_validation_SubsysRanBC;  /* '<S21>/Data_validation' */
 } DW_Control_software_v1_1_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1192,45 +1256,45 @@ typedef struct {
 struct P_Control_software_v1_1_T_ {
   struct_H3iKTmzQIZmmrWuxBo9E9D HLC_Param;/* Variable: HLC_Param
                                            * Referenced by:
-                                           *   '<S7>/Constant1'
-                                           *   '<S7>/Constant11'
-                                           *   '<S7>/Constant12'
-                                           *   '<S7>/Constant13'
-                                           *   '<S7>/Constant14'
-                                           *   '<S7>/Constant15'
-                                           *   '<S7>/Constant16'
-                                           *   '<S7>/Constant17'
-                                           *   '<S7>/Constant18'
-                                           *   '<S7>/Constant19'
-                                           *   '<S7>/Constant2'
-                                           *   '<S7>/Constant20'
-                                           *   '<S7>/Constant21'
-                                           *   '<S7>/Constant22'
-                                           *   '<S7>/Constant23'
-                                           *   '<S7>/Constant24'
-                                           *   '<S7>/Constant25'
-                                           *   '<S7>/Constant26'
-                                           *   '<S7>/Constant28'
-                                           *   '<S7>/Constant29'
-                                           *   '<S7>/Constant3'
-                                           *   '<S7>/Constant30'
-                                           *   '<S7>/Constant31'
-                                           *   '<S7>/Constant32'
-                                           *   '<S7>/Constant33'
-                                           *   '<S7>/Constant34'
-                                           *   '<S7>/Constant35'
-                                           *   '<S7>/Constant36'
-                                           *   '<S7>/Constant37'
-                                           *   '<S7>/Constant38'
-                                           *   '<S7>/Constant39'
-                                           *   '<S7>/Constant4'
-                                           *   '<S7>/Constant40'
-                                           *   '<S7>/Constant41'
-                                           *   '<S7>/Constant42'
-                                           *   '<S7>/Constant5'
-                                           *   '<S7>/Constant6'
-                                           *   '<S7>/Constant7'
-                                           *   '<S7>/Constant8'
+                                           *   '<S8>/Constant1'
+                                           *   '<S8>/Constant11'
+                                           *   '<S8>/Constant12'
+                                           *   '<S8>/Constant13'
+                                           *   '<S8>/Constant14'
+                                           *   '<S8>/Constant15'
+                                           *   '<S8>/Constant16'
+                                           *   '<S8>/Constant17'
+                                           *   '<S8>/Constant18'
+                                           *   '<S8>/Constant19'
+                                           *   '<S8>/Constant2'
+                                           *   '<S8>/Constant20'
+                                           *   '<S8>/Constant21'
+                                           *   '<S8>/Constant22'
+                                           *   '<S8>/Constant23'
+                                           *   '<S8>/Constant24'
+                                           *   '<S8>/Constant25'
+                                           *   '<S8>/Constant26'
+                                           *   '<S8>/Constant28'
+                                           *   '<S8>/Constant29'
+                                           *   '<S8>/Constant3'
+                                           *   '<S8>/Constant30'
+                                           *   '<S8>/Constant31'
+                                           *   '<S8>/Constant32'
+                                           *   '<S8>/Constant33'
+                                           *   '<S8>/Constant34'
+                                           *   '<S8>/Constant35'
+                                           *   '<S8>/Constant36'
+                                           *   '<S8>/Constant37'
+                                           *   '<S8>/Constant38'
+                                           *   '<S8>/Constant39'
+                                           *   '<S8>/Constant4'
+                                           *   '<S8>/Constant40'
+                                           *   '<S8>/Constant41'
+                                           *   '<S8>/Constant42'
+                                           *   '<S8>/Constant5'
+                                           *   '<S8>/Constant6'
+                                           *   '<S8>/Constant7'
+                                           *   '<S8>/Constant8'
                                            */
   real_T AOsat;                        /* Variable: AOsat
                                         * Referenced by:
@@ -1238,849 +1302,834 @@ struct P_Control_software_v1_1_T_ {
                                         *   '<S6>/Saturation1'
                                         */
   real_T Afilt_Sl[4];                  /* Variable: Afilt_Sl
-                                        * Referenced by: '<S20>/Discrete State-Space'
+                                        * Referenced by: '<S14>/Discrete State-Space'
                                         */
   real_T Afilt_Winch[4];               /* Variable: Afilt_Winch
-                                        * Referenced by: '<S21>/Discrete State-Space'
+                                        * Referenced by: '<S15>/Discrete State-Space'
                                         */
   real_T Bfilt_Sl[4];                  /* Variable: Bfilt_Sl
-                                        * Referenced by: '<S20>/Discrete State-Space'
+                                        * Referenced by: '<S14>/Discrete State-Space'
                                         */
   real_T Bfilt_Winch[4];               /* Variable: Bfilt_Winch
-                                        * Referenced by: '<S21>/Discrete State-Space'
+                                        * Referenced by: '<S15>/Discrete State-Space'
                                         */
   real_T Cfilt_Sl[4];                  /* Variable: Cfilt_Sl
-                                        * Referenced by: '<S20>/Discrete State-Space'
+                                        * Referenced by: '<S14>/Discrete State-Space'
                                         */
   real_T Cfilt_Winch[4];               /* Variable: Cfilt_Winch
-                                        * Referenced by: '<S21>/Discrete State-Space'
+                                        * Referenced by: '<S15>/Discrete State-Space'
                                         */
   real_T Dfilt_Sl[4];                  /* Variable: Dfilt_Sl
-                                        * Referenced by: '<S20>/Discrete State-Space'
+                                        * Referenced by: '<S14>/Discrete State-Space'
                                         */
   real_T Dfilt_Winch[4];               /* Variable: Dfilt_Winch
-                                        * Referenced by: '<S21>/Discrete State-Space'
+                                        * Referenced by: '<S15>/Discrete State-Space'
                                         */
   real_T JoyFiltDen[3];                /* Variable: JoyFiltDen
                                         * Referenced by:
-                                        *   '<S9>/Discrete Transfer Fcn'
-                                        *   '<S9>/Discrete Transfer Fcn1'
+                                        *   '<S10>/Discrete Transfer Fcn'
+                                        *   '<S10>/Discrete Transfer Fcn1'
                                         */
   real_T JoyFiltNum[3];                /* Variable: JoyFiltNum
                                         * Referenced by:
-                                        *   '<S9>/Discrete Transfer Fcn'
-                                        *   '<S9>/Discrete Transfer Fcn1'
+                                        *   '<S10>/Discrete Transfer Fcn'
+                                        *   '<S10>/Discrete Transfer Fcn1'
                                         */
   real_T JoyS_gain;                    /* Variable: JoyS_gain
-                                        * Referenced by: '<S9>/Gain'
+                                        * Referenced by: '<S10>/Gain'
                                         */
   real_T JoyS_ofst;                    /* Variable: JoyS_ofst
-                                        * Referenced by: '<S9>/Constant'
+                                        * Referenced by: '<S10>/Constant'
                                         */
   real_T JoyS_sat;                     /* Variable: JoyS_sat
-                                        * Referenced by: '<S9>/Saturation'
+                                        * Referenced by: '<S10>/Saturation'
                                         */
   real_T JoyW_gain;                    /* Variable: JoyW_gain
-                                        * Referenced by: '<S9>/Gain1'
+                                        * Referenced by: '<S10>/Gain1'
                                         */
   real_T JoyW_ofst;                    /* Variable: JoyW_ofst
-                                        * Referenced by: '<S9>/Constant1'
+                                        * Referenced by: '<S10>/Constant1'
                                         */
   real_T Kpos;                         /* Variable: Kpos
-                                        * Referenced by: '<S20>/Gain3'
+                                        * Referenced by: '<S14>/Gain3'
                                         */
   real_T Kspd;                         /* Variable: Kspd
-                                        * Referenced by: '<S20>/Gain4'
+                                        * Referenced by: '<S14>/Gain4'
                                         */
   real_T KspdWinch;                    /* Variable: KspdWinch
-                                        * Referenced by: '<S21>/Gain1'
+                                        * Referenced by: '<S15>/Gain1'
                                         */
   real_T NPotSpdEst;                   /* Variable: NPotSpdEst
-                                        * Referenced by: '<S11>/Gain1'
+                                        * Referenced by: '<S12>/Gain1'
                                         */
   real_T PotPosFiltDen[3];             /* Variable: PotPosFiltDen
-                                        * Referenced by: '<S11>/Discrete Transfer Fcn1'
+                                        * Referenced by: '<S12>/Discrete Transfer Fcn1'
                                         */
   real_T PotPosFiltNum[3];             /* Variable: PotPosFiltNum
-                                        * Referenced by: '<S11>/Discrete Transfer Fcn1'
+                                        * Referenced by: '<S12>/Discrete Transfer Fcn1'
                                         */
   real_T Pot_gain;                     /* Variable: Pot_gain
-                                        * Referenced by: '<S11>/Gain'
+                                        * Referenced by: '<S12>/Gain'
                                         */
   real_T Pot_max;                      /* Variable: Pot_max
-                                        * Referenced by: '<S11>/Saturation'
+                                        * Referenced by: '<S12>/Saturation'
                                         */
   real_T Pot_min;                      /* Variable: Pot_min
-                                        * Referenced by: '<S11>/Saturation'
+                                        * Referenced by: '<S12>/Saturation'
                                         */
   real_T Pot_ofst;                     /* Variable: Pot_ofst
-                                        * Referenced by: '<S11>/Constant'
+                                        * Referenced by: '<S12>/Constant'
                                         */
   real_T SlMotPosAIgain;               /* Variable: SlMotPosAIgain
                                         * Referenced by:
-                                        *   '<S20>/Gain'
-                                        *   '<S20>/Gain1'
-                                        *   '<S20>/Gain2'
+                                        *   '<S14>/Gain'
+                                        *   '<S14>/Gain1'
+                                        *   '<S14>/Gain2'
                                         */
   real_T SlideMotTorqueMax;            /* Variable: SlideMotTorqueMax
-                                        * Referenced by: '<S20>/Saturation'
+                                        * Referenced by: '<S14>/Saturation'
                                         */
   real_T SlidePosFiltDen[3];           /* Variable: SlidePosFiltDen
-                                        * Referenced by: '<S10>/Discrete Transfer Fcn2'
+                                        * Referenced by: '<S11>/Discrete Transfer Fcn2'
                                         */
   real_T SlidePosFiltNum[3];           /* Variable: SlidePosFiltNum
-                                        * Referenced by: '<S10>/Discrete Transfer Fcn2'
+                                        * Referenced by: '<S11>/Discrete Transfer Fcn2'
                                         */
   real_T SlideSpdEstFiltDen[3];        /* Variable: SlideSpdEstFiltDen
-                                        * Referenced by: '<S20>/Discrete Transfer Fcn1'
+                                        * Referenced by: '<S14>/Discrete Transfer Fcn1'
                                         */
   real_T SlideSpdEstFiltNum[3];        /* Variable: SlideSpdEstFiltNum
-                                        * Referenced by: '<S20>/Discrete Transfer Fcn1'
+                                        * Referenced by: '<S14>/Discrete Transfer Fcn1'
                                         */
   real_T Ts_1ms;                       /* Variable: Ts_1ms
                                         * Referenced by:
                                         *   '<S2>/Constant2'
-                                        *   '<S11>/Gain1'
+                                        *   '<S12>/Gain1'
                                         */
   real_T Ts_1s;                        /* Variable: Ts_1s
                                         * Referenced by:
                                         *   '<S1>/Constat'
-                                        *   '<S91>/Switch'
-                                        *   '<S91>/Switch1'
+                                        *   '<S85>/Switch'
+                                        *   '<S85>/Switch1'
                                         */
   real_T WinchDrumRad;                 /* Variable: WinchDrumRad
                                         * Referenced by:
-                                        *   '<S19>/Constant1'
-                                        *   '<S21>/Constant1'
+                                        *   '<S13>/Constant1'
+                                        *   '<S15>/Constant1'
                                         */
   real_T WinchMotPosAIgain;            /* Variable: WinchMotPosAIgain
                                         * Referenced by:
-                                        *   '<S19>/Gain'
-                                        *   '<S21>/Gain'
+                                        *   '<S13>/Gain'
+                                        *   '<S15>/Gain'
                                         */
   real_T WinchMotTorqueMax;            /* Variable: WinchMotTorqueMax
-                                        * Referenced by: '<S21>/Saturation'
+                                        * Referenced by: '<S15>/Saturation'
                                         */
   real_T WinchPosFiltDen[3];           /* Variable: WinchPosFiltDen
-                                        * Referenced by: '<S19>/Discrete Transfer Fcn1'
+                                        * Referenced by: '<S13>/Discrete Transfer Fcn1'
                                         */
   real_T WinchPosFiltNum[3];           /* Variable: WinchPosFiltNum
-                                        * Referenced by: '<S19>/Discrete Transfer Fcn1'
+                                        * Referenced by: '<S13>/Discrete Transfer Fcn1'
                                         */
   real_T WinchRefSpdSup;               /* Variable: WinchRefSpdSup
                                         * Referenced by:
                                         *   '<S6>/Gain'
-                                        *   '<S21>/Saturation1'
+                                        *   '<S15>/Saturation1'
                                         */
   real_T WinchSpdEstFiltDen[3];        /* Variable: WinchSpdEstFiltDen
-                                        * Referenced by: '<S21>/Discrete Transfer Fcn'
+                                        * Referenced by: '<S15>/Discrete Transfer Fcn'
                                         */
   real_T WinchSpdEstFiltNum[3];        /* Variable: WinchSpdEstFiltNum
-                                        * Referenced by: '<S21>/Discrete Transfer Fcn'
+                                        * Referenced by: '<S15>/Discrete Transfer Fcn'
                                         */
   real_T WinchTravelMin_m;             /* Variable: WinchTravelMin_m
                                         * Referenced by:
-                                        *   '<S19>/Constant1'
-                                        *   '<S21>/Constant1'
+                                        *   '<S13>/Constant1'
+                                        *   '<S15>/Constant1'
                                         */
   real_T WinchVoltMax;                 /* Variable: WinchVoltMax
                                         * Referenced by:
                                         *   '<S6>/Gain'
-                                        *   '<S19>/Constant'
-                                        *   '<S21>/Constant'
+                                        *   '<S13>/Constant'
+                                        *   '<S15>/Constant'
                                         */
   real_T x0_Sl[2];                     /* Variable: x0_Sl
-                                        * Referenced by: '<S20>/Discrete State-Space'
+                                        * Referenced by: '<S14>/Discrete State-Space'
                                         */
   real_T x0_Winch[2];                  /* Variable: x0_Winch
-                                        * Referenced by: '<S21>/Discrete State-Space'
+                                        * Referenced by: '<S15>/Discrete State-Space'
                                         */
   real_T Constant2_Value;              /* Expression: 0
-                                        * Referenced by: '<S9>/Constant2'
-                                        */
-  real_T Constant3_Value;              /* Expression: 5
-                                        * Referenced by: '<S9>/Constant3'
-                                        */
-  real_T Switch_Threshold;             /* Expression: 0
-                                        * Referenced by: '<S9>/Switch'
-                                        */
-  real_T Gain_Gain;                    /* Expression: -1
-                                        * Referenced by: '<S12>/Gain'
-                                        */
-  real_T Gain_Gain_l;                  /* Expression: -1
-                                        * Referenced by: '<S16>/Gain'
-                                        */
-  real_T Constant2_Value_l;            /* Expression: 0
-                                        * Referenced by: '<S20>/Constant2'
+                                        * Referenced by: '<S14>/Constant2'
                                         */
   real_T Constant1_Value;              /* Expression: 0
-                                        * Referenced by: '<S20>/Constant1'
+                                        * Referenced by: '<S14>/Constant1'
                                         */
   real_T Constant2_Value_e;            /* Expression: 0
-                                        * Referenced by: '<S21>/Constant2'
+                                        * Referenced by: '<S15>/Constant2'
                                         */
   real_T IMU_data_valid_Y0;            /* Computed Parameter: IMU_data_valid_Y0
-                                        * Referenced by: '<S32>/IMU_data_valid'
+                                        * Referenced by: '<S26>/IMU_data_valid'
                                         */
   real_T ReadIntStatus1_P1_Size[2];    /* Computed Parameter: ReadIntStatus1_P1_Size
-                                        * Referenced by: '<S86>/Read Int Status1'
+                                        * Referenced by: '<S80>/Read Int Status1'
                                         */
   real_T ReadIntStatus1_P1;            /* Expression: slot
-                                        * Referenced by: '<S86>/Read Int Status1'
+                                        * Referenced by: '<S80>/Read Int Status1'
                                         */
   real_T ReadIntStatus1_P2_Size[2];    /* Computed Parameter: ReadIntStatus1_P2_Size
-                                        * Referenced by: '<S86>/Read Int Status1'
+                                        * Referenced by: '<S80>/Read Int Status1'
                                         */
   real_T ReadIntStatus1_P2;            /* Expression: 1
-                                        * Referenced by: '<S86>/Read Int Status1'
+                                        * Referenced by: '<S80>/Read Int Status1'
                                         */
   real_T FilterIntReason5_P1_Size[2];  /* Computed Parameter: FilterIntReason5_P1_Size
-                                        * Referenced by: '<S86>/Filter Int Reason5'
+                                        * Referenced by: '<S80>/Filter Int Reason5'
                                         */
   real_T FilterIntReason5_P1;          /* Expression: port
-                                        * Referenced by: '<S86>/Filter Int Reason5'
+                                        * Referenced by: '<S80>/Filter Int Reason5'
                                         */
   real_T FilterIntReason5_P2_Size[2];  /* Computed Parameter: FilterIntReason5_P2_Size
-                                        * Referenced by: '<S86>/Filter Int Reason5'
+                                        * Referenced by: '<S80>/Filter Int Reason5'
                                         */
   real_T FilterIntReason5_P2;          /* Expression: 1
-                                        * Referenced by: '<S86>/Filter Int Reason5'
+                                        * Referenced by: '<S80>/Filter Int Reason5'
                                         */
   real_T FilterIntReason5_P3_Size[2];  /* Computed Parameter: FilterIntReason5_P3_Size
-                                        * Referenced by: '<S86>/Filter Int Reason5'
+                                        * Referenced by: '<S80>/Filter Int Reason5'
                                         */
   real_T FilterIntReason5_P3;          /* Expression: value
-                                        * Referenced by: '<S86>/Filter Int Reason5'
+                                        * Referenced by: '<S80>/Filter Int Reason5'
                                         */
   real_T FIFOread1_P1_Size[2];         /* Computed Parameter: FIFOread1_P1_Size
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P1;                 /* Expression: maxsize
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P2_Size[2];         /* Computed Parameter: FIFOread1_P2_Size
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P2;                 /* Expression: minsize
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P3_Size[2];         /* Computed Parameter: FIFOread1_P3_Size
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P3;                 /* Expression: usedelimiter
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P4_Size[2];         /* Computed Parameter: FIFOread1_P4_Size
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P4;                 /* Expression: delimiter
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P5_Size[2];         /* Computed Parameter: FIFOread1_P5_Size
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P5;                 /* Expression: outputtype
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P6_Size[2];         /* Computed Parameter: FIFOread1_P6_Size
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P6;                 /* Expression: sampletime
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P7_Size[2];         /* Computed Parameter: FIFOread1_P7_Size
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P7;                 /* Expression: enable
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P8_Size[2];         /* Computed Parameter: FIFOread1_P8_Size
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T FIFOread1_P8;                 /* Expression: enableout
-                                        * Referenced by: '<S86>/FIFO read 1'
+                                        * Referenced by: '<S80>/FIFO read 1'
                                         */
   real_T WriteHWFIFO1_P1_Size[2];      /* Computed Parameter: WriteHWFIFO1_P1_Size
-                                        * Referenced by: '<S86>/Write HW FIFO1'
+                                        * Referenced by: '<S80>/Write HW FIFO1'
                                         */
   real_T WriteHWFIFO1_P1;              /* Expression: slot
-                                        * Referenced by: '<S86>/Write HW FIFO1'
+                                        * Referenced by: '<S80>/Write HW FIFO1'
                                         */
   real_T WriteHWFIFO1_P2_Size[2];      /* Computed Parameter: WriteHWFIFO1_P2_Size
-                                        * Referenced by: '<S86>/Write HW FIFO1'
+                                        * Referenced by: '<S80>/Write HW FIFO1'
                                         */
   real_T WriteHWFIFO1_P2;              /* Expression: port
-                                        * Referenced by: '<S86>/Write HW FIFO1'
+                                        * Referenced by: '<S80>/Write HW FIFO1'
                                         */
   real_T WriteHWFIFO1_P3_Size[2];      /* Computed Parameter: WriteHWFIFO1_P3_Size
-                                        * Referenced by: '<S86>/Write HW FIFO1'
+                                        * Referenced by: '<S80>/Write HW FIFO1'
                                         */
   real_T WriteHWFIFO1_P3;              /* Expression: 1
-                                        * Referenced by: '<S86>/Write HW FIFO1'
+                                        * Referenced by: '<S80>/Write HW FIFO1'
                                         */
   real_T WriteHWFIFO1_P4_Size[2];      /* Computed Parameter: WriteHWFIFO1_P4_Size
-                                        * Referenced by: '<S86>/Write HW FIFO1'
+                                        * Referenced by: '<S80>/Write HW FIFO1'
                                         */
   real_T WriteHWFIFO1_P4;              /* Expression: 0
-                                        * Referenced by: '<S86>/Write HW FIFO1'
+                                        * Referenced by: '<S80>/Write HW FIFO1'
                                         */
   real_T FilterIntReason6_P1_Size[2];  /* Computed Parameter: FilterIntReason6_P1_Size
-                                        * Referenced by: '<S86>/Filter Int Reason6'
+                                        * Referenced by: '<S80>/Filter Int Reason6'
                                         */
   real_T FilterIntReason6_P1;          /* Expression: port
-                                        * Referenced by: '<S86>/Filter Int Reason6'
+                                        * Referenced by: '<S80>/Filter Int Reason6'
                                         */
   real_T FilterIntReason6_P2_Size[2];  /* Computed Parameter: FilterIntReason6_P2_Size
-                                        * Referenced by: '<S86>/Filter Int Reason6'
+                                        * Referenced by: '<S80>/Filter Int Reason6'
                                         */
   real_T FilterIntReason6_P2;          /* Expression: 1
-                                        * Referenced by: '<S86>/Filter Int Reason6'
+                                        * Referenced by: '<S80>/Filter Int Reason6'
                                         */
   real_T FilterIntReason6_P3_Size[2];  /* Computed Parameter: FilterIntReason6_P3_Size
-                                        * Referenced by: '<S86>/Filter Int Reason6'
+                                        * Referenced by: '<S80>/Filter Int Reason6'
                                         */
   real_T FilterIntReason6_P3;          /* Expression: value
-                                        * Referenced by: '<S86>/Filter Int Reason6'
+                                        * Referenced by: '<S80>/Filter Int Reason6'
                                         */
   real_T FIFOread2_P1_Size[2];         /* Computed Parameter: FIFOread2_P1_Size
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P1;                 /* Expression: maxsize
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P2_Size[2];         /* Computed Parameter: FIFOread2_P2_Size
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P2;                 /* Expression: minsize
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P3_Size[2];         /* Computed Parameter: FIFOread2_P3_Size
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P3;                 /* Expression: usedelimiter
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P4_Size[2];         /* Computed Parameter: FIFOread2_P4_Size
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P4;                 /* Expression: delimiter
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P5_Size[2];         /* Computed Parameter: FIFOread2_P5_Size
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P5;                 /* Expression: outputtype
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P6_Size[2];         /* Computed Parameter: FIFOread2_P6_Size
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P6;                 /* Expression: sampletime
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P7_Size[2];         /* Computed Parameter: FIFOread2_P7_Size
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P7;                 /* Expression: enable
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P8_Size[2];         /* Computed Parameter: FIFOread2_P8_Size
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T FIFOread2_P8;                 /* Expression: enableout
-                                        * Referenced by: '<S86>/FIFO read 2'
+                                        * Referenced by: '<S80>/FIFO read 2'
                                         */
   real_T WriteHWFIFO2_P1_Size[2];      /* Computed Parameter: WriteHWFIFO2_P1_Size
-                                        * Referenced by: '<S86>/Write HW FIFO2'
+                                        * Referenced by: '<S80>/Write HW FIFO2'
                                         */
   real_T WriteHWFIFO2_P1;              /* Expression: slot
-                                        * Referenced by: '<S86>/Write HW FIFO2'
+                                        * Referenced by: '<S80>/Write HW FIFO2'
                                         */
   real_T WriteHWFIFO2_P2_Size[2];      /* Computed Parameter: WriteHWFIFO2_P2_Size
-                                        * Referenced by: '<S86>/Write HW FIFO2'
+                                        * Referenced by: '<S80>/Write HW FIFO2'
                                         */
   real_T WriteHWFIFO2_P2;              /* Expression: port
-                                        * Referenced by: '<S86>/Write HW FIFO2'
+                                        * Referenced by: '<S80>/Write HW FIFO2'
                                         */
   real_T WriteHWFIFO2_P3_Size[2];      /* Computed Parameter: WriteHWFIFO2_P3_Size
-                                        * Referenced by: '<S86>/Write HW FIFO2'
+                                        * Referenced by: '<S80>/Write HW FIFO2'
                                         */
   real_T WriteHWFIFO2_P3;              /* Expression: 1
-                                        * Referenced by: '<S86>/Write HW FIFO2'
+                                        * Referenced by: '<S80>/Write HW FIFO2'
                                         */
   real_T WriteHWFIFO2_P4_Size[2];      /* Computed Parameter: WriteHWFIFO2_P4_Size
-                                        * Referenced by: '<S86>/Write HW FIFO2'
+                                        * Referenced by: '<S80>/Write HW FIFO2'
                                         */
   real_T WriteHWFIFO2_P4;              /* Expression: 0
-                                        * Referenced by: '<S86>/Write HW FIFO2'
+                                        * Referenced by: '<S80>/Write HW FIFO2'
                                         */
   real_T FilterIntReason7_P1_Size[2];  /* Computed Parameter: FilterIntReason7_P1_Size
-                                        * Referenced by: '<S86>/Filter Int Reason7'
+                                        * Referenced by: '<S80>/Filter Int Reason7'
                                         */
   real_T FilterIntReason7_P1;          /* Expression: port
-                                        * Referenced by: '<S86>/Filter Int Reason7'
+                                        * Referenced by: '<S80>/Filter Int Reason7'
                                         */
   real_T FilterIntReason7_P2_Size[2];  /* Computed Parameter: FilterIntReason7_P2_Size
-                                        * Referenced by: '<S86>/Filter Int Reason7'
+                                        * Referenced by: '<S80>/Filter Int Reason7'
                                         */
   real_T FilterIntReason7_P2;          /* Expression: 1
-                                        * Referenced by: '<S86>/Filter Int Reason7'
+                                        * Referenced by: '<S80>/Filter Int Reason7'
                                         */
   real_T FilterIntReason7_P3_Size[2];  /* Computed Parameter: FilterIntReason7_P3_Size
-                                        * Referenced by: '<S86>/Filter Int Reason7'
+                                        * Referenced by: '<S80>/Filter Int Reason7'
                                         */
   real_T FilterIntReason7_P3;          /* Expression: value
-                                        * Referenced by: '<S86>/Filter Int Reason7'
+                                        * Referenced by: '<S80>/Filter Int Reason7'
                                         */
   real_T FIFOread3_P1_Size[2];         /* Computed Parameter: FIFOread3_P1_Size
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P1;                 /* Expression: maxsize
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P2_Size[2];         /* Computed Parameter: FIFOread3_P2_Size
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P2;                 /* Expression: minsize
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P3_Size[2];         /* Computed Parameter: FIFOread3_P3_Size
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P3;                 /* Expression: usedelimiter
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P4_Size[2];         /* Computed Parameter: FIFOread3_P4_Size
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P4;                 /* Expression: delimiter
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P5_Size[2];         /* Computed Parameter: FIFOread3_P5_Size
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P5;                 /* Expression: outputtype
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P6_Size[2];         /* Computed Parameter: FIFOread3_P6_Size
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P6;                 /* Expression: sampletime
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P7_Size[2];         /* Computed Parameter: FIFOread3_P7_Size
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P7;                 /* Expression: enable
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P8_Size[2];         /* Computed Parameter: FIFOread3_P8_Size
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T FIFOread3_P8;                 /* Expression: enableout
-                                        * Referenced by: '<S86>/FIFO read 3'
+                                        * Referenced by: '<S80>/FIFO read 3'
                                         */
   real_T WriteHWFIFO3_P1_Size[2];      /* Computed Parameter: WriteHWFIFO3_P1_Size
-                                        * Referenced by: '<S86>/Write HW FIFO3'
+                                        * Referenced by: '<S80>/Write HW FIFO3'
                                         */
   real_T WriteHWFIFO3_P1;              /* Expression: slot
-                                        * Referenced by: '<S86>/Write HW FIFO3'
+                                        * Referenced by: '<S80>/Write HW FIFO3'
                                         */
   real_T WriteHWFIFO3_P2_Size[2];      /* Computed Parameter: WriteHWFIFO3_P2_Size
-                                        * Referenced by: '<S86>/Write HW FIFO3'
+                                        * Referenced by: '<S80>/Write HW FIFO3'
                                         */
   real_T WriteHWFIFO3_P2;              /* Expression: port
-                                        * Referenced by: '<S86>/Write HW FIFO3'
+                                        * Referenced by: '<S80>/Write HW FIFO3'
                                         */
   real_T WriteHWFIFO3_P3_Size[2];      /* Computed Parameter: WriteHWFIFO3_P3_Size
-                                        * Referenced by: '<S86>/Write HW FIFO3'
+                                        * Referenced by: '<S80>/Write HW FIFO3'
                                         */
   real_T WriteHWFIFO3_P3;              /* Expression: 1
-                                        * Referenced by: '<S86>/Write HW FIFO3'
+                                        * Referenced by: '<S80>/Write HW FIFO3'
                                         */
   real_T WriteHWFIFO3_P4_Size[2];      /* Computed Parameter: WriteHWFIFO3_P4_Size
-                                        * Referenced by: '<S86>/Write HW FIFO3'
+                                        * Referenced by: '<S80>/Write HW FIFO3'
                                         */
   real_T WriteHWFIFO3_P4;              /* Expression: 0
-                                        * Referenced by: '<S86>/Write HW FIFO3'
+                                        * Referenced by: '<S80>/Write HW FIFO3'
                                         */
   real_T FilterIntReason8_P1_Size[2];  /* Computed Parameter: FilterIntReason8_P1_Size
-                                        * Referenced by: '<S86>/Filter Int Reason8'
+                                        * Referenced by: '<S80>/Filter Int Reason8'
                                         */
   real_T FilterIntReason8_P1;          /* Expression: port
-                                        * Referenced by: '<S86>/Filter Int Reason8'
+                                        * Referenced by: '<S80>/Filter Int Reason8'
                                         */
   real_T FilterIntReason8_P2_Size[2];  /* Computed Parameter: FilterIntReason8_P2_Size
-                                        * Referenced by: '<S86>/Filter Int Reason8'
+                                        * Referenced by: '<S80>/Filter Int Reason8'
                                         */
   real_T FilterIntReason8_P2;          /* Expression: 1
-                                        * Referenced by: '<S86>/Filter Int Reason8'
+                                        * Referenced by: '<S80>/Filter Int Reason8'
                                         */
   real_T FilterIntReason8_P3_Size[2];  /* Computed Parameter: FilterIntReason8_P3_Size
-                                        * Referenced by: '<S86>/Filter Int Reason8'
+                                        * Referenced by: '<S80>/Filter Int Reason8'
                                         */
   real_T FilterIntReason8_P3;          /* Expression: value
-                                        * Referenced by: '<S86>/Filter Int Reason8'
+                                        * Referenced by: '<S80>/Filter Int Reason8'
                                         */
   real_T FIFOread4_P1_Size[2];         /* Computed Parameter: FIFOread4_P1_Size
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P1;                 /* Expression: maxsize
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P2_Size[2];         /* Computed Parameter: FIFOread4_P2_Size
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P2;                 /* Expression: minsize
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P3_Size[2];         /* Computed Parameter: FIFOread4_P3_Size
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P3;                 /* Expression: usedelimiter
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P4_Size[2];         /* Computed Parameter: FIFOread4_P4_Size
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P4;                 /* Expression: delimiter
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P5_Size[2];         /* Computed Parameter: FIFOread4_P5_Size
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P5;                 /* Expression: outputtype
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P6_Size[2];         /* Computed Parameter: FIFOread4_P6_Size
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P6;                 /* Expression: sampletime
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P7_Size[2];         /* Computed Parameter: FIFOread4_P7_Size
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P7;                 /* Expression: enable
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P8_Size[2];         /* Computed Parameter: FIFOread4_P8_Size
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T FIFOread4_P8;                 /* Expression: enableout
-                                        * Referenced by: '<S86>/FIFO read 4'
+                                        * Referenced by: '<S80>/FIFO read 4'
                                         */
   real_T WriteHWFIFO4_P1_Size[2];      /* Computed Parameter: WriteHWFIFO4_P1_Size
-                                        * Referenced by: '<S86>/Write HW FIFO4'
+                                        * Referenced by: '<S80>/Write HW FIFO4'
                                         */
   real_T WriteHWFIFO4_P1;              /* Expression: slot
-                                        * Referenced by: '<S86>/Write HW FIFO4'
+                                        * Referenced by: '<S80>/Write HW FIFO4'
                                         */
   real_T WriteHWFIFO4_P2_Size[2];      /* Computed Parameter: WriteHWFIFO4_P2_Size
-                                        * Referenced by: '<S86>/Write HW FIFO4'
+                                        * Referenced by: '<S80>/Write HW FIFO4'
                                         */
   real_T WriteHWFIFO4_P2;              /* Expression: port
-                                        * Referenced by: '<S86>/Write HW FIFO4'
+                                        * Referenced by: '<S80>/Write HW FIFO4'
                                         */
   real_T WriteHWFIFO4_P3_Size[2];      /* Computed Parameter: WriteHWFIFO4_P3_Size
-                                        * Referenced by: '<S86>/Write HW FIFO4'
+                                        * Referenced by: '<S80>/Write HW FIFO4'
                                         */
   real_T WriteHWFIFO4_P3;              /* Expression: 1
-                                        * Referenced by: '<S86>/Write HW FIFO4'
+                                        * Referenced by: '<S80>/Write HW FIFO4'
                                         */
   real_T WriteHWFIFO4_P4_Size[2];      /* Computed Parameter: WriteHWFIFO4_P4_Size
-                                        * Referenced by: '<S86>/Write HW FIFO4'
+                                        * Referenced by: '<S80>/Write HW FIFO4'
                                         */
   real_T WriteHWFIFO4_P4;              /* Expression: 0
-                                        * Referenced by: '<S86>/Write HW FIFO4'
+                                        * Referenced by: '<S80>/Write HW FIFO4'
                                         */
   real_T FilterIntReason1_P1_Size[2];  /* Computed Parameter: FilterIntReason1_P1_Size
-                                        * Referenced by: '<S86>/Filter Int Reason1'
+                                        * Referenced by: '<S80>/Filter Int Reason1'
                                         */
   real_T FilterIntReason1_P1;          /* Expression: port
-                                        * Referenced by: '<S86>/Filter Int Reason1'
+                                        * Referenced by: '<S80>/Filter Int Reason1'
                                         */
   real_T FilterIntReason1_P2_Size[2];  /* Computed Parameter: FilterIntReason1_P2_Size
-                                        * Referenced by: '<S86>/Filter Int Reason1'
+                                        * Referenced by: '<S80>/Filter Int Reason1'
                                         */
   real_T FilterIntReason1_P2;          /* Expression: 1
-                                        * Referenced by: '<S86>/Filter Int Reason1'
+                                        * Referenced by: '<S80>/Filter Int Reason1'
                                         */
   real_T FilterIntReason1_P3_Size[2];  /* Computed Parameter: FilterIntReason1_P3_Size
-                                        * Referenced by: '<S86>/Filter Int Reason1'
+                                        * Referenced by: '<S80>/Filter Int Reason1'
                                         */
   real_T FilterIntReason1_P3;          /* Expression: value
-                                        * Referenced by: '<S86>/Filter Int Reason1'
+                                        * Referenced by: '<S80>/Filter Int Reason1'
                                         */
   real_T ReadHWFIFO1_P1_Size[2];       /* Computed Parameter: ReadHWFIFO1_P1_Size
-                                        * Referenced by: '<S86>/Read HW FIFO1'
+                                        * Referenced by: '<S80>/Read HW FIFO1'
                                         */
   real_T ReadHWFIFO1_P1;               /* Expression: slot
-                                        * Referenced by: '<S86>/Read HW FIFO1'
+                                        * Referenced by: '<S80>/Read HW FIFO1'
                                         */
   real_T ReadHWFIFO1_P2_Size[2];       /* Computed Parameter: ReadHWFIFO1_P2_Size
-                                        * Referenced by: '<S86>/Read HW FIFO1'
+                                        * Referenced by: '<S80>/Read HW FIFO1'
                                         */
   real_T ReadHWFIFO1_P2;               /* Expression: port
-                                        * Referenced by: '<S86>/Read HW FIFO1'
+                                        * Referenced by: '<S80>/Read HW FIFO1'
                                         */
   real_T ReadHWFIFO1_P3_Size[2];       /* Computed Parameter: ReadHWFIFO1_P3_Size
-                                        * Referenced by: '<S86>/Read HW FIFO1'
+                                        * Referenced by: '<S80>/Read HW FIFO1'
                                         */
   real_T ReadHWFIFO1_P3;               /* Expression: 1
-                                        * Referenced by: '<S86>/Read HW FIFO1'
+                                        * Referenced by: '<S80>/Read HW FIFO1'
                                         */
   real_T ReadHWFIFO1_P4_Size[2];       /* Computed Parameter: ReadHWFIFO1_P4_Size
-                                        * Referenced by: '<S86>/Read HW FIFO1'
+                                        * Referenced by: '<S80>/Read HW FIFO1'
                                         */
   real_T ReadHWFIFO1_P4;               /* Expression: flush
-                                        * Referenced by: '<S86>/Read HW FIFO1'
+                                        * Referenced by: '<S80>/Read HW FIFO1'
                                         */
   real_T FIFOwrite1_P1_Size[2];        /* Computed Parameter: FIFOwrite1_P1_Size
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P1;                /* Expression: size
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P2_Size[2];        /* Computed Parameter: FIFOwrite1_P2_Size
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P2;                /* Expression: inputtype
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P3_Size[2];        /* Computed Parameter: FIFOwrite1_P3_Size
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P3;                /* Expression: sampletime
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P4_Size[2];        /* Computed Parameter: FIFOwrite1_P4_Size
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P4;                /* Expression: present
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P5_Size[2];        /* Computed Parameter: FIFOwrite1_P5_Size
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P5[34];            /* Computed Parameter: FIFOwrite1_P5
-                                        * Referenced by: '<S86>/FIFO write 1'
+                                        * Referenced by: '<S80>/FIFO write 1'
                                         */
   real_T FilterIntReason2_P1_Size[2];  /* Computed Parameter: FilterIntReason2_P1_Size
-                                        * Referenced by: '<S86>/Filter Int Reason2'
+                                        * Referenced by: '<S80>/Filter Int Reason2'
                                         */
   real_T FilterIntReason2_P1;          /* Expression: port
-                                        * Referenced by: '<S86>/Filter Int Reason2'
+                                        * Referenced by: '<S80>/Filter Int Reason2'
                                         */
   real_T FilterIntReason2_P2_Size[2];  /* Computed Parameter: FilterIntReason2_P2_Size
-                                        * Referenced by: '<S86>/Filter Int Reason2'
+                                        * Referenced by: '<S80>/Filter Int Reason2'
                                         */
   real_T FilterIntReason2_P2;          /* Expression: 1
-                                        * Referenced by: '<S86>/Filter Int Reason2'
+                                        * Referenced by: '<S80>/Filter Int Reason2'
                                         */
   real_T FilterIntReason2_P3_Size[2];  /* Computed Parameter: FilterIntReason2_P3_Size
-                                        * Referenced by: '<S86>/Filter Int Reason2'
+                                        * Referenced by: '<S80>/Filter Int Reason2'
                                         */
   real_T FilterIntReason2_P3;          /* Expression: value
-                                        * Referenced by: '<S86>/Filter Int Reason2'
+                                        * Referenced by: '<S80>/Filter Int Reason2'
                                         */
   real_T ReadHWFIFO2_P1_Size[2];       /* Computed Parameter: ReadHWFIFO2_P1_Size
-                                        * Referenced by: '<S86>/Read HW FIFO2'
+                                        * Referenced by: '<S80>/Read HW FIFO2'
                                         */
   real_T ReadHWFIFO2_P1;               /* Expression: slot
-                                        * Referenced by: '<S86>/Read HW FIFO2'
+                                        * Referenced by: '<S80>/Read HW FIFO2'
                                         */
   real_T ReadHWFIFO2_P2_Size[2];       /* Computed Parameter: ReadHWFIFO2_P2_Size
-                                        * Referenced by: '<S86>/Read HW FIFO2'
+                                        * Referenced by: '<S80>/Read HW FIFO2'
                                         */
   real_T ReadHWFIFO2_P2;               /* Expression: port
-                                        * Referenced by: '<S86>/Read HW FIFO2'
+                                        * Referenced by: '<S80>/Read HW FIFO2'
                                         */
   real_T ReadHWFIFO2_P3_Size[2];       /* Computed Parameter: ReadHWFIFO2_P3_Size
-                                        * Referenced by: '<S86>/Read HW FIFO2'
+                                        * Referenced by: '<S80>/Read HW FIFO2'
                                         */
   real_T ReadHWFIFO2_P3;               /* Expression: 1
-                                        * Referenced by: '<S86>/Read HW FIFO2'
+                                        * Referenced by: '<S80>/Read HW FIFO2'
                                         */
   real_T ReadHWFIFO2_P4_Size[2];       /* Computed Parameter: ReadHWFIFO2_P4_Size
-                                        * Referenced by: '<S86>/Read HW FIFO2'
+                                        * Referenced by: '<S80>/Read HW FIFO2'
                                         */
   real_T ReadHWFIFO2_P4;               /* Expression: flush
-                                        * Referenced by: '<S86>/Read HW FIFO2'
+                                        * Referenced by: '<S80>/Read HW FIFO2'
                                         */
   real_T FIFOwrite2_P1_Size[2];        /* Computed Parameter: FIFOwrite2_P1_Size
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P1;                /* Expression: size
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P2_Size[2];        /* Computed Parameter: FIFOwrite2_P2_Size
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P2;                /* Expression: inputtype
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P3_Size[2];        /* Computed Parameter: FIFOwrite2_P3_Size
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P3;                /* Expression: sampletime
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P4_Size[2];        /* Computed Parameter: FIFOwrite2_P4_Size
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P4;                /* Expression: present
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P5_Size[2];        /* Computed Parameter: FIFOwrite2_P5_Size
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P5[34];            /* Computed Parameter: FIFOwrite2_P5
-                                        * Referenced by: '<S86>/FIFO write 2'
+                                        * Referenced by: '<S80>/FIFO write 2'
                                         */
   real_T FilterIntReason3_P1_Size[2];  /* Computed Parameter: FilterIntReason3_P1_Size
-                                        * Referenced by: '<S86>/Filter Int Reason3'
+                                        * Referenced by: '<S80>/Filter Int Reason3'
                                         */
   real_T FilterIntReason3_P1;          /* Expression: port
-                                        * Referenced by: '<S86>/Filter Int Reason3'
+                                        * Referenced by: '<S80>/Filter Int Reason3'
                                         */
   real_T FilterIntReason3_P2_Size[2];  /* Computed Parameter: FilterIntReason3_P2_Size
-                                        * Referenced by: '<S86>/Filter Int Reason3'
+                                        * Referenced by: '<S80>/Filter Int Reason3'
                                         */
   real_T FilterIntReason3_P2;          /* Expression: 1
-                                        * Referenced by: '<S86>/Filter Int Reason3'
+                                        * Referenced by: '<S80>/Filter Int Reason3'
                                         */
   real_T FilterIntReason3_P3_Size[2];  /* Computed Parameter: FilterIntReason3_P3_Size
-                                        * Referenced by: '<S86>/Filter Int Reason3'
+                                        * Referenced by: '<S80>/Filter Int Reason3'
                                         */
   real_T FilterIntReason3_P3;          /* Expression: value
-                                        * Referenced by: '<S86>/Filter Int Reason3'
+                                        * Referenced by: '<S80>/Filter Int Reason3'
                                         */
   real_T ReadHWFIFO3_P1_Size[2];       /* Computed Parameter: ReadHWFIFO3_P1_Size
-                                        * Referenced by: '<S86>/Read HW FIFO3'
+                                        * Referenced by: '<S80>/Read HW FIFO3'
                                         */
   real_T ReadHWFIFO3_P1;               /* Expression: slot
-                                        * Referenced by: '<S86>/Read HW FIFO3'
+                                        * Referenced by: '<S80>/Read HW FIFO3'
                                         */
   real_T ReadHWFIFO3_P2_Size[2];       /* Computed Parameter: ReadHWFIFO3_P2_Size
-                                        * Referenced by: '<S86>/Read HW FIFO3'
+                                        * Referenced by: '<S80>/Read HW FIFO3'
                                         */
   real_T ReadHWFIFO3_P2;               /* Expression: port
-                                        * Referenced by: '<S86>/Read HW FIFO3'
+                                        * Referenced by: '<S80>/Read HW FIFO3'
                                         */
   real_T ReadHWFIFO3_P3_Size[2];       /* Computed Parameter: ReadHWFIFO3_P3_Size
-                                        * Referenced by: '<S86>/Read HW FIFO3'
+                                        * Referenced by: '<S80>/Read HW FIFO3'
                                         */
   real_T ReadHWFIFO3_P3;               /* Expression: 1
-                                        * Referenced by: '<S86>/Read HW FIFO3'
+                                        * Referenced by: '<S80>/Read HW FIFO3'
                                         */
   real_T ReadHWFIFO3_P4_Size[2];       /* Computed Parameter: ReadHWFIFO3_P4_Size
-                                        * Referenced by: '<S86>/Read HW FIFO3'
+                                        * Referenced by: '<S80>/Read HW FIFO3'
                                         */
   real_T ReadHWFIFO3_P4;               /* Expression: flush
-                                        * Referenced by: '<S86>/Read HW FIFO3'
+                                        * Referenced by: '<S80>/Read HW FIFO3'
                                         */
   real_T FIFOwrite3_P1_Size[2];        /* Computed Parameter: FIFOwrite3_P1_Size
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P1;                /* Expression: size
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P2_Size[2];        /* Computed Parameter: FIFOwrite3_P2_Size
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P2;                /* Expression: inputtype
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P3_Size[2];        /* Computed Parameter: FIFOwrite3_P3_Size
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P3;                /* Expression: sampletime
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P4_Size[2];        /* Computed Parameter: FIFOwrite3_P4_Size
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P4;                /* Expression: present
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P5_Size[2];        /* Computed Parameter: FIFOwrite3_P5_Size
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P5[34];            /* Computed Parameter: FIFOwrite3_P5
-                                        * Referenced by: '<S86>/FIFO write 3'
+                                        * Referenced by: '<S80>/FIFO write 3'
                                         */
   real_T FilterIntReason4_P1_Size[2];  /* Computed Parameter: FilterIntReason4_P1_Size
-                                        * Referenced by: '<S86>/Filter Int Reason4'
+                                        * Referenced by: '<S80>/Filter Int Reason4'
                                         */
   real_T FilterIntReason4_P1;          /* Expression: port
-                                        * Referenced by: '<S86>/Filter Int Reason4'
+                                        * Referenced by: '<S80>/Filter Int Reason4'
                                         */
   real_T FilterIntReason4_P2_Size[2];  /* Computed Parameter: FilterIntReason4_P2_Size
-                                        * Referenced by: '<S86>/Filter Int Reason4'
+                                        * Referenced by: '<S80>/Filter Int Reason4'
                                         */
   real_T FilterIntReason4_P2;          /* Expression: 1
-                                        * Referenced by: '<S86>/Filter Int Reason4'
+                                        * Referenced by: '<S80>/Filter Int Reason4'
                                         */
   real_T FilterIntReason4_P3_Size[2];  /* Computed Parameter: FilterIntReason4_P3_Size
-                                        * Referenced by: '<S86>/Filter Int Reason4'
+                                        * Referenced by: '<S80>/Filter Int Reason4'
                                         */
   real_T FilterIntReason4_P3;          /* Expression: value
-                                        * Referenced by: '<S86>/Filter Int Reason4'
+                                        * Referenced by: '<S80>/Filter Int Reason4'
                                         */
   real_T ReadHWFIFO4_P1_Size[2];       /* Computed Parameter: ReadHWFIFO4_P1_Size
-                                        * Referenced by: '<S86>/Read HW FIFO4'
+                                        * Referenced by: '<S80>/Read HW FIFO4'
                                         */
   real_T ReadHWFIFO4_P1;               /* Expression: slot
-                                        * Referenced by: '<S86>/Read HW FIFO4'
+                                        * Referenced by: '<S80>/Read HW FIFO4'
                                         */
   real_T ReadHWFIFO4_P2_Size[2];       /* Computed Parameter: ReadHWFIFO4_P2_Size
-                                        * Referenced by: '<S86>/Read HW FIFO4'
+                                        * Referenced by: '<S80>/Read HW FIFO4'
                                         */
   real_T ReadHWFIFO4_P2;               /* Expression: port
-                                        * Referenced by: '<S86>/Read HW FIFO4'
+                                        * Referenced by: '<S80>/Read HW FIFO4'
                                         */
   real_T ReadHWFIFO4_P3_Size[2];       /* Computed Parameter: ReadHWFIFO4_P3_Size
-                                        * Referenced by: '<S86>/Read HW FIFO4'
+                                        * Referenced by: '<S80>/Read HW FIFO4'
                                         */
   real_T ReadHWFIFO4_P3;               /* Expression: 1
-                                        * Referenced by: '<S86>/Read HW FIFO4'
+                                        * Referenced by: '<S80>/Read HW FIFO4'
                                         */
   real_T ReadHWFIFO4_P4_Size[2];       /* Computed Parameter: ReadHWFIFO4_P4_Size
-                                        * Referenced by: '<S86>/Read HW FIFO4'
+                                        * Referenced by: '<S80>/Read HW FIFO4'
                                         */
   real_T ReadHWFIFO4_P4;               /* Expression: flush
-                                        * Referenced by: '<S86>/Read HW FIFO4'
+                                        * Referenced by: '<S80>/Read HW FIFO4'
                                         */
   real_T FIFOwrite4_P1_Size[2];        /* Computed Parameter: FIFOwrite4_P1_Size
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P1;                /* Expression: size
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P2_Size[2];        /* Computed Parameter: FIFOwrite4_P2_Size
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P2;                /* Expression: inputtype
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P3_Size[2];        /* Computed Parameter: FIFOwrite4_P3_Size
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P3;                /* Expression: sampletime
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P4_Size[2];        /* Computed Parameter: FIFOwrite4_P4_Size
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P4;                /* Expression: present
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P5_Size[2];        /* Computed Parameter: FIFOwrite4_P5_Size
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P5[34];            /* Computed Parameter: FIFOwrite4_P5
-                                        * Referenced by: '<S86>/FIFO write 4'
+                                        * Referenced by: '<S80>/FIFO write 4'
                                         */
   real_T Constant2_Value_j;            /* Expression: 0
                                         * Referenced by: '<S6>/Constant2'
@@ -2088,182 +2137,203 @@ struct P_Control_software_v1_1_T_ {
   real_T Constant_Value;               /* Expression: 0
                                         * Referenced by: '<S6>/Constant'
                                         */
+  real_T Constant_Value_n;             /* Expression: 0
+                                        * Referenced by: '<S7>/Constant'
+                                        */
+  real_T konstanteAusrollgeschw_Value; /* Expression: 0.5
+                                        * Referenced by: '<S7>/konstante Ausrollgeschw.'
+                                        */
+  real_T Constant1_Value_m;            /* Expression: 1
+                                        * Referenced by: '<S7>/Constant1'
+                                        */
+  real_T konstanteEinrollgeschw_Value; /* Expression: -0.5
+                                        * Referenced by: '<S7>/konstante Einrollgeschw.'
+                                        */
+  real_T Constant3_Value;              /* Expression: -1
+                                        * Referenced by: '<S7>/Constant3'
+                                        */
+  real_T Constant2_Value_h;            /* Expression: 0
+                                        * Referenced by: '<S7>/Constant2'
+                                        */
+  real_T Switch_Threshold;             /* Expression: 0
+                                        * Referenced by: '<S7>/Switch'
+                                        */
+  real_T Gain_Gain;                    /* Expression: -1
+                                        * Referenced by: '<S88>/Gain'
+                                        */
+  real_T Switch6_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S90>/Switch6'
+                                        */
+  real_T Switch2_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S90>/Switch2'
+                                        */
+  real_T Switch3_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S90>/Switch3'
+                                        */
+  real_T Switch1_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S90>/Switch1'
+                                        */
+  real_T Gain_Gain_e;                  /* Expression: -1
+                                        * Referenced by: '<S94>/Gain'
+                                        */
+  real_T Gain_Gain_i;                  /* Expression: -1
+                                        * Referenced by: '<S95>/Gain'
+                                        */
+  real_T Gain_Gain_g;                  /* Expression: -1
+                                        * Referenced by: '<S98>/Gain'
+                                        */
+  real_T Gain_Gain_in;                 /* Expression: -1
+                                        * Referenced by: '<S99>/Gain'
+                                        */
+  real_T Gain_Gain_f;                  /* Expression: -1
+                                        * Referenced by: '<S93>/Gain'
+                                        */
   real_T Constant_Value_d;             /* Expression: 1
-                                        * Referenced by: '<S91>/Constant'
+                                        * Referenced by: '<S85>/Constant'
                                         */
   real_T Constant1_Value_p;            /* Expression: 0
-                                        * Referenced by: '<S91>/Constant1'
+                                        * Referenced by: '<S85>/Constant1'
                                         */
   real_T Constant2_Value_d;            /* Expression: 0
-                                        * Referenced by: '<S91>/Constant2'
+                                        * Referenced by: '<S85>/Constant2'
                                         */
   real_T UnitDelay_InitialCondition;   /* Expression: 0
                                         * Referenced by: '<S1>/Unit Delay'
                                         */
   real_T PCI6221AD_P1_Size[2];         /* Computed Parameter: PCI6221AD_P1_Size
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P1[5];              /* Expression: channel
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P2_Size[2];         /* Computed Parameter: PCI6221AD_P2_Size
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P2[5];              /* Expression: range
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P3_Size[2];         /* Computed Parameter: PCI6221AD_P3_Size
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P3[5];              /* Expression: coupling
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P4_Size[2];         /* Computed Parameter: PCI6221AD_P4_Size
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P4;                 /* Expression: scantime
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P5_Size[2];         /* Computed Parameter: PCI6221AD_P5_Size
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P5;                 /* Expression: sampletime
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P6_Size[2];         /* Computed Parameter: PCI6221AD_P6_Size
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P6;                 /* Expression: slot
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P7_Size[2];         /* Computed Parameter: PCI6221AD_P7_Size
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221AD_P7;                 /* Expression: boardType
-                                        * Referenced by: '<S22>/PCI-6221 AD'
+                                        * Referenced by: '<S16>/PCI-6221 AD'
                                         */
   real_T PCI6221DI_P1_Size[2];         /* Computed Parameter: PCI6221DI_P1_Size
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P1[7];              /* Expression: channel
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P2_Size[2];         /* Computed Parameter: PCI6221DI_P2_Size
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P2;                 /* Expression: sampletime
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P3_Size[2];         /* Computed Parameter: PCI6221DI_P3_Size
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P3;                 /* Expression: slot
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P4_Size[2];         /* Computed Parameter: PCI6221DI_P4_Size
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P4;                 /* Expression: control
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P5_Size[2];         /* Computed Parameter: PCI6221DI_P5_Size
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221DI_P5;                 /* Expression: boardType
-                                        * Referenced by: '<S23>/PCI-6221 DI'
+                                        * Referenced by: '<S17>/PCI-6221 DI'
                                         */
   real_T PCI6221PFIDI_P1_Size[2];      /* Computed Parameter: PCI6221PFIDI_P1_Size
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P1;              /* Expression: device
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P2_Size[2];      /* Computed Parameter: PCI6221PFIDI_P2_Size
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P2;              /* Expression: channel
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P3_Size[2];      /* Computed Parameter: PCI6221PFIDI_P3_Size
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P3;              /* Expression: outmask
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P4_Size[2];      /* Computed Parameter: PCI6221PFIDI_P4_Size
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P4;              /* Expression: sampleTime
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P5_Size[2];      /* Computed Parameter: PCI6221PFIDI_P5_Size
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T PCI6221PFIDI_P5;              /* Expression: slot
-                                        * Referenced by: '<S23>/PCI 6221 PFI DI '
+                                        * Referenced by: '<S17>/PCI 6221 PFI DI '
                                         */
   real_T DiscreteTransferFcn_InitialStat;/* Expression: 0
-                                          * Referenced by: '<S9>/Discrete Transfer Fcn'
+                                          * Referenced by: '<S10>/Discrete Transfer Fcn'
                                           */
-  real_T Beschleunigung_Value;         /* Expression: 0.0025
-                                        * Referenced by: '<S16>/Beschleunigung'
-                                        */
-  real_T Beschleunigung_Value_i;       /* Expression: 0.0025
-                                        * Referenced by: '<S12>/Beschleunigung'
-                                        */
-  real_T Delay_InitialCondition;       /* Expression: 0
-                                        * Referenced by: '<S9>/Delay'
-                                        */
   real_T DiscreteTransferFcn1_InitialSta;/* Expression: 0
-                                          * Referenced by: '<S9>/Discrete Transfer Fcn1'
+                                          * Referenced by: '<S10>/Discrete Transfer Fcn1'
                                           */
   real_T Saturation1_UpperSat;         /* Expression: JoyW_sat
-                                        * Referenced by: '<S9>/Saturation1'
+                                        * Referenced by: '<S10>/Saturation1'
                                         */
   real_T Saturation1_LowerSat;         /* Expression: -JoyW_sat
-                                        * Referenced by: '<S9>/Saturation1'
-                                        */
-  real_T untereKraftsensorGrenze_Value;/* Expression: -1
-                                        * Referenced by: '<S12>/untere Kraftsensor Grenze'
-                                        */
-  real_T obereKraftsensorGrenze_Value; /* Expression: 1
-                                        * Referenced by: '<S12>/obere Kraftsensor Grenze'
-                                        */
-  real_T Switch1_Threshold;            /* Expression: 0
-                                        * Referenced by: '<S9>/Switch1'
-                                        */
-  real_T Delay_InitialCondition_p;     /* Expression: 0
-                                        * Referenced by: '<S16>/Delay'
-                                        */
-  real_T Constant_Value_f;             /* Expression: 0
-                                        * Referenced by: '<S18>/Constant'
-                                        */
-  real_T Constant_Value_n;             /* Expression: 0
-                                        * Referenced by: '<S17>/Constant'
-                                        */
-  real_T Constant1_Value_l;            /* Expression: 0
-                                        * Referenced by: '<S16>/Constant1'
-                                        */
-  real_T Delay1_InitialCondition;      /* Expression: 0
-                                        * Referenced by: '<S16>/Delay1'
+                                        * Referenced by: '<S10>/Saturation1'
                                         */
   real_T DiscreteTransferFcn1_InitialS_d;/* Expression: 0
-                                          * Referenced by: '<S20>/Discrete Transfer Fcn1'
+                                          * Referenced by: '<S14>/Discrete Transfer Fcn1'
                                           */
+  real_T Constant3_Value_f;            /* Expression: 1
+                                        * Referenced by: '<S2>/Constant3'
+                                        */
   real_T DiscreteTransferFcn2_InitialSta;/* Expression: 0
-                                          * Referenced by: '<S10>/Discrete Transfer Fcn2'
+                                          * Referenced by: '<S11>/Discrete Transfer Fcn2'
                                           */
   real_T DiscreteTransferFcn1_InitialS_h;/* Expression: 0
-                                          * Referenced by: '<S19>/Discrete Transfer Fcn1'
+                                          * Referenced by: '<S13>/Discrete Transfer Fcn1'
                                           */
   real_T DiscreteTransferFcn_InitialSt_m;/* Expression: 0
-                                          * Referenced by: '<S21>/Discrete Transfer Fcn'
+                                          * Referenced by: '<S15>/Discrete Transfer Fcn'
                                           */
   real_T DiscreteTransferFcn1_Initial_dv;/* Expression: 0
-                                          * Referenced by: '<S11>/Discrete Transfer Fcn1'
+                                          * Referenced by: '<S12>/Discrete Transfer Fcn1'
                                           */
-  real_T Delay_InitialCondition_m;     /* Expression: 0.0
-                                        * Referenced by: '<S11>/Delay'
+  real_T Delay_InitialCondition;       /* Expression: 0.0
+                                        * Referenced by: '<S12>/Delay'
                                         */
   real_T UnitDelay7_InitialCondition;  /* Expression: 0
                                         * Referenced by: '<S2>/Unit Delay7'
@@ -2293,594 +2363,726 @@ struct P_Control_software_v1_1_T_ {
                                         * Referenced by: '<S2>/Unit Delay8'
                                         */
   real_T Switch_Threshold_l;           /* Expression: 0.5
-                                        * Referenced by: '<S20>/Switch'
+                                        * Referenced by: '<S14>/Switch'
                                         */
   real_T Switch_Threshold_h;           /* Expression: 0.5
-                                        * Referenced by: '<S21>/Switch'
+                                        * Referenced by: '<S15>/Switch'
+                                        */
+  real_T Constant_Value_p;             /* Expression: 0
+                                        * Referenced by: '<S2>/Constant'
+                                        */
+  real_T Constant1_Value_b;            /* Expression: 11
+                                        * Referenced by: '<S2>/Constant1'
                                         */
   real_T Switch_Threshold_k;           /* Expression: 0.5
                                         * Referenced by: '<S6>/Switch'
+                                        */
+  real_T Beschleunigung_Value;         /* Expression: 0.0025
+                                        * Referenced by: '<S93>/Beschleunigung'
+                                        */
+  real_T Beschleunigung_Value_o;       /* Expression: 0.00125
+                                        * Referenced by: '<S88>/Beschleunigung'
+                                        */
+  real_T Delay_InitialCondition_a;     /* Expression: 0
+                                        * Referenced by: '<S7>/Delay'
+                                        */
+  real_T untereKraftsensorGrenze_Value;/* Expression: -1
+                                        * Referenced by: '<S88>/untere Kraftsensor Grenze'
+                                        */
+  real_T obereKraftsensorGrenze_Value; /* Expression: 1
+                                        * Referenced by: '<S88>/obere Kraftsensor Grenze'
+                                        */
+  real_T Delay3_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S90>/Delay3'
+                                        */
+  real_T Delay1_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S90>/Delay1'
+                                        */
+  real_T Delay4_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S90>/Delay4'
+                                        */
+  real_T Constant2_Value_k;            /* Expression: 1
+                                        * Referenced by: '<S90>/Constant2'
+                                        */
+  real_T Constant3_Value_j;            /* Expression: 0
+                                        * Referenced by: '<S90>/Constant3'
+                                        */
+  real_T Switch5_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S90>/Switch5'
+                                        */
+  real_T Delay5_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S90>/Delay5'
+                                        */
+  real_T Switch7_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S90>/Switch7'
+                                        */
+  real_T Beschleunigung_Value_l;       /* Expression: 0.00125
+                                        * Referenced by: '<S99>/Beschleunigung'
+                                        */
+  real_T Beschleunigung_Value_j;       /* Expression: 0.00125
+                                        * Referenced by: '<S98>/Beschleunigung'
+                                        */
+  real_T Delay_InitialCondition_j;     /* Expression: 0
+                                        * Referenced by: '<S92>/Delay'
+                                        */
+  real_T untereKraftsensorGrenze_Value_i;/* Expression: -1
+                                          * Referenced by: '<S98>/untere Kraftsensor Grenze'
+                                          */
+  real_T obereKraftsensorGrenze_Value_n;/* Expression: 1
+                                         * Referenced by: '<S98>/obere Kraftsensor Grenze'
+                                         */
+  real_T Delay_InitialCondition_n;     /* Expression: 0
+                                        * Referenced by: '<S99>/Delay'
+                                        */
+  real_T Constant_Value_i;             /* Expression: 0
+                                        * Referenced by: '<S101>/Constant'
+                                        */
+  real_T Constant_Value_l;             /* Expression: 0
+                                        * Referenced by: '<S100>/Constant'
+                                        */
+  real_T Constant1_Value_i;            /* Expression: 0
+                                        * Referenced by: '<S99>/Constant1'
+                                        */
+  real_T Delay1_InitialCondition_c;    /* Expression: 0
+                                        * Referenced by: '<S99>/Delay1'
+                                        */
+  real_T Delay2_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S90>/Delay2'
+                                        */
+  real_T Switch4_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S90>/Switch4'
+                                        */
+  real_T Beschleunigung_Value_p;       /* Expression: 0.00125
+                                        * Referenced by: '<S95>/Beschleunigung'
+                                        */
+  real_T Beschleunigung_Value_l5;      /* Expression: 0.00125
+                                        * Referenced by: '<S94>/Beschleunigung'
+                                        */
+  real_T Delay_InitialCondition_e;     /* Expression: 0
+                                        * Referenced by: '<S91>/Delay'
+                                        */
+  real_T untereKraftsensorGrenze_Value_m;/* Expression: -1
+                                          * Referenced by: '<S94>/untere Kraftsensor Grenze'
+                                          */
+  real_T obereKraftsensorGrenze_Value_m;/* Expression: 1
+                                         * Referenced by: '<S94>/obere Kraftsensor Grenze'
+                                         */
+  real_T Delay_InitialCondition_m;     /* Expression: 0
+                                        * Referenced by: '<S95>/Delay'
+                                        */
+  real_T Constant_Value_o;             /* Expression: 0
+                                        * Referenced by: '<S97>/Constant'
+                                        */
+  real_T Constant_Value_b;             /* Expression: 0
+                                        * Referenced by: '<S96>/Constant'
+                                        */
+  real_T Constant1_Value_c;            /* Expression: 0
+                                        * Referenced by: '<S95>/Constant1'
+                                        */
+  real_T Delay1_InitialCondition_f;    /* Expression: 0
+                                        * Referenced by: '<S95>/Delay1'
+                                        */
+  real_T Switch_Threshold_h2;          /* Expression: 0
+                                        * Referenced by: '<S90>/Switch'
+                                        */
+  real_T Switch1_Threshold_f;          /* Expression: 0
+                                        * Referenced by: '<S7>/Switch1'
+                                        */
+  real_T Delay_InitialCondition_c;     /* Expression: 0
+                                        * Referenced by: '<S93>/Delay'
+                                        */
+  real_T Constant_Value_id;            /* Expression: 0
+                                        * Referenced by: '<S103>/Constant'
+                                        */
+  real_T Constant_Value_m;             /* Expression: 0
+                                        * Referenced by: '<S102>/Constant'
+                                        */
+  real_T Constant1_Value_g;            /* Expression: 0
+                                        * Referenced by: '<S93>/Constant1'
+                                        */
+  real_T Delay1_InitialCondition_a;    /* Expression: 0
+                                        * Referenced by: '<S93>/Delay1'
                                         */
   real_T Switch1_Threshold_g;          /* Expression: 0.5
                                         * Referenced by: '<S6>/Switch1'
                                         */
   real_T FIFOASCIIread1_P1_Size[2];    /* Computed Parameter: FIFOASCIIread1_P1_Size
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P1;            /* Expression: maxsize
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P2_Size[2];    /* Computed Parameter: FIFOASCIIread1_P2_Size
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P2;            /* Expression: outputtype
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P3_Size[2];    /* Computed Parameter: FIFOASCIIread1_P3_Size
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P3;            /* Expression: sampletime
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P4_Size[2];    /* Computed Parameter: FIFOASCIIread1_P4_Size
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P4[2];         /* Computed Parameter: FIFOASCIIread1_P4
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P5_Size[2];    /* Computed Parameter: FIFOASCIIread1_P5_Size
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P5;            /* Expression: hlengths
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P6_Size[2];    /* Computed Parameter: FIFOASCIIread1_P6_Size
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P6;            /* Computed Parameter: FIFOASCIIread1_P6
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P7_Size[2];    /* Computed Parameter: FIFOASCIIread1_P7_Size
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P7;            /* Expression: hold
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P8_Size[2];    /* Computed Parameter: FIFOASCIIread1_P8_Size
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P8;            /* Expression: enable
-                                        * Referenced by: '<S25>/FIFO ASCII read 1'
+                                        * Referenced by: '<S19>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P1_Size_c[2];  /* Computed Parameter: FIFOASCIIread1_P1_Size_c
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P1_l;          /* Expression: maxsize
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P2_Size_c[2];  /* Computed Parameter: FIFOASCIIread1_P2_Size_c
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P2_b;          /* Expression: outputtype
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P3_Size_j[2];  /* Computed Parameter: FIFOASCIIread1_P3_Size_j
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P3_n;          /* Expression: sampletime
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P4_Size_c[2];  /* Computed Parameter: FIFOASCIIread1_P4_Size_c
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P4_e[6];       /* Computed Parameter: FIFOASCIIread1_P4_e
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P5_Size_o[2];  /* Computed Parameter: FIFOASCIIread1_P5_Size_o
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P5_o;          /* Expression: hlengths
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P6_Size_n[2];  /* Computed Parameter: FIFOASCIIread1_P6_Size_n
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P6_i[2];       /* Computed Parameter: FIFOASCIIread1_P6_i
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P7_Size_c[2];  /* Computed Parameter: FIFOASCIIread1_P7_Size_c
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P7_i;          /* Expression: hold
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P8_Size_l[2];  /* Computed Parameter: FIFOASCIIread1_P8_Size_l
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread1_P8_n;          /* Expression: enable
-                                        * Referenced by: '<S26>/FIFO ASCII read 1'
+                                        * Referenced by: '<S20>/FIFO ASCII read 1'
                                         */
   real_T FIFOASCIIread_P1_Size[2];     /* Computed Parameter: FIFOASCIIread_P1_Size
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P1;             /* Expression: maxsize
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P2_Size[2];     /* Computed Parameter: FIFOASCIIread_P2_Size
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P2;             /* Expression: outputtype
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P3_Size[2];     /* Computed Parameter: FIFOASCIIread_P3_Size
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P3;             /* Expression: sampletime
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P4_Size[2];     /* Computed Parameter: FIFOASCIIread_P4_Size
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P4[4];          /* Computed Parameter: FIFOASCIIread_P4
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P5_Size[2];     /* Computed Parameter: FIFOASCIIread_P5_Size
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P5;             /* Expression: hlengths
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P6_Size[2];     /* Computed Parameter: FIFOASCIIread_P6_Size
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P6[2];          /* Computed Parameter: FIFOASCIIread_P6
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P7_Size[2];     /* Computed Parameter: FIFOASCIIread_P7_Size
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P7;             /* Expression: hold
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P8_Size[2];     /* Computed Parameter: FIFOASCIIread_P8_Size
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOASCIIread_P8;             /* Expression: enable
-                                        * Referenced by: '<S27>/FIFO ASCII read '
+                                        * Referenced by: '<S21>/FIFO ASCII read '
                                         */
   real_T FIFOwrite1_P1_Size_m[2];      /* Computed Parameter: FIFOwrite1_P1_Size_m
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P1_n;              /* Expression: size
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P2_Size_e[2];      /* Computed Parameter: FIFOwrite1_P2_Size_e
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P2_o;              /* Expression: inputtype
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P3_Size_g[2];      /* Computed Parameter: FIFOwrite1_P3_Size_g
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P3_n;              /* Expression: sampletime
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P4_Size_m[2];      /* Computed Parameter: FIFOwrite1_P4_Size_m
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P4_j;              /* Expression: present
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P5_Size_a[2];      /* Computed Parameter: FIFOwrite1_P5_Size_a
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T FIFOwrite1_P5_o[34];          /* Computed Parameter: FIFOwrite1_P5_o
-                                        * Referenced by: '<S28>/FIFO write 1'
+                                        * Referenced by: '<S22>/FIFO write 1'
                                         */
   real_T EnableTX1_P1_Size[2];         /* Computed Parameter: EnableTX1_P1_Size
-                                        * Referenced by: '<S28>/Enable TX 1'
+                                        * Referenced by: '<S22>/Enable TX 1'
                                         */
   real_T EnableTX1_P1;                 /* Expression: slot
-                                        * Referenced by: '<S28>/Enable TX 1'
+                                        * Referenced by: '<S22>/Enable TX 1'
                                         */
   real_T EnableTX1_P2_Size[2];         /* Computed Parameter: EnableTX1_P2_Size
-                                        * Referenced by: '<S28>/Enable TX 1'
+                                        * Referenced by: '<S22>/Enable TX 1'
                                         */
   real_T EnableTX1_P2;                 /* Expression: port
-                                        * Referenced by: '<S28>/Enable TX 1'
+                                        * Referenced by: '<S22>/Enable TX 1'
                                         */
   real_T EnableTX1_P3_Size[2];         /* Computed Parameter: EnableTX1_P3_Size
-                                        * Referenced by: '<S28>/Enable TX 1'
+                                        * Referenced by: '<S22>/Enable TX 1'
                                         */
   real_T EnableTX1_P3;                 /* Expression: 1
-                                        * Referenced by: '<S28>/Enable TX 1'
+                                        * Referenced by: '<S22>/Enable TX 1'
                                         */
   real_T FIFOwrite2_P1_Size_i[2];      /* Computed Parameter: FIFOwrite2_P1_Size_i
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P1_l;              /* Expression: size
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P2_Size_l[2];      /* Computed Parameter: FIFOwrite2_P2_Size_l
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P2_i;              /* Expression: inputtype
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P3_Size_j[2];      /* Computed Parameter: FIFOwrite2_P3_Size_j
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P3_h;              /* Expression: sampletime
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P4_Size_k[2];      /* Computed Parameter: FIFOwrite2_P4_Size_k
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P4_d;              /* Expression: present
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P5_Size_g[2];      /* Computed Parameter: FIFOwrite2_P5_Size_g
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T FIFOwrite2_P5_g[34];          /* Computed Parameter: FIFOwrite2_P5_g
-                                        * Referenced by: '<S28>/FIFO write 2'
+                                        * Referenced by: '<S22>/FIFO write 2'
                                         */
   real_T EnableTX2_P1_Size[2];         /* Computed Parameter: EnableTX2_P1_Size
-                                        * Referenced by: '<S28>/Enable TX 2'
+                                        * Referenced by: '<S22>/Enable TX 2'
                                         */
   real_T EnableTX2_P1;                 /* Expression: slot
-                                        * Referenced by: '<S28>/Enable TX 2'
+                                        * Referenced by: '<S22>/Enable TX 2'
                                         */
   real_T EnableTX2_P2_Size[2];         /* Computed Parameter: EnableTX2_P2_Size
-                                        * Referenced by: '<S28>/Enable TX 2'
+                                        * Referenced by: '<S22>/Enable TX 2'
                                         */
   real_T EnableTX2_P2;                 /* Expression: port
-                                        * Referenced by: '<S28>/Enable TX 2'
+                                        * Referenced by: '<S22>/Enable TX 2'
                                         */
   real_T EnableTX2_P3_Size[2];         /* Computed Parameter: EnableTX2_P3_Size
-                                        * Referenced by: '<S28>/Enable TX 2'
+                                        * Referenced by: '<S22>/Enable TX 2'
                                         */
   real_T EnableTX2_P3;                 /* Expression: 1
-                                        * Referenced by: '<S28>/Enable TX 2'
+                                        * Referenced by: '<S22>/Enable TX 2'
                                         */
   real_T FIFOwrite3_P1_Size_m[2];      /* Computed Parameter: FIFOwrite3_P1_Size_m
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P1_p;              /* Expression: size
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P2_Size_f[2];      /* Computed Parameter: FIFOwrite3_P2_Size_f
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P2_n;              /* Expression: inputtype
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P3_Size_j[2];      /* Computed Parameter: FIFOwrite3_P3_Size_j
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P3_k;              /* Expression: sampletime
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P4_Size_e[2];      /* Computed Parameter: FIFOwrite3_P4_Size_e
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P4_m;              /* Expression: present
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P5_Size_i[2];      /* Computed Parameter: FIFOwrite3_P5_Size_i
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T FIFOwrite3_P5_a[34];          /* Computed Parameter: FIFOwrite3_P5_a
-                                        * Referenced by: '<S28>/FIFO write 3'
+                                        * Referenced by: '<S22>/FIFO write 3'
                                         */
   real_T EnableTX3_P1_Size[2];         /* Computed Parameter: EnableTX3_P1_Size
-                                        * Referenced by: '<S28>/Enable TX 3'
+                                        * Referenced by: '<S22>/Enable TX 3'
                                         */
   real_T EnableTX3_P1;                 /* Expression: slot
-                                        * Referenced by: '<S28>/Enable TX 3'
+                                        * Referenced by: '<S22>/Enable TX 3'
                                         */
   real_T EnableTX3_P2_Size[2];         /* Computed Parameter: EnableTX3_P2_Size
-                                        * Referenced by: '<S28>/Enable TX 3'
+                                        * Referenced by: '<S22>/Enable TX 3'
                                         */
   real_T EnableTX3_P2;                 /* Expression: port
-                                        * Referenced by: '<S28>/Enable TX 3'
+                                        * Referenced by: '<S22>/Enable TX 3'
                                         */
   real_T EnableTX3_P3_Size[2];         /* Computed Parameter: EnableTX3_P3_Size
-                                        * Referenced by: '<S28>/Enable TX 3'
+                                        * Referenced by: '<S22>/Enable TX 3'
                                         */
   real_T EnableTX3_P3;                 /* Expression: 1
-                                        * Referenced by: '<S28>/Enable TX 3'
+                                        * Referenced by: '<S22>/Enable TX 3'
                                         */
   real_T FIFOwrite4_P1_Size_f[2];      /* Computed Parameter: FIFOwrite4_P1_Size_f
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P1_e;              /* Expression: size
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P2_Size_b[2];      /* Computed Parameter: FIFOwrite4_P2_Size_b
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P2_n;              /* Expression: inputtype
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P3_Size_g[2];      /* Computed Parameter: FIFOwrite4_P3_Size_g
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P3_p;              /* Expression: sampletime
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P4_Size_j[2];      /* Computed Parameter: FIFOwrite4_P4_Size_j
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P4_f;              /* Expression: present
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P5_Size_h[2];      /* Computed Parameter: FIFOwrite4_P5_Size_h
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T FIFOwrite4_P5_e[34];          /* Computed Parameter: FIFOwrite4_P5_e
-                                        * Referenced by: '<S28>/FIFO write 4'
+                                        * Referenced by: '<S22>/FIFO write 4'
                                         */
   real_T EnableTX4_P1_Size[2];         /* Computed Parameter: EnableTX4_P1_Size
-                                        * Referenced by: '<S28>/Enable TX 4'
+                                        * Referenced by: '<S22>/Enable TX 4'
                                         */
   real_T EnableTX4_P1;                 /* Expression: slot
-                                        * Referenced by: '<S28>/Enable TX 4'
+                                        * Referenced by: '<S22>/Enable TX 4'
                                         */
   real_T EnableTX4_P2_Size[2];         /* Computed Parameter: EnableTX4_P2_Size
-                                        * Referenced by: '<S28>/Enable TX 4'
+                                        * Referenced by: '<S22>/Enable TX 4'
                                         */
   real_T EnableTX4_P2;                 /* Expression: port
-                                        * Referenced by: '<S28>/Enable TX 4'
+                                        * Referenced by: '<S22>/Enable TX 4'
                                         */
   real_T EnableTX4_P3_Size[2];         /* Computed Parameter: EnableTX4_P3_Size
-                                        * Referenced by: '<S28>/Enable TX 4'
+                                        * Referenced by: '<S22>/Enable TX 4'
                                         */
   real_T EnableTX4_P3;                 /* Expression: 1
-                                        * Referenced by: '<S28>/Enable TX 4'
+                                        * Referenced by: '<S22>/Enable TX 4'
                                         */
   real_T Setup1_P1_Size[2];            /* Computed Parameter: Setup1_P1_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P1;                    /* Expression: slot
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P2_Size[2];            /* Computed Parameter: Setup1_P2_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P2;                    /* Expression: boardtype
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P3_Size[2];            /* Computed Parameter: Setup1_P3_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P3;                    /* Expression: port
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P4_Size[2];            /* Computed Parameter: Setup1_P4_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P4;                    /* Expression: baud
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P5_Size[2];            /* Computed Parameter: Setup1_P5_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P5;                    /* Expression: width
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P6_Size[2];            /* Computed Parameter: Setup1_P6_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P6;                    /* Expression: nstop
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P7_Size[2];            /* Computed Parameter: Setup1_P7_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P7;                    /* Expression: parity
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P8_Size[2];            /* Computed Parameter: Setup1_P8_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P8;                    /* Expression: fmode
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P9_Size[2];            /* Computed Parameter: Setup1_P9_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P9;                    /* Expression: ctsmode
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P10_Size[2];           /* Computed Parameter: Setup1_P10_Size
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup1_P10;                   /* Expression: rlevel
-                                        * Referenced by: '<S28>/Setup1'
+                                        * Referenced by: '<S22>/Setup1'
                                         */
   real_T Setup2_P1_Size[2];            /* Computed Parameter: Setup2_P1_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P1;                    /* Expression: slot
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P2_Size[2];            /* Computed Parameter: Setup2_P2_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P2;                    /* Expression: boardtype
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P3_Size[2];            /* Computed Parameter: Setup2_P3_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P3;                    /* Expression: port
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P4_Size[2];            /* Computed Parameter: Setup2_P4_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P4;                    /* Expression: baud
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P5_Size[2];            /* Computed Parameter: Setup2_P5_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P5;                    /* Expression: width
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P6_Size[2];            /* Computed Parameter: Setup2_P6_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P6;                    /* Expression: nstop
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P7_Size[2];            /* Computed Parameter: Setup2_P7_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P7;                    /* Expression: parity
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P8_Size[2];            /* Computed Parameter: Setup2_P8_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P8;                    /* Expression: fmode
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P9_Size[2];            /* Computed Parameter: Setup2_P9_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P9;                    /* Expression: ctsmode
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P10_Size[2];           /* Computed Parameter: Setup2_P10_Size
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup2_P10;                   /* Expression: rlevel
-                                        * Referenced by: '<S28>/Setup2'
+                                        * Referenced by: '<S22>/Setup2'
                                         */
   real_T Setup3_P1_Size[2];            /* Computed Parameter: Setup3_P1_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P1;                    /* Expression: slot
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P2_Size[2];            /* Computed Parameter: Setup3_P2_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P2;                    /* Expression: boardtype
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P3_Size[2];            /* Computed Parameter: Setup3_P3_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P3;                    /* Expression: port
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P4_Size[2];            /* Computed Parameter: Setup3_P4_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P4;                    /* Expression: baud
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P5_Size[2];            /* Computed Parameter: Setup3_P5_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P5;                    /* Expression: width
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P6_Size[2];            /* Computed Parameter: Setup3_P6_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P6;                    /* Expression: nstop
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P7_Size[2];            /* Computed Parameter: Setup3_P7_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P7;                    /* Expression: parity
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P8_Size[2];            /* Computed Parameter: Setup3_P8_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P8;                    /* Expression: fmode
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P9_Size[2];            /* Computed Parameter: Setup3_P9_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P9;                    /* Expression: ctsmode
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P10_Size[2];           /* Computed Parameter: Setup3_P10_Size
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup3_P10;                   /* Expression: rlevel
-                                        * Referenced by: '<S28>/Setup3'
+                                        * Referenced by: '<S22>/Setup3'
                                         */
   real_T Setup4_P1_Size[2];            /* Computed Parameter: Setup4_P1_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P1;                    /* Expression: slot
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P2_Size[2];            /* Computed Parameter: Setup4_P2_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P2;                    /* Expression: boardtype
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P3_Size[2];            /* Computed Parameter: Setup4_P3_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P3;                    /* Expression: port
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P4_Size[2];            /* Computed Parameter: Setup4_P4_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P4;                    /* Expression: baud
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P5_Size[2];            /* Computed Parameter: Setup4_P5_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P5;                    /* Expression: width
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P6_Size[2];            /* Computed Parameter: Setup4_P6_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P6;                    /* Expression: nstop
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P7_Size[2];            /* Computed Parameter: Setup4_P7_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P7;                    /* Expression: parity
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P8_Size[2];            /* Computed Parameter: Setup4_P8_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P8;                    /* Expression: fmode
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P9_Size[2];            /* Computed Parameter: Setup4_P9_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P9;                    /* Expression: ctsmode
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P10_Size[2];           /* Computed Parameter: Setup4_P10_Size
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
   real_T Setup4_P10;                   /* Expression: rlevel
-                                        * Referenced by: '<S28>/Setup4'
+                                        * Referenced by: '<S22>/Setup4'
                                         */
-  real_T Constant1_Value_b;            /* Expression: 1
+  real_T Constant1_Value_b3;           /* Expression: 1
                                         * Referenced by: '<S6>/Constant1'
                                         */
   real_T Constant3_Value_n;            /* Expression: 1
@@ -3013,46 +3215,79 @@ struct P_Control_software_v1_1_T_ {
                                         * Referenced by: '<S6>/PCI-6221 DO'
                                         */
   uint32_T Constant1_Value_be;         /* Computed Parameter: Constant1_Value_be
-                                        * Referenced by: '<S86>/Constant1'
+                                        * Referenced by: '<S80>/Constant1'
                                         */
   uint32_T Constant2_Value_n;          /* Computed Parameter: Constant2_Value_n
-                                        * Referenced by: '<S86>/Constant2'
+                                        * Referenced by: '<S80>/Constant2'
                                         */
   uint32_T Constant3_Value_d;          /* Computed Parameter: Constant3_Value_d
-                                        * Referenced by: '<S86>/Constant3'
+                                        * Referenced by: '<S80>/Constant3'
                                         */
   uint32_T Constant4_Value;            /* Computed Parameter: Constant4_Value
-                                        * Referenced by: '<S86>/Constant4'
+                                        * Referenced by: '<S80>/Constant4'
                                         */
   uint32_T BitwiseLogicalOperator_BitMask;/* Expression: BitMask
-                                           * Referenced by: '<S86>/Bitwise Logical Operator'
+                                           * Referenced by: '<S80>/Bitwise Logical Operator'
                                            */
   uint32_T Constant9_Value;            /* Computed Parameter: Constant9_Value
-                                        * Referenced by: '<S86>/Constant9'
+                                        * Referenced by: '<S80>/Constant9'
                                         */
   uint32_T Delay_DelayLength;          /* Computed Parameter: Delay_DelayLength
-                                        * Referenced by: '<S9>/Delay'
+                                        * Referenced by: '<S12>/Delay'
                                         */
-  uint32_T Delay_DelayLength_f;        /* Computed Parameter: Delay_DelayLength_f
-                                        * Referenced by: '<S16>/Delay'
+  uint32_T Delay_DelayLength_l;        /* Computed Parameter: Delay_DelayLength_l
+                                        * Referenced by: '<S7>/Delay'
+                                        */
+  uint32_T Delay3_DelayLength;         /* Computed Parameter: Delay3_DelayLength
+                                        * Referenced by: '<S90>/Delay3'
                                         */
   uint32_T Delay1_DelayLength;         /* Computed Parameter: Delay1_DelayLength
-                                        * Referenced by: '<S16>/Delay1'
+                                        * Referenced by: '<S90>/Delay1'
+                                        */
+  uint32_T Delay4_DelayLength;         /* Computed Parameter: Delay4_DelayLength
+                                        * Referenced by: '<S90>/Delay4'
+                                        */
+  uint32_T Delay5_DelayLength;         /* Computed Parameter: Delay5_DelayLength
+                                        * Referenced by: '<S90>/Delay5'
+                                        */
+  uint32_T Delay_DelayLength_lc;       /* Computed Parameter: Delay_DelayLength_lc
+                                        * Referenced by: '<S92>/Delay'
+                                        */
+  uint32_T Delay_DelayLength_l4;       /* Computed Parameter: Delay_DelayLength_l4
+                                        * Referenced by: '<S99>/Delay'
+                                        */
+  uint32_T Delay1_DelayLength_j;       /* Computed Parameter: Delay1_DelayLength_j
+                                        * Referenced by: '<S99>/Delay1'
+                                        */
+  uint32_T Delay2_DelayLength;         /* Computed Parameter: Delay2_DelayLength
+                                        * Referenced by: '<S90>/Delay2'
+                                        */
+  uint32_T Delay_DelayLength_f;        /* Computed Parameter: Delay_DelayLength_f
+                                        * Referenced by: '<S91>/Delay'
+                                        */
+  uint32_T Delay_DelayLength_p;        /* Computed Parameter: Delay_DelayLength_p
+                                        * Referenced by: '<S95>/Delay'
+                                        */
+  uint32_T Delay1_DelayLength_g;       /* Computed Parameter: Delay1_DelayLength_g
+                                        * Referenced by: '<S95>/Delay1'
                                         */
   uint32_T Delay_DelayLength_n;        /* Computed Parameter: Delay_DelayLength_n
-                                        * Referenced by: '<S11>/Delay'
+                                        * Referenced by: '<S93>/Delay'
                                         */
-  uint8_T Constant_Value_b;            /* Computed Parameter: Constant_Value_b
-                                        * Referenced by: '<S24>/Constant'
+  uint32_T Delay1_DelayLength_i;       /* Computed Parameter: Delay1_DelayLength_i
+                                        * Referenced by: '<S93>/Delay1'
                                         */
-  uint8_T Constant1_Value_c;           /* Computed Parameter: Constant1_Value_c
-                                        * Referenced by: '<S24>/Constant1'
+  uint8_T Constant_Value_bd;           /* Computed Parameter: Constant_Value_bd
+                                        * Referenced by: '<S18>/Constant'
+                                        */
+  uint8_T Constant1_Value_ce;          /* Computed Parameter: Constant1_Value_ce
+                                        * Referenced by: '<S18>/Constant1'
                                         */
   uint8_T Constant2_Value_jf;          /* Computed Parameter: Constant2_Value_jf
-                                        * Referenced by: '<S24>/Constant2'
+                                        * Referenced by: '<S18>/Constant2'
                                         */
   uint8_T Constant3_Value_d2;          /* Computed Parameter: Constant3_Value_d2
-                                        * Referenced by: '<S24>/Constant3'
+                                        * Referenced by: '<S18>/Constant3'
                                         */
 };
 
@@ -3771,91 +4006,102 @@ extern RT_MODEL_Control_software_v1_1_T *const Control_software_v1_1_M;
  * '<S4>'   : 'Control_software_v1_1/Inputs'
  * '<S5>'   : 'Control_software_v1_1/Logging'
  * '<S6>'   : 'Control_software_v1_1/Outputs'
- * '<S7>'   : 'Control_software_v1_1/High-level control/HLC_Parameters'
- * '<S8>'   : 'Control_software_v1_1/High-level control/MATLAB Function'
- * '<S9>'   : 'Control_software_v1_1/Input conditioning and estimators/Subsystem'
- * '<S10>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem1'
- * '<S11>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem2'
- * '<S12>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem/Kraftgesteuert'
- * '<S13>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem/Scope '
- * '<S14>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem/Scope 1'
- * '<S15>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem/Scope 2'
- * '<S16>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem/damper'
- * '<S17>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero'
- * '<S18>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem/damper/Compare To Zero1'
- * '<S19>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem1/Subsystem'
- * '<S20>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem1/Subsystem1'
- * '<S21>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem1/Subsystem2'
- * '<S22>'  : 'Control_software_v1_1/Inputs/Analog Inputs'
- * '<S23>'  : 'Control_software_v1_1/Inputs/Digital Inputs'
- * '<S24>'  : 'Control_software_v1_1/Inputs/RS232_read'
- * '<S25>'  : 'Control_software_v1_1/Inputs/RS232_read/Compass_read'
- * '<S26>'  : 'Control_software_v1_1/Inputs/RS232_read/GPS_read'
- * '<S27>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read'
- * '<S28>'  : 'Control_software_v1_1/Inputs/RS232_read/QSC-100 F'
- * '<S29>'  : 'Control_software_v1_1/Inputs/RS232_read/Compass_read/Embedded MATLAB Function'
- * '<S30>'  : 'Control_software_v1_1/Inputs/RS232_read/GPS_read/Embedded MATLAB Function'
- * '<S31>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/Data_Check_CRC'
- * '<S32>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/Data_validation'
- * '<S33>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert'
- * '<S34>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/Data_Check_CRC/Embedded MATLAB Function'
- * '<S35>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1'
- * '<S36>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10'
- * '<S37>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12'
- * '<S38>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem14'
- * '<S39>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15'
- * '<S40>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16'
- * '<S41>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem17'
- * '<S42>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18'
- * '<S43>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem19'
- * '<S44>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6'
- * '<S45>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem8'
- * '<S46>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem9'
- * '<S47>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function'
- * '<S48>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function1'
- * '<S49>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function2'
- * '<S50>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10/Embedded MATLAB Function'
- * '<S51>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10/Embedded MATLAB Function1'
- * '<S52>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10/Embedded MATLAB Function3'
- * '<S53>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function'
- * '<S54>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function1'
- * '<S55>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function2'
- * '<S56>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function3'
- * '<S57>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function4'
- * '<S58>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function5'
- * '<S59>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function6'
- * '<S60>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem14/Embedded MATLAB Function'
- * '<S61>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15/Embedded MATLAB Function1'
- * '<S62>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15/Embedded MATLAB Function2'
- * '<S63>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15/Embedded MATLAB Function3'
- * '<S64>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16/Embedded MATLAB Function1'
- * '<S65>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16/Embedded MATLAB Function2'
- * '<S66>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16/Embedded MATLAB Function3'
- * '<S67>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16/Embedded MATLAB Function4'
- * '<S68>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem17/Embedded MATLAB Function2'
- * '<S69>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18/Embedded MATLAB Function'
- * '<S70>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18/Embedded MATLAB Function1'
- * '<S71>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18/Embedded MATLAB Function2'
- * '<S72>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem19/Embedded MATLAB Function'
- * '<S73>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem19/Embedded MATLAB Function1'
- * '<S74>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem19/Embedded MATLAB Function3'
- * '<S75>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6/Embedded MATLAB Function'
- * '<S76>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6/Embedded MATLAB Function1'
- * '<S77>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6/Embedded MATLAB Function3'
- * '<S78>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6/Embedded MATLAB Function4'
- * '<S79>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem8/Embedded MATLAB Function'
- * '<S80>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem8/Embedded MATLAB Function1'
- * '<S81>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem8/Embedded MATLAB Function3'
- * '<S82>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem9/Embedded MATLAB Function'
- * '<S83>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem9/Embedded MATLAB Function1'
- * '<S84>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem9/Embedded MATLAB Function3'
- * '<S85>'  : 'Control_software_v1_1/Inputs/RS232_read/QSC-100 F/RS232 ISR'
- * '<S86>'  : 'Control_software_v1_1/Inputs/RS232_read/QSC-100 F/RS232 ISR/While Iterator Subsystem'
- * '<S87>'  : 'Control_software_v1_1/Logging/Log_conditioning'
- * '<S88>'  : 'Control_software_v1_1/Logging/MavLink_log'
- * '<S89>'  : 'Control_software_v1_1/Logging/TS100_log'
- * '<S90>'  : 'Control_software_v1_1/Logging/TS1_log'
- * '<S91>'  : 'Control_software_v1_1/Logging/Time_Scope_trigger'
- * '<S92>'  : 'Control_software_v1_1/Logging/Time_log'
+ * '<S7>'   : 'Control_software_v1_1/Subsystem'
+ * '<S8>'   : 'Control_software_v1_1/High-level control/HLC_Parameters'
+ * '<S9>'   : 'Control_software_v1_1/High-level control/MATLAB Function'
+ * '<S10>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem'
+ * '<S11>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem1'
+ * '<S12>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem2'
+ * '<S13>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem1/Subsystem'
+ * '<S14>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem1/Subsystem1'
+ * '<S15>'  : 'Control_software_v1_1/Input conditioning and estimators/Subsystem1/Subsystem2'
+ * '<S16>'  : 'Control_software_v1_1/Inputs/Analog Inputs'
+ * '<S17>'  : 'Control_software_v1_1/Inputs/Digital Inputs'
+ * '<S18>'  : 'Control_software_v1_1/Inputs/RS232_read'
+ * '<S19>'  : 'Control_software_v1_1/Inputs/RS232_read/Compass_read'
+ * '<S20>'  : 'Control_software_v1_1/Inputs/RS232_read/GPS_read'
+ * '<S21>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read'
+ * '<S22>'  : 'Control_software_v1_1/Inputs/RS232_read/QSC-100 F'
+ * '<S23>'  : 'Control_software_v1_1/Inputs/RS232_read/Compass_read/Embedded MATLAB Function'
+ * '<S24>'  : 'Control_software_v1_1/Inputs/RS232_read/GPS_read/Embedded MATLAB Function'
+ * '<S25>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/Data_Check_CRC'
+ * '<S26>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/Data_validation'
+ * '<S27>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert'
+ * '<S28>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/Data_Check_CRC/Embedded MATLAB Function'
+ * '<S29>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1'
+ * '<S30>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10'
+ * '<S31>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12'
+ * '<S32>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem14'
+ * '<S33>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15'
+ * '<S34>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16'
+ * '<S35>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem17'
+ * '<S36>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18'
+ * '<S37>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem19'
+ * '<S38>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6'
+ * '<S39>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem8'
+ * '<S40>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem9'
+ * '<S41>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function'
+ * '<S42>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function1'
+ * '<S43>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem1/Embedded MATLAB Function2'
+ * '<S44>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10/Embedded MATLAB Function'
+ * '<S45>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10/Embedded MATLAB Function1'
+ * '<S46>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem10/Embedded MATLAB Function3'
+ * '<S47>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function'
+ * '<S48>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function1'
+ * '<S49>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function2'
+ * '<S50>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function3'
+ * '<S51>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function4'
+ * '<S52>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function5'
+ * '<S53>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem12/Embedded MATLAB Function6'
+ * '<S54>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem14/Embedded MATLAB Function'
+ * '<S55>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15/Embedded MATLAB Function1'
+ * '<S56>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15/Embedded MATLAB Function2'
+ * '<S57>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem15/Embedded MATLAB Function3'
+ * '<S58>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16/Embedded MATLAB Function1'
+ * '<S59>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16/Embedded MATLAB Function2'
+ * '<S60>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16/Embedded MATLAB Function3'
+ * '<S61>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem16/Embedded MATLAB Function4'
+ * '<S62>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem17/Embedded MATLAB Function2'
+ * '<S63>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18/Embedded MATLAB Function'
+ * '<S64>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18/Embedded MATLAB Function1'
+ * '<S65>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem18/Embedded MATLAB Function2'
+ * '<S66>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem19/Embedded MATLAB Function'
+ * '<S67>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem19/Embedded MATLAB Function1'
+ * '<S68>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem19/Embedded MATLAB Function3'
+ * '<S69>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6/Embedded MATLAB Function'
+ * '<S70>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6/Embedded MATLAB Function1'
+ * '<S71>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6/Embedded MATLAB Function3'
+ * '<S72>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem6/Embedded MATLAB Function4'
+ * '<S73>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem8/Embedded MATLAB Function'
+ * '<S74>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem8/Embedded MATLAB Function1'
+ * '<S75>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem8/Embedded MATLAB Function3'
+ * '<S76>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem9/Embedded MATLAB Function'
+ * '<S77>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem9/Embedded MATLAB Function1'
+ * '<S78>'  : 'Control_software_v1_1/Inputs/RS232_read/IMU_read/IMU_data_convert/Subsystem9/Embedded MATLAB Function3'
+ * '<S79>'  : 'Control_software_v1_1/Inputs/RS232_read/QSC-100 F/RS232 ISR'
+ * '<S80>'  : 'Control_software_v1_1/Inputs/RS232_read/QSC-100 F/RS232 ISR/While Iterator Subsystem'
+ * '<S81>'  : 'Control_software_v1_1/Logging/Log_conditioning'
+ * '<S82>'  : 'Control_software_v1_1/Logging/MavLink_log'
+ * '<S83>'  : 'Control_software_v1_1/Logging/TS100_log'
+ * '<S84>'  : 'Control_software_v1_1/Logging/TS1_log'
+ * '<S85>'  : 'Control_software_v1_1/Logging/Time_Scope_trigger'
+ * '<S86>'  : 'Control_software_v1_1/Logging/Time_log'
+ * '<S87>'  : 'Control_software_v1_1/Outputs/Scope '
+ * '<S88>'  : 'Control_software_v1_1/Subsystem/Emergency'
+ * '<S89>'  : 'Control_software_v1_1/Subsystem/Scope '
+ * '<S90>'  : 'Control_software_v1_1/Subsystem/Subsystem'
+ * '<S91>'  : 'Control_software_v1_1/Subsystem/Takeoff'
+ * '<S92>'  : 'Control_software_v1_1/Subsystem/Takeoff1'
+ * '<S93>'  : 'Control_software_v1_1/Subsystem/damper'
+ * '<S94>'  : 'Control_software_v1_1/Subsystem/Takeoff/Joystick-Steuerung'
+ * '<S95>'  : 'Control_software_v1_1/Subsystem/Takeoff/damper'
+ * '<S96>'  : 'Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero'
+ * '<S97>'  : 'Control_software_v1_1/Subsystem/Takeoff/damper/Compare To Zero1'
+ * '<S98>'  : 'Control_software_v1_1/Subsystem/Takeoff1/Joystick-Steuerung'
+ * '<S99>'  : 'Control_software_v1_1/Subsystem/Takeoff1/damper'
+ * '<S100>' : 'Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero'
+ * '<S101>' : 'Control_software_v1_1/Subsystem/Takeoff1/damper/Compare To Zero1'
+ * '<S102>' : 'Control_software_v1_1/Subsystem/damper/Compare To Zero'
+ * '<S103>' : 'Control_software_v1_1/Subsystem/damper/Compare To Zero1'
  */
 #endif                                 /* RTW_HEADER_Control_software_v1_1_h_ */
