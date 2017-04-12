@@ -44,6 +44,8 @@ void Control_software_v1_1_ChangeStepSize(real_T newBaseRateStepSize,
     Control_software_v1_1_M->Timing.stepSize2 * ratio;
   Control_software_v1_1_M->Timing.stepSize3 =
     Control_software_v1_1_M->Timing.stepSize3 * ratio;
+  Control_software_v1_1_M->Timing.stepSize4 =
+    Control_software_v1_1_M->Timing.stepSize4 * ratio;
   Control_software_v1_1_M->Timing.stepSize =
     Control_software_v1_1_M->Timing.stepSize * ratio;
 }

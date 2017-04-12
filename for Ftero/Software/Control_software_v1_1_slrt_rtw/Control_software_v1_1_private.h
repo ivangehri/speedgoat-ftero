@@ -7,9 +7,9 @@
  *
  * Code generation for model "Control_software_v1_1".
  *
- * Model version              : 1.1620
+ * Model version              : 1.1729
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Mon Mar 27 17:35:40 2017
+ * C source code generated on : Tue Apr 11 10:05:49 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -43,15 +43,19 @@ extern void fiforead(SimStruct *rts);
 extern void serwritequa(SimStruct *rts);
 extern void serreadqua(SimStruct *rts);
 extern void fifowrite(SimStruct *rts);
-extern void adnipcim(SimStruct *rts);
+extern void sg_IO751_setup_s(SimStruct *rts);
 extern void dinipcim(SimStruct *rts);
+extern void pfidonipcim(SimStruct *rts);
+extern void adnipcim(SimStruct *rts);
+extern void danipcim(SimStruct *rts);
+extern void donipcim(SimStruct *rts);
+extern void sg_IO751_send_s(SimStruct *rts);
+extern void sg_IO751_receive_s(SimStruct *rts);
+extern void xpcwalltime(SimStruct *rts);
 extern void pfidinipcim(SimStruct *rts);
 extern void fiforeadhdr(SimStruct *rts);
 extern void sertxenable(SimStruct *rts);
 extern void setupqua(SimStruct *rts);
-extern void pfidonipcim(SimStruct *rts);
-extern void danipcim(SimStruct *rts);
-extern void donipcim(SimStruct *rts);
 extern void Cont_EmbeddedMATLABFunction(const uint8_T rtu_in[4],
   B_EmbeddedMATLABFunction_Cont_T *localB);
 extern void Con_EmbeddedMATLABFunction1(uint8_T rtu_in,

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Control_software_v1_1".
  *
- * Model version              : 1.1620
+ * Model version              : 1.1729
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Mon Mar 27 17:35:40 2017
+ * C source code generated on : Tue Apr 11 10:05:49 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

@@ -68,10 +68,10 @@ MATLAB_BIN      = C:\Program Files\MATLAB\R2017a\bin
 ALT_MATLAB_BIN  = C:\PROGRA~1\MATLAB\R2017a\bin
 MASTER_ANCHOR_DIR = 
 START_DIR       = C:\Users\admin\DOCUME~1\GitHub\SPEEDG~1\FORFTE~1\Software
-S_FUNCTIONS     = adnipcim.c danipcim.c dinipcim.c donipcim.c fiforead.c fiforeadhdr.c fifowrite.c filterqua.c iqueryqua.c pfidinipcim.c pfidonipcim.c serreadqua.c sertxenable.c serwritequa.c setupqua.c xpcionim.c quatechinit.c
+S_FUNCTIONS     = adnipcim.c danipcim.c dinipcim.c donipcim.c fiforead.c fiforeadhdr.c fifowrite.c filterqua.c iqueryqua.c pfidinipcim.c pfidonipcim.c serreadqua.c sertxenable.c serwritequa.c setupqua.c sg_IO751_receive_s.c sg_IO751_send_s.c sg_IO751_setup_s.c xpcwalltime.c xpcionim.c quatechinit.c
 S_FUNCTIONS_LIB = 
-NUMST           = 4
-TID01EQ         = 0
+NUMST           = 5
+TID01EQ         = 1
 NCSTATES        = 0
 BUILDARGS       =  ISPROTECTINGMODEL=NOTPROTECTING EXT_MODE=1
 MULTITASKING    = 1
@@ -124,6 +124,7 @@ MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(START_DIR)
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\simulink\include\sf_runtime
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(START_DIR)\Control_software_v1_1_slrt_rtw
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\simulink\include\messages
+MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers\sg_blocks\cifx\include
 
 
 XPC_INCLUDES    = $(MATLAB_ROOT)\toolbox\rtw\targets\xpc\target\build\include;.
@@ -192,6 +193,11 @@ SHARED_OBJS = $(SHARED_BIN_DIR)\*.obj
 # ------------------------- Libraries ------------------------------
 LIBS =
 
+!if "$(OPT_OPTS)" == "$(DEFAULT_OPT_OPTS)"
+LIBS = $(LIBS) $(MATLAB_ROOT)\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers\sg_blocks\cifx\include\sg_netxLib_MSVC140_vc.lib
+!else
+LIBS = $(LIBS) sg_netxLib_MSVC140.lib
+!endif 
 
 LIBS = $(LIBS) xpcruntime.lib
 
@@ -244,6 +250,12 @@ xpcruntime.lib: xpcimports.obj xpcPCFunctions.obj
 {$(MATLAB_ROOT)\toolbox\rtw\targets\xpc\target\build\xpcblocks}.c.obj :
 	@cmd /C "echo ### Compiling $<"
 	$(CC) $(CFLAGS) $<
+{$(MATLAB_ROOT)\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers\sg_blocks\cifx}.c.obj :
+	@cmd /C "echo ### Compiling $<"
+	$(CC) $(CFLAGS) $<
+{$(START_DIR)\WallTime}.c.obj :
+	@cmd /C "echo ### Compiling $<"
+	$(CC) $(CFLAGS) $<
 {$(MATLAB_ROOT)\rtw\c\src}.c.obj :
 	@cmd /C "echo ### Compiling $<"
 	$(CC) $(CFLAGS) $<
@@ -253,6 +265,14 @@ xpcruntime.lib: xpcimports.obj xpcPCFunctions.obj
 
 
 {$(MATLAB_ROOT)\toolbox\rtw\targets\xpc\target\build\xpcblocks}.cpp.obj :
+	@cmd /C "echo ### Compiling $<"
+	$(CC) $(CPPFLAGS) $<
+
+{$(MATLAB_ROOT)\toolbox\rtw\targets\xpc\target\build\xpcblocks\thirdpartydrivers\sg_blocks\cifx}.cpp.obj :
+	@cmd /C "echo ### Compiling $<"
+	$(CC) $(CPPFLAGS) $<
+
+{$(START_DIR)\WallTime}.cpp.obj :
 	@cmd /C "echo ### Compiling $<"
 	$(CC) $(CPPFLAGS) $<
 
@@ -275,6 +295,15 @@ xpcruntime.lib: xpcimports.obj xpcPCFunctions.obj
 # Libraries:
 
 
+
+MODULES_sg_netxLib_MSVC140 = \
+	dummy.obj \
+
+
+sg_netxLib_MSVC140.lib : rtw_proj.tmw $(MAKEFILE) $(MODULES_sg_netxLib_MSVC140)
+	@cmd /C "echo ### Creating $@"
+	$(LIBCMD) /nologo /out:$@ $(MODULES_sg_netxLib_MSVC140)
+	@cmd /C "echo ### Created $@"
 
 
 
