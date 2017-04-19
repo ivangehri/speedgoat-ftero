@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+      		<SubSystem>
+		<Name>IO751</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751</xPCName>
+				<SubSystem>
+		<Name>Counter Free-Running2</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2</xPCName>
+				<SubSystem>
+		<Name>Increment
+Real World</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Increment Real World</xPCName>
+		
+		
+            <block>
+            <blkName>FixPt
+Constant</blkName>
+            <xpcblkName>IO751/Counter Free-Running2/Increment Real World/FixPt Constant</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Increment Real World/FixPt Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Increment Real World</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>FixPt
+Sum1</sigName>
+              <xpcsigName>IO751/Counter Free-Running2/Increment Real World/FixPt Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Increment Real World</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Wrap To Zero</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Wrap To Zero</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>IO751/Counter Free-Running2/Wrap To Zero/Constant</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Wrap To Zero/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Wrap To Zero</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>FixPt
+Switch</blkName>
+            <xpcblkName>IO751/Counter Free-Running2/Wrap To Zero/FixPt Switch</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Wrap To Zero/FixPt Switch</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Wrap To Zero</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>FixPt
+Switch</sigName>
+              <xpcsigName>IO751/Counter Free-Running2/Wrap To Zero/FixPt Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Wrap To Zero</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Wrap To Zero</blkName>
+            <xpcblkName>IO751/Counter Free-Running2/Wrap To Zero</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Wrap To Zero</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Output</blkName>
+            <xpcblkName>IO751/Counter Free-Running2/Output</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2/Output</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>IO751/Counter Free-Running2/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Counter Free-Running3</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3</xPCName>
+				<SubSystem>
+		<Name>Increment
+Real World</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Increment Real World</xPCName>
+		
+		
+            <block>
+            <blkName>FixPt
+Constant</blkName>
+            <xpcblkName>IO751/Counter Free-Running3/Increment Real World/FixPt Constant</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Increment Real World/FixPt Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Increment Real World</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>FixPt
+Sum1</sigName>
+              <xpcsigName>IO751/Counter Free-Running3/Increment Real World/FixPt Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Increment Real World</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Wrap To Zero</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Wrap To Zero</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>IO751/Counter Free-Running3/Wrap To Zero/Constant</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Wrap To Zero/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Wrap To Zero</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>FixPt
+Switch</blkName>
+            <xpcblkName>IO751/Counter Free-Running3/Wrap To Zero/FixPt Switch</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Wrap To Zero/FixPt Switch</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Wrap To Zero</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>FixPt
+Switch</sigName>
+              <xpcsigName>IO751/Counter Free-Running3/Wrap To Zero/FixPt Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Wrap To Zero</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Wrap To Zero</blkName>
+            <xpcblkName>IO751/Counter Free-Running3/Wrap To Zero</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Wrap To Zero</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Output</blkName>
+            <xpcblkName>IO751/Counter Free-Running3/Output</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3/Output</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>IO751/Counter Free-Running3/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751/Counter Free-Running3</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Scope (xPC) 2</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751/Scope (xPC) 2</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Scope (xPC) 5</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/IO751/Scope (xPC) 5</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>IO751/Constant</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>IO751/Constant1</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>PNM Receive</blkName>
+            <xpcblkName>IO751/PNM Receive</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/PNM Receive</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>PNM Send1</blkName>
+            <xpcblkName>IO751/PNM Send1</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/PNM Send1</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>PNM Setup1</blkName>
+            <xpcblkName>IO751/PNM Setup1</xpcblkName>
+            <SLblockPath>speedgoat_test_SN2593_R2016b/IO751/PNM Setup1</SLblockPath>
+            <isSrc>[0 0 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Byte Pack</sigName>
+              <xpcsigName>IO751/Byte Pack</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Byte Unpack1</sigName>
+              <xpcsigName>IO751/Byte Unpack1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>PNM Receive</sigName>
+              <xpcsigName>IO751/PNM Receive</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>speedgoat_test_SN2593_R2016b/IO751</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>info</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/info</xPCName>
+				<SubSystem>
+		<Name>EmptySubsystem</Name>
+		<xPCName>speedgoat_test_SN2593_R2016b/info/EmptySubsystem</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+
+      
+
+</Root>
