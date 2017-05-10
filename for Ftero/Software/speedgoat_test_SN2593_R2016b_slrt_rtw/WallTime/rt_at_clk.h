@@ -1,0 +1,49 @@
+/*
+ * rt_at_clk.h - Definitions of the ports, registers & bits for the real time AT clock
+ *
+ *
+ * Copyright 2009 The MathWorks, Inc.
+*/
+
+
+#define AT_RT_CLK_OUTPUT_PORT   0x70
+#define AT_RT_CLK_INPUT_PORT    0x71
+
+
+#define AT_RT_CLK_CURRENT_SECOND            0x00
+#define AT_RT_CLK_ALARM_SECOND              0x01
+#define AT_RT_CLK_CURRENT_MINUTE            0x02
+#define AT_RT_CLK_ALARM_MINUTE              0x03
+#define AT_RT_CLK_CURRENT_HOUR              0x04
+#define AT_RT_CLK_ALARM_HOUR                0x05
+#define AT_RT_CLK_DAY_OF_THE_WEEK           0x06
+#define AT_RT_CLK_NUMBER_OF_DAY             0x07
+#define AT_RT_CLK_MONTH                     0x08
+#define AT_RT_CLK_YEAR                      0x09
+#define AT_RT_CLK_CLOCK_STATUS_REGISTER_A   0x0A
+#define AT_RT_CLK_CLOCK_STATUS_REGISTER_B   0x0B
+#define AT_RT_CLK_CLOCK_STATUS_REGISTER_C   0x0C
+#define AT_RT_CLK_CLOCK_STATUS_REGISTER_D   0x0D
+#define AT_RT_CLK_CENTURY                   0x32
+
+
+#define AT_RT_CLK_STATUS_REGISTER_A_INTERRUPT_FREQUENCY   0x0F
+#define AT_RT_CLK_STATUS_REGISTER_A_TIME_FREQUENCY        0x70
+#define AT_RT_CLK_STATUS_REGISTER_A_UIP                   0x80
+
+#define AT_RT_CLK_STATUS_REGISTER_A_TIME_FREQUENCY_SHIFT   4
+
+#define AT_RT_CLK_STATUS_REGISTER_B_DAYLIGHT_SAVINGS_TIME           0x01
+#define AT_RT_CLK_STATUS_REGISTER_B_24_12_HOUR_COUNTER              0x02
+#define AT_RT_CLK_STATUS_REGISTER_B_TIME_AND_DATE_FORMAT            0x04
+#define AT_RT_CLK_STATUS_REGISTER_B_BLOCK_GENERATOR                 0x08
+#define AT_RT_CLK_STATUS_REGISTER_B_CALL_INTERRUPT_ON_TIME_UPDATE   0x10
+#define AT_RT_CLK_STATUS_REGISTER_B_CALL_ALARM_INTERRUPT            0x20
+#define AT_RT_CLK_STATUS_REGISTER_B_CALL_PERIODIC_INTERRUPT         0x40
+#define AT_RT_CLK_STATUS_REGISTER_B_UPDATE_TIME                     0x80
+
+#define AT_RT_CLK_STATUS_REGISTER_C_TIME_UPDATE_COMPLETE      0x10
+#define AT_RT_CLK_STATUS_REGISTER_C_ALARM_TIME_REACHED        0x20
+#define AT_RT_CLK_STATUS_REGISTER_C_PERIODIC_INTERRUPT_CALL   0x40
+
+#define AT_RT_CLK_STATUS_REGISTER_D_REALTIME_BATTERY_CLOCK_DEAD   0x80

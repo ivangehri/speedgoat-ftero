@@ -1,0 +1,20 @@
+Dim Velocity As Float
+Dim SpdRefInput As Float
+Dim EnInput As Float
+Dim Counter As Integer
+
+Const MaxTravel_m = 150
+Const MinTravel_m = -2
+Const DrumRadius = 0.1
+Const SpeedMax = 350000
+
+Counter = 0
+POS(0) = 0
+CONTROLMODE(0) = 2    '1= torque control, 2= velocity control, 3= Position control
+'DRIVESPEEDMAX(0) = SpeedMax
+DRIVEOVERLOADMODE(0) = _clFOLD_BACK
+DRIVEENABLE(0) = 1
+
+CONFIG(0) = 1
+
+VELREF(0)=50

@@ -1,0 +1,88 @@
+Dim Position As Float
+Dim PosOut As Float
+Dim Velocity As Float
+Dim SpdRefInput As Float
+Dim SpeedOut As Float
+Dim EnInput As Float
+Dim Counter As Integer
+
+Dim Text As String
+
+Const MaxTravel = 2668000
+Const MinTravel = -2668000'-1000
+Const SpeedMax = 350000
+
+
+Counter = 0
+POS(0) = 0
+CONTROLMODE(0) = 2    '1= torque control, 2= velocity control, 3= Position control
+DRIVESPEEDMAX(0) = SpeedMax
+DRIVEOVERLOADMODE(0) = _clFOLD_BACK
+DRIVEENABLE(0) = 1
+
+
+
+
+Loop
+  
+
+Velocity = -VEL(0)      'NB -1 for both position/speed measurement and reference current to invert motion!  
+SpdRefInput = ADC(0)    'liest geschw.-Vorgabe aus Matlab [-100 bis 100]
+  
+EnInput = ADC(1)      'liest DI_Enable
+Counter = Counter +1  
+
+Position = POS(0)
+
+PosOut = Max(MinTravel,Min(MaxTravel,Position))
+
+'DAC(0) = ((PosOut-MinTravel)/(MaxTravel-MinTravel))*100
+
+SpeedOut = SpdRefInput* 6325       ' Velocity = Velocity Input * Faktor
+
+If EnInput > 30 Then      'If DI_Enable==1
+  If Position < MinTravel Then
+    If SpdRefInput > 0 Then
+      VELREF(0)= SpeedOut
+      Text = "Go"
+    Else
+      VELREF(0)= 0
+      Text = "Stop"
+    End If
+  ElseIf Position > MaxTravel Then
+    If SpdRefInput < 0 Then
+      VELREF(0)= SpeedOut
+      Text = "Go"
+    Else
+      VELREF(0)= 0
+      Text = "Stop"
+    End If
+  
+  ElseIf MinTravel<Position<MaxTravel Then
+    VELREF(0)= SpeedOut
+    Text = "Go"
+  Else
+    VELREF(0)= 0
+    Text = "Stop"
+  End If  
+      
+Else
+  VELREF(0)= 0
+  Text = "Stop"
+End If
+
+
+
+Wait(1)
+
+
+If Counter >500  Then
+  Counter = 0
+  Print " Position = ", Position, "\0A\0D", _
+   " SpdRefInput = ", SpdRefInput, "\0A\0D", _
+   " EnInput = ", EnInput, "\0A\0D", _
+   " Text = ", Text, "\0A\0D"  
+End If  
+  
+
+End Loop

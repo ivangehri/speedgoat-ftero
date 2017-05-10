@@ -7,9 +7,9 @@
  *
  * Code generation for model "Analog_Solution".
  *
- * Model version              : 1.1800
+ * Model version              : 1.1983
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Apr 19 09:55:24 2017
+ * C source code generated on : Mon May 08 13:42:22 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1070,23 +1070,110 @@ P_Analog_Solution_T Analog_Solution_P = {
   { 82.0, 67.0, 86.0, 32.0, 99.0, 104.0, 97.0, 110.0, 110.0, 101.0, 108.0, 32.0,
     52.0, 44.0, 32.0, 73.0, 82.0, 81.0, 32.0, 65.0, 117.0, 116.0, 111.0, 32.0,
     40.0, 80.0, 67.0, 73.0, 32.0, 111.0, 110.0, 108.0, 121.0, 41.0 },
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S5>/Constant'
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S88>/Obere Grenze'
                                         */
   -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S6>/Gain1'
+                                        * Referenced by: '<S88>/Untere Grenze'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S88>/Constant5'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S5>/Constant4'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S6>/Constant12'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Constant11'
                                         */
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<S6>/Gain'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S6>/Constant1'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S7>/Gain'
+                                        * Referenced by: '<S6>/Switch7'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S88>/Constant1'
+                                        * Referenced by: '<S6>/Switch'
+                                        */
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S89>/Gain'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S5>/Constant2'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S5>/Constant8'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S5>/Constant7'
+                                        */
+  1.0E-5,                              /* Expression: 0.00001
+                                        * Referenced by: '<S5>/Constant6'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Constant10'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S6>/Constant9'
+                                        */
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S6>/Constant8'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Constant13'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S6>/Constant3'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Constant1'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S6>/Constant'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Switch2'
+                                        */
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S6>/Constant2'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/untere Spooling Grenze'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S6>/Const.'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S92>/Constant2'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S92>/Constant1'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S92>/Constant'
+                                        */
+  222.2,                               /* Expression: 222.2
+                                        * Referenced by: '<S6>/Umrechnung'
+                                        */
+  0.001,                               /* Expression: 0.001
+                                        * Referenced by: '<S92>/Sample Zeit'
+                                        */
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S95>/Gain'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S95>/Switch'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S7>/Constant'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S95>/Switch1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S8>/Constant1'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S8>/Constant'
@@ -1107,28 +1194,28 @@ P_Analog_Solution_T Analog_Solution_P = {
                                         * Referenced by: '<S8>/Switch'
                                         */
   -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S89>/Gain'
+                                        * Referenced by: '<S96>/Gain'
                                         */
   -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S93>/Gain'
+                                        * Referenced by: '<S102>/Gain'
                                         */
   -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S94>/Gain'
+                                        * Referenced by: '<S103>/Gain'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Switch6'
+                                        * Referenced by: '<S100>/Switch6'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Switch2'
+                                        * Referenced by: '<S100>/Switch2'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Switch3'
+                                        * Referenced by: '<S100>/Switch3'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Switch1'
+                                        * Referenced by: '<S100>/Switch1'
                                         */
   -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S92>/Gain'
+                                        * Referenced by: '<S101>/Gain'
                                         */
 
   /*  Computed Parameter: WallTime1_P1_Size
@@ -1203,7 +1290,7 @@ P_Analog_Solution_T Analog_Solution_P = {
   /*  Expression: range
    * Referenced by: '<S14>/PCI-6221 AD'
    */
-  { 1.0, 1.0, 0.0, 0.0, 1.0 },
+  { 1.0, 1.0, 0.0, 0.0, 0.0 },
 
   /*  Computed Parameter: PCI6221AD_P3_Size
    * Referenced by: '<S14>/PCI-6221 AD'
@@ -1213,7 +1300,7 @@ P_Analog_Solution_T Analog_Solution_P = {
   /*  Expression: coupling
    * Referenced by: '<S14>/PCI-6221 AD'
    */
-  { 3.0, 3.0, 1.0, 1.0, 3.0 },
+  { 3.0, 3.0, 1.0, 1.0, 1.0 },
 
   /*  Computed Parameter: PCI6221AD_P4_Size
    * Referenced by: '<S14>/PCI-6221 AD'
@@ -1255,7 +1342,7 @@ P_Analog_Solution_T Analog_Solution_P = {
   /*  Expression: channel
    * Referenced by: '<S15>/PCI-6221 DI'
    */
-  { 1.0, 2.0, 3.0, 4.0, 5.0, 7.0, 8.0 },
+  { 1.0, 2.0, 3.0, 4.0, 6.0, 8.0, 7.0 },
 
   /*  Computed Parameter: PCI6221DI_P2_Size
    * Referenced by: '<S15>/PCI-6221 DI'
@@ -1277,7 +1364,7 @@ P_Analog_Solution_T Analog_Solution_P = {
    * Referenced by: '<S15>/PCI-6221 DI'
    */
   { 1.0, 1.0 },
-  32.0,                                /* Expression: control
+  48.0,                                /* Expression: control
                                         * Referenced by: '<S15>/PCI-6221 DI'
                                         */
 
@@ -1287,6 +1374,177 @@ P_Analog_Solution_T Analog_Solution_P = {
   { 1.0, 1.0 },
   21.0,                                /* Expression: boardType
                                         * Referenced by: '<S15>/PCI-6221 DI'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S9>/Discrete Transfer Fcn'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S9>/Discrete Transfer Fcn1'
+                                        */
+  10.0,                                /* Expression: JoyW_sat
+                                        * Referenced by: '<S9>/Saturation1'
+                                        */
+  -10.0,                               /* Expression: -JoyW_sat
+                                        * Referenced by: '<S9>/Saturation1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S13>/Discrete Transfer Fcn'
+                                        */
+  0.5,                                 /* Expression: 0.5
+                                        * Referenced by: '<S13>/Switch'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S12>/Discrete Transfer Fcn1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S11>/Discrete Transfer Fcn1'
+                                        */
+  0.0,                                 /* Expression: 0.0
+                                        * Referenced by: '<S11>/Delay'
+                                        */
+  0.5,                                 /* Expression: 0.5
+                                        * Referenced by: '<S89>/Speed'
+                                        */
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S89>/untere Grenze'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S89>/obere Grenze'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S89>/Const'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Delay1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Constant14'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Switch3'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S6>/Constant4'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Constant6'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S6>/Delay'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S6>/Constant7'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S5>/Switch1'
+                                        */
+  0.00125,                             /* Expression: 0.00125
+                                        * Referenced by: '<S101>/Beschleunigung'
+                                        */
+  0.0003,                              /* Expression: 0.0003
+                                        * Referenced by: '<S96>/Beschleunigung'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S8>/Delay'
+                                        */
+  0.04,                                /* Expression: 0.04
+                                        * Referenced by: '<S96>/untere Kraftsensor Grenze'
+                                        */
+  0.04,                                /* Expression: 0.04
+                                        * Referenced by: '<S96>/obere Kraftsensor Grenze'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Delay3'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Delay1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Delay4'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S100>/Constant2'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Constant3'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Switch5'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Switch7'
+                                        */
+  0.00125,                             /* Expression: 0.00125
+                                        * Referenced by: '<S103>/Beschleunigung'
+                                        */
+  0.0006,                              /* Expression: 0.0006
+                                        * Referenced by: '<S102>/Beschleunigung'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S97>/Delay'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S8>/Switch2'
+                                        */
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S102>/untere Grenze'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S102>/obere Grenze'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S103>/Delay'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S105>/Constant'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S104>/Constant'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S103>/Constant1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S103>/Delay1'
+                                        */
+  0.213,                               /* Expression: 0.213
+                                        * Referenced by: '<S8>/konstante Ausrollgeschw.1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Delay2'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Switch4'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S100>/Switch'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S8>/Switch1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S101>/Delay'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S107>/Constant'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S106>/Constant'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S101>/Constant1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S101>/Delay1'
+                                        */
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S6>/Constant5'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S88>/Constant'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S5>/Switch2'
                                         */
 
   /*  Computed Parameter: PCI6221PFIDI_P1_Size
@@ -1327,147 +1585,6 @@ P_Analog_Solution_T Analog_Solution_P = {
   { 1.0, 1.0 },
   -1.0,                                /* Expression: slot
                                         * Referenced by: '<S15>/PCI 6221 PFI DI '
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S9>/Discrete Transfer Fcn'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S9>/Discrete Transfer Fcn1'
-                                        */
-  10.0,                                /* Expression: JoyW_sat
-                                        * Referenced by: '<S9>/Saturation1'
-                                        */
-  -10.0,                               /* Expression: -JoyW_sat
-                                        * Referenced by: '<S9>/Saturation1'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S13>/Discrete Transfer Fcn'
-                                        */
-  0.5,                                 /* Expression: 0.5
-                                        * Referenced by: '<S13>/Switch'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S12>/Discrete Transfer Fcn1'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S11>/Discrete Transfer Fcn1'
-                                        */
-  0.0,                                 /* Expression: 0.0
-                                        * Referenced by: '<S11>/Delay'
-                                        */
-  222.2,                               /* Expression: 222.2
-                                        * Referenced by: '<S7>/Umrechnung'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<S88>/Constant'
-                                        */
-  0.001,                               /* Expression: 0.001
-                                        * Referenced by: '<S88>/Sample Zeit'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S88>/Delay'
-                                        */
-  500000.0,                            /* Expression: 500000
-                                        * Referenced by: '<S7>/erste Spooling Grenze'
-                                        */
-  0.00125,                             /* Expression: 0.00125
-                                        * Referenced by: '<S92>/Beschleunigung'
-                                        */
-  0.00125,                             /* Expression: 0.00125
-                                        * Referenced by: '<S89>/Beschleunigung'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S8>/Delay'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S89>/untere Kraftsensor Grenze'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<S89>/obere Kraftsensor Grenze'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Delay3'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Delay1'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Delay4'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<S91>/Constant2'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Constant3'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Switch5'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Switch7'
-                                        */
-  0.00125,                             /* Expression: 0.00125
-                                        * Referenced by: '<S94>/Beschleunigung'
-                                        */
-  0.00125,                             /* Expression: 0.00125
-                                        * Referenced by: '<S93>/Beschleunigung'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S90>/Delay'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S93>/untere Grenze'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<S93>/obere Grenze'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S94>/Delay'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S96>/Constant'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S95>/Constant'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S94>/Constant1'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S94>/Delay1'
-                                        */
-  0.213,                               /* Expression: 0.213
-                                        * Referenced by: '<S8>/konstante Ausrollgeschw.1'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Delay2'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Switch4'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S91>/Switch'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S8>/Switch1'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S92>/Delay'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S98>/Constant'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S97>/Constant'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S92>/Constant1'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S92>/Delay1'
-                                        */
-  2.0,                                 /* Expression: 2
-                                        * Referenced by: '<S7>/zweite Spooling Grenze'
                                         */
 
   /*  Computed Parameter: FIFOASCIIread1_P1_Size
@@ -2395,30 +2512,51 @@ P_Analog_Solution_T Analog_Solution_P = {
   21.0,                                /* Expression: boardType
                                         * Referenced by: '<S5>/PCI-6221 DA'
                                         */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S95>/Constant1'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S94>/Constant1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S94>/Constant2'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S94>/Switch1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S94>/Delay'
+                                        */
 
   /*  Computed Parameter: PCI6221DO_P1_Size
    * Referenced by: '<S5>/PCI-6221 DO'
    */
-  { 1.0, 1.0 },
-  6.0,                                 /* Expression: channel
-                                        * Referenced by: '<S5>/PCI-6221 DO'
-                                        */
+  { 1.0, 2.0 },
+
+  /*  Expression: channel
+   * Referenced by: '<S5>/PCI-6221 DO'
+   */
+  { 5.0, 6.0 },
 
   /*  Computed Parameter: PCI6221DO_P2_Size
    * Referenced by: '<S5>/PCI-6221 DO'
    */
-  { 1.0, 1.0 },
-  0.0,                                 /* Expression: reset
-                                        * Referenced by: '<S5>/PCI-6221 DO'
-                                        */
+  { 1.0, 2.0 },
+
+  /*  Expression: reset
+   * Referenced by: '<S5>/PCI-6221 DO'
+   */
+  { 0.0, 0.0 },
 
   /*  Computed Parameter: PCI6221DO_P3_Size
    * Referenced by: '<S5>/PCI-6221 DO'
    */
-  { 1.0, 1.0 },
-  0.0,                                 /* Expression: initValue
-                                        * Referenced by: '<S5>/PCI-6221 DO'
-                                        */
+  { 1.0, 2.0 },
+
+  /*  Expression: initValue
+   * Referenced by: '<S5>/PCI-6221 DO'
+   */
+  { 0.0, 0.0 },
 
   /*  Computed Parameter: PCI6221DO_P4_Size
    * Referenced by: '<S5>/PCI-6221 DO'
@@ -2440,7 +2578,7 @@ P_Analog_Solution_T Analog_Solution_P = {
    * Referenced by: '<S5>/PCI-6221 DO'
    */
   { 1.0, 1.0 },
-  32.0,                                /* Expression: control
+  48.0,                                /* Expression: control
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
 
@@ -2452,22 +2590,28 @@ P_Analog_Solution_T Analog_Solution_P = {
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S6>/Delay'
+                                        * Referenced by: '<S92>/Delay'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S6>/Delay1'
+                                        * Referenced by: '<S95>/Constant'
                                         */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<S6>/Spooling Geschw.'
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S95>/Delay'
                                         */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<S6>/Umrechnung'
+  0.00727136,                          /* Expression: 0.00727136
+                                        * Referenced by: '<S93>/Gain'
                                         */
-  500.0,                               /* Expression: 500
-                                        * Referenced by: '<S6>/erste Grenze Spooling'
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S92>/Delay1'
+                                        */
+  19000.0,                             /* Expression: 19000
+                                        * Referenced by: '<S6>/erste Spooling Grenze'
                                         */
   2.0,                                 /* Expression: 2
-                                        * Referenced by: '<S6>/Gain2'
+                                        * Referenced by: '<S6>/zweite Spooling Grenze'
+                                        */
+  0.5,                                 /* Expression: 0.5
+                                        * Referenced by: '<S95>/Konstante Geschw. zum Spooling Grenze finden'
                                         */
   1U,                                  /* Computed Parameter: Constant1_Value_be
                                         * Referenced by: '<S78>/Constant1'
@@ -2478,56 +2622,65 @@ P_Analog_Solution_T Analog_Solution_P = {
   1U,                                  /* Computed Parameter: Constant3_Value_d
                                         * Referenced by: '<S78>/Constant3'
                                         */
-  1U,                                  /* Computed Parameter: Constant4_Value
+  1U,                                  /* Computed Parameter: Constant4_Value_b
                                         * Referenced by: '<S78>/Constant4'
                                         */
   255U,                                /* Expression: BitMask
                                         * Referenced by: '<S78>/Bitwise Logical Operator'
                                         */
-  0U,                                  /* Computed Parameter: Constant9_Value
+  0U,                                  /* Computed Parameter: Constant9_Value_o
                                         * Referenced by: '<S78>/Constant9'
                                         */
   3U,                                  /* Computed Parameter: Delay_DelayLength
                                         * Referenced by: '<S11>/Delay'
                                         */
-  1U,                                  /* Computed Parameter: Delay_DelayLength_o
-                                        * Referenced by: '<S88>/Delay'
+  1U,                                  /* Computed Parameter: Delay1_DelayLength
+                                        * Referenced by: '<S6>/Delay1'
+                                        */
+  1U,                                  /* Computed Parameter: Delay_DelayLength_c
+                                        * Referenced by: '<S6>/Delay'
                                         */
   1U,                                  /* Computed Parameter: Delay_DelayLength_l
                                         * Referenced by: '<S8>/Delay'
                                         */
   1U,                                  /* Computed Parameter: Delay3_DelayLength
-                                        * Referenced by: '<S91>/Delay3'
+                                        * Referenced by: '<S100>/Delay3'
                                         */
-  1U,                                  /* Computed Parameter: Delay1_DelayLength
-                                        * Referenced by: '<S91>/Delay1'
+  1U,                                  /* Computed Parameter: Delay1_DelayLength_d
+                                        * Referenced by: '<S100>/Delay1'
                                         */
   1U,                                  /* Computed Parameter: Delay4_DelayLength
-                                        * Referenced by: '<S91>/Delay4'
+                                        * Referenced by: '<S100>/Delay4'
                                         */
   1U,                                  /* Computed Parameter: Delay_DelayLength_g
-                                        * Referenced by: '<S90>/Delay'
+                                        * Referenced by: '<S97>/Delay'
                                         */
   1U,                                  /* Computed Parameter: Delay_DelayLength_a
-                                        * Referenced by: '<S94>/Delay'
+                                        * Referenced by: '<S103>/Delay'
                                         */
   1U,                                  /* Computed Parameter: Delay1_DelayLength_h
-                                        * Referenced by: '<S94>/Delay1'
+                                        * Referenced by: '<S103>/Delay1'
                                         */
   1U,                                  /* Computed Parameter: Delay2_DelayLength
-                                        * Referenced by: '<S91>/Delay2'
+                                        * Referenced by: '<S100>/Delay2'
                                         */
   1U,                                  /* Computed Parameter: Delay_DelayLength_n
-                                        * Referenced by: '<S92>/Delay'
+                                        * Referenced by: '<S101>/Delay'
                                         */
   1U,                                  /* Computed Parameter: Delay1_DelayLength_i
+                                        * Referenced by: '<S101>/Delay1'
+                                        */
+  1U,                                  /* Computed Parameter: Delay_DelayLength_gz
+                                        * Referenced by: '<S94>/Delay'
+                                        */
+  1U,                                  /* Computed Parameter: Delay_DelayLength_o
+                                        * Referenced by: '<S92>/Delay'
+                                        */
+  1U,                                  /* Computed Parameter: Delay_DelayLength_b
+                                        * Referenced by: '<S95>/Delay'
+                                        */
+  1U,                                  /* Computed Parameter: Delay1_DelayLength_f
                                         * Referenced by: '<S92>/Delay1'
-                                        */
-  1U,                                  /* Computed Parameter: Delay_DelayLength_h
-                                        * Referenced by: '<S6>/Delay'
-                                        */
-  1U,                                  /* Computed Parameter: Delay1_DelayLength_g
-                                        * Referenced by: '<S6>/Delay1'
                                         */
   0U,                                  /* Computed Parameter: Constant_Value_bd
                                         * Referenced by: '<S16>/Constant'
@@ -2538,7 +2691,10 @@ P_Analog_Solution_T Analog_Solution_P = {
   0U,                                  /* Computed Parameter: Constant2_Value_j
                                         * Referenced by: '<S16>/Constant2'
                                         */
-  0U                                   /* Computed Parameter: Constant3_Value_d2
+  0U,                                  /* Computed Parameter: Constant3_Value_d2
                                         * Referenced by: '<S16>/Constant3'
+                                        */
+  -128                                 /* Computed Parameter: Gain1_Gain
+                                        * Referenced by: '<S6>/Gain1'
                                         */
 };

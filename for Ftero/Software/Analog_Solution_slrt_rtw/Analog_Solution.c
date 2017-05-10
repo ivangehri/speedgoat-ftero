@@ -7,9 +7,9 @@
  *
  * Code generation for model "Analog_Solution".
  *
- * Model version              : 1.1800
+ * Model version              : 1.1983
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Apr 19 09:55:24 2017
+ * C source code generated on : Mon May 08 13:42:22 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -22,6 +22,8 @@
 #include "Analog_Solution_capi.h"
 #include "Analog_Solution.h"
 #include "Analog_Solution_private.h"
+
+const real_T Analog_Solution_RGND = 0.0;/* real_T ground */
 
 /* Block signals (auto storage) */
 B_Analog_Solution_T Analog_Solution_B;
@@ -936,7 +938,7 @@ void Analog_Solut_RS232ISR_Start(void)
   }
 
   /* Start for Constant: '<S78>/Constant4' */
-  Analog_Solution_B.Constant4 = Analog_Solution_P.Constant4_Value;
+  Analog_Solution_B.Constant4 = Analog_Solution_P.Constant4_Value_b;
 
   /* Start for S-Function (fiforead): '<S78>/FIFO read 4' */
   /* Level2 S-Function Block: '<S78>/FIFO read 4' (fiforead) */
@@ -1177,7 +1179,7 @@ void Analog_Solution_RS232ISR(void)
       sfcnOutputs(rts,4);
     }
 
-    Analog_Solution_B.Constant4 = Analog_Solution_P.Constant4_Value;
+    Analog_Solution_B.Constant4 = Analog_Solution_P.Constant4_Value_b;
 
     /* Level2 S-Function Block: '<S78>/FIFO read 4' (fiforead) */
     {
@@ -1277,16 +1279,16 @@ void Analog_Solution_RS232ISR(void)
     }
 
     Analog_Solution_B.RelationalOperator_m[0] =
-      (Analog_Solution_P.Constant9_Value !=
+      (Analog_Solution_P.Constant9_Value_o !=
        Analog_Solution_B.BitwiseLogicalOperator[0]);
     Analog_Solution_B.RelationalOperator_m[1] =
-      (Analog_Solution_P.Constant9_Value !=
+      (Analog_Solution_P.Constant9_Value_o !=
        Analog_Solution_B.BitwiseLogicalOperator[1]);
     Analog_Solution_B.RelationalOperator_m[2] =
-      (Analog_Solution_P.Constant9_Value !=
+      (Analog_Solution_P.Constant9_Value_o !=
        Analog_Solution_B.BitwiseLogicalOperator[2]);
     Analog_Solution_B.RelationalOperator_m[3] =
-      (Analog_Solution_P.Constant9_Value !=
+      (Analog_Solution_P.Constant9_Value_o !=
        Analog_Solution_B.BitwiseLogicalOperator[3]);
     Analog_Solution_B.LogicalOperator_c =
       (Analog_Solution_B.RelationalOperator_m[0] ||
@@ -1562,14 +1564,6 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (pfidinipcim): '<S15>/PCI 6221 PFI DI ' */
-
-  /* Level2 S-Function Block: '<S15>/PCI 6221 PFI DI ' (pfidinipcim) */
-  {
-    SimStruct *rts = Analog_Solution_M->childSfunctions[28];
-    sfcnOutputs(rts,0);
-  }
-
   /* Sum: '<S9>/Sum' incorporates:
    *  Constant: '<S9>/Constant'
    */
@@ -1681,12 +1675,12 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
    */
   if (Analog_Solution_B.DI_Enable > Analog_Solution_P.Switch_Threshold_h) {
     /* Gain: '<S10>/Gain' */
-    Analog_Solution_B.Gain_k4 = Analog_Solution_P.Gain_Gain *
+    Analog_Solution_B.Gain_k = Analog_Solution_P.Gain_Gain *
       Analog_Solution_B.CI_JoyW;
 
     /* Saturate: '<S13>/Saturation1' */
     y = -Analog_Solution_P.WinchRefSpdSup;
-    u0 = Analog_Solution_B.Gain_k4;
+    u0 = Analog_Solution_B.Gain_k;
     u2 = Analog_Solution_P.WinchRefSpdSup;
     if (u0 > u2) {
       Analog_Solution_B.Saturation1 = u2;
@@ -1762,7 +1756,7 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
 
   /* Gain: '<S11>/Gain' */
   Analog_Solution_B.Gain_f = Analog_Solution_P.Pot_gain *
-    Analog_Solution_B.AI_pot_pos;
+    Analog_Solution_B.AI_Kraftsensor;
 
   /* Sum: '<S11>/Sum' incorporates:
    *  Constant: '<S11>/Constant'
@@ -1812,122 +1806,227 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
   y = 1.0 / u0;
   Analog_Solution_B.CI_PotSpd = y * Analog_Solution_B.Sum1_b;
 
-  /* Gain: '<S7>/Umrechnung' */
-  Analog_Solution_B.WinchSpeedrads = Analog_Solution_P.Umrechnung_Gain *
-    Analog_Solution_B.AI_mot_SiemensMotor_Speed;
+  /* Delay: '<S6>/Delay1' */
+  Analog_Solution_B.Delay1 = Analog_Solution_DW.Delay1_DSTATE;
 
-  /* Abs: '<S88>/Abs' */
-  Analog_Solution_B.Abs = fabs(Analog_Solution_B.WinchSpeedrads);
-
-  /* RelationalOperator: '<S88>/Relational Operator' incorporates:
-   *  Constant: '<S88>/Constant'
+  /* RelationalOperator: '<S6>/Relational Operator3' incorporates:
+   *  Constant: '<S6>/Constant14'
    */
-  Analog_Solution_B.RelationalOperator = (Analog_Solution_B.Abs >=
-    Analog_Solution_P.Constant_Value_b);
+  Analog_Solution_B.RelationalOperator3 = (Analog_Solution_B.Delay1 ==
+    Analog_Solution_P.Constant14_Value);
 
-  /* Switch: '<S88>/Switch' incorporates:
-   *  Constant: '<S88>/Constant1'
+  /* Switch: '<S6>/Switch3' incorporates:
+   *  Constant: '<S6>/Constant2'
+   *  Switch: '<S6>/Switch2'
    */
-  if (Analog_Solution_B.RelationalOperator) {
-    Analog_Solution_B.Switch = Analog_Solution_B.WinchSpeedrads;
+  if (Analog_Solution_B.DI_SpoolingGrenze1 >
+      Analog_Solution_P.Switch3_Threshold_m) {
+    Analog_Solution_B.Switch3 = Analog_Solution_P.Constant2_Value_i;
   } else {
-    Analog_Solution_B.Switch = Analog_Solution_P.Constant1_Value_g;
+    if (Analog_Solution_B.DI_SpoolingGrenze2 >
+        Analog_Solution_P.Switch2_Threshold) {
+      /* Switch: '<S6>/Switch2' incorporates:
+       *  Constant: '<S6>/Constant'
+       */
+      Analog_Solution_B.Switch2_p = Analog_Solution_P.Constant_Value;
+    } else {
+      /* Switch: '<S6>/Switch2' incorporates:
+       *  Constant: '<S6>/Constant1'
+       */
+      Analog_Solution_B.Switch2_p = Analog_Solution_P.Constant1_Value;
+    }
+
+    Analog_Solution_B.Switch3 = Analog_Solution_B.Switch2_p;
   }
 
-  /* End of Switch: '<S88>/Switch' */
+  /* End of Switch: '<S6>/Switch3' */
 
-  /* Gain: '<S88>/Sample Zeit' */
-  Analog_Solution_B.UmdrehungSampleTime = Analog_Solution_P.SampleZeit_Gain *
-    Analog_Solution_B.Switch;
-
-  /* Delay: '<S88>/Delay' */
-  Analog_Solution_B.Delay_e = Analog_Solution_DW.Delay_DSTATE_j;
-
-  /* Sum: '<S88>/Sum' */
-  Analog_Solution_B.Sum_bi = Analog_Solution_B.UmdrehungSampleTime +
-    Analog_Solution_B.Delay_e;
-
-  /* RelationalOperator: '<S7>/Relational Operator' incorporates:
-   *  Constant: '<S7>/erste Spooling Grenze'
+  /* RelationalOperator: '<S6>/Relational Operator5' incorporates:
+   *  Constant: '<S6>/Constant4'
    */
-  Analog_Solution_B.RelationalOperator_l = (Analog_Solution_B.Sum_bi <
-    Analog_Solution_P.ersteSpoolingGrenze_Value);
+  Analog_Solution_B.RelationalOperator5 = (Analog_Solution_B.Switch3 ==
+    Analog_Solution_P.Constant4_Value_e);
 
-  /* Switch: '<S7>/Switch' */
-  if (Analog_Solution_B.RelationalOperator_l) {
-    Analog_Solution_B.Switch_k = Analog_Solution_B.AI_mot_SiemensMotor_Speed;
+  /* Delay: '<S6>/Delay' */
+  Analog_Solution_B.Delay_b = Analog_Solution_DW.Delay_DSTATE_c;
+
+  /* RelationalOperator: '<S6>/Relational Operator7' incorporates:
+   *  Constant: '<S6>/Constant6'
+   */
+  Analog_Solution_B.RelationalOperator7 = (Analog_Solution_P.Constant6_Value_h ==
+    Analog_Solution_B.Delay_b);
+
+  /* Logic: '<S6>/Logical Operator' */
+  Analog_Solution_B.LogicalOperator = (Analog_Solution_B.RelationalOperator3 &&
+    Analog_Solution_B.RelationalOperator5 &&
+    Analog_Solution_B.RelationalOperator7);
+
+  /* RelationalOperator: '<S6>/Relational Operator8' incorporates:
+   *  Constant: '<S6>/Constant7'
+   */
+  Analog_Solution_B.RelationalOperator8 = (Analog_Solution_P.Constant7_Value_m ==
+    Analog_Solution_B.Delay_b);
+
+  /* Switch: '<S6>/Switch4' incorporates:
+   *  Constant: '<S6>/Constant3'
+   */
+  if (Analog_Solution_B.LogicalOperator) {
+    Analog_Solution_B.SpoolingEbene = Analog_Solution_P.Constant3_Value;
   } else {
-    /* Gain: '<S7>/Gain' */
-    Analog_Solution_B.Gain_b = Analog_Solution_P.Gain_Gain_j *
-      Analog_Solution_B.AI_mot_SiemensMotor_Speed;
-    Analog_Solution_B.Switch_k = Analog_Solution_B.Gain_b;
+    /* Logic: '<S6>/Logical Operator3' */
+    Analog_Solution_B.LogicalOperator3_o =
+      (Analog_Solution_B.RelationalOperator8 &&
+       Analog_Solution_B.RelationalOperator5 &&
+       Analog_Solution_B.RelationalOperator3);
+
+    /* Switch: '<S6>/Switch8' incorporates:
+     *  Constant: '<S6>/Constant13'
+     */
+    if (Analog_Solution_B.LogicalOperator3_o) {
+      Analog_Solution_B.Switch8_c = Analog_Solution_P.Constant13_Value;
+    } else {
+      Analog_Solution_B.Switch8_c = Analog_Solution_B.Delay_b;
+    }
+
+    /* End of Switch: '<S6>/Switch8' */
+    Analog_Solution_B.SpoolingEbene = Analog_Solution_B.Switch8_c;
   }
 
-  /* End of Switch: '<S7>/Switch' */
+  /* End of Switch: '<S6>/Switch4' */
 
-  /* Saturate: '<S5>/Saturation1' */
-  y = -Analog_Solution_P.AOsat;
-  u0 = Analog_Solution_B.Switch_k;
-  u2 = Analog_Solution_P.AOsat;
-  if (u0 > u2) {
-    Analog_Solution_B.SpoolingOutput = u2;
-  } else if (u0 < y) {
-    Analog_Solution_B.SpoolingOutput = y;
+  /* Switch: '<S5>/Switch1' incorporates:
+   *  Switch: '<S6>/Switch7'
+   */
+  if (Analog_Solution_B.DI_Takeoff > Analog_Solution_P.Switch1_Threshold_g) {
+    /* RelationalOperator: '<S89>/Relational Operator1' incorporates:
+     *  Constant: '<S89>/untere Grenze'
+     */
+    Analog_Solution_B.RelationalOperator1_j = (Analog_Solution_B.CI_JoyW <
+      Analog_Solution_P.untereGrenze_Value);
+
+    /* Switch: '<S89>/Switch1' */
+    if (Analog_Solution_B.RelationalOperator1_j) {
+      /* Gain: '<S89>/Gain' incorporates:
+       *  Constant: '<S89>/Speed'
+       */
+      Analog_Solution_B.Gain_o = Analog_Solution_P.Gain_Gain_d *
+        Analog_Solution_P.Speed_Value;
+      Analog_Solution_B.Switch1_j = Analog_Solution_B.Gain_o;
+    } else {
+      /* RelationalOperator: '<S89>/Relational Operator' incorporates:
+       *  Constant: '<S89>/obere Grenze'
+       */
+      Analog_Solution_B.RelationalOperator_f = (Analog_Solution_B.CI_JoyW >=
+        Analog_Solution_P.obereGrenze_Value);
+
+      /* Switch: '<S89>/Switch' incorporates:
+       *  Constant: '<S89>/Const'
+       *  Constant: '<S89>/Speed'
+       */
+      if (Analog_Solution_B.RelationalOperator_f) {
+        Analog_Solution_B.Switch_e = Analog_Solution_P.Speed_Value;
+      } else {
+        Analog_Solution_B.Switch_e = Analog_Solution_P.Const_Value_n;
+      }
+
+      /* End of Switch: '<S89>/Switch' */
+      Analog_Solution_B.Switch1_j = Analog_Solution_B.Switch_e;
+    }
+
+    /* End of Switch: '<S89>/Switch1' */
+    Analog_Solution_B.SpoolingOut = Analog_Solution_B.Switch1_j;
   } else {
-    Analog_Solution_B.SpoolingOutput = u0;
+    if (Analog_Solution_B.SpoolingEbene > Analog_Solution_P.Switch7_Threshold) {
+      /* Switch: '<S6>/Switch7' incorporates:
+       *  Constant: '<S6>/Constant11'
+       */
+      Analog_Solution_B.Switch7_i = Analog_Solution_P.Constant11_Value;
+    } else {
+      /* Switch: '<S6>/Switch7' incorporates:
+       *  Constant: '<S6>/Constant12'
+       */
+      Analog_Solution_B.Switch7_i = Analog_Solution_P.Constant12_Value;
+    }
+
+    /* Switch: '<S6>/Switch' */
+    if (Analog_Solution_B.Switch7_i > Analog_Solution_P.Switch_Threshold) {
+      Analog_Solution_B.Switch_kf = Analog_Solution_B.AI_mot_SiemensMotor_Speed;
+    } else {
+      /* Gain: '<S6>/Gain' */
+      Analog_Solution_B.Gain_b = Analog_Solution_P.Gain_Gain_j *
+        Analog_Solution_B.AI_mot_SiemensMotor_Speed;
+      Analog_Solution_B.Switch_kf = Analog_Solution_B.Gain_b;
+    }
+
+    /* End of Switch: '<S6>/Switch' */
+
+    /* Saturate: '<S5>/Saturation1' */
+    y = -Analog_Solution_P.AOsat;
+    u0 = Analog_Solution_B.Switch_kf;
+    u2 = Analog_Solution_P.AOsat;
+    if (u0 > u2) {
+      Analog_Solution_B.SpoolingOutput = u2;
+    } else if (u0 < y) {
+      Analog_Solution_B.SpoolingOutput = y;
+    } else {
+      Analog_Solution_B.SpoolingOutput = u0;
+    }
+
+    /* End of Saturate: '<S5>/Saturation1' */
+    Analog_Solution_B.SpoolingOut = Analog_Solution_B.SpoolingOutput;
   }
 
-  /* End of Saturate: '<S5>/Saturation1' */
+  /* End of Switch: '<S5>/Switch1' */
 
   /* Delay: '<S8>/Delay' */
   Analog_Solution_B.Delay_c = Analog_Solution_DW.Delay_DSTATE_h;
 
-  /* Delay: '<S91>/Delay3' */
+  /* Delay: '<S100>/Delay3' */
   Analog_Solution_B.Delay3 = Analog_Solution_DW.Delay3_DSTATE;
 
-  /* Delay: '<S91>/Delay1' */
-  Analog_Solution_B.Delay1 = Analog_Solution_DW.Delay1_DSTATE;
+  /* Delay: '<S100>/Delay1' */
+  Analog_Solution_B.Delay1_m = Analog_Solution_DW.Delay1_DSTATE_p;
 
-  /* Delay: '<S91>/Delay4' */
+  /* Delay: '<S100>/Delay4' */
   Analog_Solution_B.Delay4 = Analog_Solution_DW.Delay4_DSTATE;
 
-  /* Switch: '<S91>/Switch5' incorporates:
-   *  Constant: '<S91>/Constant3'
+  /* Switch: '<S100>/Switch5' incorporates:
+   *  Constant: '<S100>/Constant3'
    */
   if (Analog_Solution_B.DI_Enable > Analog_Solution_P.Switch5_Threshold) {
-    /* Switch: '<S91>/Switch2' incorporates:
-     *  Constant: '<S91>/Constant2'
-     *  Constant: '<S91>/Constant3'
+    /* Switch: '<S100>/Switch2' incorporates:
+     *  Constant: '<S100>/Constant2'
+     *  Constant: '<S100>/Constant3'
      */
-    if (Analog_Solution_B.DI_WinchMode > Analog_Solution_P.Switch2_Threshold) {
-      Analog_Solution_B.Switch2_n = Analog_Solution_P.Constant2_Value_k;
+    if (Analog_Solution_B.DI_Operator > Analog_Solution_P.Switch2_Threshold_n) {
+      Analog_Solution_B.Switch2_nt = Analog_Solution_P.Constant2_Value_k;
     } else {
-      Analog_Solution_B.Switch2_n = Analog_Solution_P.Constant3_Value_j;
+      Analog_Solution_B.Switch2_nt = Analog_Solution_P.Constant3_Value_j;
     }
 
-    /* End of Switch: '<S91>/Switch2' */
-    Analog_Solution_B.Switch5 = Analog_Solution_B.Switch2_n;
+    /* End of Switch: '<S100>/Switch2' */
+    Analog_Solution_B.Switch5 = Analog_Solution_B.Switch2_nt;
   } else {
     Analog_Solution_B.Switch5 = Analog_Solution_P.Constant3_Value_j;
   }
 
-  /* End of Switch: '<S91>/Switch5' */
+  /* End of Switch: '<S100>/Switch5' */
 
-  /* Switch: '<S91>/Switch7' incorporates:
-   *  Constant: '<S91>/Constant3'
-   *  Switch: '<S91>/Switch6'
+  /* Switch: '<S100>/Switch7' incorporates:
+   *  Constant: '<S100>/Constant3'
+   *  Switch: '<S100>/Switch6'
    */
-  if (Analog_Solution_B.DI_Enable > Analog_Solution_P.Switch7_Threshold) {
+  if (Analog_Solution_B.DI_Enable > Analog_Solution_P.Switch7_Threshold_o) {
     Analog_Solution_B.Switch7 = Analog_Solution_P.Constant3_Value_j;
   } else {
-    if (Analog_Solution_B.DI_WinchMode > Analog_Solution_P.Switch6_Threshold) {
-      /* Switch: '<S91>/Switch6' incorporates:
-       *  Constant: '<S91>/Constant2'
+    if (Analog_Solution_B.DI_Operator > Analog_Solution_P.Switch6_Threshold) {
+      /* Switch: '<S100>/Switch6' incorporates:
+       *  Constant: '<S100>/Constant2'
        */
       Analog_Solution_B.Switch6 = Analog_Solution_P.Constant2_Value_k;
     } else {
-      /* Switch: '<S91>/Switch6' incorporates:
-       *  Constant: '<S91>/Constant3'
+      /* Switch: '<S100>/Switch6' incorporates:
+       *  Constant: '<S100>/Constant3'
        */
       Analog_Solution_B.Switch6 = Analog_Solution_P.Constant3_Value_j;
     }
@@ -1935,85 +2034,96 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
     Analog_Solution_B.Switch7 = Analog_Solution_B.Switch6;
   }
 
-  /* End of Switch: '<S91>/Switch7' */
+  /* End of Switch: '<S100>/Switch7' */
 
-  /* Delay: '<S90>/Delay' */
+  /* Delay: '<S97>/Delay' */
   Analog_Solution_B.Delay_k = Analog_Solution_DW.Delay_DSTATE_p;
 
-  /* RelationalOperator: '<S93>/Relational Operator1' incorporates:
-   *  Constant: '<S93>/untere Grenze'
+  /* Switch: '<S8>/Switch2' incorporates:
+   *  Constant: '<S8>/Constant1'
    */
-  Analog_Solution_B.RelationalOperator1 = (Analog_Solution_B.CI_JoyW <
-    Analog_Solution_P.untereGrenze_Value);
+  if (Analog_Solution_B.DI_Takeoff > Analog_Solution_P.Switch2_Threshold_h) {
+    Analog_Solution_B.Switch2 = Analog_Solution_P.Constant1_Value_p;
+  } else {
+    Analog_Solution_B.Switch2 = Analog_Solution_B.CI_JoyW;
+  }
 
-  /* Switch: '<S93>/Switch1' */
+  /* End of Switch: '<S8>/Switch2' */
+
+  /* RelationalOperator: '<S102>/Relational Operator1' incorporates:
+   *  Constant: '<S102>/untere Grenze'
+   */
+  Analog_Solution_B.RelationalOperator1 = (Analog_Solution_B.Switch2 <
+    Analog_Solution_P.untereGrenze_Value_p);
+
+  /* Switch: '<S102>/Switch1' */
   if (Analog_Solution_B.RelationalOperator1) {
-    /* Gain: '<S93>/Gain' incorporates:
-     *  Constant: '<S93>/Beschleunigung'
+    /* Gain: '<S102>/Gain' incorporates:
+     *  Constant: '<S102>/Beschleunigung'
      */
     Analog_Solution_B.Gain_mz = Analog_Solution_P.Gain_Gain_a *
       Analog_Solution_P.Beschleunigung_Value_i;
 
-    /* Sum: '<S93>/Sum1' */
+    /* Sum: '<S102>/Sum1' */
     Analog_Solution_B.Sum1_k = Analog_Solution_B.Gain_mz +
       Analog_Solution_B.Delay_k;
     Analog_Solution_B.Switch1 = Analog_Solution_B.Sum1_k;
   } else {
-    /* RelationalOperator: '<S93>/Relational Operator' incorporates:
-     *  Constant: '<S93>/obere Grenze'
+    /* RelationalOperator: '<S102>/Relational Operator' incorporates:
+     *  Constant: '<S102>/obere Grenze'
      */
-    Analog_Solution_B.RelationalOperator_a = (Analog_Solution_B.CI_JoyW >=
-      Analog_Solution_P.obereGrenze_Value);
+    Analog_Solution_B.RelationalOperator_a = (Analog_Solution_B.Switch2 >=
+      Analog_Solution_P.obereGrenze_Value_p);
 
-    /* Switch: '<S93>/Switch' */
+    /* Switch: '<S102>/Switch' */
     if (Analog_Solution_B.RelationalOperator_a) {
-      /* Sum: '<S93>/Sum' incorporates:
-       *  Constant: '<S93>/Beschleunigung'
+      /* Sum: '<S102>/Sum' incorporates:
+       *  Constant: '<S102>/Beschleunigung'
        */
       Analog_Solution_B.Sum_my = Analog_Solution_P.Beschleunigung_Value_i +
         Analog_Solution_B.Delay_k;
-      Analog_Solution_B.Switch_kw = Analog_Solution_B.Sum_my;
+      Analog_Solution_B.Switch_k = Analog_Solution_B.Sum_my;
     } else {
-      Analog_Solution_B.Switch_kw = Analog_Solution_B.Delay_k;
+      Analog_Solution_B.Switch_k = Analog_Solution_B.Delay_k;
     }
 
-    /* End of Switch: '<S93>/Switch' */
-    Analog_Solution_B.Switch1 = Analog_Solution_B.Switch_kw;
+    /* End of Switch: '<S102>/Switch' */
+    Analog_Solution_B.Switch1 = Analog_Solution_B.Switch_k;
   }
 
-  /* End of Switch: '<S93>/Switch1' */
+  /* End of Switch: '<S102>/Switch1' */
 
-  /* Delay: '<S94>/Delay' */
+  /* Delay: '<S103>/Delay' */
   Analog_Solution_B.Delay_c3 = Analog_Solution_DW.Delay_DSTATE_p2;
 
-  /* Sum: '<S94>/Sum' */
+  /* Sum: '<S103>/Sum' */
   Analog_Solution_B.Sum_j = Analog_Solution_B.Switch1 -
     Analog_Solution_B.Delay_c3;
 
-  /* RelationalOperator: '<S96>/Compare' incorporates:
-   *  Constant: '<S96>/Constant'
+  /* RelationalOperator: '<S105>/Compare' incorporates:
+   *  Constant: '<S105>/Constant'
    */
   Analog_Solution_B.Compare = (Analog_Solution_B.Sum_j <
     Analog_Solution_P.Constant_Value_m);
 
-  /* Switch: '<S94>/Switch1' */
+  /* Switch: '<S103>/Switch1' */
   if (Analog_Solution_B.Compare) {
-    /* Gain: '<S94>/Gain' incorporates:
-     *  Constant: '<S94>/Beschleunigung'
+    /* Gain: '<S103>/Gain' incorporates:
+     *  Constant: '<S103>/Beschleunigung'
      */
     Analog_Solution_B.Gain_mu = Analog_Solution_P.Gain_Gain_e *
       Analog_Solution_P.Beschleunigung_Value_p;
     Analog_Solution_B.Switch1_i = Analog_Solution_B.Gain_mu;
   } else {
-    /* RelationalOperator: '<S95>/Compare' incorporates:
-     *  Constant: '<S95>/Constant'
+    /* RelationalOperator: '<S104>/Compare' incorporates:
+     *  Constant: '<S104>/Constant'
      */
     Analog_Solution_B.Compare_b = (Analog_Solution_B.Sum_j >
       Analog_Solution_P.Constant_Value_h);
 
-    /* Switch: '<S94>/Switch' incorporates:
-     *  Constant: '<S94>/Beschleunigung'
-     *  Constant: '<S94>/Constant1'
+    /* Switch: '<S103>/Switch' incorporates:
+     *  Constant: '<S103>/Beschleunigung'
+     *  Constant: '<S103>/Constant1'
      */
     if (Analog_Solution_B.Compare_b) {
       Analog_Solution_B.Switch_d = Analog_Solution_P.Beschleunigung_Value_p;
@@ -2021,16 +2131,16 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
       Analog_Solution_B.Switch_d = Analog_Solution_P.Constant1_Value_pr;
     }
 
-    /* End of Switch: '<S94>/Switch' */
+    /* End of Switch: '<S103>/Switch' */
     Analog_Solution_B.Switch1_i = Analog_Solution_B.Switch_d;
   }
 
-  /* End of Switch: '<S94>/Switch1' */
+  /* End of Switch: '<S103>/Switch1' */
 
-  /* Delay: '<S94>/Delay1' */
+  /* Delay: '<S103>/Delay1' */
   Analog_Solution_B.Delay1_h = Analog_Solution_DW.Delay1_DSTATE_b;
 
-  /* Sum: '<S94>/Sum1' */
+  /* Sum: '<S103>/Sum1' */
   Analog_Solution_B.Sum1_l = Analog_Solution_B.Switch1_i +
     Analog_Solution_B.Delay1_h;
 
@@ -2040,88 +2150,88 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
   Analog_Solution_B.Sum2 = Analog_Solution_B.Sum1_l +
     Analog_Solution_P.konstanteAusrollgeschw1_Value;
 
-  /* Delay: '<S91>/Delay2' */
+  /* Delay: '<S100>/Delay2' */
   Analog_Solution_B.Delay2 = Analog_Solution_DW.Delay2_DSTATE;
 
-  /* Switch: '<S91>/Switch4' incorporates:
-   *  Constant: '<S91>/Constant3'
+  /* Switch: '<S100>/Switch4' incorporates:
+   *  Constant: '<S100>/Constant3'
    */
   if (Analog_Solution_B.DI_Enable > Analog_Solution_P.Switch4_Threshold) {
-    /* Switch: '<S91>/Switch3' incorporates:
-     *  Constant: '<S91>/Constant2'
-     *  Constant: '<S91>/Constant3'
+    /* Switch: '<S100>/Switch3' incorporates:
+     *  Constant: '<S100>/Constant2'
+     *  Constant: '<S100>/Constant3'
      */
-    if (Analog_Solution_B.DI_WinchMode > Analog_Solution_P.Switch3_Threshold) {
+    if (Analog_Solution_B.DI_Operator > Analog_Solution_P.Switch3_Threshold) {
       Analog_Solution_B.Switch3_b = Analog_Solution_P.Constant3_Value_j;
     } else {
       Analog_Solution_B.Switch3_b = Analog_Solution_P.Constant2_Value_k;
     }
 
-    /* End of Switch: '<S91>/Switch3' */
+    /* End of Switch: '<S100>/Switch3' */
     Analog_Solution_B.Switch4 = Analog_Solution_B.Switch3_b;
   } else {
     Analog_Solution_B.Switch4 = Analog_Solution_P.Constant3_Value_j;
   }
 
-  /* End of Switch: '<S91>/Switch4' */
+  /* End of Switch: '<S100>/Switch4' */
 
-  /* Switch: '<S91>/Switch' incorporates:
-   *  Constant: '<S91>/Constant3'
-   *  Switch: '<S91>/Switch1'
+  /* Switch: '<S100>/Switch' incorporates:
+   *  Constant: '<S100>/Constant3'
+   *  Switch: '<S100>/Switch1'
    */
   if (Analog_Solution_B.DI_Enable > Analog_Solution_P.Switch_Threshold_h2) {
-    Analog_Solution_B.Switch_m = Analog_Solution_P.Constant3_Value_j;
+    Analog_Solution_B.Switch = Analog_Solution_P.Constant3_Value_j;
   } else {
-    if (Analog_Solution_B.DI_WinchMode > Analog_Solution_P.Switch1_Threshold) {
-      /* Switch: '<S91>/Switch1' incorporates:
-       *  Constant: '<S91>/Constant3'
+    if (Analog_Solution_B.DI_Operator > Analog_Solution_P.Switch1_Threshold_e) {
+      /* Switch: '<S100>/Switch1' incorporates:
+       *  Constant: '<S100>/Constant3'
        */
       Analog_Solution_B.Switch1_p = Analog_Solution_P.Constant3_Value_j;
     } else {
-      /* Switch: '<S91>/Switch1' incorporates:
-       *  Constant: '<S91>/Constant2'
+      /* Switch: '<S100>/Switch1' incorporates:
+       *  Constant: '<S100>/Constant2'
        */
       Analog_Solution_B.Switch1_p = Analog_Solution_P.Constant2_Value_k;
     }
 
-    Analog_Solution_B.Switch_m = Analog_Solution_B.Switch1_p;
+    Analog_Solution_B.Switch = Analog_Solution_B.Switch1_p;
   }
 
-  /* End of Switch: '<S91>/Switch' */
+  /* End of Switch: '<S100>/Switch' */
 
   /* Switch: '<S8>/Switch1' incorporates:
    *  Switch: '<S8>/Switch'
    */
-  if (Analog_Solution_B.DI_Landing > Analog_Solution_P.Switch1_Threshold_f) {
-    /* RelationalOperator: '<S89>/Relational Operator1' incorporates:
-     *  Constant: '<S89>/untere Kraftsensor Grenze'
+  if (Analog_Solution_B.DI_WinchMode > Analog_Solution_P.Switch1_Threshold_f) {
+    /* RelationalOperator: '<S96>/Relational Operator1' incorporates:
+     *  Constant: '<S96>/untere Kraftsensor Grenze'
      */
-    Analog_Solution_B.RelationalOperator1_b = (0.0 <
+    Analog_Solution_B.RelationalOperator1_b = (Analog_Solution_B.AI_Kraftsensor <
       Analog_Solution_P.untereKraftsensorGrenze_Value);
 
-    /* Switch: '<S89>/Switch1' */
+    /* Switch: '<S96>/Switch1' */
     if (Analog_Solution_B.RelationalOperator1_b) {
-      /* Gain: '<S89>/Gain' incorporates:
-       *  Constant: '<S89>/Beschleunigung'
+      /* Gain: '<S96>/Gain' incorporates:
+       *  Constant: '<S96>/Beschleunigung'
        */
-      Analog_Solution_B.Gain_j = Analog_Solution_P.Gain_Gain_p *
+      Analog_Solution_B.Gain_jo = Analog_Solution_P.Gain_Gain_p *
         Analog_Solution_P.Beschleunigung_Value_o;
 
-      /* Sum: '<S89>/Sum1' */
-      Analog_Solution_B.Sum1_j = Analog_Solution_B.Gain_j +
+      /* Sum: '<S96>/Sum1' */
+      Analog_Solution_B.Sum1_j = Analog_Solution_B.Gain_jo +
         Analog_Solution_B.Delay_c;
       Analog_Solution_B.Switch1_o = Analog_Solution_B.Sum1_j;
     } else {
-      /* RelationalOperator: '<S89>/Relational Operator' incorporates:
-       *  Constant: '<S89>/obere Kraftsensor Grenze'
+      /* RelationalOperator: '<S96>/Relational Operator' incorporates:
+       *  Constant: '<S96>/obere Kraftsensor Grenze'
        */
-      Analog_Solution_B.RelationalOperator_j = (0.0 >=
-        Analog_Solution_P.obereKraftsensorGrenze_Value);
+      Analog_Solution_B.RelationalOperator_j = (Analog_Solution_B.AI_Kraftsensor
+        > Analog_Solution_P.obereKraftsensorGrenze_Value);
 
-      /* Switch: '<S89>/Switch' */
+      /* Switch: '<S96>/Switch' */
       if (Analog_Solution_B.RelationalOperator_j) {
-        /* Sum: '<S89>/Sum' incorporates:
-         *  Constant: '<S89>/Beschleunigung'
+        /* Sum: '<S96>/Sum' incorporates:
+         *  Constant: '<S96>/Beschleunigung'
          */
         Analog_Solution_B.Sum_no = Analog_Solution_P.Beschleunigung_Value_o +
           Analog_Solution_B.Delay_c;
@@ -2130,26 +2240,26 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
         Analog_Solution_B.Switch_h = Analog_Solution_B.Delay_c;
       }
 
-      /* End of Switch: '<S89>/Switch' */
+      /* End of Switch: '<S96>/Switch' */
       Analog_Solution_B.Switch1_o = Analog_Solution_B.Switch_h;
     }
 
-    /* End of Switch: '<S89>/Switch1' */
+    /* End of Switch: '<S96>/Switch1' */
     Analog_Solution_B.Switch1_i3 = Analog_Solution_B.Switch1_o;
   } else {
-    if (Analog_Solution_B.DI_Takeoff > Analog_Solution_P.Switch_Threshold) {
+    if (Analog_Solution_B.DI_Takeoff > Analog_Solution_P.Switch_Threshold_a) {
       /* Switch: '<S8>/Switch' incorporates:
        *  Constant: '<S8>/Constant2'
        */
       Analog_Solution_B.Switch_dl = Analog_Solution_P.Constant2_Value_h;
     } else {
-      /* Logic: '<S91>/Logical Operator2' incorporates:
+      /* Logic: '<S100>/Logical Operator2' incorporates:
        *  Switch: '<S8>/Switch'
        */
       Analog_Solution_B.LogicalOperator2 = ((Analog_Solution_B.Delay3 != 0.0) ||
-        (Analog_Solution_B.Delay1 != 0.0) || (Analog_Solution_B.Delay4 != 0.0));
+        (Analog_Solution_B.Delay1_m != 0.0) || (Analog_Solution_B.Delay4 != 0.0));
 
-      /* Logic: '<S91>/Logical Operator3' incorporates:
+      /* Logic: '<S100>/Logical Operator3' incorporates:
        *  Switch: '<S8>/Switch'
        */
       Analog_Solution_B.LogicalOperator3 = (Analog_Solution_B.LogicalOperator2 &&
@@ -2160,13 +2270,13 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
        *  Switch: '<S8>/Switch'
        */
       if (Analog_Solution_B.LogicalOperator3) {
-        Analog_Solution_B.Switch11 = Analog_Solution_P.Constant3_Value;
+        Analog_Solution_B.Switch11 = Analog_Solution_P.Constant3_Value_a;
       } else {
-        /* Logic: '<S91>/Logical Operator4' */
+        /* Logic: '<S100>/Logical Operator4' */
         Analog_Solution_B.LogicalOperator4 = ((Analog_Solution_B.Delay3 != 0.0) ||
           (Analog_Solution_B.Delay4 != 0.0));
 
-        /* Logic: '<S91>/Logical Operator5' */
+        /* Logic: '<S100>/Logical Operator5' */
         Analog_Solution_B.LogicalOperator5 = (Analog_Solution_B.LogicalOperator4
           && (Analog_Solution_B.Switch7 != 0.0));
 
@@ -2177,18 +2287,18 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
           Analog_Solution_B.Switch10 =
             Analog_Solution_P.konstanteEinrollgeschw_Value;
         } else {
-          /* Logic: '<S91>/Logical Operator' */
-          Analog_Solution_B.LogicalOperator = ((Analog_Solution_B.Delay2 != 0.0)
-            || (Analog_Solution_B.Delay1 != 0.0) || (Analog_Solution_B.Delay3 !=
-            0.0));
+          /* Logic: '<S100>/Logical Operator' */
+          Analog_Solution_B.LogicalOperator_k = ((Analog_Solution_B.Delay2 !=
+            0.0) || (Analog_Solution_B.Delay1_m != 0.0) ||
+            (Analog_Solution_B.Delay3 != 0.0));
 
-          /* Logic: '<S91>/Logical Operator1' */
-          Analog_Solution_B.LogicalOperator1 =
-            (Analog_Solution_B.LogicalOperator && (Analog_Solution_B.Switch4 !=
-              0.0));
+          /* Logic: '<S100>/Logical Operator1' */
+          Analog_Solution_B.TractionAdvanced =
+            (Analog_Solution_B.LogicalOperator_k && (Analog_Solution_B.Switch4
+              != 0.0));
 
           /* Switch: '<S8>/Switch9' */
-          if (Analog_Solution_B.LogicalOperator1) {
+          if (Analog_Solution_B.TractionAdvanced) {
             /* Sum: '<S8>/Sum' incorporates:
              *  Constant: '<S8>/konstante Ausrollgeschw.'
              */
@@ -2196,12 +2306,12 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
               Analog_Solution_P.konstanteAusrollgeschw_Value;
             Analog_Solution_B.Switch9 = Analog_Solution_B.Sum_k;
           } else {
-            /* Logic: '<S91>/Logical Operator6' */
-            Analog_Solution_B.LogicalOperator6 = ((Analog_Solution_B.Delay1 !=
+            /* Logic: '<S100>/Logical Operator6' */
+            Analog_Solution_B.LogicalOperator6 = ((Analog_Solution_B.Delay1_m !=
               0.0) || (Analog_Solution_B.Delay2 != 0.0));
 
-            /* Logic: '<S91>/Logical Operator7' */
-            Analog_Solution_B.LogicalOperator7 = ((Analog_Solution_B.Switch_m !=
+            /* Logic: '<S100>/Logical Operator7' */
+            Analog_Solution_B.LogicalOperator7 = ((Analog_Solution_B.Switch !=
               0.0) && Analog_Solution_B.LogicalOperator6);
 
             /* Switch: '<S8>/Switch8' incorporates:
@@ -2236,37 +2346,37 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
 
   /* End of Switch: '<S8>/Switch1' */
 
-  /* Delay: '<S92>/Delay' */
+  /* Delay: '<S101>/Delay' */
   Analog_Solution_B.Delay_kl = Analog_Solution_DW.Delay_DSTATE_i;
 
-  /* Sum: '<S92>/Sum' */
+  /* Sum: '<S101>/Sum' */
   Analog_Solution_B.Sum_m = Analog_Solution_B.Switch1_i3 -
     Analog_Solution_B.Delay_kl;
 
-  /* RelationalOperator: '<S98>/Compare' incorporates:
-   *  Constant: '<S98>/Constant'
+  /* RelationalOperator: '<S107>/Compare' incorporates:
+   *  Constant: '<S107>/Constant'
    */
   Analog_Solution_B.Compare_m = (Analog_Solution_B.Sum_m <
     Analog_Solution_P.Constant_Value_i);
 
-  /* Switch: '<S92>/Switch1' */
+  /* Switch: '<S101>/Switch1' */
   if (Analog_Solution_B.Compare_m) {
-    /* Gain: '<S92>/Gain' incorporates:
-     *  Constant: '<S92>/Beschleunigung'
+    /* Gain: '<S101>/Gain' incorporates:
+     *  Constant: '<S101>/Beschleunigung'
      */
     Analog_Solution_B.Gain_fi = Analog_Solution_P.Gain_Gain_f *
       Analog_Solution_P.Beschleunigung_Value;
     Analog_Solution_B.Switch1_d = Analog_Solution_B.Gain_fi;
   } else {
-    /* RelationalOperator: '<S97>/Compare' incorporates:
-     *  Constant: '<S97>/Constant'
+    /* RelationalOperator: '<S106>/Compare' incorporates:
+     *  Constant: '<S106>/Constant'
      */
     Analog_Solution_B.Compare_k = (Analog_Solution_B.Sum_m >
       Analog_Solution_P.Constant_Value_m0);
 
-    /* Switch: '<S92>/Switch' incorporates:
-     *  Constant: '<S92>/Beschleunigung'
-     *  Constant: '<S92>/Constant1'
+    /* Switch: '<S101>/Switch' incorporates:
+     *  Constant: '<S101>/Beschleunigung'
+     *  Constant: '<S101>/Constant1'
      */
     if (Analog_Solution_B.Compare_k) {
       Analog_Solution_B.Switch_c = Analog_Solution_P.Beschleunigung_Value;
@@ -2274,68 +2384,156 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
       Analog_Solution_B.Switch_c = Analog_Solution_P.Constant1_Value_gd;
     }
 
-    /* End of Switch: '<S92>/Switch' */
+    /* End of Switch: '<S101>/Switch' */
     Analog_Solution_B.Switch1_d = Analog_Solution_B.Switch_c;
   }
 
-  /* End of Switch: '<S92>/Switch1' */
+  /* End of Switch: '<S101>/Switch1' */
 
-  /* Delay: '<S92>/Delay1' */
+  /* Delay: '<S101>/Delay1' */
   Analog_Solution_B.Delay1_j = Analog_Solution_DW.Delay1_DSTATE_n;
 
-  /* Sum: '<S92>/Sum1' */
+  /* Sum: '<S101>/Sum1' */
   Analog_Solution_B.Sum1_e = Analog_Solution_B.Switch1_d +
     Analog_Solution_B.Delay1_j;
 
-  /* Gain: '<S7>/zweite Spooling Grenze' incorporates:
-   *  Constant: '<S7>/erste Spooling Grenze'
+  /* RelationalOperator: '<S6>/Relational Operator6' incorporates:
+   *  Constant: '<S6>/Constant5'
    */
-  Analog_Solution_B.zweiteSpoolingGrenze =
-    Analog_Solution_P.zweiteSpoolingGrenze_Gain *
-    Analog_Solution_P.ersteSpoolingGrenze_Value;
+  Analog_Solution_B.RelationalOperator6 = (Analog_Solution_B.Switch3 ==
+    Analog_Solution_P.Constant5_Value_m);
 
-  /* RelationalOperator: '<S7>/Relational Operator1' */
-  Analog_Solution_B.RelationalOperator1_h = (Analog_Solution_B.Sum_bi <
-    Analog_Solution_B.zweiteSpoolingGrenze);
+  /* Logic: '<S6>/Logical Operator1' */
+  Analog_Solution_B.LogicalOperator1 = (Analog_Solution_B.RelationalOperator7 &&
+    Analog_Solution_B.RelationalOperator6);
 
-  /* Switch: '<S5>/Switch' */
-  if (Analog_Solution_B.RelationalOperator1_h) {
-    Analog_Solution_B.Siemens_Motor = Analog_Solution_B.Sum1_e;
+  /* Switch: '<S6>/Switch5' incorporates:
+   *  Constant: '<S6>/Constant8'
+   */
+  if (Analog_Solution_B.LogicalOperator1) {
+    Analog_Solution_B.Spooling_Grenze = Analog_Solution_P.Constant8_Value_e;
   } else {
-    /* RelationalOperator: '<S5>/Relational Operator' incorporates:
-     *  Constant: '<S5>/Constant'
-     */
-    Analog_Solution_B.RelationalOperator_c = (Analog_Solution_B.Sum1_e <=
-      Analog_Solution_P.Constant_Value);
+    /* Logic: '<S6>/Logical Operator2' */
+    Analog_Solution_B.LogicalOperator2_g =
+      (Analog_Solution_B.RelationalOperator6 &&
+       Analog_Solution_B.RelationalOperator8);
 
-    /* Switch: '<S5>/Switch1' incorporates:
-     *  Constant: '<S5>/Constant'
+    /* Switch: '<S6>/Switch6' incorporates:
+     *  Constant: '<S6>/Constant10'
+     *  Constant: '<S6>/Constant9'
      */
-    if (Analog_Solution_B.RelationalOperator_c) {
-      Analog_Solution_B.Switch1_b = Analog_Solution_B.Sum1_e;
+    if (Analog_Solution_B.LogicalOperator2_g) {
+      Analog_Solution_B.Switch6_i = Analog_Solution_P.Constant9_Value;
     } else {
-      Analog_Solution_B.Switch1_b = Analog_Solution_P.Constant_Value;
+      Analog_Solution_B.Switch6_i = Analog_Solution_P.Constant10_Value;
     }
 
-    /* End of Switch: '<S5>/Switch1' */
-    Analog_Solution_B.Siemens_Motor = Analog_Solution_B.Switch1_b;
+    /* End of Switch: '<S6>/Switch6' */
+    Analog_Solution_B.Spooling_Grenze = Analog_Solution_B.Switch6_i;
   }
 
-  /* End of Switch: '<S5>/Switch' */
+  /* End of Switch: '<S6>/Switch5' */
 
-  /* Saturate: '<S5>/Saturation2' */
-  y = -Analog_Solution_P.AOsat;
-  u0 = Analog_Solution_B.Siemens_Motor;
-  u2 = Analog_Solution_P.AOsat;
-  if (u0 > u2) {
-    Analog_Solution_B.Siemens_Output = u2;
-  } else if (u0 < y) {
-    Analog_Solution_B.Siemens_Output = y;
+  /* Switch: '<S5>/Switch2' incorporates:
+   *  Constant: '<S5>/Constant4'
+   */
+  if (Analog_Solution_B.DI_Takeoff > Analog_Solution_P.Switch2_Threshold_hu) {
+    Analog_Solution_B.SiemensOut = Analog_Solution_P.Constant4_Value;
   } else {
-    Analog_Solution_B.Siemens_Output = u0;
+    /* RelationalOperator: '<S88>/Relational Operator4' incorporates:
+     *  Constant: '<S88>/Constant5'
+     */
+    Analog_Solution_B.RelationalOperator4 = (Analog_Solution_B.Spooling_Grenze ==
+      Analog_Solution_P.Constant5_Value);
+
+    /* Switch: '<S88>/Switch4' */
+    if (Analog_Solution_B.RelationalOperator4) {
+      Analog_Solution_B.Switch4_a = Analog_Solution_B.Sum1_e;
+    } else {
+      /* RelationalOperator: '<S88>/Relational Operator2' incorporates:
+       *  Constant: '<S88>/Untere Grenze'
+       */
+      Analog_Solution_B.RelationalOperator2_d =
+        (Analog_Solution_B.Spooling_Grenze ==
+         Analog_Solution_P.UntereGrenze_Value);
+
+      /* Switch: '<S88>/Switch2' */
+      if (Analog_Solution_B.RelationalOperator2_d) {
+        /* RelationalOperator: '<S88>/Relational Operator3' incorporates:
+         *  Constant: '<S88>/Constant'
+         */
+        Analog_Solution_B.RelationalOperator3_m = (Analog_Solution_B.Sum1_e >
+          Analog_Solution_P.Constant_Value_c);
+
+        /* Switch: '<S88>/Switch3' incorporates:
+         *  Constant: '<S88>/Constant'
+         */
+        if (Analog_Solution_B.RelationalOperator3_m) {
+          Analog_Solution_B.Switch3_a = Analog_Solution_B.Sum1_e;
+        } else {
+          Analog_Solution_B.Switch3_a = Analog_Solution_P.Constant_Value_c;
+        }
+
+        /* End of Switch: '<S88>/Switch3' */
+        Analog_Solution_B.Switch2_a = Analog_Solution_B.Switch3_a;
+      } else {
+        /* RelationalOperator: '<S88>/Relational Operator1' incorporates:
+         *  Constant: '<S88>/Obere Grenze'
+         */
+        Analog_Solution_B.RelationalOperator1_d =
+          (Analog_Solution_B.Spooling_Grenze ==
+           Analog_Solution_P.ObereGrenze_Value);
+
+        /* Switch: '<S88>/Switch' */
+        if (Analog_Solution_B.RelationalOperator1_d) {
+          /* RelationalOperator: '<S88>/Relational Operator' incorporates:
+           *  Constant: '<S88>/Constant'
+           */
+          Analog_Solution_B.RelationalOperator_ih = (Analog_Solution_B.Sum1_e <
+            Analog_Solution_P.Constant_Value_c);
+
+          /* Switch: '<S88>/Switch1' incorporates:
+           *  Constant: '<S88>/Constant'
+           */
+          if (Analog_Solution_B.RelationalOperator_ih) {
+            Analog_Solution_B.Switch1_pc = Analog_Solution_B.Sum1_e;
+          } else {
+            Analog_Solution_B.Switch1_pc = Analog_Solution_P.Constant_Value_c;
+          }
+
+          /* End of Switch: '<S88>/Switch1' */
+          Analog_Solution_B.Siemens_Motor = Analog_Solution_B.Switch1_pc;
+        } else {
+          Analog_Solution_B.Siemens_Motor = Analog_Solution_B.Sum1_e;
+        }
+
+        /* End of Switch: '<S88>/Switch' */
+        Analog_Solution_B.Switch2_a = Analog_Solution_B.Siemens_Motor;
+      }
+
+      /* End of Switch: '<S88>/Switch2' */
+      Analog_Solution_B.Switch4_a = Analog_Solution_B.Switch2_a;
+    }
+
+    /* End of Switch: '<S88>/Switch4' */
+
+    /* Saturate: '<S5>/Saturation2' */
+    y = -Analog_Solution_P.AOsat;
+    u0 = Analog_Solution_B.Switch4_a;
+    u2 = Analog_Solution_P.AOsat;
+    if (u0 > u2) {
+      Analog_Solution_B.Siemens_Output = u2;
+    } else if (u0 < y) {
+      Analog_Solution_B.Siemens_Output = y;
+    } else {
+      Analog_Solution_B.Siemens_Output = u0;
+    }
+
+    /* End of Saturate: '<S5>/Saturation2' */
+    Analog_Solution_B.SiemensOut = Analog_Solution_B.Siemens_Output;
   }
 
-  /* End of Saturate: '<S5>/Saturation2' */
+  /* End of Switch: '<S5>/Switch2' */
 
   /* RateTransition: '<S79>/Rate Transition' */
   if (Analog_Solution_M->Timing.RateInteraction.TID0_1) {
@@ -2344,26 +2542,27 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
     Analog_Solution_B.RateTransition_i[2] =
       Analog_Solution_B.AI_mot_SiemensMotor_Speed;
     Analog_Solution_B.RateTransition_i[3] = Analog_Solution_B.AI_mot_winch_pos;
-    Analog_Solution_B.RateTransition_i[4] = Analog_Solution_B.AI_pot_pos;
+    Analog_Solution_B.RateTransition_i[4] = Analog_Solution_B.AI_Kraftsensor;
     Analog_Solution_B.RateTransition_i[5] = Analog_Solution_B.DI_Enable;
     Analog_Solution_B.RateTransition_i[6] = Analog_Solution_B.DI_WinchMode;
     Analog_Solution_B.RateTransition_i[7] = Analog_Solution_B.DI_Takeoff;
     Analog_Solution_B.RateTransition_i[8] = Analog_Solution_B.DI_Landing;
     Analog_Solution_B.RateTransition_i[9] = Analog_Solution_B.DI_Operator;
-    Analog_Solution_B.RateTransition_i[10] = Analog_Solution_B.DI_GliderPres;
-    Analog_Solution_B.RateTransition_i[11] = Analog_Solution_B.DI_SlideLimitF;
-    Analog_Solution_B.RateTransition_i[12] = Analog_Solution_B.DI_SlideLimitB;
-    Analog_Solution_B.RateTransition_i[13] = Analog_Solution_B.CI_JoyS;
-    Analog_Solution_B.RateTransition_i[14] = Analog_Solution_B.CI_JoyW;
-    Analog_Solution_B.RateTransition_i[15] =
+    Analog_Solution_B.RateTransition_i[10] =
+      Analog_Solution_B.DI_SpoolingGrenze1;
+    Analog_Solution_B.RateTransition_i[11] =
+      Analog_Solution_B.DI_SpoolingGrenze2;
+    Analog_Solution_B.RateTransition_i[12] = Analog_Solution_B.CI_JoyS;
+    Analog_Solution_B.RateTransition_i[13] = Analog_Solution_B.CI_JoyW;
+    Analog_Solution_B.RateTransition_i[14] =
       Analog_Solution_B.DiscreteStateSpace[0];
-    Analog_Solution_B.RateTransition_i[16] = Analog_Solution_B.WinchMotSpeedEst;
-    Analog_Solution_B.RateTransition_i[17] = Analog_Solution_B.WinchMotTorqueEst;
-    Analog_Solution_B.RateTransition_i[18] = Analog_Solution_B.CI_WinchPos;
-    Analog_Solution_B.RateTransition_i[19] = Analog_Solution_B.CI_PotPos;
-    Analog_Solution_B.RateTransition_i[20] = Analog_Solution_B.CI_PotSpd;
-    Analog_Solution_B.RateTransition_i[21] = Analog_Solution_B.SpoolingOutput;
-    Analog_Solution_B.RateTransition_i[22] = Analog_Solution_B.Siemens_Output;
+    Analog_Solution_B.RateTransition_i[15] = Analog_Solution_B.WinchMotSpeedEst;
+    Analog_Solution_B.RateTransition_i[16] = Analog_Solution_B.WinchMotTorqueEst;
+    Analog_Solution_B.RateTransition_i[17] = Analog_Solution_B.CI_WinchPos;
+    Analog_Solution_B.RateTransition_i[18] = Analog_Solution_B.CI_PotPos;
+    Analog_Solution_B.RateTransition_i[19] = Analog_Solution_B.CI_PotSpd;
+    Analog_Solution_B.RateTransition_i[20] = Analog_Solution_B.SpoolingOut;
+    Analog_Solution_B.RateTransition_i[21] = Analog_Solution_B.SiemensOut;
   }
 
   /* End of RateTransition: '<S79>/Rate Transition' */
@@ -2391,6 +2590,14 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
     Analog_Solution_B.Sum1_nr;
   Analog_Solution_B.TmpSignalConversionAtDiscreteSt[1] =
     Analog_Solution_B.WinchMotTorqueEst;
+
+  /* S-Function (pfidinipcim): '<S15>/PCI 6221 PFI DI ' */
+
+  /* Level2 S-Function Block: '<S15>/PCI 6221 PFI DI ' (pfidinipcim) */
+  {
+    SimStruct *rts = Analog_Solution_M->childSfunctions[28];
+    sfcnOutputs(rts,0);
+  }
 
   /* RateTransition: '<S20>/Rate Transition5' */
   Analog_Solution_B.RateTransition5 = Analog_Solution_B.FIFOwrite3;
@@ -2475,6 +2682,90 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
     sfcnOutputs(rts,0);
   }
 
+  /* S-Function (scblock): '<S86>/S-Function' */
+  /* ok to acquire for <S86>/S-Function */
+  Analog_Solution_DW.SFunction_IWORK_n.AcquireOK = 1;
+
+  /* S-Function (scblock): '<S87>/S-Function' */
+  /* ok to acquire for <S87>/S-Function */
+  Analog_Solution_DW.SFunction_IWORK_f.AcquireOK = 1;
+
+  /* RelationalOperator: '<S95>/Relational Operator1' incorporates:
+   *  Constant: '<S95>/Constant1'
+   */
+  Analog_Solution_B.RelationalOperator1_l = (Analog_Solution_B.AI_mot_winch_pos >=
+    Analog_Solution_P.Constant1_Value_n);
+
+  /* Switch: '<S94>/Switch1' incorporates:
+   *  Constant: '<S94>/Constant1'
+   *  Constant: '<S94>/Constant2'
+   */
+  if (Analog_Solution_B.DI_SpoolingGrenze1 >
+      Analog_Solution_P.Switch1_Threshold_n) {
+    Analog_Solution_B.Switch1_c = Analog_Solution_P.Constant1_Value_e;
+  } else {
+    Analog_Solution_B.Switch1_c = Analog_Solution_P.Constant2_Value_l;
+  }
+
+  /* End of Switch: '<S94>/Switch1' */
+
+  /* Delay: '<S94>/Delay' */
+  Analog_Solution_B.Delay_j = Analog_Solution_DW.Delay_DSTATE_a;
+
+  /* Sum: '<S94>/Sum' */
+  Analog_Solution_B.Sum_cc = Analog_Solution_B.Switch1_c +
+    Analog_Solution_B.Delay_j;
+
+  /* RelationalOperator: '<S94>/Relational Operator' incorporates:
+   *  Constant: '<S94>/Constant1'
+   */
+  Analog_Solution_B.RelationalOperator = (Analog_Solution_P.Constant1_Value_e <=
+    Analog_Solution_B.Sum_cc);
+
+  /* Switch: '<S94>/Switch2' incorporates:
+   *  Constant: '<S94>/Constant1'
+   *  Constant: '<S94>/Constant2'
+   */
+  if (Analog_Solution_B.RelationalOperator) {
+    Analog_Solution_B.Switch2_n = Analog_Solution_P.Constant1_Value_e;
+  } else {
+    Analog_Solution_B.Switch2_n = Analog_Solution_P.Constant2_Value_l;
+  }
+
+  /* End of Switch: '<S94>/Switch2' */
+
+  /* Logic: '<S95>/Logical Operator' */
+  Analog_Solution_B.LogicalOperator_i = (Analog_Solution_B.RelationalOperator1_l
+    && (Analog_Solution_B.Switch2_n != 0.0));
+
+  /* Switch: '<S5>/Switch' incorporates:
+   *  Constant: '<S5>/Constant2'
+   */
+  if (Analog_Solution_B.LogicalOperator_i) {
+    /* RelationalOperator: '<S5>/Relational Operator5' incorporates:
+     *  Constant: '<S5>/Constant6'
+     */
+    Analog_Solution_B.RelationalOperator5_d = (Analog_Solution_B.SiemensOut <=
+      Analog_Solution_P.Constant6_Value);
+
+    /* Switch: '<S5>/Switch5' incorporates:
+     *  Constant: '<S5>/Constant7'
+     *  Constant: '<S5>/Constant8'
+     */
+    if (Analog_Solution_B.RelationalOperator5_d) {
+      Analog_Solution_B.Switch5_g = Analog_Solution_P.Constant7_Value;
+    } else {
+      Analog_Solution_B.Switch5_g = Analog_Solution_P.Constant8_Value;
+    }
+
+    /* End of Switch: '<S5>/Switch5' */
+    Analog_Solution_B.Switch_o = Analog_Solution_B.Switch5_g;
+  } else {
+    Analog_Solution_B.Switch_o = Analog_Solution_P.Constant2_Value_f;
+  }
+
+  /* End of Switch: '<S5>/Switch' */
+
   /* S-Function (donipcim): '<S5>/PCI-6221 DO' */
 
   /* Level2 S-Function Block: '<S5>/PCI-6221 DO' (donipcim) */
@@ -2483,96 +2774,212 @@ static void Analog_Solution_output0(void) /* Sample time: [0.001s, 0.0s] */
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (scblock): '<S85>/S-Function' */
-  /* ok to acquire for <S85>/S-Function */
-  Analog_Solution_DW.SFunction_IWORK_e.AcquireOK = 1;
+  /* S-Function (scblock): '<S90>/S-Function' */
+  /* ok to acquire for <S90>/S-Function */
+  Analog_Solution_DW.SFunction_IWORK_gb.AcquireOK = 1;
 
-  /* S-Function (scblock): '<S86>/S-Function' */
-  /* ok to acquire for <S86>/S-Function */
-  Analog_Solution_DW.SFunction_IWORK_f.AcquireOK = 1;
+  /* S-Function (scblock): '<S91>/S-Function' */
+  /* ok to acquire for <S91>/S-Function */
+  Analog_Solution_DW.SFunction_IWORK_i.AcquireOK = 1;
 
-  /* Delay: '<S6>/Delay' */
-  Analog_Solution_B.Delay_a = Analog_Solution_DW.Delay_DSTATE_m;
+  /* Delay: '<S92>/Delay' */
+  Analog_Solution_B.Delay_e = Analog_Solution_DW.Delay_DSTATE_j;
 
-  /* Delay: '<S6>/Delay1' */
-  Analog_Solution_B.Delay1_c = Analog_Solution_DW.Delay1_DSTATE_i;
+  /* Delay: '<S95>/Delay' */
+  Analog_Solution_B.Delay_o = Analog_Solution_DW.Delay_DSTATE_ag;
 
-  /* Gain: '<S6>/Umrechnung' */
-  Analog_Solution_B.SpoolingPosSoll = Analog_Solution_P.Umrechnung_Gain_n *
-    Analog_Solution_B.AI_mot_SiemensMotor_Speed;
+  /* Abs: '<S95>/Abs' */
+  Analog_Solution_B.Abs = fabs(Analog_Solution_B.Delay_o);
 
-  /* RelationalOperator: '<S6>/Relational Operator3' incorporates:
-   *  Constant: '<S6>/erste Grenze Spooling'
+  /* RelationalOperator: '<S95>/Relational Operator' incorporates:
+   *  Constant: '<S95>/Constant'
    */
-  Analog_Solution_B.RelationalOperator3 = (Analog_Solution_B.SpoolingPosSoll <
-    Analog_Solution_P.ersteGrenzeSpooling_Value);
+  Analog_Solution_B.RelationalOperator_i = (Analog_Solution_B.Abs >
+    Analog_Solution_P.Constant_Value_md);
 
-  /* Switch: '<S6>/Switch3' incorporates:
-   *  Constant: '<S6>/Spooling Geschw.'
+  /* Switch: '<S95>/Switch2' incorporates:
+   *  Constant: '<S95>/Constant'
+   *  Switch: '<S95>/Switch1'
    */
-  if (Analog_Solution_B.RelationalOperator3) {
-    Analog_Solution_B.Switch3 = Analog_Solution_P.SpoolingGeschw_Value;
+  if (Analog_Solution_B.RelationalOperator_i) {
+    Analog_Solution_B.Switch2_o = Analog_Solution_P.Constant_Value_md;
   } else {
-    /* Gain: '<S6>/Gain1' incorporates:
-     *  Constant: '<S6>/Spooling Geschw.'
-     */
-    Analog_Solution_B.Gain1_p = Analog_Solution_P.Gain1_Gain *
-      Analog_Solution_P.SpoolingGeschw_Value;
-    Analog_Solution_B.Switch3 = Analog_Solution_B.Gain1_p;
-  }
-
-  /* End of Switch: '<S6>/Switch3' */
-
-  /* Gain: '<S6>/Gain2' incorporates:
-   *  Constant: '<S6>/erste Grenze Spooling'
-   */
-  Analog_Solution_B.Gain2 = Analog_Solution_P.Gain2_Gain *
-    Analog_Solution_P.ersteGrenzeSpooling_Value;
-
-  /* RelationalOperator: '<S6>/Relational Operator' */
-  Analog_Solution_B.RelationalOperator_o = (Analog_Solution_B.SpoolingPosSoll ==
-    Analog_Solution_B.Delay_a);
-
-  /* Switch: '<S6>/Switch' */
-  Analog_Solution_B.Switch_l = Analog_Solution_B.SpoolingPosSoll;
-
-  /* RelationalOperator: '<S6>/Relational Operator2' */
-  Analog_Solution_B.RelationalOperator2 = (Analog_Solution_B.Switch_l ==
-    Analog_Solution_B.Delay1_c);
-
-  /* RelationalOperator: '<S6>/Relational Operator4' */
-  Analog_Solution_B.RelationalOperator4 = (Analog_Solution_B.SpoolingPosSoll <
-    Analog_Solution_B.Gain2);
-
-  /* Switch: '<S6>/Switch2' incorporates:
-   *  Constant: '<S6>/Constant1'
-   */
-  if (Analog_Solution_B.RelationalOperator2) {
-    Analog_Solution_B.Switch2 = Analog_Solution_P.Constant1_Value;
-  } else {
-    /* RelationalOperator: '<S6>/Relational Operator1' */
-    Analog_Solution_B.RelationalOperator1_ba = (Analog_Solution_B.Switch_l >
-      Analog_Solution_B.Delay1_c);
-
-    /* Switch: '<S6>/Switch1' */
-    if (Analog_Solution_B.RelationalOperator1_ba) {
-      Analog_Solution_B.Switch1_l = Analog_Solution_B.Switch3;
+    if (Analog_Solution_B.Switch2_n > Analog_Solution_P.Switch1_Threshold) {
+      /* Switch: '<S95>/Switch1' */
+      Analog_Solution_B.Switch1_f = Analog_Solution_B.AI_mot_winch_pos;
     } else {
-      /* Gain: '<S6>/Gain' */
-      Analog_Solution_B.Gain_k = Analog_Solution_P.Gain_Gain_i *
-        Analog_Solution_B.Switch3;
-      Analog_Solution_B.Switch1_l = Analog_Solution_B.Gain_k;
+      /* Switch: '<S95>/Switch1' incorporates:
+       *  Constant: '<S95>/Constant'
+       */
+      Analog_Solution_B.Switch1_f = Analog_Solution_P.Constant_Value_md;
     }
 
-    /* End of Switch: '<S6>/Switch1' */
-    Analog_Solution_B.Switch2 = Analog_Solution_B.Switch1_l;
+    Analog_Solution_B.Switch2_o = Analog_Solution_B.Switch1_f;
   }
 
-  /* End of Switch: '<S6>/Switch2' */
+  /* End of Switch: '<S95>/Switch2' */
 
-  /* S-Function (scblock): '<S87>/S-Function' */
-  /* ok to acquire for <S87>/S-Function */
-  Analog_Solution_DW.SFunction_IWORK_n.AcquireOK = 1;
+  /* Sum: '<S95>/Sum' */
+  Analog_Solution_B.Sum_m1 = Analog_Solution_B.Switch2_o +
+    Analog_Solution_B.Delay_o;
+
+  /* Gain: '<S93>/Gain' */
+  Analog_Solution_B.Gain_j = Analog_Solution_P.Gain_Gain_j0 *
+    Analog_Solution_B.Sum_m1;
+
+  /* Delay: '<S92>/Delay1' */
+  Analog_Solution_B.Delay1_f = Analog_Solution_DW.Delay1_DSTATE_c;
+
+  /* Abs: '<S92>/Abs1' */
+  Analog_Solution_B.Abs1 = fabs(Analog_Solution_B.Delay1_f);
+
+  /* RelationalOperator: '<S92>/Relational Operator1' */
+  Analog_Solution_B.RelationalOperator1_h = (Analog_Solution_B.Gain_j ==
+    Analog_Solution_B.Abs1);
+
+  /* Switch: '<S92>/Switch2' incorporates:
+   *  Switch: '<S92>/Switch1'
+   */
+  if (Analog_Solution_B.RelationalOperator1_h) {
+    /* Gain: '<S6>/Umrechnung' */
+    Analog_Solution_B.WinchSpeedrads = Analog_Solution_P.Umrechnung_Gain *
+      Analog_Solution_B.AI_mot_SiemensMotor_Speed;
+
+    /* Abs: '<S92>/Abs' */
+    Analog_Solution_B.Abs_l = fabs(Analog_Solution_B.WinchSpeedrads);
+
+    /* RelationalOperator: '<S92>/Relational Operator' incorporates:
+     *  Constant: '<S92>/Constant'
+     */
+    Analog_Solution_B.RelationalOperator_n = (Analog_Solution_B.Abs_l >=
+      Analog_Solution_P.Constant_Value_b);
+
+    /* Switch: '<S92>/Switch' incorporates:
+     *  Constant: '<S92>/Constant1'
+     */
+    if (Analog_Solution_B.RelationalOperator_n) {
+      Analog_Solution_B.Switch_p = Analog_Solution_B.WinchSpeedrads;
+    } else {
+      Analog_Solution_B.Switch_p = Analog_Solution_P.Constant1_Value_g;
+    }
+
+    /* End of Switch: '<S92>/Switch' */
+
+    /* Gain: '<S92>/Sample Zeit' */
+    Analog_Solution_B.UmdrehungSampleTime = Analog_Solution_P.SampleZeit_Gain *
+      Analog_Solution_B.Switch_p;
+
+    /* Sum: '<S92>/Sum' */
+    Analog_Solution_B.Sum_bi = Analog_Solution_B.UmdrehungSampleTime +
+      Analog_Solution_B.Delay_e;
+    Analog_Solution_B.Switch2_e = Analog_Solution_B.Sum_bi;
+  } else {
+    if (Analog_Solution_B.RelationalOperator1_h) {
+      /* Switch: '<S92>/Switch1' incorporates:
+       *  Constant: '<S92>/Constant2'
+       */
+      Analog_Solution_B.Switch1_g = Analog_Solution_P.Constant2_Value_d;
+    } else {
+      /* Switch: '<S92>/Switch1' */
+      Analog_Solution_B.Switch1_g = Analog_Solution_B.Gain_j;
+    }
+
+    Analog_Solution_B.Switch2_e = Analog_Solution_B.Switch1_g;
+  }
+
+  /* End of Switch: '<S92>/Switch2' */
+
+  /* RelationalOperator: '<S6>/Relational Operator' incorporates:
+   *  Constant: '<S6>/erste Spooling Grenze'
+   */
+  Analog_Solution_B.RelationalOperator_l = (Analog_Solution_B.Switch2_e <
+    Analog_Solution_P.ersteSpoolingGrenze_Value);
+
+  /* Gain: '<S6>/zweite Spooling Grenze' incorporates:
+   *  Constant: '<S6>/erste Spooling Grenze'
+   */
+  Analog_Solution_B.zweiteSpoolingGrenze =
+    Analog_Solution_P.zweiteSpoolingGrenze_Gain *
+    Analog_Solution_P.ersteSpoolingGrenze_Value;
+
+  /* RelationalOperator: '<S6>/Relational Operator1' */
+  Analog_Solution_B.RelationalOperator1_h4 = (Analog_Solution_B.Switch2_e >
+    Analog_Solution_B.zweiteSpoolingGrenze);
+
+  /* Switch: '<S6>/Switch1' incorporates:
+   *  Constant: '<S6>/Const.'
+   */
+  if (Analog_Solution_B.RelationalOperator1_h4) {
+    Analog_Solution_B.uobereGrenze0keineGrenze1untere =
+      Analog_Solution_P.Const_Value;
+  } else {
+    /* RelationalOperator: '<S6>/Relational Operator2' incorporates:
+     *  Constant: '<S6>/untere Spooling Grenze'
+     */
+    Analog_Solution_B.RelationalOperator2 = (Analog_Solution_B.Switch2_e <
+      Analog_Solution_P.untereSpoolingGrenze_Value);
+
+    /* Gain: '<S6>/Gain1' */
+    Analog_Solution_B.Gain1_c = (int8_T)(Analog_Solution_B.RelationalOperator2 ?
+      (int32_T)Analog_Solution_P.Gain1_Gain : 0);
+    Analog_Solution_B.uobereGrenze0keineGrenze1untere = (real_T)
+      Analog_Solution_B.Gain1_c * 0.0078125;
+  }
+
+  /* End of Switch: '<S6>/Switch1' */
+
+  /* Switch: '<S7>/Switch' incorporates:
+   *  Constant: '<S7>/Constant'
+   *  Switch: '<S7>/Switch1'
+   */
+  if (Analog_Solution_B.LogicalOperator_i) {
+    Analog_Solution_B.Switch_m = 0.0;
+    Analog_Solution_B.Switch1_dc = 0.0;
+  } else {
+    Analog_Solution_B.Switch_m = Analog_Solution_P.Constant_Value_e;
+
+    /* Switch: '<S95>/Switch3' incorporates:
+     *  Constant: '<S7>/Constant'
+     *  Constant: '<S95>/Constant1'
+     *  Switch: '<S95>/Switch'
+     */
+    if (Analog_Solution_B.LogicalOperator_i) {
+      Analog_Solution_B.Switch3_e = Analog_Solution_P.Constant1_Value_n;
+    } else {
+      if (Analog_Solution_B.Switch2_n > Analog_Solution_P.Switch_Threshold_o) {
+        /* Switch: '<S95>/Switch' incorporates:
+         *  Constant: '<S95>/Konstante Geschw. zum Spooling Grenze finden'
+         */
+        Analog_Solution_B.Switch_b =
+          Analog_Solution_P.KonstanteGeschwzumSpoolingGrenz;
+      } else {
+        /* Gain: '<S95>/Gain' incorporates:
+         *  Constant: '<S95>/Konstante Geschw. zum Spooling Grenze finden'
+         *  Switch: '<S95>/Switch'
+         */
+        Analog_Solution_B.Gain_a = Analog_Solution_P.Gain_Gain_dq *
+          Analog_Solution_P.KonstanteGeschwzumSpoolingGrenz;
+
+        /* Switch: '<S95>/Switch' */
+        Analog_Solution_B.Switch_b = Analog_Solution_B.Gain_a;
+      }
+
+      Analog_Solution_B.Switch3_e = Analog_Solution_B.Switch_b;
+    }
+
+    /* End of Switch: '<S95>/Switch3' */
+    Analog_Solution_B.Switch1_dc = Analog_Solution_B.Switch3_e;
+  }
+
+  /* End of Switch: '<S7>/Switch' */
+
+  /* S-Function (scblock): '<S98>/S-Function' */
+  /* ok to acquire for <S98>/S-Function */
+  Analog_Solution_DW.SFunction_IWORK_o.AcquireOK = 1;
+
+  /* S-Function (scblock): '<S99>/S-Function' */
+  /* ok to acquire for <S99>/S-Function */
+  Analog_Solution_DW.SFunction_IWORK_e.AcquireOK = 1;
 }
 
 /* Model update function for TID0 */
@@ -2637,44 +3044,53 @@ static void Analog_Solution_update0(void) /* Sample time: [0.001s, 0.0s] */
   Analog_Solution_DW.Delay_DSTATE[1] = Analog_Solution_DW.Delay_DSTATE[2];
   Analog_Solution_DW.Delay_DSTATE[2] = Analog_Solution_B.CI_PotPos;
 
-  /* Update for Delay: '<S88>/Delay' */
-  Analog_Solution_DW.Delay_DSTATE_j = Analog_Solution_B.Sum_bi;
+  /* Update for Delay: '<S6>/Delay1' */
+  Analog_Solution_DW.Delay1_DSTATE = Analog_Solution_B.Switch3;
+
+  /* Update for Delay: '<S6>/Delay' */
+  Analog_Solution_DW.Delay_DSTATE_c = Analog_Solution_B.SpoolingEbene;
 
   /* Update for Delay: '<S8>/Delay' */
   Analog_Solution_DW.Delay_DSTATE_h = Analog_Solution_B.Sum1_e;
 
-  /* Update for Delay: '<S91>/Delay3' */
+  /* Update for Delay: '<S100>/Delay3' */
   Analog_Solution_DW.Delay3_DSTATE = Analog_Solution_B.Switch5;
 
-  /* Update for Delay: '<S91>/Delay1' */
-  Analog_Solution_DW.Delay1_DSTATE = Analog_Solution_B.Switch4;
+  /* Update for Delay: '<S100>/Delay1' */
+  Analog_Solution_DW.Delay1_DSTATE_p = Analog_Solution_B.Switch4;
 
-  /* Update for Delay: '<S91>/Delay4' */
+  /* Update for Delay: '<S100>/Delay4' */
   Analog_Solution_DW.Delay4_DSTATE = Analog_Solution_B.Switch7;
 
-  /* Update for Delay: '<S90>/Delay' */
+  /* Update for Delay: '<S97>/Delay' */
   Analog_Solution_DW.Delay_DSTATE_p = Analog_Solution_B.Sum1_l;
 
-  /* Update for Delay: '<S94>/Delay' */
+  /* Update for Delay: '<S103>/Delay' */
   Analog_Solution_DW.Delay_DSTATE_p2 = Analog_Solution_B.Sum1_l;
 
-  /* Update for Delay: '<S94>/Delay1' */
+  /* Update for Delay: '<S103>/Delay1' */
   Analog_Solution_DW.Delay1_DSTATE_b = Analog_Solution_B.Sum1_l;
 
-  /* Update for Delay: '<S91>/Delay2' */
-  Analog_Solution_DW.Delay2_DSTATE = Analog_Solution_B.Switch_m;
+  /* Update for Delay: '<S100>/Delay2' */
+  Analog_Solution_DW.Delay2_DSTATE = Analog_Solution_B.Switch;
 
-  /* Update for Delay: '<S92>/Delay' */
+  /* Update for Delay: '<S101>/Delay' */
   Analog_Solution_DW.Delay_DSTATE_i = Analog_Solution_B.Sum1_e;
 
-  /* Update for Delay: '<S92>/Delay1' */
+  /* Update for Delay: '<S101>/Delay1' */
   Analog_Solution_DW.Delay1_DSTATE_n = Analog_Solution_B.Sum1_e;
 
-  /* Update for Delay: '<S6>/Delay' */
-  Analog_Solution_DW.Delay_DSTATE_m = Analog_Solution_B.SpoolingPosSoll;
+  /* Update for Delay: '<S94>/Delay' */
+  Analog_Solution_DW.Delay_DSTATE_a = Analog_Solution_B.Sum_cc;
 
-  /* Update for Delay: '<S6>/Delay1' */
-  Analog_Solution_DW.Delay1_DSTATE_i = Analog_Solution_B.Delay_a;
+  /* Update for Delay: '<S92>/Delay' */
+  Analog_Solution_DW.Delay_DSTATE_j = Analog_Solution_B.Switch2_e;
+
+  /* Update for Delay: '<S95>/Delay' */
+  Analog_Solution_DW.Delay_DSTATE_ag = Analog_Solution_B.Sum_m1;
+
+  /* Update for Delay: '<S92>/Delay1' */
+  Analog_Solution_DW.Delay1_DSTATE_c = Analog_Solution_B.Gain_j;
 
   /* Update absolute time */
   /* The "clockTick0" counts the number of times the code of this task has
@@ -3147,7 +3563,7 @@ static void Analog_Solution_output3(void) /* Sample time: [1.0s, 0.0s] */
    */
   y = 12.0 * Analog_Solution_P.Ts_1s;
   if (Analog_Solution_B.Sum >= y) {
-    Analog_Solution_B.Trigger_time = Analog_Solution_P.Constant2_Value_d;
+    Analog_Solution_B.Trigger_time = Analog_Solution_P.Constant2_Value_dl;
   } else {
     /* Switch: '<S83>/Switch' incorporates:
      *  Constant: '<S83>/Constant'
@@ -3157,7 +3573,7 @@ static void Analog_Solution_output3(void) /* Sample time: [1.0s, 0.0s] */
     if (Analog_Solution_B.Sum >= y) {
       Analog_Solution_B.Switch_ku = Analog_Solution_P.Constant_Value_d;
     } else {
-      Analog_Solution_B.Switch_ku = Analog_Solution_P.Constant1_Value_p;
+      Analog_Solution_B.Switch_ku = Analog_Solution_P.Constant1_Value_po;
     }
 
     /* End of Switch: '<S83>/Switch' */
@@ -3856,8 +4272,6 @@ static void Analog_Solution_initialize(void)
           "Logging/Log_conditioning/Rate Transition/s21"));
         rl32eAddSignal(3, rl32eGetSignalNo(
           "Logging/Log_conditioning/Rate Transition/s22"));
-        rl32eAddSignal(3, rl32eGetSignalNo(
-          "Logging/Log_conditioning/Rate Transition/s23"));
         rl32eSetScope(3, 4, 1000);
         rl32eSetScope(3, 5, 0);
         rl32eSetScope(3, 6, 1);
@@ -4120,44 +4534,6 @@ static void Analog_Solution_initialize(void)
       return;
   }
 
-  /* Start for S-Function (donipcim): '<S5>/PCI-6221 DO' */
-  /* Level2 S-Function Block: '<S5>/PCI-6221 DO' (donipcim) */
-  {
-    SimStruct *rts = Analog_Solution_M->childSfunctions[46];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (scblock): '<S85>/S-Function' */
-
-  /* S-Function Block: <S85>/S-Function (scblock) */
-  {
-    int i;
-    if ((i = rl32eScopeExists(6)) == 0) {
-      if ((i = rl32eDefScope(6,2)) != 0) {
-        printf("Error creating scope 6\n");
-      } else {
-        rl32eAddSignal(6, rl32eGetSignalNo("Outputs/Saturation2"));
-        rl32eSetScope(6, 4, 250);
-        rl32eSetScope(6, 5, 0);
-        rl32eSetScope(6, 6, 1);
-        rl32eSetScope(6, 0, 0);
-        rl32eSetScope(6, 3, rl32eGetSignalNo("Outputs/Saturation2"));
-        rl32eSetScope(6, 1, 0.0);
-        rl32eSetScope(6, 2, 0);
-        rl32eSetScope(6, 9, 0);
-        rl32eSetTargetScope(6, 11, -10.0);
-        rl32eSetTargetScope(6, 10, 10.0);
-        xpceScopeAcqOK(6, &Analog_Solution_DW.SFunction_IWORK_e.AcquireOK);
-      }
-    }
-
-    if (i) {
-      rl32eRestartAcquisition(6);
-    }
-  }
-
   /* Start for S-Function (scblock): '<S86>/S-Function' */
 
   /* S-Function Block: <S86>/S-Function (scblock) */
@@ -4167,18 +4543,20 @@ static void Analog_Solution_initialize(void)
       if ((i = rl32eDefScope(5,2)) != 0) {
         printf("Error creating scope 5\n");
       } else {
-        rl32eAddSignal(5, rl32eGetSignalNo("Outputs/Saturation1"));
+        rl32eAddSignal(5, rl32eGetSignalNo("Outputs/Switch2"));
+        rl32eSetTargetScopeSigFt(5,rl32eGetSignalNo("Outputs/Switch2"),"%15.6f");
         rl32eSetScope(5, 4, 250);
         rl32eSetScope(5, 5, 0);
         rl32eSetScope(5, 6, 1);
         rl32eSetScope(5, 0, 0);
-        rl32eSetScope(5, 3, rl32eGetSignalNo("Outputs/Saturation1"));
+        rl32eSetScope(5, 3, rl32eGetSignalNo("Outputs/Switch2"));
         rl32eSetScope(5, 1, 0.0);
         rl32eSetScope(5, 2, 0);
         rl32eSetScope(5, 9, 0);
+        rl32eSetTargetScope(5, 1, 0.0);
         rl32eSetTargetScope(5, 11, -10.0);
         rl32eSetTargetScope(5, 10, 10.0);
-        xpceScopeAcqOK(5, &Analog_Solution_DW.SFunction_IWORK_f.AcquireOK);
+        xpceScopeAcqOK(5, &Analog_Solution_DW.SFunction_IWORK_n.AcquireOK);
       }
     }
 
@@ -4192,29 +4570,169 @@ static void Analog_Solution_initialize(void)
   /* S-Function Block: <S87>/S-Function (scblock) */
   {
     int i;
+    if ((i = rl32eScopeExists(6)) == 0) {
+      if ((i = rl32eDefScope(6,2)) != 0) {
+        printf("Error creating scope 6\n");
+      } else {
+        rl32eAddSignal(6, rl32eGetSignalNo("Outputs/Switch1"));
+        rl32eSetTargetScopeSigFt(6,rl32eGetSignalNo("Outputs/Switch1"),"%15.6f");
+        rl32eSetScope(6, 4, 250);
+        rl32eSetScope(6, 5, 0);
+        rl32eSetScope(6, 6, 1);
+        rl32eSetScope(6, 0, 0);
+        rl32eSetScope(6, 3, rl32eGetSignalNo("Outputs/Switch1"));
+        rl32eSetScope(6, 1, 0.0);
+        rl32eSetScope(6, 2, 0);
+        rl32eSetScope(6, 9, 0);
+        rl32eSetTargetScope(6, 1, 0.0);
+        rl32eSetTargetScope(6, 11, -10.0);
+        rl32eSetTargetScope(6, 10, 10.0);
+        xpceScopeAcqOK(6, &Analog_Solution_DW.SFunction_IWORK_f.AcquireOK);
+      }
+    }
+
+    if (i) {
+      rl32eRestartAcquisition(6);
+    }
+  }
+
+  /* Start for S-Function (donipcim): '<S5>/PCI-6221 DO' */
+  /* Level2 S-Function Block: '<S5>/PCI-6221 DO' (donipcim) */
+  {
+    SimStruct *rts = Analog_Solution_M->childSfunctions[46];
+    sfcnStart(rts);
+    if (ssGetErrorStatus(rts) != (NULL))
+      return;
+  }
+
+  /* Start for S-Function (scblock): '<S90>/S-Function' */
+
+  /* S-Function Block: <S90>/S-Function (scblock) */
+  {
+    int i;
     if ((i = rl32eScopeExists(7)) == 0) {
       if ((i = rl32eDefScope(7,2)) != 0) {
         printf("Error creating scope 7\n");
       } else {
-        rl32eAddSignal(7, rl32eGetSignalNo(
-          "Spooling_Speed_Controlled/Subsystem/Sum"));
+        rl32eAddSignal(7, rl32eGetSignalNo("Spooling_Speed_Controlled/Switch5"));
+        rl32eSetTargetScopeSigFt(7,rl32eGetSignalNo(
+          "Spooling_Speed_Controlled/Switch5"),"%15.6f");
         rl32eSetScope(7, 4, 250);
         rl32eSetScope(7, 5, 0);
         rl32eSetScope(7, 6, 1);
         rl32eSetScope(7, 0, 0);
-        rl32eSetScope(7, 3, rl32eGetSignalNo(
-          "Spooling_Speed_Controlled/Subsystem/Sum"));
+        rl32eSetScope(7, 3, rl32eGetSignalNo("Spooling_Speed_Controlled/Switch5"));
         rl32eSetScope(7, 1, 0.0);
         rl32eSetScope(7, 2, 0);
         rl32eSetScope(7, 9, 0);
+        rl32eSetTargetScope(7, 1, 0.0);
         rl32eSetTargetScope(7, 11, 0.0);
         rl32eSetTargetScope(7, 10, 0.0);
-        xpceScopeAcqOK(7, &Analog_Solution_DW.SFunction_IWORK_n.AcquireOK);
+        xpceScopeAcqOK(7, &Analog_Solution_DW.SFunction_IWORK_gb.AcquireOK);
       }
     }
 
     if (i) {
       rl32eRestartAcquisition(7);
+    }
+  }
+
+  /* Start for S-Function (scblock): '<S91>/S-Function' */
+
+  /* S-Function Block: <S91>/S-Function (scblock) */
+  {
+    int i;
+    if ((i = rl32eScopeExists(14)) == 0) {
+      if ((i = rl32eDefScope(14,2)) != 0) {
+        printf("Error creating scope 14\n");
+      } else {
+        rl32eAddSignal(14, rl32eGetSignalNo("Spooling_Speed_Controlled/Switch4"));
+        rl32eSetTargetScopeSigFt(14,rl32eGetSignalNo(
+          "Spooling_Speed_Controlled/Switch4"),"%15.6f");
+        rl32eSetScope(14, 4, 250);
+        rl32eSetScope(14, 5, 0);
+        rl32eSetScope(14, 6, 1);
+        rl32eSetScope(14, 0, 0);
+        rl32eSetScope(14, 3, rl32eGetSignalNo(
+          "Spooling_Speed_Controlled/Switch4"));
+        rl32eSetScope(14, 1, 0.0);
+        rl32eSetScope(14, 2, 0);
+        rl32eSetScope(14, 9, 0);
+        rl32eSetTargetScope(14, 1, 0.0);
+        rl32eSetTargetScope(14, 11, 0.0);
+        rl32eSetTargetScope(14, 10, 0.0);
+        xpceScopeAcqOK(14, &Analog_Solution_DW.SFunction_IWORK_i.AcquireOK);
+      }
+    }
+
+    if (i) {
+      rl32eRestartAcquisition(14);
+    }
+  }
+
+  /* Start for S-Function (scblock): '<S98>/S-Function' */
+
+  /* S-Function Block: <S98>/S-Function (scblock) */
+  {
+    int i;
+    if ((i = rl32eScopeExists(15)) == 0) {
+      if ((i = rl32eDefScope(15,2)) != 0) {
+        printf("Error creating scope 15\n");
+      } else {
+        rl32eAddSignal(15, rl32eGetSignalNo("Winch_Conrtol/damper/Sum1"));
+        rl32eSetTargetScopeSigFt(15,rl32eGetSignalNo("Winch_Conrtol/damper/Sum1"),
+          "%15.6f");
+        rl32eSetScope(15, 4, 250);
+        rl32eSetScope(15, 5, 0);
+        rl32eSetScope(15, 6, 1);
+        rl32eSetScope(15, 0, 0);
+        rl32eSetScope(15, 3, rl32eGetSignalNo("Winch_Conrtol/damper/Sum1"));
+        rl32eSetScope(15, 1, 0.0);
+        rl32eSetScope(15, 2, 0);
+        rl32eSetScope(15, 9, 0);
+        rl32eSetTargetScope(15, 1, 0.0);
+        rl32eSetTargetScope(15, 11, 0.0);
+        rl32eSetTargetScope(15, 10, 0.0);
+        xpceScopeAcqOK(15, &Analog_Solution_DW.SFunction_IWORK_o.AcquireOK);
+      }
+    }
+
+    if (i) {
+      rl32eRestartAcquisition(15);
+    }
+  }
+
+  /* Start for S-Function (scblock): '<S99>/S-Function' */
+
+  /* S-Function Block: <S99>/S-Function (scblock) */
+  {
+    int i;
+    if ((i = rl32eScopeExists(16)) == 0) {
+      if ((i = rl32eDefScope(16,2)) != 0) {
+        printf("Error creating scope 16\n");
+      } else {
+        rl32eAddSignal(16, rl32eGetSignalNo(
+          "Inputs/Analog Inputs/PCI-6221 AD/p5"));
+        rl32eSetTargetScopeSigFt(16,rl32eGetSignalNo(
+          "Inputs/Analog Inputs/PCI-6221 AD/p5"),"%15.6f");
+        rl32eSetScope(16, 4, 250);
+        rl32eSetScope(16, 5, 0);
+        rl32eSetScope(16, 6, 1);
+        rl32eSetScope(16, 0, 0);
+        rl32eSetScope(16, 3, rl32eGetSignalNo(
+          "Inputs/Analog Inputs/PCI-6221 AD/p5"));
+        rl32eSetScope(16, 1, 0.0);
+        rl32eSetScope(16, 2, 0);
+        rl32eSetScope(16, 9, 0);
+        rl32eSetTargetScope(16, 1, 0.0);
+        rl32eSetTargetScope(16, 11, 0.0);
+        rl32eSetTargetScope(16, 10, 0.0);
+        xpceScopeAcqOK(16, &Analog_Solution_DW.SFunction_IWORK_e.AcquireOK);
+      }
+    }
+
+    if (i) {
+      rl32eRestartAcquisition(16);
     }
   }
 
@@ -4327,53 +4845,65 @@ static void Analog_Solution_initialize(void)
     Analog_Solution_DW.Delay_DSTATE[2] =
       Analog_Solution_P.Delay_InitialCondition;
 
-    /* InitializeConditions for Delay: '<S88>/Delay' */
-    Analog_Solution_DW.Delay_DSTATE_j =
+    /* InitializeConditions for Delay: '<S6>/Delay1' */
+    Analog_Solution_DW.Delay1_DSTATE = Analog_Solution_P.Delay1_InitialCondition;
+
+    /* InitializeConditions for Delay: '<S6>/Delay' */
+    Analog_Solution_DW.Delay_DSTATE_c =
       Analog_Solution_P.Delay_InitialCondition_b;
 
     /* InitializeConditions for Delay: '<S8>/Delay' */
     Analog_Solution_DW.Delay_DSTATE_h =
       Analog_Solution_P.Delay_InitialCondition_a;
 
-    /* InitializeConditions for Delay: '<S91>/Delay3' */
+    /* InitializeConditions for Delay: '<S100>/Delay3' */
     Analog_Solution_DW.Delay3_DSTATE = Analog_Solution_P.Delay3_InitialCondition;
 
-    /* InitializeConditions for Delay: '<S91>/Delay1' */
-    Analog_Solution_DW.Delay1_DSTATE = Analog_Solution_P.Delay1_InitialCondition;
+    /* InitializeConditions for Delay: '<S100>/Delay1' */
+    Analog_Solution_DW.Delay1_DSTATE_p =
+      Analog_Solution_P.Delay1_InitialCondition_a;
 
-    /* InitializeConditions for Delay: '<S91>/Delay4' */
+    /* InitializeConditions for Delay: '<S100>/Delay4' */
     Analog_Solution_DW.Delay4_DSTATE = Analog_Solution_P.Delay4_InitialCondition;
 
-    /* InitializeConditions for Delay: '<S90>/Delay' */
+    /* InitializeConditions for Delay: '<S97>/Delay' */
     Analog_Solution_DW.Delay_DSTATE_p =
       Analog_Solution_P.Delay_InitialCondition_b5;
 
-    /* InitializeConditions for Delay: '<S94>/Delay' */
+    /* InitializeConditions for Delay: '<S103>/Delay' */
     Analog_Solution_DW.Delay_DSTATE_p2 =
       Analog_Solution_P.Delay_InitialCondition_au;
 
-    /* InitializeConditions for Delay: '<S94>/Delay1' */
+    /* InitializeConditions for Delay: '<S103>/Delay1' */
     Analog_Solution_DW.Delay1_DSTATE_b =
       Analog_Solution_P.Delay1_InitialCondition_n;
 
-    /* InitializeConditions for Delay: '<S91>/Delay2' */
+    /* InitializeConditions for Delay: '<S100>/Delay2' */
     Analog_Solution_DW.Delay2_DSTATE = Analog_Solution_P.Delay2_InitialCondition;
 
-    /* InitializeConditions for Delay: '<S92>/Delay' */
+    /* InitializeConditions for Delay: '<S101>/Delay' */
     Analog_Solution_DW.Delay_DSTATE_i =
       Analog_Solution_P.Delay_InitialCondition_c;
 
-    /* InitializeConditions for Delay: '<S92>/Delay1' */
+    /* InitializeConditions for Delay: '<S101>/Delay1' */
     Analog_Solution_DW.Delay1_DSTATE_n =
-      Analog_Solution_P.Delay1_InitialCondition_a;
+      Analog_Solution_P.Delay1_InitialCondition_a0;
 
-    /* InitializeConditions for Delay: '<S6>/Delay' */
-    Analog_Solution_DW.Delay_DSTATE_m =
-      Analog_Solution_P.Delay_InitialCondition_ax;
+    /* InitializeConditions for Delay: '<S94>/Delay' */
+    Analog_Solution_DW.Delay_DSTATE_a =
+      Analog_Solution_P.Delay_InitialCondition_aq;
 
-    /* InitializeConditions for Delay: '<S6>/Delay1' */
-    Analog_Solution_DW.Delay1_DSTATE_i =
-      Analog_Solution_P.Delay1_InitialCondition_l;
+    /* InitializeConditions for Delay: '<S92>/Delay' */
+    Analog_Solution_DW.Delay_DSTATE_j =
+      Analog_Solution_P.Delay_InitialCondition_bo;
+
+    /* InitializeConditions for Delay: '<S95>/Delay' */
+    Analog_Solution_DW.Delay_DSTATE_ag =
+      Analog_Solution_P.Delay_InitialCondition_m;
+
+    /* InitializeConditions for Delay: '<S92>/Delay1' */
+    Analog_Solution_DW.Delay1_DSTATE_c =
+      Analog_Solution_P.Delay1_InitialCondition_n4;
 
     /* SystemInitialize for Enabled SubSystem: '<S19>/Data_validation' */
     /* SystemInitialize for Outport: '<S24>/IMU_data_valid' */
@@ -8357,7 +8887,7 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
           _ssSetOutputPortNumDimensions(rts, 4, 1);
           ssSetOutputPortWidth(rts, 4, 1);
           ssSetOutputPortSignal(rts, 4, ((real_T *)
-            &Analog_Solution_B.AI_pot_pos));
+            &Analog_Solution_B.AI_Kraftsensor));
         }
       }
 
@@ -8533,7 +9063,7 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
           _ssSetOutputPortNumDimensions(rts, 5, 1);
           ssSetOutputPortWidth(rts, 5, 1);
           ssSetOutputPortSignal(rts, 5, ((real_T *)
-            &Analog_Solution_B.DI_GliderPres));
+            &Analog_Solution_B.DI_SpoolingGrenze1));
         }
 
         /* port 6 */
@@ -8541,7 +9071,7 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
           _ssSetOutputPortNumDimensions(rts, 6, 1);
           ssSetOutputPortWidth(rts, 6, 1);
           ssSetOutputPortSignal(rts, 6, ((real_T *)
-            &Analog_Solution_B.DI_SlideLimitF));
+            &Analog_Solution_B.DI_SpoolingGrenze2));
         }
       }
 
@@ -10778,7 +11308,7 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
         /* port 2 */
         {
           ssSetInputPortRequiredContiguous(rts, 2, 1);
-          ssSetInputPortSignal(rts, 2, &Analog_Solution_B.DI_Operator);
+          ssSetInputPortSignal(rts, 2, &Analog_Solution_B.DI_Landing);
           _ssSetInputPortNumDimensions(rts, 2, 1);
           ssSetInputPortWidth(rts, 2, 1);
         }
@@ -10912,7 +11442,7 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Analog_Solution_M->NonInlinedSFcns.Sfcn45.UPtrs0;
-          sfcnUPtrs[0] = &Analog_Solution_B.Siemens_Output;
+          sfcnUPtrs[0] = &Analog_Solution_B.SiemensOut;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
@@ -10922,7 +11452,7 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Analog_Solution_M->NonInlinedSFcns.Sfcn45.UPtrs1;
-          sfcnUPtrs[0] = &Analog_Solution_B.SpoolingOutput;
+          sfcnUPtrs[0] = &Analog_Solution_B.SpoolingOut;
           ssSetInputPortSignalPtrs(rts, 1, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 1, 1);
           ssSetInputPortWidth(rts, 1, 1);
@@ -11047,7 +11577,7 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
 
       /* inputs */
       {
-        _ssSetNumInputPorts(rts, 1);
+        _ssSetNumInputPorts(rts, 2);
         ssSetPortInfoForInputs(rts,
           &Analog_Solution_M->NonInlinedSFcns.Sfcn46.inputPortInfo[0]);
 
@@ -11055,10 +11585,20 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
         {
           real_T const **sfcnUPtrs = (real_T const **)
             &Analog_Solution_M->NonInlinedSFcns.Sfcn46.UPtrs0;
-          sfcnUPtrs[0] = &Analog_Solution_B.DI_Enable;
+          sfcnUPtrs[0] = (real_T*)&Analog_Solution_RGND;
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
+        }
+
+        /* port 1 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &Analog_Solution_M->NonInlinedSFcns.Sfcn46.UPtrs1;
+          sfcnUPtrs[0] = (real_T*)&Analog_Solution_RGND;
+          ssSetInputPortSignalPtrs(rts, 1, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 1, 1);
+          ssSetInputPortWidth(rts, 1, 1);
         }
       }
 
@@ -11118,10 +11658,12 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetInputPortConnected(rts, 0, 0);
+      _ssSetInputPortConnected(rts, 1, 0);
 
       /* Update the BufferDstPort flags for each input port */
       ssSetInputPortBufferDstPort(rts, 0, -1);
+      ssSetInputPortBufferDstPort(rts, 1, -1);
     }
   }
 
@@ -11131,9 +11673,9 @@ RT_MODEL_Analog_Solution_T *Analog_Solution(void)
   Analog_Solution_M->Sizes.numU = (0); /* Number of model inputs */
   Analog_Solution_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   Analog_Solution_M->Sizes.numSampTimes = (4);/* Number of sample times */
-  Analog_Solution_M->Sizes.numBlocks = (341);/* Number of blocks */
-  Analog_Solution_M->Sizes.numBlockIO = (250);/* Number of block outputs */
-  Analog_Solution_M->Sizes.numBlockPrms = (1223);/* Sum of parameter "widths" */
+  Analog_Solution_M->Sizes.numBlocks = (459);/* Number of blocks */
+  Analog_Solution_M->Sizes.numBlockIO = (298);/* Number of block outputs */
+  Analog_Solution_M->Sizes.numBlockPrms = (1276);/* Sum of parameter "widths" */
   return Analog_Solution_M;
 }
 

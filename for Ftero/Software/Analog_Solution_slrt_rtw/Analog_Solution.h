@@ -7,9 +7,9 @@
  *
  * Code generation for model "Analog_Solution".
  *
- * Model version              : 1.1800
+ * Model version              : 1.1983
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Apr 19 09:55:24 2017
+ * C source code generated on : Mon May 08 13:42:22 2017
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -882,15 +882,14 @@ typedef struct {
   real_T AI_Joy_S;                     /* '<S14>/PCI-6221 AD' */
   real_T AI_mot_SiemensMotor_Speed;    /* '<S14>/PCI-6221 AD' */
   real_T AI_mot_winch_pos;             /* '<S14>/PCI-6221 AD' */
-  real_T AI_pot_pos;                   /* '<S14>/PCI-6221 AD' */
+  real_T AI_Kraftsensor;               /* '<S14>/PCI-6221 AD' */
   real_T DI_Enable;                    /* '<S15>/PCI-6221 DI' */
   real_T DI_WinchMode;                 /* '<S15>/PCI-6221 DI' */
   real_T DI_Takeoff;                   /* '<S15>/PCI-6221 DI' */
   real_T DI_Landing;                   /* '<S15>/PCI-6221 DI' */
   real_T DI_Operator;                  /* '<S15>/PCI-6221 DI' */
-  real_T DI_GliderPres;                /* '<S15>/PCI-6221 DI' */
-  real_T DI_SlideLimitF;               /* '<S15>/PCI-6221 DI' */
-  real_T DI_SlideLimitB;               /* '<S15>/PCI 6221 PFI DI ' */
+  real_T DI_SpoolingGrenze1;           /* '<S15>/PCI-6221 DI' */
+  real_T DI_SpoolingGrenze2;           /* '<S15>/PCI-6221 DI' */
   real_T Sum_n;                        /* '<S9>/Sum' */
   real_T Gain;                         /* '<S9>/Gain' */
   real_T DiscreteTransferFcn;          /* '<S9>/Discrete Transfer Fcn' */
@@ -913,82 +912,113 @@ typedef struct {
   real_T Delay;                        /* '<S11>/Delay' */
   real_T Sum1_b;                       /* '<S11>/Sum1' */
   real_T CI_PotSpd;                    /* '<S11>/Gain1' */
-  real_T WinchSpeedrads;               /* '<S7>/Umrechnung' */
-  real_T Abs;                          /* '<S88>/Abs' */
-  real_T Switch;                       /* '<S88>/Switch' */
-  real_T UmdrehungSampleTime;          /* '<S88>/Sample Zeit' */
-  real_T Delay_e;                      /* '<S88>/Delay' */
-  real_T Sum_bi;                       /* '<S88>/Sum' */
-  real_T Switch_k;                     /* '<S7>/Switch' */
-  real_T SpoolingOutput;               /* '<S5>/Saturation1' */
+  real_T Delay1;                       /* '<S6>/Delay1' */
+  real_T Switch3;                      /* '<S6>/Switch3' */
+  real_T Delay_b;                      /* '<S6>/Delay' */
+  real_T SpoolingEbene;                /* '<S6>/Switch4' */
+  real_T SpoolingOut;                  /* '<S5>/Switch1' */
   real_T Delay_c;                      /* '<S8>/Delay' */
-  real_T Delay3;                       /* '<S91>/Delay3' */
-  real_T Delay1;                       /* '<S91>/Delay1' */
-  real_T Delay4;                       /* '<S91>/Delay4' */
-  real_T Switch5;                      /* '<S91>/Switch5' */
-  real_T Switch7;                      /* '<S91>/Switch7' */
-  real_T Delay_k;                      /* '<S90>/Delay' */
-  real_T Switch1;                      /* '<S93>/Switch1' */
-  real_T Delay_c3;                     /* '<S94>/Delay' */
-  real_T Sum_j;                        /* '<S94>/Sum' */
-  real_T Switch1_i;                    /* '<S94>/Switch1' */
-  real_T Delay1_h;                     /* '<S94>/Delay1' */
-  real_T Sum1_l;                       /* '<S94>/Sum1' */
+  real_T Delay3;                       /* '<S100>/Delay3' */
+  real_T Delay1_m;                     /* '<S100>/Delay1' */
+  real_T Delay4;                       /* '<S100>/Delay4' */
+  real_T Switch5;                      /* '<S100>/Switch5' */
+  real_T Switch7;                      /* '<S100>/Switch7' */
+  real_T Delay_k;                      /* '<S97>/Delay' */
+  real_T Switch2;                      /* '<S8>/Switch2' */
+  real_T Switch1;                      /* '<S102>/Switch1' */
+  real_T Delay_c3;                     /* '<S103>/Delay' */
+  real_T Sum_j;                        /* '<S103>/Sum' */
+  real_T Switch1_i;                    /* '<S103>/Switch1' */
+  real_T Delay1_h;                     /* '<S103>/Delay1' */
+  real_T Sum1_l;                       /* '<S103>/Sum1' */
   real_T Sum2;                         /* '<S8>/Sum2' */
-  real_T Delay2;                       /* '<S91>/Delay2' */
-  real_T Switch4;                      /* '<S91>/Switch4' */
-  real_T Switch_m;                     /* '<S91>/Switch' */
+  real_T Delay2;                       /* '<S100>/Delay2' */
+  real_T Switch4;                      /* '<S100>/Switch4' */
+  real_T Switch;                       /* '<S100>/Switch' */
   real_T Switch1_i3;                   /* '<S8>/Switch1' */
-  real_T Delay_kl;                     /* '<S92>/Delay' */
-  real_T Sum_m;                        /* '<S92>/Sum' */
-  real_T Switch1_d;                    /* '<S92>/Switch1' */
-  real_T Delay1_j;                     /* '<S92>/Delay1' */
-  real_T Sum1_e;                       /* '<S92>/Sum1' */
-  real_T zweiteSpoolingGrenze;         /* '<S7>/zweite Spooling Grenze' */
-  real_T Siemens_Motor;                /* '<S5>/Switch' */
-  real_T Siemens_Output;               /* '<S5>/Saturation2' */
-  real_T RateTransition_i[23];         /* '<S79>/Rate Transition' */
+  real_T Delay_kl;                     /* '<S101>/Delay' */
+  real_T Sum_m;                        /* '<S101>/Sum' */
+  real_T Switch1_d;                    /* '<S101>/Switch1' */
+  real_T Delay1_j;                     /* '<S101>/Delay1' */
+  real_T Sum1_e;                       /* '<S101>/Sum1' */
+  real_T Spooling_Grenze;              /* '<S6>/Switch5' */
+  real_T SiemensOut;                   /* '<S5>/Switch2' */
+  real_T RateTransition_i[22];         /* '<S79>/Rate Transition' */
   real_T Sum_c;                        /* '<S13>/Sum' */
   real_T Gain_g;                       /* '<S13>/Gain' */
   real_T Sum1_nr;                      /* '<S13>/Sum1' */
   real_T TmpSignalConversionAtDiscreteSt[2];
+  real_T DI_SlideLimitB;               /* '<S15>/PCI 6221 PFI DI ' */
   real_T Constant1;                    /* '<S5>/Constant1' */
   real_T Constant3;                    /* '<S5>/Constant3' */
-  real_T Delay_a;                      /* '<S6>/Delay' */
-  real_T Delay1_c;                     /* '<S6>/Delay1' */
-  real_T SpoolingPosSoll;              /* '<S6>/Umrechnung' */
-  real_T Switch3;                      /* '<S6>/Switch3' */
-  real_T Gain2;                        /* '<S6>/Gain2' */
-  real_T Switch_l;                     /* '<S6>/Switch' */
-  real_T Switch2;                      /* '<S6>/Switch2' */
-  real_T Gain_fi;                      /* '<S92>/Gain' */
-  real_T Switch_c;                     /* '<S92>/Switch' */
-  real_T Switch1_p;                    /* '<S91>/Switch1' */
-  real_T Switch3_b;                    /* '<S91>/Switch3' */
-  real_T Switch2_n;                    /* '<S91>/Switch2' */
-  real_T Switch6;                      /* '<S91>/Switch6' */
-  real_T Gain_mu;                      /* '<S94>/Gain' */
-  real_T Switch_d;                     /* '<S94>/Switch' */
-  real_T Gain_mz;                      /* '<S93>/Gain' */
-  real_T Sum1_k;                       /* '<S93>/Sum1' */
-  real_T Switch_kw;                    /* '<S93>/Switch' */
-  real_T Sum_my;                       /* '<S93>/Sum' */
-  real_T Switch1_o;                    /* '<S89>/Switch1' */
-  real_T Gain_j;                       /* '<S89>/Gain' */
-  real_T Sum1_j;                       /* '<S89>/Sum1' */
-  real_T Switch_h;                     /* '<S89>/Switch' */
-  real_T Sum_no;                       /* '<S89>/Sum' */
+  real_T Switch1_c;                    /* '<S94>/Switch1' */
+  real_T Delay_j;                      /* '<S94>/Delay' */
+  real_T Sum_cc;                       /* '<S94>/Sum' */
+  real_T Switch2_n;                    /* '<S94>/Switch2' */
+  real_T Switch_o;                     /* '<S5>/Switch' */
+  real_T Delay_e;                      /* '<S92>/Delay' */
+  real_T Delay_o;                      /* '<S95>/Delay' */
+  real_T Abs;                          /* '<S95>/Abs' */
+  real_T Switch2_o;                    /* '<S95>/Switch2' */
+  real_T Sum_m1;                       /* '<S95>/Sum' */
+  real_T Gain_j;                       /* '<S93>/Gain' */
+  real_T Delay1_f;                     /* '<S92>/Delay1' */
+  real_T Abs1;                         /* '<S92>/Abs1' */
+  real_T Switch2_e;                    /* '<S92>/Switch2' */
+  real_T zweiteSpoolingGrenze;         /* '<S6>/zweite Spooling Grenze' */
+  real_T uobereGrenze0keineGrenze1untere;/* '<S6>/Switch1' */
+  real_T Switch_m;                     /* '<S7>/Switch' */
+  real_T Switch1_dc;                   /* '<S7>/Switch1' */
+  real_T Gain_fi;                      /* '<S101>/Gain' */
+  real_T Switch_c;                     /* '<S101>/Switch' */
+  real_T Switch1_p;                    /* '<S100>/Switch1' */
+  real_T Switch3_b;                    /* '<S100>/Switch3' */
+  real_T Switch2_nt;                   /* '<S100>/Switch2' */
+  real_T Switch6;                      /* '<S100>/Switch6' */
+  real_T Gain_mu;                      /* '<S103>/Gain' */
+  real_T Switch_d;                     /* '<S103>/Switch' */
+  real_T Gain_mz;                      /* '<S102>/Gain' */
+  real_T Sum1_k;                       /* '<S102>/Sum1' */
+  real_T Switch_k;                     /* '<S102>/Switch' */
+  real_T Sum_my;                       /* '<S102>/Sum' */
+  real_T Switch1_o;                    /* '<S96>/Switch1' */
+  real_T Gain_jo;                      /* '<S96>/Gain' */
+  real_T Sum1_j;                       /* '<S96>/Sum1' */
+  real_T Switch_h;                     /* '<S96>/Switch' */
+  real_T Sum_no;                       /* '<S96>/Sum' */
   real_T Switch_dl;                    /* '<S8>/Switch' */
   real_T Switch11;                     /* '<S8>/Switch11' */
   real_T Switch10;                     /* '<S8>/Switch10' */
   real_T Switch9;                      /* '<S8>/Switch9' */
   real_T Sum_k;                        /* '<S8>/Sum' */
   real_T Switch8;                      /* '<S8>/Switch8' */
-  real_T Gain_b;                       /* '<S7>/Gain' */
-  real_T Switch1_l;                    /* '<S6>/Switch1' */
-  real_T Gain_k;                       /* '<S6>/Gain' */
-  real_T Gain1_p;                      /* '<S6>/Gain1' */
-  real_T Switch1_b;                    /* '<S5>/Switch1' */
+  real_T Switch1_f;                    /* '<S95>/Switch1' */
+  real_T Switch3_e;                    /* '<S95>/Switch3' */
+  real_T Switch_b;                     /* '<S95>/Switch' */
+  real_T Gain_a;                       /* '<S95>/Gain' */
+  real_T WinchSpeedrads;               /* '<S6>/Umrechnung' */
+  real_T Abs_l;                        /* '<S92>/Abs' */
+  real_T Switch_p;                     /* '<S92>/Switch' */
+  real_T UmdrehungSampleTime;          /* '<S92>/Sample Zeit' */
+  real_T Sum_bi;                       /* '<S92>/Sum' */
+  real_T Switch1_g;                    /* '<S92>/Switch1' */
+  real_T Switch2_p;                    /* '<S6>/Switch2' */
+  real_T Switch8_c;                    /* '<S6>/Switch8' */
+  real_T Switch6_i;                    /* '<S6>/Switch6' */
+  real_T Switch5_g;                    /* '<S5>/Switch5' */
+  real_T Switch1_j;                    /* '<S89>/Switch1' */
+  real_T Gain_o;                       /* '<S89>/Gain' */
+  real_T Switch_e;                     /* '<S89>/Switch' */
+  real_T Switch7_i;                    /* '<S6>/Switch7' */
+  real_T Switch_kf;                    /* '<S6>/Switch' */
+  real_T SpoolingOutput;               /* '<S5>/Saturation1' */
+  real_T Gain_b;                       /* '<S6>/Gain' */
+  real_T Switch4_a;                    /* '<S88>/Switch4' */
+  real_T Siemens_Output;               /* '<S5>/Saturation2' */
+  real_T Switch2_a;                    /* '<S88>/Switch2' */
+  real_T Switch3_a;                    /* '<S88>/Switch3' */
+  real_T Siemens_Motor;                /* '<S88>/Switch' */
+  real_T Switch1_pc;                   /* '<S88>/Switch1' */
   real_T Switch_ku;                    /* '<S83>/Switch' */
   real_T IMU_data[38];                 /* '<S24>/IMU_data' */
   real_T CRC_valid;                    /* '<S23>/Embedded MATLAB Function' */
@@ -997,7 +1027,7 @@ typedef struct {
   real_T GU_h;                         /* '<S18>/Embedded MATLAB Function' */
   real_T Geo_GU_h;                     /* '<S18>/Embedded MATLAB Function' */
   real_T GU_Yaw;                       /* '<S17>/Embedded MATLAB Function' */
-  real_T Gain_k4;                      /* '<S10>/Gain' */
+  real_T Gain_k;                       /* '<S10>/Gain' */
   real_T Saturation1;                  /* '<S13>/Saturation1' */
   real_T Sum2_a;                       /* '<S13>/Sum2' */
   real_T Gain1_d;                      /* '<S13>/Gain1' */
@@ -1036,37 +1066,55 @@ typedef struct {
   uint8_T Constant3_h;                 /* '<S16>/Constant3' */
   uint8_T FIFOASCIIread1_k[91];        /* '<S18>/FIFO ASCII read 1' */
   uint8_T FIFOASCIIread[1025];         /* '<S19>/FIFO ASCII read ' */
-  boolean_T RelationalOperator;        /* '<S88>/Relational Operator' */
-  boolean_T RelationalOperator_l;      /* '<S7>/Relational Operator' */
-  boolean_T RelationalOperator1;       /* '<S93>/Relational Operator1' */
-  boolean_T Compare;                   /* '<S96>/Compare' */
-  boolean_T Compare_m;                 /* '<S98>/Compare' */
-  boolean_T RelationalOperator1_h;     /* '<S7>/Relational Operator1' */
+  boolean_T RelationalOperator3;       /* '<S6>/Relational Operator3' */
+  boolean_T RelationalOperator5;       /* '<S6>/Relational Operator5' */
+  boolean_T RelationalOperator7;       /* '<S6>/Relational Operator7' */
+  boolean_T LogicalOperator;           /* '<S6>/Logical Operator' */
+  boolean_T RelationalOperator8;       /* '<S6>/Relational Operator8' */
+  boolean_T RelationalOperator1;       /* '<S102>/Relational Operator1' */
+  boolean_T Compare;                   /* '<S105>/Compare' */
+  boolean_T Compare_m;                 /* '<S107>/Compare' */
+  boolean_T RelationalOperator6;       /* '<S6>/Relational Operator6' */
+  boolean_T LogicalOperator1;          /* '<S6>/Logical Operator1' */
   boolean_T FIFOwrite1_o2;             /* '<S20>/FIFO write 1' */
   boolean_T FIFOwrite2_o2;             /* '<S20>/FIFO write 2' */
   boolean_T FIFOwrite3_o2;             /* '<S20>/FIFO write 3' */
   boolean_T FIFOwrite4_o2;             /* '<S20>/FIFO write 4' */
-  boolean_T RelationalOperator3;       /* '<S6>/Relational Operator3' */
-  boolean_T RelationalOperator_o;      /* '<S6>/Relational Operator' */
+  boolean_T RelationalOperator1_l;     /* '<S95>/Relational Operator1' */
+  boolean_T RelationalOperator;        /* '<S94>/Relational Operator' */
+  boolean_T LogicalOperator_i;         /* '<S95>/Logical Operator' */
+  boolean_T RelationalOperator_i;      /* '<S95>/Relational Operator' */
+  boolean_T RelationalOperator1_h;     /* '<S92>/Relational Operator1' */
+  boolean_T RelationalOperator_l;      /* '<S6>/Relational Operator' */
+  boolean_T RelationalOperator1_h4;    /* '<S6>/Relational Operator1' */
+  boolean_T Compare_k;                 /* '<S106>/Compare' */
+  boolean_T Compare_b;                 /* '<S104>/Compare' */
+  boolean_T RelationalOperator_a;      /* '<S102>/Relational Operator' */
+  boolean_T RelationalOperator1_b;     /* '<S96>/Relational Operator1' */
+  boolean_T RelationalOperator_j;      /* '<S96>/Relational Operator' */
+  boolean_T LogicalOperator2;          /* '<S100>/Logical Operator2' */
+  boolean_T LogicalOperator3;          /* '<S100>/Logical Operator3' */
+  boolean_T LogicalOperator4;          /* '<S100>/Logical Operator4' */
+  boolean_T LogicalOperator5;          /* '<S100>/Logical Operator5' */
+  boolean_T LogicalOperator_k;         /* '<S100>/Logical Operator' */
+  boolean_T TractionAdvanced;          /* '<S100>/Logical Operator1' */
+  boolean_T LogicalOperator6;          /* '<S100>/Logical Operator6' */
+  boolean_T LogicalOperator7;          /* '<S100>/Logical Operator7' */
+  boolean_T RelationalOperator_n;      /* '<S92>/Relational Operator' */
   boolean_T RelationalOperator2;       /* '<S6>/Relational Operator2' */
-  boolean_T RelationalOperator4;       /* '<S6>/Relational Operator4' */
-  boolean_T Compare_k;                 /* '<S97>/Compare' */
-  boolean_T Compare_b;                 /* '<S95>/Compare' */
-  boolean_T RelationalOperator_a;      /* '<S93>/Relational Operator' */
-  boolean_T RelationalOperator1_b;     /* '<S89>/Relational Operator1' */
-  boolean_T RelationalOperator_j;      /* '<S89>/Relational Operator' */
-  boolean_T LogicalOperator2;          /* '<S91>/Logical Operator2' */
-  boolean_T LogicalOperator3;          /* '<S91>/Logical Operator3' */
-  boolean_T LogicalOperator4;          /* '<S91>/Logical Operator4' */
-  boolean_T LogicalOperator5;          /* '<S91>/Logical Operator5' */
-  boolean_T LogicalOperator;           /* '<S91>/Logical Operator' */
-  boolean_T LogicalOperator1;          /* '<S91>/Logical Operator1' */
-  boolean_T LogicalOperator6;          /* '<S91>/Logical Operator6' */
-  boolean_T LogicalOperator7;          /* '<S91>/Logical Operator7' */
-  boolean_T RelationalOperator1_ba;    /* '<S6>/Relational Operator1' */
-  boolean_T RelationalOperator_c;      /* '<S5>/Relational Operator' */
+  boolean_T LogicalOperator3_o;        /* '<S6>/Logical Operator3' */
+  boolean_T LogicalOperator2_g;        /* '<S6>/Logical Operator2' */
+  boolean_T RelationalOperator5_d;     /* '<S5>/Relational Operator5' */
+  boolean_T RelationalOperator1_j;     /* '<S89>/Relational Operator1' */
+  boolean_T RelationalOperator_f;      /* '<S89>/Relational Operator' */
+  boolean_T RelationalOperator4;       /* '<S88>/Relational Operator4' */
+  boolean_T RelationalOperator2_d;     /* '<S88>/Relational Operator2' */
+  boolean_T RelationalOperator3_m;     /* '<S88>/Relational Operator3' */
+  boolean_T RelationalOperator1_d;     /* '<S88>/Relational Operator1' */
+  boolean_T RelationalOperator_ih;     /* '<S88>/Relational Operator' */
   boolean_T RelationalOperator_m[4];   /* '<S78>/Relational Operator' */
   boolean_T LogicalOperator_c;         /* '<S78>/Logical Operator' */
+  int8_T Gain1_c;                      /* '<S6>/Gain1' */
   B_EmbeddedMATLABFunction_An_o_T sf_EmbeddedMATLABFunction3_a;/* '<S38>/Embedded MATLAB Function3' */
   B_EmbeddedMATLABFunction_An_o_T sf_EmbeddedMATLABFunction1_p;/* '<S38>/Embedded MATLAB Function1' */
   B_EmbeddedMATLABFunction_An_o_T sf_EmbeddedMATLABFunction_f;/* '<S38>/Embedded MATLAB Function' */
@@ -1117,19 +1165,22 @@ typedef struct {
   real_T DiscreteTransferFcn1_states_h[2];/* '<S12>/Discrete Transfer Fcn1' */
   real_T DiscreteTransferFcn1_states_n[2];/* '<S11>/Discrete Transfer Fcn1' */
   real_T Delay_DSTATE[3];              /* '<S11>/Delay' */
-  real_T Delay_DSTATE_j;               /* '<S88>/Delay' */
+  real_T Delay1_DSTATE;                /* '<S6>/Delay1' */
+  real_T Delay_DSTATE_c;               /* '<S6>/Delay' */
   real_T Delay_DSTATE_h;               /* '<S8>/Delay' */
-  real_T Delay3_DSTATE;                /* '<S91>/Delay3' */
-  real_T Delay1_DSTATE;                /* '<S91>/Delay1' */
-  real_T Delay4_DSTATE;                /* '<S91>/Delay4' */
-  real_T Delay_DSTATE_p;               /* '<S90>/Delay' */
-  real_T Delay_DSTATE_p2;              /* '<S94>/Delay' */
-  real_T Delay1_DSTATE_b;              /* '<S94>/Delay1' */
-  real_T Delay2_DSTATE;                /* '<S91>/Delay2' */
-  real_T Delay_DSTATE_i;               /* '<S92>/Delay' */
-  real_T Delay1_DSTATE_n;              /* '<S92>/Delay1' */
-  real_T Delay_DSTATE_m;               /* '<S6>/Delay' */
-  real_T Delay1_DSTATE_i;              /* '<S6>/Delay1' */
+  real_T Delay3_DSTATE;                /* '<S100>/Delay3' */
+  real_T Delay1_DSTATE_p;              /* '<S100>/Delay1' */
+  real_T Delay4_DSTATE;                /* '<S100>/Delay4' */
+  real_T Delay_DSTATE_p;               /* '<S97>/Delay' */
+  real_T Delay_DSTATE_p2;              /* '<S103>/Delay' */
+  real_T Delay1_DSTATE_b;              /* '<S103>/Delay1' */
+  real_T Delay2_DSTATE;                /* '<S100>/Delay2' */
+  real_T Delay_DSTATE_i;               /* '<S101>/Delay' */
+  real_T Delay1_DSTATE_n;              /* '<S101>/Delay1' */
+  real_T Delay_DSTATE_a;               /* '<S94>/Delay' */
+  real_T Delay_DSTATE_j;               /* '<S92>/Delay' */
+  real_T Delay_DSTATE_ag;              /* '<S95>/Delay' */
+  real_T Delay1_DSTATE_c;              /* '<S92>/Delay1' */
   real_T DiscreteTransferFcn_tmp;      /* '<S9>/Discrete Transfer Fcn' */
   real_T DiscreteTransferFcn1_tmp;     /* '<S9>/Discrete Transfer Fcn1' */
   real_T DiscreteTransferFcn_tmp_g;    /* '<S13>/Discrete Transfer Fcn' */
@@ -1182,18 +1233,30 @@ typedef struct {
   int_T Setup4_IWORK[2];               /* '<S20>/Setup4' */
   int_T PCI6221PFIDO_IWORK;            /* '<S5>/PCI 6221 PFI DO ' */
   int_T PCI6221DA_IWORK[41];           /* '<S5>/PCI-6221 DA' */
+  struct {
+    int_T AcquireOK;
+  } SFunction_IWORK_n;                 /* '<S86>/S-Function' */
+
+  struct {
+    int_T AcquireOK;
+  } SFunction_IWORK_f;                 /* '<S87>/S-Function' */
+
   int_T PCI6221DO_IWORK;               /* '<S5>/PCI-6221 DO' */
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_e;                 /* '<S85>/S-Function' */
+  } SFunction_IWORK_gb;                /* '<S90>/S-Function' */
 
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_f;                 /* '<S86>/S-Function' */
+  } SFunction_IWORK_i;                 /* '<S91>/S-Function' */
 
   struct {
     int_T AcquireOK;
-  } SFunction_IWORK_n;                 /* '<S87>/S-Function' */
+  } SFunction_IWORK_o;                 /* '<S98>/S-Function' */
+
+  struct {
+    int_T AcquireOK;
+  } SFunction_IWORK_e;                 /* '<S99>/S-Function' */
 
   int_T ReadIntStatus1_IWORK;          /* '<S78>/Read Int Status1' */
   int_T WriteHWFIFO1_IWORK;            /* '<S78>/Write HW FIFO1' */
@@ -2007,23 +2070,110 @@ struct P_Analog_Solution_T_ {
   real_T FIFOwrite4_P5[34];            /* Computed Parameter: FIFOwrite4_P5
                                         * Referenced by: '<S78>/FIFO write 4'
                                         */
-  real_T Constant_Value;               /* Expression: 0
-                                        * Referenced by: '<S5>/Constant'
+  real_T ObereGrenze_Value;            /* Expression: 1
+                                        * Referenced by: '<S88>/Obere Grenze'
                                         */
-  real_T Gain1_Gain;                   /* Expression: -1
-                                        * Referenced by: '<S6>/Gain1'
+  real_T UntereGrenze_Value;           /* Expression: -1
+                                        * Referenced by: '<S88>/Untere Grenze'
                                         */
-  real_T Gain_Gain_i;                  /* Expression: -1
+  real_T Constant5_Value;              /* Expression: 0
+                                        * Referenced by: '<S88>/Constant5'
+                                        */
+  real_T Constant4_Value;              /* Expression: 0
+                                        * Referenced by: '<S5>/Constant4'
+                                        */
+  real_T Constant12_Value;             /* Expression: 1
+                                        * Referenced by: '<S6>/Constant12'
+                                        */
+  real_T Constant11_Value;             /* Expression: 0
+                                        * Referenced by: '<S6>/Constant11'
+                                        */
+  real_T Gain_Gain_j;                  /* Expression: -1
                                         * Referenced by: '<S6>/Gain'
+                                        */
+  real_T Switch7_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S6>/Switch7'
+                                        */
+  real_T Switch_Threshold;             /* Expression: 0
+                                        * Referenced by: '<S6>/Switch'
+                                        */
+  real_T Gain_Gain_d;                  /* Expression: -1
+                                        * Referenced by: '<S89>/Gain'
+                                        */
+  real_T Constant2_Value_f;            /* Expression: 1
+                                        * Referenced by: '<S5>/Constant2'
+                                        */
+  real_T Constant8_Value;              /* Expression: 0
+                                        * Referenced by: '<S5>/Constant8'
+                                        */
+  real_T Constant7_Value;              /* Expression: 1
+                                        * Referenced by: '<S5>/Constant7'
+                                        */
+  real_T Constant6_Value;              /* Expression: 0.00001
+                                        * Referenced by: '<S5>/Constant6'
+                                        */
+  real_T Constant10_Value;             /* Expression: 0
+                                        * Referenced by: '<S6>/Constant10'
+                                        */
+  real_T Constant9_Value;              /* Expression: 1
+                                        * Referenced by: '<S6>/Constant9'
+                                        */
+  real_T Constant8_Value_e;            /* Expression: -1
+                                        * Referenced by: '<S6>/Constant8'
+                                        */
+  real_T Constant13_Value;             /* Expression: 0
+                                        * Referenced by: '<S6>/Constant13'
+                                        */
+  real_T Constant3_Value;              /* Expression: 1
+                                        * Referenced by: '<S6>/Constant3'
                                         */
   real_T Constant1_Value;              /* Expression: 0
                                         * Referenced by: '<S6>/Constant1'
                                         */
-  real_T Gain_Gain_j;                  /* Expression: -1
-                                        * Referenced by: '<S7>/Gain'
+  real_T Constant_Value;               /* Expression: 1
+                                        * Referenced by: '<S6>/Constant'
+                                        */
+  real_T Switch2_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S6>/Switch2'
+                                        */
+  real_T Constant2_Value_i;            /* Expression: -1
+                                        * Referenced by: '<S6>/Constant2'
+                                        */
+  real_T untereSpoolingGrenze_Value;   /* Expression: 0
+                                        * Referenced by: '<S6>/untere Spooling Grenze'
+                                        */
+  real_T Const_Value;                  /* Expression: 1
+                                        * Referenced by: '<S6>/Const.'
+                                        */
+  real_T Constant2_Value_d;            /* Expression: 0
+                                        * Referenced by: '<S92>/Constant2'
                                         */
   real_T Constant1_Value_g;            /* Expression: 0
-                                        * Referenced by: '<S88>/Constant1'
+                                        * Referenced by: '<S92>/Constant1'
+                                        */
+  real_T Constant_Value_b;             /* Expression: 1
+                                        * Referenced by: '<S92>/Constant'
+                                        */
+  real_T Umrechnung_Gain;              /* Expression: 222.2
+                                        * Referenced by: '<S6>/Umrechnung'
+                                        */
+  real_T SampleZeit_Gain;              /* Expression: 0.001
+                                        * Referenced by: '<S92>/Sample Zeit'
+                                        */
+  real_T Gain_Gain_dq;                 /* Expression: -1
+                                        * Referenced by: '<S95>/Gain'
+                                        */
+  real_T Switch_Threshold_o;           /* Expression: 0
+                                        * Referenced by: '<S95>/Switch'
+                                        */
+  real_T Constant_Value_e;             /* Expression: 0
+                                        * Referenced by: '<S7>/Constant'
+                                        */
+  real_T Switch1_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S95>/Switch1'
+                                        */
+  real_T Constant1_Value_p;            /* Expression: 0
+                                        * Referenced by: '<S8>/Constant1'
                                         */
   real_T Constant_Value_n;             /* Expression: 0
                                         * Referenced by: '<S8>/Constant'
@@ -2034,38 +2184,38 @@ struct P_Analog_Solution_T_ {
   real_T konstanteEinrollgeschw_Value; /* Expression: -0.213
                                         * Referenced by: '<S8>/konstante Einrollgeschw.'
                                         */
-  real_T Constant3_Value;              /* Expression: -1.29
+  real_T Constant3_Value_a;            /* Expression: -1.29
                                         * Referenced by: '<S8>/Constant3'
                                         */
   real_T Constant2_Value_h;            /* Expression: 0
                                         * Referenced by: '<S8>/Constant2'
                                         */
-  real_T Switch_Threshold;             /* Expression: 0
+  real_T Switch_Threshold_a;           /* Expression: 0
                                         * Referenced by: '<S8>/Switch'
                                         */
   real_T Gain_Gain_p;                  /* Expression: -1
-                                        * Referenced by: '<S89>/Gain'
+                                        * Referenced by: '<S96>/Gain'
                                         */
   real_T Gain_Gain_a;                  /* Expression: -1
-                                        * Referenced by: '<S93>/Gain'
+                                        * Referenced by: '<S102>/Gain'
                                         */
   real_T Gain_Gain_e;                  /* Expression: -1
-                                        * Referenced by: '<S94>/Gain'
+                                        * Referenced by: '<S103>/Gain'
                                         */
   real_T Switch6_Threshold;            /* Expression: 0
-                                        * Referenced by: '<S91>/Switch6'
+                                        * Referenced by: '<S100>/Switch6'
                                         */
-  real_T Switch2_Threshold;            /* Expression: 0
-                                        * Referenced by: '<S91>/Switch2'
+  real_T Switch2_Threshold_n;          /* Expression: 0
+                                        * Referenced by: '<S100>/Switch2'
                                         */
   real_T Switch3_Threshold;            /* Expression: 0
-                                        * Referenced by: '<S91>/Switch3'
+                                        * Referenced by: '<S100>/Switch3'
                                         */
-  real_T Switch1_Threshold;            /* Expression: 0
-                                        * Referenced by: '<S91>/Switch1'
+  real_T Switch1_Threshold_e;          /* Expression: 0
+                                        * Referenced by: '<S100>/Switch1'
                                         */
   real_T Gain_Gain_f;                  /* Expression: -1
-                                        * Referenced by: '<S92>/Gain'
+                                        * Referenced by: '<S101>/Gain'
                                         */
   real_T WallTime1_P1_Size[2];         /* Computed Parameter: WallTime1_P1_Size
                                         * Referenced by: '<S4>/Wall Time 1'
@@ -2100,10 +2250,10 @@ struct P_Analog_Solution_T_ {
   real_T Constant_Value_d;             /* Expression: 1
                                         * Referenced by: '<S83>/Constant'
                                         */
-  real_T Constant1_Value_p;            /* Expression: 0
+  real_T Constant1_Value_po;           /* Expression: 0
                                         * Referenced by: '<S83>/Constant1'
                                         */
-  real_T Constant2_Value_d;            /* Expression: 0
+  real_T Constant2_Value_dl;           /* Expression: 0
                                         * Referenced by: '<S83>/Constant2'
                                         */
   real_T UnitDelay_InitialCondition;   /* Expression: 0
@@ -2181,6 +2331,177 @@ struct P_Analog_Solution_T_ {
   real_T PCI6221DI_P5;                 /* Expression: boardType
                                         * Referenced by: '<S15>/PCI-6221 DI'
                                         */
+  real_T DiscreteTransferFcn_InitialStat;/* Expression: 0
+                                          * Referenced by: '<S9>/Discrete Transfer Fcn'
+                                          */
+  real_T DiscreteTransferFcn1_InitialSta;/* Expression: 0
+                                          * Referenced by: '<S9>/Discrete Transfer Fcn1'
+                                          */
+  real_T Saturation1_UpperSat;         /* Expression: JoyW_sat
+                                        * Referenced by: '<S9>/Saturation1'
+                                        */
+  real_T Saturation1_LowerSat;         /* Expression: -JoyW_sat
+                                        * Referenced by: '<S9>/Saturation1'
+                                        */
+  real_T DiscreteTransferFcn_InitialSt_m;/* Expression: 0
+                                          * Referenced by: '<S13>/Discrete Transfer Fcn'
+                                          */
+  real_T Switch_Threshold_h;           /* Expression: 0.5
+                                        * Referenced by: '<S13>/Switch'
+                                        */
+  real_T DiscreteTransferFcn1_InitialS_h;/* Expression: 0
+                                          * Referenced by: '<S12>/Discrete Transfer Fcn1'
+                                          */
+  real_T DiscreteTransferFcn1_InitialS_d;/* Expression: 0
+                                          * Referenced by: '<S11>/Discrete Transfer Fcn1'
+                                          */
+  real_T Delay_InitialCondition;       /* Expression: 0.0
+                                        * Referenced by: '<S11>/Delay'
+                                        */
+  real_T Speed_Value;                  /* Expression: 0.5
+                                        * Referenced by: '<S89>/Speed'
+                                        */
+  real_T untereGrenze_Value;           /* Expression: -1
+                                        * Referenced by: '<S89>/untere Grenze'
+                                        */
+  real_T obereGrenze_Value;            /* Expression: 1
+                                        * Referenced by: '<S89>/obere Grenze'
+                                        */
+  real_T Const_Value_n;                /* Expression: 0
+                                        * Referenced by: '<S89>/Const'
+                                        */
+  real_T Delay1_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S6>/Delay1'
+                                        */
+  real_T Constant14_Value;             /* Expression: 0
+                                        * Referenced by: '<S6>/Constant14'
+                                        */
+  real_T Switch3_Threshold_m;          /* Expression: 0
+                                        * Referenced by: '<S6>/Switch3'
+                                        */
+  real_T Constant4_Value_e;            /* Expression: 1
+                                        * Referenced by: '<S6>/Constant4'
+                                        */
+  real_T Constant6_Value_h;            /* Expression: 0
+                                        * Referenced by: '<S6>/Constant6'
+                                        */
+  real_T Delay_InitialCondition_b;     /* Expression: 0
+                                        * Referenced by: '<S6>/Delay'
+                                        */
+  real_T Constant7_Value_m;            /* Expression: 1
+                                        * Referenced by: '<S6>/Constant7'
+                                        */
+  real_T Switch1_Threshold_g;          /* Expression: 0
+                                        * Referenced by: '<S5>/Switch1'
+                                        */
+  real_T Beschleunigung_Value;         /* Expression: 0.00125
+                                        * Referenced by: '<S101>/Beschleunigung'
+                                        */
+  real_T Beschleunigung_Value_o;       /* Expression: 0.0003
+                                        * Referenced by: '<S96>/Beschleunigung'
+                                        */
+  real_T Delay_InitialCondition_a;     /* Expression: 0
+                                        * Referenced by: '<S8>/Delay'
+                                        */
+  real_T untereKraftsensorGrenze_Value;/* Expression: 0.04
+                                        * Referenced by: '<S96>/untere Kraftsensor Grenze'
+                                        */
+  real_T obereKraftsensorGrenze_Value; /* Expression: 0.04
+                                        * Referenced by: '<S96>/obere Kraftsensor Grenze'
+                                        */
+  real_T Delay3_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S100>/Delay3'
+                                        */
+  real_T Delay1_InitialCondition_a;    /* Expression: 0
+                                        * Referenced by: '<S100>/Delay1'
+                                        */
+  real_T Delay4_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S100>/Delay4'
+                                        */
+  real_T Constant2_Value_k;            /* Expression: 1
+                                        * Referenced by: '<S100>/Constant2'
+                                        */
+  real_T Constant3_Value_j;            /* Expression: 0
+                                        * Referenced by: '<S100>/Constant3'
+                                        */
+  real_T Switch5_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S100>/Switch5'
+                                        */
+  real_T Switch7_Threshold_o;          /* Expression: 0
+                                        * Referenced by: '<S100>/Switch7'
+                                        */
+  real_T Beschleunigung_Value_p;       /* Expression: 0.00125
+                                        * Referenced by: '<S103>/Beschleunigung'
+                                        */
+  real_T Beschleunigung_Value_i;       /* Expression: 0.0006
+                                        * Referenced by: '<S102>/Beschleunigung'
+                                        */
+  real_T Delay_InitialCondition_b5;    /* Expression: 0
+                                        * Referenced by: '<S97>/Delay'
+                                        */
+  real_T Switch2_Threshold_h;          /* Expression: 0
+                                        * Referenced by: '<S8>/Switch2'
+                                        */
+  real_T untereGrenze_Value_p;         /* Expression: -1
+                                        * Referenced by: '<S102>/untere Grenze'
+                                        */
+  real_T obereGrenze_Value_p;          /* Expression: 1
+                                        * Referenced by: '<S102>/obere Grenze'
+                                        */
+  real_T Delay_InitialCondition_au;    /* Expression: 0
+                                        * Referenced by: '<S103>/Delay'
+                                        */
+  real_T Constant_Value_m;             /* Expression: 0
+                                        * Referenced by: '<S105>/Constant'
+                                        */
+  real_T Constant_Value_h;             /* Expression: 0
+                                        * Referenced by: '<S104>/Constant'
+                                        */
+  real_T Constant1_Value_pr;           /* Expression: 0
+                                        * Referenced by: '<S103>/Constant1'
+                                        */
+  real_T Delay1_InitialCondition_n;    /* Expression: 0
+                                        * Referenced by: '<S103>/Delay1'
+                                        */
+  real_T konstanteAusrollgeschw1_Value;/* Expression: 0.213
+                                        * Referenced by: '<S8>/konstante Ausrollgeschw.1'
+                                        */
+  real_T Delay2_InitialCondition;      /* Expression: 0
+                                        * Referenced by: '<S100>/Delay2'
+                                        */
+  real_T Switch4_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S100>/Switch4'
+                                        */
+  real_T Switch_Threshold_h2;          /* Expression: 0
+                                        * Referenced by: '<S100>/Switch'
+                                        */
+  real_T Switch1_Threshold_f;          /* Expression: 0
+                                        * Referenced by: '<S8>/Switch1'
+                                        */
+  real_T Delay_InitialCondition_c;     /* Expression: 0
+                                        * Referenced by: '<S101>/Delay'
+                                        */
+  real_T Constant_Value_i;             /* Expression: 0
+                                        * Referenced by: '<S107>/Constant'
+                                        */
+  real_T Constant_Value_m0;            /* Expression: 0
+                                        * Referenced by: '<S106>/Constant'
+                                        */
+  real_T Constant1_Value_gd;           /* Expression: 0
+                                        * Referenced by: '<S101>/Constant1'
+                                        */
+  real_T Delay1_InitialCondition_a0;   /* Expression: 0
+                                        * Referenced by: '<S101>/Delay1'
+                                        */
+  real_T Constant5_Value_m;            /* Expression: -1
+                                        * Referenced by: '<S6>/Constant5'
+                                        */
+  real_T Constant_Value_c;             /* Expression: 0
+                                        * Referenced by: '<S88>/Constant'
+                                        */
+  real_T Switch2_Threshold_hu;         /* Expression: 0
+                                        * Referenced by: '<S5>/Switch2'
+                                        */
   real_T PCI6221PFIDI_P1_Size[2];      /* Computed Parameter: PCI6221PFIDI_P1_Size
                                         * Referenced by: '<S15>/PCI 6221 PFI DI '
                                         */
@@ -2210,147 +2531,6 @@ struct P_Analog_Solution_T_ {
                                         */
   real_T PCI6221PFIDI_P5;              /* Expression: slot
                                         * Referenced by: '<S15>/PCI 6221 PFI DI '
-                                        */
-  real_T DiscreteTransferFcn_InitialStat;/* Expression: 0
-                                          * Referenced by: '<S9>/Discrete Transfer Fcn'
-                                          */
-  real_T DiscreteTransferFcn1_InitialSta;/* Expression: 0
-                                          * Referenced by: '<S9>/Discrete Transfer Fcn1'
-                                          */
-  real_T Saturation1_UpperSat;         /* Expression: JoyW_sat
-                                        * Referenced by: '<S9>/Saturation1'
-                                        */
-  real_T Saturation1_LowerSat;         /* Expression: -JoyW_sat
-                                        * Referenced by: '<S9>/Saturation1'
-                                        */
-  real_T DiscreteTransferFcn_InitialSt_m;/* Expression: 0
-                                          * Referenced by: '<S13>/Discrete Transfer Fcn'
-                                          */
-  real_T Switch_Threshold_h;           /* Expression: 0.5
-                                        * Referenced by: '<S13>/Switch'
-                                        */
-  real_T DiscreteTransferFcn1_InitialS_h;/* Expression: 0
-                                          * Referenced by: '<S12>/Discrete Transfer Fcn1'
-                                          */
-  real_T DiscreteTransferFcn1_InitialS_d;/* Expression: 0
-                                          * Referenced by: '<S11>/Discrete Transfer Fcn1'
-                                          */
-  real_T Delay_InitialCondition;       /* Expression: 0.0
-                                        * Referenced by: '<S11>/Delay'
-                                        */
-  real_T Umrechnung_Gain;              /* Expression: 222.2
-                                        * Referenced by: '<S7>/Umrechnung'
-                                        */
-  real_T Constant_Value_b;             /* Expression: 1
-                                        * Referenced by: '<S88>/Constant'
-                                        */
-  real_T SampleZeit_Gain;              /* Expression: 0.001
-                                        * Referenced by: '<S88>/Sample Zeit'
-                                        */
-  real_T Delay_InitialCondition_b;     /* Expression: 0
-                                        * Referenced by: '<S88>/Delay'
-                                        */
-  real_T ersteSpoolingGrenze_Value;    /* Expression: 500000
-                                        * Referenced by: '<S7>/erste Spooling Grenze'
-                                        */
-  real_T Beschleunigung_Value;         /* Expression: 0.00125
-                                        * Referenced by: '<S92>/Beschleunigung'
-                                        */
-  real_T Beschleunigung_Value_o;       /* Expression: 0.00125
-                                        * Referenced by: '<S89>/Beschleunigung'
-                                        */
-  real_T Delay_InitialCondition_a;     /* Expression: 0
-                                        * Referenced by: '<S8>/Delay'
-                                        */
-  real_T untereKraftsensorGrenze_Value;/* Expression: -1
-                                        * Referenced by: '<S89>/untere Kraftsensor Grenze'
-                                        */
-  real_T obereKraftsensorGrenze_Value; /* Expression: 1
-                                        * Referenced by: '<S89>/obere Kraftsensor Grenze'
-                                        */
-  real_T Delay3_InitialCondition;      /* Expression: 0
-                                        * Referenced by: '<S91>/Delay3'
-                                        */
-  real_T Delay1_InitialCondition;      /* Expression: 0
-                                        * Referenced by: '<S91>/Delay1'
-                                        */
-  real_T Delay4_InitialCondition;      /* Expression: 0
-                                        * Referenced by: '<S91>/Delay4'
-                                        */
-  real_T Constant2_Value_k;            /* Expression: 1
-                                        * Referenced by: '<S91>/Constant2'
-                                        */
-  real_T Constant3_Value_j;            /* Expression: 0
-                                        * Referenced by: '<S91>/Constant3'
-                                        */
-  real_T Switch5_Threshold;            /* Expression: 0
-                                        * Referenced by: '<S91>/Switch5'
-                                        */
-  real_T Switch7_Threshold;            /* Expression: 0
-                                        * Referenced by: '<S91>/Switch7'
-                                        */
-  real_T Beschleunigung_Value_p;       /* Expression: 0.00125
-                                        * Referenced by: '<S94>/Beschleunigung'
-                                        */
-  real_T Beschleunigung_Value_i;       /* Expression: 0.00125
-                                        * Referenced by: '<S93>/Beschleunigung'
-                                        */
-  real_T Delay_InitialCondition_b5;    /* Expression: 0
-                                        * Referenced by: '<S90>/Delay'
-                                        */
-  real_T untereGrenze_Value;           /* Expression: -1
-                                        * Referenced by: '<S93>/untere Grenze'
-                                        */
-  real_T obereGrenze_Value;            /* Expression: 1
-                                        * Referenced by: '<S93>/obere Grenze'
-                                        */
-  real_T Delay_InitialCondition_au;    /* Expression: 0
-                                        * Referenced by: '<S94>/Delay'
-                                        */
-  real_T Constant_Value_m;             /* Expression: 0
-                                        * Referenced by: '<S96>/Constant'
-                                        */
-  real_T Constant_Value_h;             /* Expression: 0
-                                        * Referenced by: '<S95>/Constant'
-                                        */
-  real_T Constant1_Value_pr;           /* Expression: 0
-                                        * Referenced by: '<S94>/Constant1'
-                                        */
-  real_T Delay1_InitialCondition_n;    /* Expression: 0
-                                        * Referenced by: '<S94>/Delay1'
-                                        */
-  real_T konstanteAusrollgeschw1_Value;/* Expression: 0.213
-                                        * Referenced by: '<S8>/konstante Ausrollgeschw.1'
-                                        */
-  real_T Delay2_InitialCondition;      /* Expression: 0
-                                        * Referenced by: '<S91>/Delay2'
-                                        */
-  real_T Switch4_Threshold;            /* Expression: 0
-                                        * Referenced by: '<S91>/Switch4'
-                                        */
-  real_T Switch_Threshold_h2;          /* Expression: 0
-                                        * Referenced by: '<S91>/Switch'
-                                        */
-  real_T Switch1_Threshold_f;          /* Expression: 0
-                                        * Referenced by: '<S8>/Switch1'
-                                        */
-  real_T Delay_InitialCondition_c;     /* Expression: 0
-                                        * Referenced by: '<S92>/Delay'
-                                        */
-  real_T Constant_Value_i;             /* Expression: 0
-                                        * Referenced by: '<S98>/Constant'
-                                        */
-  real_T Constant_Value_m0;            /* Expression: 0
-                                        * Referenced by: '<S97>/Constant'
-                                        */
-  real_T Constant1_Value_gd;           /* Expression: 0
-                                        * Referenced by: '<S92>/Constant1'
-                                        */
-  real_T Delay1_InitialCondition_a;    /* Expression: 0
-                                        * Referenced by: '<S92>/Delay1'
-                                        */
-  real_T zweiteSpoolingGrenze_Gain;    /* Expression: 2
-                                        * Referenced by: '<S7>/zweite Spooling Grenze'
                                         */
   real_T FIFOASCIIread1_P1_Size[2];    /* Computed Parameter: FIFOASCIIread1_P1_Size
                                         * Referenced by: '<S17>/FIFO ASCII read 1'
@@ -3018,22 +3198,37 @@ struct P_Analog_Solution_T_ {
   real_T PCI6221DA_P7;                 /* Expression: boardType
                                         * Referenced by: '<S5>/PCI-6221 DA'
                                         */
+  real_T Constant1_Value_n;            /* Expression: 0
+                                        * Referenced by: '<S95>/Constant1'
+                                        */
+  real_T Constant1_Value_e;            /* Expression: 1
+                                        * Referenced by: '<S94>/Constant1'
+                                        */
+  real_T Constant2_Value_l;            /* Expression: 0
+                                        * Referenced by: '<S94>/Constant2'
+                                        */
+  real_T Switch1_Threshold_n;          /* Expression: 0
+                                        * Referenced by: '<S94>/Switch1'
+                                        */
+  real_T Delay_InitialCondition_aq;    /* Expression: 0
+                                        * Referenced by: '<S94>/Delay'
+                                        */
   real_T PCI6221DO_P1_Size[2];         /* Computed Parameter: PCI6221DO_P1_Size
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
-  real_T PCI6221DO_P1;                 /* Expression: channel
+  real_T PCI6221DO_P1[2];              /* Expression: channel
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
   real_T PCI6221DO_P2_Size[2];         /* Computed Parameter: PCI6221DO_P2_Size
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
-  real_T PCI6221DO_P2;                 /* Expression: reset
+  real_T PCI6221DO_P2[2];              /* Expression: reset
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
   real_T PCI6221DO_P3_Size[2];         /* Computed Parameter: PCI6221DO_P3_Size
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
-  real_T PCI6221DO_P3;                 /* Expression: initValue
+  real_T PCI6221DO_P3[2];              /* Expression: initValue
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
   real_T PCI6221DO_P4_Size[2];         /* Computed Parameter: PCI6221DO_P4_Size
@@ -3060,24 +3255,30 @@ struct P_Analog_Solution_T_ {
   real_T PCI6221DO_P7;                 /* Expression: boardType
                                         * Referenced by: '<S5>/PCI-6221 DO'
                                         */
-  real_T Delay_InitialCondition_ax;    /* Expression: 0
-                                        * Referenced by: '<S6>/Delay'
+  real_T Delay_InitialCondition_bo;    /* Expression: 0
+                                        * Referenced by: '<S92>/Delay'
                                         */
-  real_T Delay1_InitialCondition_l;    /* Expression: 0
-                                        * Referenced by: '<S6>/Delay1'
+  real_T Constant_Value_md;            /* Expression: 0
+                                        * Referenced by: '<S95>/Constant'
                                         */
-  real_T SpoolingGeschw_Value;         /* Expression: 1
-                                        * Referenced by: '<S6>/Spooling Geschw.'
+  real_T Delay_InitialCondition_m;     /* Expression: 0
+                                        * Referenced by: '<S95>/Delay'
                                         */
-  real_T Umrechnung_Gain_n;            /* Expression: 1
-                                        * Referenced by: '<S6>/Umrechnung'
+  real_T Gain_Gain_j0;                 /* Expression: 0.00727136
+                                        * Referenced by: '<S93>/Gain'
                                         */
-  real_T ersteGrenzeSpooling_Value;    /* Expression: 500
-                                        * Referenced by: '<S6>/erste Grenze Spooling'
+  real_T Delay1_InitialCondition_n4;   /* Expression: 0
+                                        * Referenced by: '<S92>/Delay1'
                                         */
-  real_T Gain2_Gain;                   /* Expression: 2
-                                        * Referenced by: '<S6>/Gain2'
+  real_T ersteSpoolingGrenze_Value;    /* Expression: 19000
+                                        * Referenced by: '<S6>/erste Spooling Grenze'
                                         */
+  real_T zweiteSpoolingGrenze_Gain;    /* Expression: 2
+                                        * Referenced by: '<S6>/zweite Spooling Grenze'
+                                        */
+  real_T KonstanteGeschwzumSpoolingGrenz;/* Expression: 0.5
+                                          * Referenced by: '<S95>/Konstante Geschw. zum Spooling Grenze finden'
+                                          */
   uint32_T Constant1_Value_be;         /* Computed Parameter: Constant1_Value_be
                                         * Referenced by: '<S78>/Constant1'
                                         */
@@ -3087,56 +3288,65 @@ struct P_Analog_Solution_T_ {
   uint32_T Constant3_Value_d;          /* Computed Parameter: Constant3_Value_d
                                         * Referenced by: '<S78>/Constant3'
                                         */
-  uint32_T Constant4_Value;            /* Computed Parameter: Constant4_Value
+  uint32_T Constant4_Value_b;          /* Computed Parameter: Constant4_Value_b
                                         * Referenced by: '<S78>/Constant4'
                                         */
   uint32_T BitwiseLogicalOperator_BitMask;/* Expression: BitMask
                                            * Referenced by: '<S78>/Bitwise Logical Operator'
                                            */
-  uint32_T Constant9_Value;            /* Computed Parameter: Constant9_Value
+  uint32_T Constant9_Value_o;          /* Computed Parameter: Constant9_Value_o
                                         * Referenced by: '<S78>/Constant9'
                                         */
   uint32_T Delay_DelayLength;          /* Computed Parameter: Delay_DelayLength
                                         * Referenced by: '<S11>/Delay'
                                         */
-  uint32_T Delay_DelayLength_o;        /* Computed Parameter: Delay_DelayLength_o
-                                        * Referenced by: '<S88>/Delay'
+  uint32_T Delay1_DelayLength;         /* Computed Parameter: Delay1_DelayLength
+                                        * Referenced by: '<S6>/Delay1'
+                                        */
+  uint32_T Delay_DelayLength_c;        /* Computed Parameter: Delay_DelayLength_c
+                                        * Referenced by: '<S6>/Delay'
                                         */
   uint32_T Delay_DelayLength_l;        /* Computed Parameter: Delay_DelayLength_l
                                         * Referenced by: '<S8>/Delay'
                                         */
   uint32_T Delay3_DelayLength;         /* Computed Parameter: Delay3_DelayLength
-                                        * Referenced by: '<S91>/Delay3'
+                                        * Referenced by: '<S100>/Delay3'
                                         */
-  uint32_T Delay1_DelayLength;         /* Computed Parameter: Delay1_DelayLength
-                                        * Referenced by: '<S91>/Delay1'
+  uint32_T Delay1_DelayLength_d;       /* Computed Parameter: Delay1_DelayLength_d
+                                        * Referenced by: '<S100>/Delay1'
                                         */
   uint32_T Delay4_DelayLength;         /* Computed Parameter: Delay4_DelayLength
-                                        * Referenced by: '<S91>/Delay4'
+                                        * Referenced by: '<S100>/Delay4'
                                         */
   uint32_T Delay_DelayLength_g;        /* Computed Parameter: Delay_DelayLength_g
-                                        * Referenced by: '<S90>/Delay'
+                                        * Referenced by: '<S97>/Delay'
                                         */
   uint32_T Delay_DelayLength_a;        /* Computed Parameter: Delay_DelayLength_a
-                                        * Referenced by: '<S94>/Delay'
+                                        * Referenced by: '<S103>/Delay'
                                         */
   uint32_T Delay1_DelayLength_h;       /* Computed Parameter: Delay1_DelayLength_h
-                                        * Referenced by: '<S94>/Delay1'
+                                        * Referenced by: '<S103>/Delay1'
                                         */
   uint32_T Delay2_DelayLength;         /* Computed Parameter: Delay2_DelayLength
-                                        * Referenced by: '<S91>/Delay2'
+                                        * Referenced by: '<S100>/Delay2'
                                         */
   uint32_T Delay_DelayLength_n;        /* Computed Parameter: Delay_DelayLength_n
-                                        * Referenced by: '<S92>/Delay'
+                                        * Referenced by: '<S101>/Delay'
                                         */
   uint32_T Delay1_DelayLength_i;       /* Computed Parameter: Delay1_DelayLength_i
+                                        * Referenced by: '<S101>/Delay1'
+                                        */
+  uint32_T Delay_DelayLength_gz;       /* Computed Parameter: Delay_DelayLength_gz
+                                        * Referenced by: '<S94>/Delay'
+                                        */
+  uint32_T Delay_DelayLength_o;        /* Computed Parameter: Delay_DelayLength_o
+                                        * Referenced by: '<S92>/Delay'
+                                        */
+  uint32_T Delay_DelayLength_b;        /* Computed Parameter: Delay_DelayLength_b
+                                        * Referenced by: '<S95>/Delay'
+                                        */
+  uint32_T Delay1_DelayLength_f;       /* Computed Parameter: Delay1_DelayLength_f
                                         * Referenced by: '<S92>/Delay1'
-                                        */
-  uint32_T Delay_DelayLength_h;        /* Computed Parameter: Delay_DelayLength_h
-                                        * Referenced by: '<S6>/Delay'
-                                        */
-  uint32_T Delay1_DelayLength_g;       /* Computed Parameter: Delay1_DelayLength_g
-                                        * Referenced by: '<S6>/Delay1'
                                         */
   uint8_T Constant_Value_bd;           /* Computed Parameter: Constant_Value_bd
                                         * Referenced by: '<S16>/Constant'
@@ -3149,6 +3359,9 @@ struct P_Analog_Solution_T_ {
                                         */
   uint8_T Constant3_Value_d2;          /* Computed Parameter: Constant3_Value_d2
                                         * Referenced by: '<S16>/Constant3'
+                                        */
+  int8_T Gain1_Gain;                   /* Computed Parameter: Gain1_Gain
+                                        * Referenced by: '<S6>/Gain1'
                                         */
 };
 
@@ -3690,8 +3903,9 @@ struct tag_RTM_Analog_Solution_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
+      struct _ssPortInputs inputPortInfo[2];
       real_T const *UPtrs0[1];
+      real_T const *UPtrs1[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3830,6 +4044,9 @@ extern B_Analog_Solution_T Analog_Solution_B;
 /* Block states (auto storage) */
 extern DW_Analog_Solution_T Analog_Solution_DW;
 
+/* External data declarations for dependent source files */
+extern const real_T Analog_Solution_RGND;/* real_T ground */
+
 /* External function called from main */
 extern time_T rt_SimUpdateDiscreteEvents(
   int_T rtmNumSampTimes, void *rtmTimingData, int_T *rtmSampleHitPtr, int_T
@@ -3875,8 +4092,8 @@ extern RT_MODEL_Analog_Solution_T *const Analog_Solution_M;
  * '<S3>'   : 'Analog_Solution/Inputs'
  * '<S4>'   : 'Analog_Solution/Logging'
  * '<S5>'   : 'Analog_Solution/Outputs'
- * '<S6>'   : 'Analog_Solution/Spooling_Pos_Controlled'
- * '<S7>'   : 'Analog_Solution/Spooling_Speed_Controlled'
+ * '<S6>'   : 'Analog_Solution/Spooling_Speed_Controlled'
+ * '<S7>'   : 'Analog_Solution/Startup'
  * '<S8>'   : 'Analog_Solution/Winch_Conrtol'
  * '<S9>'   : 'Analog_Solution/Input conditioning and estimators/Subsystem'
  * '<S10>'  : 'Analog_Solution/Input conditioning and estimators/Subsystem1'
@@ -3954,19 +4171,28 @@ extern RT_MODEL_Analog_Solution_T *const Analog_Solution_M;
  * '<S82>'  : 'Analog_Solution/Logging/TS1_log'
  * '<S83>'  : 'Analog_Solution/Logging/Time_Scope_trigger'
  * '<S84>'  : 'Analog_Solution/Logging/Time_log'
- * '<S85>'  : 'Analog_Solution/Outputs/Scope 1'
- * '<S86>'  : 'Analog_Solution/Outputs/Scope 2'
- * '<S87>'  : 'Analog_Solution/Spooling_Speed_Controlled/Scope '
- * '<S88>'  : 'Analog_Solution/Spooling_Speed_Controlled/Subsystem'
- * '<S89>'  : 'Analog_Solution/Winch_Conrtol/Emergency'
- * '<S90>'  : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1'
- * '<S91>'  : 'Analog_Solution/Winch_Conrtol/Subsystem'
- * '<S92>'  : 'Analog_Solution/Winch_Conrtol/damper'
- * '<S93>'  : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1/Joystick-Steuerung'
- * '<S94>'  : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1/damper'
- * '<S95>'  : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1/damper/Compare To Zero'
- * '<S96>'  : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1/damper/Compare To Zero1'
- * '<S97>'  : 'Analog_Solution/Winch_Conrtol/damper/Compare To Zero'
- * '<S98>'  : 'Analog_Solution/Winch_Conrtol/damper/Compare To Zero1'
+ * '<S85>'  : 'Analog_Solution/Outputs/Joystick Regelung1'
+ * '<S86>'  : 'Analog_Solution/Outputs/Scope 1'
+ * '<S87>'  : 'Analog_Solution/Outputs/Scope 2'
+ * '<S88>'  : 'Analog_Solution/Outputs/Subsystem'
+ * '<S89>'  : 'Analog_Solution/Outputs/Joystick Regelung1/Joystick-Steuerung'
+ * '<S90>'  : 'Analog_Solution/Spooling_Speed_Controlled/Scope '
+ * '<S91>'  : 'Analog_Solution/Spooling_Speed_Controlled/Scope 1'
+ * '<S92>'  : 'Analog_Solution/Spooling_Speed_Controlled/Subsystem'
+ * '<S93>'  : 'Analog_Solution/Startup/Initialize Spooling Position'
+ * '<S94>'  : 'Analog_Solution/Startup/Initialize Spooling Position/FirstDirectionDone?'
+ * '<S95>'  : 'Analog_Solution/Startup/Initialize Spooling Position/SteerSpoolingMotor'
+ * '<S96>'  : 'Analog_Solution/Winch_Conrtol/Emergency'
+ * '<S97>'  : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1'
+ * '<S98>'  : 'Analog_Solution/Winch_Conrtol/Scope '
+ * '<S99>'  : 'Analog_Solution/Winch_Conrtol/Scope 1'
+ * '<S100>' : 'Analog_Solution/Winch_Conrtol/Subsystem'
+ * '<S101>' : 'Analog_Solution/Winch_Conrtol/damper'
+ * '<S102>' : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1/Joystick-Steuerung'
+ * '<S103>' : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1/damper'
+ * '<S104>' : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1/damper/Compare To Zero'
+ * '<S105>' : 'Analog_Solution/Winch_Conrtol/Joystick Regelung1/damper/Compare To Zero1'
+ * '<S106>' : 'Analog_Solution/Winch_Conrtol/damper/Compare To Zero'
+ * '<S107>' : 'Analog_Solution/Winch_Conrtol/damper/Compare To Zero1'
  */
 #endif                                 /* RTW_HEADER_Analog_Solution_h_ */

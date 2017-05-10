@@ -1,0 +1,13 @@
+This block outputs the current wall time each time it executes.  There are many different types of time; wall time denotes the time displayed by a clock hanging on the wall.  This is different from the other types of time: execution time, uptime, model start time, etc.<br>
+<br>
+Time is measured relative to some other fixed point.  Half past the hour is relative to the current hour.  Two in the afternoon, is two hours past noon or fourteen hours after midnight.  Dates are similarly measured from a fixed point in history such as the creation of our planet, or the birth of an individual.  This starting point is called the epoch.<br>
+<br>
+This block defaults to the MATLAB epoch or pivot point of midnight January 1, 0000 or [0 1 1 0 0 0]. The time at model start can also be selected as the epoch. A different epoch can be specified by providing a six element vector compatible with the MATLAB datevec command, such as datevec('1/1/1970') or [1970 1 1 0 0 0] the UNIX epoch.<br>
+<br>
+Time can also be represented in various formats such as seconds since the epoch, days since the epoch, etc.  This block offers four formats: days since the epoch, the MATLAB default, output as a double; seconds since the epoch, used in other xPC Target blocks and API functions, output as a double; nanoseconds since the epoch, also used in other xPC Target blocks and API function, output as a two element vector of unsigned thirty-two bit integers compatible with the xpcTime struct; and the date, output as six element vector of unsigned sixteen bit integers representing year, month, day, hour, minute & second.<br>
+<br>
+By selecting an input trigger, this block will be placed as soon as possible after the block feeding its input port. The data on the input port is not used; the port is used to affect block execution order.<br>
+<br>
+Two clocks are used to compute the wall time.  The real time AT clock is used to get the wall time at model start, and the timer clock is used to get the time since model start.  Except in date mode, when only the real time AT clock is used, and when using model start the real time AT clock is not used.<br>
+<br>
+The real time AT clock, settable via the BIOS has only second granularity.  While this may cause a huge error, the error is not cumulative or compounded.  Each and every time stamp output by this block will contain the same error component from the real time AT clock.  The delta between time stamps has the granularity of the timer clock, 1.193 MHz or better, depending if running on a Pentium or not.<br>
